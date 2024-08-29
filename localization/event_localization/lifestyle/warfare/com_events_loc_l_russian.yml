@@ -1,0 +1,218 @@
+﻿l_russian:
+ #Random Trait Acquisition Events
+ #Choose whether to become crafty_commander, master_ambusher or cautious_planner
+learn_commander_trait.1901.t:0 "Знай своего врага"
+learn_commander_trait.1901.desc:0 "В жаркой битве осведомленность имеет первостепенное значение.\n\nЯ всегда знаю, как действовать решительно, обеспечивая победу."
+learn_commander_trait.1901.a:0 "Я эффективно использую свои навыки управления."
+learn_commander_trait.1901.b:0 "Я эффективно применю свои интригующие навыки."
+learn_commander_trait.1901.c:0 "Я предпочту уделить время предвидению всех последствий."
+
+#Choose whether to become a mapper, navigator or bannerlord
+learn_commander_trait.1902.t:0 "Неизведанные тропы"
+learn_commander_trait.1902.desc:0 "Отправьтесь в путешествие, где каждый шаг определяет вашу судьбу.\n\nСреди неизведанных областей я принимаю чарующее обаяние открытий, навигируя сквозь еще не раскрытые тайны."
+learn_commander_trait.1902.a:0 "Я буду составлять карты новых территорий с помощью картографического понимания."
+learn_commander_trait.1902.b:0 "Я буду командовать морями сквозь опасные воды."
+learn_commander_trait.1902.c:0 "Я буду завоевывать быстро, ведя атаки для обеспечения победы."
+
+#Choose whether to become a battle medic, dauntless leader or relentless pursuer
+learn_commander_trait.1904.t:0 "Испытания доблести"
+learn_commander_trait.1904.desc:0 "Среди испытаний войны появляются герои, чтобы вести своих товарищей через хаос, их действия формируют судьбу наций."
+learn_commander_trait.1904.a:0 "В самом сердце битвы я буду заботиться о раненых и облегчать страдания."
+learn_commander_trait.1904.b:0 "С неуклонным мужеством я поведу наши войска в бой."
+learn_commander_trait.1904.c:0 "Ни один враг не сможет уйти от нас. Я буду преследовать их неумолимо."
+
+learn_commander_trait.1905.t:0 "Пути стратегии"
+learn_commander_trait.1905.desc:0 "В сложном танце войны стратегические умы возвышаются, их проницательные идеи и специализированные тактики формируют ход битвы."
+learn_commander_trait.1905.a:0 "Я разработаю тактические шедевры, чтобы обойти наших противников."
+learn_commander_trait.1905.b:0 "Через скрытность и хитрость я проникну в линии врага."
+learn_commander_trait.1905.c:0 "Я нанесу оптимальный путь к наиболее уязвимым точкам противника."
+
+#Choose whether to become a resolute localist or seasoned rover
+learn_commander_trait.1903.t:0 "Эхо родины"
+learn_commander_trait.1903.desc:0 "В пределах священных пейзажей знакомой местности я различаю шепот земли, ее контуры направляют каждый мой шаг."
+learn_commander_trait.1903.a:0 "Я закреплю нашу решимость в почве нашей родины."
+learn_commander_trait.1903.b:0 "Давайте отправимся за пределы известных горизонтов."
+
+#Choose whether to become a respected leader or zealot
+learn_commander_trait.1906.t:0 "Кузница лидерства"
+learn_commander_trait.1906.desc:0 "В горниле лидерства некоторые возвышаются, чтобы стать маяками вдохновения, владея своим влиянием, чтобы формировать судьбу народов и армий."
+learn_commander_trait.1906.a:0 "Я буду вдохновлять непоколебимую преданность среди моих войск."
+learn_commander_trait.1906.b:0 "С пылающим углем ревности внутри меня, я буду ударять по язычникам."
+
+ ##### TRAINING #####
+
+#BANNERLORD
+learn_commander_trait.101.t:0 "Повелитель знамён"
+#Offer:
+learn_commander_trait.3101.desc:0 "\n\n[teacher.GetFirstName] славится своим стратегическим мастерством на поле боя, особенно в руководстве неумолимыми наступлениями. Если бы кто-то мог мне помочь понять, это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.3201.desc:0 "[teacher.GetTitledFirstName] продемонстрировал(а) искусство неустанных атак с неуклонным рвением. Моим заключительным испытанием является имитация битвы, где мне нужно возглавить свои войска в неумолимом наступлении на укрепленные позиции [teacher.GetHerHis]."
+#Success
+learn_commander_trait.3301.desc:0 "[teacher.GetTitledFirstName] подходит ко мне. "Впечатляюще!" объявляет [teacher.GetSheHe]. "Твои войска проявили замечательную стойкость, продвигаясь вперед без колебаний.""
+#Failure
+learn_commander_trait.3401.desc:0 "Все казалось многообещающим, пока я не понял(а), что мы попали в ловушку!\n\n[teacher.GetTitledFirstName] стоит среди руин нашего неудачного наступления, когда я подхожу. "Я думаю, я вижу, где вы пошли не туда, - предлагает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')]."
+
+#BATTLE APOTHECARY
+learn_commander_trait.201.t:0 "Боевой аптекарь"
+#Offer:
+learn_commander_trait.3102.desc:0 "\n\n[teacher.GetFirstName] славится своим мастерством боевого аптекаря, умело поддерживая боевую готовность войск даже в самых тяжелых обстоятельствах. Если бы кто-то мог меня просветить, это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.3202.desc:0 "[teacher.GetTitledFirstName] открыл(а) для меня секреты боевой медицины и важность ухода за ранеными. Моим заключительным испытанием является симулированное столкновение, где мне нужно обеспечить своим войскам своевременную медицинскую помощь в хаосе боя."
+#Success
+learn_commander_trait.3302.desc:0 "[teacher.GetTitledFirstName] подходит ко мне с утвердительным кивком. "Хорошо сделано, - хвалит [teacher.GetSheHe]. - Твои быстрые действия спасли множество жизней на поле боя сегодня.""
+#Failure
+learn_commander_trait.3402.desc:0 "Все казалось идти гладко, пока раненые не переполнили нас!\n\n[teacher.GetTitledFirstName] стоит среди хаоса разбросанных бинтов, когда я подхожу. "Я думаю, я определил(а), где все пошло не так, - предлагает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')]."
+
+#CAUTIOUS PLANNER
+learn_commander_trait.301.t:0 "Осторожный планировщик"
+#Offer:
+learn_commander_trait.3103.desc:0 "\n\n[teacher.GetFirstName] известен своим тщательным планированием и осторожным подходом к войне. Если бы кто-то мог мне дарить мудрость, это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.3203.desc:0 "[teacher.GetTitledFirstName] поделился(лась) своими стратегиями осторожного планирования и уменьшения рисков. Моим заключительным испытанием является симулированная битва, где мне нужно пройти через ряд испытаний, полагаясь на осторожные тактики, чтобы обеспечить победу."
+#Success
+learn_commander_trait.3303.desc:0 "[teacher.GetTitledFirstName] подходит ко мне с удовлетворенной улыбкой. "Хорошо выполнено, - отмечает [teacher.GetSheHe]. - Твое осторожное планирование щедро окупилось в сегодняшнем бою.""
+#Failure
+learn_commander_trait.3403.desc:0 "Все казалось готовым, пока неожиданные обстоятельства не все перевернули!\n\n[teacher.GetTitledFirstName] стоит среди последствий, анализируя ситуацию. "Были непредвиденные переменные, - отражает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')]."
+
+#CRAFTY COMMANDER
+learn_commander_trait.401.t:0 "Хитрый командир"
+#Offer:
+learn_commander_trait.3104.desc:0 "\n\n[teacher.GetFirstName] славится своей хитростью и стратегическим изобретательством на поле боя. Если бы кто-то мог дарить такие знания, это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.3204.desc:0 "[teacher.GetTitledFirstName] раскрыл(а) искусство обмана и хитрости в войне. Моим заключительным испытанием является симулированное столкновение, где мне нужно обогнать и перехитрить врага, используя хитрые тактики."
+#Success
+learn_commander_trait.3304.desc:0 "[teacher.GetTitledFirstName] подходит ко мне с улыбкой знающей улыбкой. "Впечатляющее выступление, - хвалит [teacher.GetSheHe]. - Твоя хитрость озадачила врага на каждом повороте.""
+#Failure
+learn_commander_trait.3404.desc:0 "Все казалось многообещающим, пока враг не разобрался в нашем уловке!" [teacher.GetTitledFirstName] стоит передо мной, анализируя ситуацию. "Были непредвиденные переменные, - отражает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')]."
+
+#DAUNTLESS LEADER
+learn_commander_trait.501.t:0 "Неустрашимый лидер"
+#Offer:
+learn_commander_trait.3105.desc:0 "\n\n[teacher.GetFirstName] известен своим несгибаемым мужеством и бесстрашием на поле боя. Если бы кто-то мог меня вдохновить, это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.3205.desc:0 "[teacher.GetTitledFirstName] продемонстрировал(а) качества неустрашимого лидера, ведя с фронта и вдохновляя отвагу в лице бедствия. Моим заключительным испытанием является симулированная битва, где мне нужно проявить мужество и решимость среди хаоса боя."
+#Success
+learn_commander_trait.3305.desc:0 "[teacher.GetTitledFirstName] подходит ко мне с гордой улыбкой. "Отличная работа, - хвалит [teacher.GetSheHe]. - Твое лидерство было поистине вдохновляющим, собрав наши войска к победе."
+#Failure
+learn_commander_trait.3405.desc:0 "Все казалось многообещающим, пока страх охватил наши ряды!\n\n[teacher.GetTitledFirstName] стоит среди неопределенности, когда я подхожу. "Мужество - это не отсутствие страха, - замечает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')].""
+
+#FOCUS SPECIALIST
+learn_commander_trait.601.t:0 "Специалист по концентрации"
+#Offer:
+learn_commander_trait.3106.desc:0 "\n\n[teacher.GetFirstName] славится своей способностью сохранять фокус и концентрацию даже в самом хаосе на поле боя. Если бы кто-то мог научить меня, это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.3206.desc:0 "[teacher.GetTitledFirstName] показал(а) мне важность фокуса и концентрации в командовании. Моим заключительным испытанием является симулированная битва, где мне нужно сохранять ясность мысли и стратегическое видение среди хаоса боя."
+#Success
+learn_commander_trait.3306.desc:0 "[teacher.GetTitledFirstName] подходит ко мне с утвердительным кивком. "Впечатляющее выступление, - хвалит [teacher.GetSheHe]. - Твой фокус оставался непоколебимым, направляя наши силы к победе."
+#Failure
+learn_commander_trait.3406.desc:0 "Все казалось многообещающим, пока отвлечение не привело к хаосу!\n\n[teacher.GetTitledFirstName] стоит среди путаницы, когда я подхожу. "Фокус - ключ к командованию, - замечает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')].""
+
+#INFILTRATION SPECIALIST
+learn_commander_trait.701.t:0 "Специалист по инфильтрации"
+#Offer:
+learn_commander_trait.3107.desc:0 "\n\n[teacher.GetFirstName] славится своими навыками инфильтрации и скрытных операций на поле боя. Если бы кто-то мог научить меня искусству скрытности, это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.3207.desc:0 "[teacher.GetTitledFirstName] продемонстрировал(а) тактику инфильтрации и скрытного передвижения. Моим заключительным испытанием является симулированное упражнение, где мне нужно проникнуть за линии врага незамеченным и собрать важную информацию."
+#Success
+learn_commander_trait.3307.desc:0 "[teacher.GetTitledFirstName] подходит ко мне с удовлетворенной улыбкой. "Хорошо выполнено, - хвалит [teacher.GetSheHe]. - Твое мастерство инфильтрации оказалось бесценным для получения важной информации."
+#Failure
+learn_commander_trait.3407.desc:0 "Все казалось многообещающим, пока наша маскировка не была разоблачена!\n\n[teacher.GetTitledFirstName] стоит среди последствий, анализируя ситуацию. "Скрытность требует тщательного планирования, - отражает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')].""
+
+#RESOLUTE LOCALIST
+learn_commander_trait.801.t:0 "Непоколебимый локалист"
+#Offer:
+learn_commander_trait.3108.desc:0 "\n\n[teacher.GetFirstName] известен своим непоколебимым приверженностью местному населению и его благополучию во времена конфликта. Если бы кто-то мог научить меня важности сообщества, это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.3208.desc:0 "[teacher.GetTitledFirstName] воплотил(а) принципы непоколебимого локализма, приоритизируя потребности местного сообщества даже во время хаоса войны. Моим заключительным испытанием является демонстрация моей способности интегрироваться и поддерживать местное население во времена кризиса."
+#Success
+learn_commander_trait.3308.desc:0 "[teacher.GetTitledFirstName] подходит ко мне с утвердительным кивком. "Впечатляющее приверженность, - хвалит [teacher.GetSheHe]. - Твое преданность местному населению укрепило наши узы и усилило нашу поддержку."
+#Failure
+learn_commander_trait.3408.desc:0 "Все казалось многообещающим, пока не разгорелись напряженности с местными жителями!\n\n[teacher.GetTitledFirstName] стоит среди раздоров, анализируя ситуацию. "Местная поддержка имеет первостепенное значение, - отражает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')]."
+
+#MAPPER
+learn_commander_trait.901.t:0 "Картограф"
+#Offer:
+learn_commander_trait.3109.desc:0 "\n\n[teacher.GetFirstName] известен своим мастерством в создании карт и картографии, что является важными навыками для навигации по сложностям поля боя. Если бы был кто-то, кто мог бы научить меня искусству создания карт, то это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.3209.desc:0 "[teacher.GetTitledFirstName] продемонстрировал важность точного составления карт и навыки картографии в военной стратегии. Мой последний тест - создать подробные карты незнакомой местности и использовать их эффективно в условиях симулированного боевого сценария."
+#Success
+learn_commander_trait.3309.desc:0 "[teacher.GetTitledFirstName] подходит ко мне с довольной улыбкой. "Хорошо сработано, [teacher.GetSheHe] хвалит. "Ваше тщательное составление карт предоставило бесценные идеи и стратегические преимущества во время сражения."
+#Failure
+learn_commander_trait.3409.desc:0 "Все казалось многообещающим, пока наши карты не оказались неточными!\n\n[teacher.GetTitledFirstName] стоит среди путаницы, анализируя ситуацию. "Точность в составлении карт имеет первостепенное значение, отражает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')]."
+
+#MASTER AMBUSHER
+learn_commander_trait.1001.t:0 "Мастер Засад"
+#Offer:
+learn_commander_trait.4001.desc:0 "\n\n[teacher.GetFirstName] известен своим мастерством тактики засад, делая [teacher.GetHerHim] формидабельным противником на поле боя. Если бы был кто-то, кто мог бы научить меня искусству засад, то это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.4002.desc:0 "[teacher.GetTitledFirstName] продемонстрировал тактику засад и внезапных атак. Мой последний тест - спланировать и провести успешную засаду против симулированных вражеских сил."
+#Success
+learn_commander_trait.4003.desc:0 "[teacher.GetTitledFirstName] подходит ко мне с довольной улыбкой. "Хорошо сработано, [teacher.GetSheHe] хвалит. "Ваше мастерство тактики засад смутило врага и обеспечило решительную победу."
+#Failure
+learn_commander_trait.4004.desc:0 "Все казалось многообещающим, пока нашу засаду не обнаружили слишком рано!\n\n[teacher.GetTitledFirstName] стоит среди хаоса, анализируя ситуацию. "Время играет ключевую роль в засадах, отражает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')]."
+
+#NAVIGATOR
+learn_commander_trait.1002.t:0 "Навигатор"
+#Offer:
+learn_commander_trait.4101.desc:0 "\n\n[teacher.GetFirstName] известен своими исключительными навигационными навыками, необходимыми для направления войск через незнакомую местность. Если бы был кто-то, кто мог бы научить меня искусству навигации, то это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.4102.desc:0 "[teacher.GetTitledFirstName] продемонстрировал техники навигации и чтения карт. Мой последний тест - провести группу через сложную местность, используя только карту и компас."
+#Success
+learn_commander_trait.4103.desc:0 "[teacher.GetTitledFirstName] подходит ко мне с довольной улыбкой. "Хорошо сработано, [teacher.GetSheHe] хвалит. "Ваши навигационные навыки обеспечили наше безопасное прохождение через трудную местность."
+#Failure
+learn_commander_trait.4104.desc:0 "Все казалось многообещающим, пока мы не заблудились!\n\n[teacher.GetTitledFirstName] стоит среди путаницы, анализируя ситуацию. "Навигация требует точности и внимания к деталям, отражает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')]."
+
+#OBSERVANT PATHFINDER
+learn_commander_trait.1003.t:0 "Внимательный Путеводитель"
+#Offer:
+learn_commander_trait.4201.desc:0 "\n\n[teacher.GetFirstName] известен своими проницательными навыками наблюдения и опытом в нахождении наиболее выгодных путей через местность. Если бы был кто-то, кто мог бы научить меня искусству внимательного путеводства, то это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.4202.desc:0 "[teacher.GetTitledFirstName] продемонстрировал техники внимательного путеводства, выявляя скрытые маршруты и короткие пути через сложную местность. Мой последний тест - провести группу через трудную местность, максимизируя стратегические преимущества."
+#Success
+learn_commander_trait.4203.desc:0 "[teacher.GetTitledFirstName] подходит ко мне с довольной улыбкой. "Впечатляюще, [teacher.GetSheHe] хвалит. "Ваше внимательное путеводство обеспечило наше эффективное передвижение и стратегическую позиционировку."
+#Failure
+learn_commander_trait.4204.desc:0 "Все казалось многообещающим, пока мы не столкнулись с неожиданными препятствиями!\n\n[teacher.GetTitledFirstName] стоит среди неудач, анализируя ситуацию. "Наблюдение является ключом к эффективному путеводству, отражает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')]."
+
+#RELENTLESS PURSUER
+learn_commander_trait.1004.t:0 "Неутомимый преследователь"
+#Offer:
+learn_commander_trait.4301.desc:0 "\n\n[teacher.GetFirstName] известен своим неустанным преследованием врагов на поле боя, что делает [teacher.GetHerHim] серьезным противником. Если бы был кто-то, кто мог бы научить меня искусству неумолимого преследования, то это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.4302.desc:0 "[teacher.GetTitledFirstName] продемонстрировал тактику неумолимого преследования, неутомимо отслеживая и атакуя вражеские силы до достижения победы. Мой последний тест - возглавить миссию преследования против симулированного врага, гарантируя их преследование и уничтожение без возможности побега."
+#Success
+learn_commander_trait.4303.desc:0 "[teacher.GetTitledFirstName] подходит ко мне с довольной улыбкой. "Впечатляюще, [teacher.GetSheHe] хвалит. "Ваше неумолимое преследование не оставило врагу ни малейшего шанса на побег, обеспечив решительную победу."
+#Failure
+learn_commander_trait.4304.desc:0 "Все казалось многообещающим, пока враг не ускользнул!\n\n[teacher.GetTitledFirstName] стоит среди разочарования, анализируя ситуацию. "Упорство является ключом к неумолимому преследованию, отражает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')]."
+
+#RESPECTED LEADER
+learn_commander_trait.1005.t:0 "Уважаемый лидер"
+#Offer:
+learn_commander_trait.4401.desc:0 "\n\n[teacher.GetFirstName] высоко уважается за свои примерные лидерские качества и способность вдохновлять лояльность и преданность среди войск. Если бы был кто-то, кто мог бы научить меня качествам уважаемого лидера, то это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.4402.desc:0 "[teacher.GetTitledFirstName] продемонстрировал черты уважаемого лидера, завоевав доверие и восхищение своих солдат своими действиями и решениями. Мой последний тест - возглавить группу в сложном сценарии, полагаясь на уважение и лояльность моих войск, чтобы преодолеть препятствия."
+#Success
+learn_commander_trait.4403.desc:0 "[teacher.GetTitledFirstName] подходит ко мне с гордой улыбкой. "Хорошо сработано, [teacher.GetSheHe] хвалит. "Ваше лидерство заработало вам уважение и преданность ваших войск, приведя к успеху в сложных обстоятельствах."
+#Failure
+learn_commander_trait.4404.desc:0 "Все казалось многообещающим, пока моя власть не была оспорена!\n\n[teacher.GetTitledFirstName] стоит среди раздора, анализируя ситуацию. "Уважение должно быть постоянно заслуженным, отражает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')]."
+
+#SEASONED ROVER
+learn_commander_trait.1006.t:0 "Опытный странник"
+#Offer:
+learn_commander_trait.4501.desc:0 "\n\n[teacher.GetFirstName] - опытный странник, известный своими навыками пересечения разнообразных ландшафтов и выживания в жестких условиях. Если бы был кто-то, кто мог бы научить меня навыкам опытного странника, то это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.4502.desc:0 "[teacher.GetTitledFirstName] продемонстрировал навыки опытного странника, проявив мастерство в навигации по различным местностям и преодолевая вызовы в дикой природе. Мой последний тест - возглавить экспедицию через гористую местность, используя навыки, изученные из [teacher.GetHerHis] учений."
+#Success
+learn_commander_trait.4503.desc:0 "[teacher.GetTitledFirstName] подходит ко мне с довольной улыбкой. "Впечатляюще, [teacher.GetSheHe] хвалит. "Ваше мастерство в качестве опытного странника обеспечило успех экспедиции, навигируя через сложную местность с легкостью."
+#Failure
+learn_commander_trait.4504.desc:0 "Все казалось многообещающим, пока мы не столкнулись с неожиданными препятствиями!\n\n[teacher.GetTitledFirstName] стоит среди неудач, анализируя ситуацию. "Приспособляемость является ключом к быть опытным странником, отражает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')]."
+
+#ZEALOT
+learn_commander_trait.1007.t:0 "Ревнитель"
+#Offer:
+learn_commander_trait.4601.desc:0 "\n\n[teacher.GetFirstName] известен как пылкий ревнитель на поле боя, вдохновленный неизменной преданностью своей причине. Если бы был кто-то, кто мог бы научить меня пылу ревнителя, то это был бы [teacher.GetHerHim]."
+#Final test
+learn_commander_trait.4602.desc:0 "[teacher.GetTitledFirstName] продемонстрировал пыл и преданность истинного верующего, вдохновляя других своим энтузиазмом и самоотверженностью. Мой последний тест - возглавить атаку в бою, воплощая пыл, вселенный [teacher.GetHerHis] учениями."
+#Success
+learn_commander_trait.4603.desc:0 "[teacher.GetTitledFirstName] подходит ко мне с гордой улыбкой. "Хорошо сработано, [teacher.GetSheHe] хвалит. "Ваш пыл и рвение подняли войска, приведя к победе на поле боя."
+#Failure
+learn_commander_trait.4604.desc:0 "Все казалось многообещающим, пока сомнение не ворвалось!\n\n[teacher.GetTitledFirstName] стоит среди неопределенности, анализируя ситуацию. "Вера должна быть неизменной, отражает [teacher.GetSheHe], [teacher.Custom('quirk_pos_pp')]."

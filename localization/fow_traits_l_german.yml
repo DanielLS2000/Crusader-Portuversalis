@@ -1,0 +1,67 @@
+﻿l_german:
+
+task_train_commanders_effect_desc:3 "\n\n#P [SCOPE.ScriptValue('marshal_train_commanders_monthly_chance_value')|1P]% Chance, sich zu verbessern oder jeden Monat einen neuen [commander|E] or [knight|E] zu finden\n$TAB$[martial_skill|E] des Beraters: #P +[SCOPE.ScriptValue('marshal_train_commanders_monthly_chance_value_base')|2P]%\n\n#[SCOPE.ScriptValue('marshal_train_commanders_trait_track_increase')|1P] [commander|E] oder [knight|E] Erfahrung im Trait-Track pro Monat\n"
+
+trait_mapper:0 "Kartograf"
+trait_mapper_desc:0 "Als General zeichnet sich dieser Charakter durch die Nutzung jedes Geländes aus."
+trait_mapper_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] zeichnet sich durch die Nutzung jedes Geländes aus."
+
+trait_observant_pathfinder:0 "Aufmerksamer Pfadfinder"
+trait_observant_pathfinder_desc:0 "Wenn dieser Charakter Armeen befehligt, findet er immer einen Weg... zum, vom oder um den Feind herum."
+trait_observant_pathfinder_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] findet immer einen Weg... zum, vom oder um den Feind herum."
+
+trait_respected_leader:0 "Angesehener Anführer"
+trait_respected_leader_desc:0 "Die Soldaten dieses Charakters halten ihren Kommandanten in hohem Ansehen, was zu einer auf Treue basierenden gesteigerten Effizienz im Kampf führt."
+trait_respected_leader_character_desc:0 "Die Soldaten von [ROOT.GetCharacter.GetFirstNameNoTooltip] halten ihren Kommandanten in hohem Ansehen, was zu einer auf Treue basierenden gesteigerten Effizienz im Kampf führt."
+
+trait_seasoned_rover:0 "Erfahrener Wanderer"
+trait_seasoned_rover_desc:0 "Dieser Charakter hat sich auf unerforschtem Terrain spezialisiert und eine feine Expertise auf jedem Terrain erlangt, das andere fürchten würden. Dies hat jedoch dazu geführt, dass er seine Heimat etwas vergessen hat."
+trait_seasoned_rover_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] hat sich auf unerforschtem Terrain spezialisiert und eine feine Expertise auf jedem Terrain erlangt, das andere fürchten würden. Dies hat jedoch dazu geführt, dass er [Character.GetHerHis] Heimat etwas vergessen hat."
+
+trait_resolute_localist:0 "Entschlossener Lokalist" 
+trait_resolute_localist_desc:0 "Dieser Charakter ist ein wahrer Sohn seiner Heimat, der Jahre damit verbracht hat, ihre Städte und Landschaften zu erkunden. Dennoch ist das Herumreisen im Ausland eine andere Geschichte..."
+trait_resolute_localist_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] ist ein wahrer Sohn seiner Heimat, der Jahre damit verbracht hat, ihre Städte und Landschaften zu erkunden. Dennoch ist das Herumreisen im Ausland eine andere Geschichte..."
+
+trait_relentless_pursuer:0 "Unnachgiebiger Verfolger"
+trait_relentless_pursuer_desc:0 "Dieser Charakter drängt immer im Kampf voran und nutzt jeden aufgebauten Schwung, um seine Feinde zu besiegen."
+trait_relentless_pursuer_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] drängt immer im Kampf voran und nutzt jeden aufgebauten Schwung, um [Character.GetHerHis] Feinde zu besiegen."
+
+trait_infiltration_specialist:0 "Infiltrations-Spezialist"
+trait_infiltration_specialist_desc:0 "Dieser Charakter kann auf jedem Schlachtfeld durch Intelligenz, die Sehnen des Krieges, hervorragend eingesetzt werden."
+trait_infiltration_specialist_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] kann auf jedem Schlachtfeld durch Intelligenz, die Sehnen des Krieges, hervorragend eingesetzt werden."
+
+trait_battlefield_medic:0 "Feldapotheker"
+trait_battlefield_medic_desc:0 "Dieser Kommandant ist darauf spezialisiert, Verluste auf dem Schlachtfeld zu minimieren."
+trait_battlefield_medic_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] ist dafür bekannt, Verluste auf dem Schlachtfeld zu minimieren."
+
+trait_dauntless_leader:0 "Furchtloser Anführer"
+trait_dauntless_leader_desc:0 "Dieser Kommandant inspiriert seine Truppen zu Furchtlosigkeit, auch wenn dies mit einem Risiko für sich selbst verbunden ist."
+trait_dauntless_leader_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] inspiriert seine Truppen zu Furchtlosigkeit, auch wenn dies mit einem Risiko für sich selbst verbunden ist."
+
+trait_crafty_commander:0 "Listiger Kommandant"
+trait_crafty_commander_desc:0 "Bekannt für ihre strategische Raffinesse hat dieser Kommandant immer einen Plan."
+trait_crafty_commander_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] ist bekannt für ihre strategische Raffinesse."
+
+trait_cautious_planner:0 "Vorsichtiger Planer"
+trait_cautious_planner_desc:0 "Dieser Kommandant plant jeden Schritt sorgfältig und priorisiert die Sicherheit seiner Truppen."
+trait_cautious_planner_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] plant jeden Schritt sorgfältig und priorisiert die Sicherheit seiner Truppen."
+
+trait_bannerlord:0 "Bannerherr"
+trait_bannerlord_desc:0 "Als Symbol der Autorität angesehen, befehligt dieser Kommandant Respekt und Loyalität."
+trait_bannerlord_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] wird als Symbol der Autorität angesehen."
+
+trait_focus_specialist:0 "Fokussierter Spezialist"
+trait_focus_specialist_desc:0 "Als Spezialist in einem bestimmten Bereich der Kriegsführung zeichnet sich dieser Kommandant in seinem gewählten Bereich aus."
+trait_focus_specialist_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] ist in einem bestimmten Bereich der Kriegsführung spezialisiert."
+
+trait_master_ambusher:0 "Meisterhafter Hinterhalter"
+trait_master_ambusher_desc:0 "Als Meister der Hinterhaltstaktik schlägt dieser Kommandant schnell und entschieden zu."
+trait_master_ambusher_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] ist ein Meister der Hinterhaltstaktik."
+
+trait_navigator:0 "Navigator"
+trait_navigator_desc:0 "Als Experte in der Navigation stellt dieser Kommandant sicher, dass seine Armee immer den besten Weg findet."
+trait_navigator_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] ist ein Experte in der Navigation und stellt sicher, dass seine Armee immer den besten Weg findet."
+
+trait_zealot:0 "Eiferer"
+trait_zealot_desc:0 "Ein eifriger Befehlshaber, der seiner Sache ergeben ist und in seinen Truppen Eifer und unerschütterliche Hingabe inspiriert."
+trait_zealot_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] ist ein eifriger Befehlshaber, der in seinen Truppen Eifer und unerschütterliche Hingabe inspiriert."

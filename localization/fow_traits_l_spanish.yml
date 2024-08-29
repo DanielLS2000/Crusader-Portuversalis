@@ -1,0 +1,80 @@
+﻿l_spanish:
+
+task_train_commanders_effect_desc:3 "\n\n#P [SCOPE.ScriptValue('marshal_train_commanders_monthly_chance_value')|1P]% de probabilidad de mejorar, o encontrar un nuevo [commander|E] or [knight|E] cada mes\n$TAB$[martial_skill|E] del consejero: #P +[SCOPE.ScriptValue('marshal_train_commanders_monthly_chance_value_base')|2P]%\n\n#[SCOPE.ScriptValue('marshal_train_commanders_trait_track_increase')|1P] experiencia en el Trait-Track de [commander|E] o [knight|E] por mes\n"
+
+trait_mapper:0 "Cartógrafo"
+trait_mapper_desc:0 "Como general, este personaje sobresale en aprovechar cualquier terreno."
+
+trait_mapper_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] sobresale en aprovechar cualquier terreno."
+
+trait_observant_pathfinder:0 "Explorador Observador"
+trait_observant_pathfinder_desc:0 "Al comandar ejércitos, este personaje siempre encuentra un camino... hacia, lejos o alrededor del enemigo."
+
+trait_observant_pathfinder_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] siempre encuentra un camino... hacia, lejos o alrededor del enemigo."
+
+trait_respected_leader:0 "Líder Respetado"
+trait_respected_leader_desc:0 "Los soldados de este personaje tienen a su comandante en alta estima, lo que lleva a una mayor eficiencia impulsada por la lealtad en la batalla."
+
+trait_respected_leader_character_desc:0 "Los soldados de [ROOT.GetCharacter.GetFirstNameNoTooltip] tienen a su comandante en alta estima, lo que lleva a una mayor eficiencia impulsada por la lealtad en la batalla."
+
+trait_seasoned_rover:0 "Vagabundo Experimentado"
+trait_seasoned_rover_desc:0 "Este personaje se ha especializado en territorios inexplorados, acumulando una excelente experiencia en cualquier terreno que otros temerían pisar. Sin embargo, esto ha tenido un costo de olvidar en cierta medida su tierra natal."
+
+trait_seasoned_rover_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] se ha especializado en territorios inexplorados, acumulando una excelente experiencia en cualquier terreno que otros temerían pisar. Sin embargo, esto ha tenido un costo de olvidar [Character.GetHerHis] tierra natal."
+
+trait_resolute_localist:0 "Localista Resuelto"
+trait_resolute_localist_desc:0 "Este personaje es un verdadero hijo de su tierra, habiendo pasado años explorando sus ciudades y campos. Aun así, vagar en el extranjero es otra historia..."
+
+trait_resolute_localist_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un verdadero hijo de [Character.GetHerHis] tierra, habiendo pasado años explorando sus ciudades y campos. Aun así, vagar en el extranjero es otra historia..."
+
+trait_relentless_pursuer:0 "Perseguidor Incansable"
+trait_relentless_pursuer_desc:0 "Este personaje siempre avanza en la batalla, aprovechando al máximo cualquier impulso acumulado para acabar con sus enemigos."
+
+trait_relentless_pursuer_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] siempre avanza en la batalla, aprovechando al máximo cualquier impulso acumulado para acabar con [Character.GetHerHis] enemigos."
+
+trait_infiltration_specialist:0 "Especialista en Infiltración"
+trait_infiltration_specialist_desc:0 "Este personaje puede hacer un excelente uso de cualquier campo de batalla a través de la inteligencia, el nervio de la guerra."
+
+trait_infiltration_specialist_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] puede hacer un excelente uso de cualquier campo de batalla a través de la inteligencia, el nervio de la guerra."
+
+trait_battlefield_medic:0 "Apothecario de Batalla"
+trait_battlefield_medic_desc:0 "Este comandante se especializa en minimizar las bajas en el campo de batalla."
+
+trait_battlefield_medic_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es conocido por minimizar las bajas en el campo de batalla."
+
+trait_dauntless_leader:0 "Líder Intrépido"
+trait_dauntless_leader_desc:0 "Este comandante inspira valentía en sus tropas, aunque con riesgo para ellos mismos."
+
+trait_dauntless_leader_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] inspira valentía en sus tropas, aunque con riesgo para ellos mismos."
+
+trait_crafty_commander:0 "Comandante Astuto"
+trait_crafty_commander_desc:0 "Conocido por su astucia estratégica, este comandante siempre parece tener un plan."
+
+trait_crafty_commander_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es conocido por su astucia estratégica."
+
+trait_cautious_planner:0 "Planificador Cauteloso"
+trait_cautious_planner_desc:0 "Este comandante planea cuidadosamente cada movimiento, priorizando la seguridad de sus fuerzas."
+
+trait_cautious_planner_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] planea cuidadosamente cada movimiento, priorizando la seguridad de sus fuerzas."
+
+trait_bannerlord:0 "Señor del Estandarte"
+trait_bannerlord_desc:0 "Estimado como símbolo de autoridad, este comandante inspira respeto y lealtad."
+
+trait_bannerlord_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es estimado como símbolo de autoridad."
+
+trait_focus_specialist:0 "Especialista en Enfoque"
+trait_focus_specialist_desc:0 "Especializado en un aspecto particular de la guerra, este comandante sobresale en su campo elegido."
+
+trait_focus_specialist_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] está especializado en un aspecto particular de la guerra."
+
+trait_master_ambusher:0 "Maestro Emboscador"
+trait_master_ambusher_desc:0 "Un maestro de tácticas de emboscada, este comandante golpea rápida y decisivamente."
+trait_master_ambusher_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un maestro de tácticas de emboscada."
+
+trait_navigator:0 "Navegante"
+trait_navigator_desc:0 "Experto en navegación, este comandante asegura que su ejército siempre encuentre el mejor camino."
+trait_navigator_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es experto en navegación, asegurando que su ejército siempre encuentre el mejor camino."
+
+trait_zealot:0 "Fanático"
+trait_zealot_desc:0 "Un comandante fervoroso dedicado a su causa, inspirando fervor y dedicación inquebrantable en sus tropas."
+trait_zealot_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] es un comandante fanático, inspirando fervor y dedicación inquebrantable en sus tropas."

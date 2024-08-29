@@ -1,0 +1,218 @@
+﻿l_simp_chinese:
+ #Random Trait Acquisition Events
+ #Choose whether to become crafty_commander, master_ambusher or cautious_planner
+learn_commander_trait.1901.t:0 "了解你的敌人"
+learn_commander_trait.1901.desc:0 "在战斗的热情中，意识至关重要。\n\n我始终知道如何果断行动，确保胜利。"
+learn_commander_trait.1901.a:0 "我将善用我的管理技能。"
+learn_commander_trait.1901.b:0 "我将有效地运用我的阴谋技能。"
+learn_commander_trait.1901.c:0 "我宁愿花时间预测所有的结果。"
+
+#Choose whether to become a mapper, navigator or bannerlord
+learn_commander_trait.1902.t:0 "未知之路"
+learn_commander_trait.1902.desc:0 "踏上一段旅程，每一步都定义着你的命运。\n\n在未知的领域中，我拥抱探索的诱惑，航行在尚未揭示的谜团中。"
+learn_commander_trait.1902.a:0 "我将用制图洞察力绘制新的领土。"
+learn_commander_trait.1902.b:0 "我将在险恶的海域中指挥舰队。"
+learn_commander_trait.1902.c:0 "我将迅速征服，领导攻击以确保胜利。"
+
+#Choose whether to become a battle medic, dauntless leader or relentless pursuer
+learn_commander_trait.1904.t:0 "勇气的考验"
+learn_commander_trait.1904.desc:0 "在战争的考验中，英雄会浮现出来，引导他们的同志度过混乱，他们的行动塑造着国家的命运。"
+learn_commander_trait.1904.a:0 "在战斗的核心，我将照顾伤员，减轻他们的痛苦。"
+learn_commander_trait.1904.b:0 "我将带着坚定的勇气，领导我们的部队冲向战场。"
+learn_commander_trait.1904.c:0 "没有敌人能够逃脱我们的掌握。我将不懈地追击他们。"
+
+#选择成为专注专家、渗透专家还是敏锐的探路者
+learn_commander_trait.1905.t:0 "战略之径"
+learn_commander_trait.1905.desc:0 "在错综复杂的战争中，战略头脑崭露头角，他们敏锐的洞察力和专业战术塑造了战斗的走向。"
+learn_commander_trait.1905.a:0 "我将设计战术杰作，以智胜敌手。"
+learn_commander_trait.1905.b:0 "通过隐秘和狡猾，我将渗透敌人的阵线。"
+learn_commander_trait.1905.c:0 "我将找出通往敌人弱点的最佳路径。"
+
+#选择成为坚定的本土主义者或经验丰富的流浪者
+learn_commander_trait.1903.t:0 "家园的回响"
+learn_commander_trait.1903.desc:0 "在熟悉的景观中，我听到了大地的低语，它的轮廓指引着我的每一步。"
+learn_commander_trait.1903.a:0 "我将以家园的土壤为基础，坚定我们的决心。"
+learn_commander_trait.1903.b:0 "让我们走出已知的地平线，去冒险。"
+
+#选择成为备受尊敬的领袖或狂热者
+learn_commander_trait.1906.t:0 "领导的熔炉"
+learn_commander_trait.1906.desc:0 "在领导的熔炉中，一些人崛起成为灵感的灯塔，运用他们的影响力塑造国家和军队的命运。"
+learn_commander_trait.1906.a:0 "我将激发部队对我的坚定忠诚。"
+learn_commander_trait.1906.b:0 "内心燃烧着炽热的热情，我将打击异教徒。"
+
+ ##### TRAINING #####
+
+#旗帜领主
+learn_commander_trait.101.t:0 "旗帜领主"
+#提供：
+learn_commander_trait.3101.desc:0 "\n\n[teacher.GetFirstName] 在战场上以其战略威力而闻名，尤其擅长领导无情的攻势。如果有人能帮我理解，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.3201.desc:0 "[teacher.GetTitledFirstName] 展示了坚定不移地进行进攻的艺术。我的最终考验是模拟战斗，我必须带领我的部队对抗 [teacher.GetHerHis] 的防御工事。"
+#成功
+learn_commander_trait.3203.desc:0 "[teacher.GetTitledFirstName] 走向我。“令人印象深刻！” [teacher.GetSheHe] 宣布道。“你的部队展示了非凡的坚韧，毫不动摇地前进。”"
+#失败
+learn_commander_trait.3204.desc:0 "一切似乎都很有希望，直到我意识到我们走入了一个陷阱！\n\n[teacher.GetTitledFirstName] 站在我们失败的攻击遗址中间当我到达时。“我相信我知道你哪里出错了， [teacher.GetSheHe] 提出，[teacher.Custom('quirk_pos_pp')]。”
+
+#战斗药剂师
+learn_commander_trait.201.t:0 "战斗药剂师"
+#提供：
+learn_commander_trait.3102.desc:0 "\n\n[teacher.GetFirstName] 作为一名技艺精湛的战斗药剂师而闻名，善于在最艰难的情况下保持部队的战斗力。如果有人能让我茅塞顿开，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.3202.desc:0 "[teacher.GetTitledFirstName] 向我展示了战场医学的秘密和照顾伤员的重要性。我的最终测试是模拟战斗，我必须确保我的部队在混战中及时接受医疗救治。"
+#成功
+learn_commander_trait.3302.desc:0 "[teacher.GetTitledFirstName] 走向我，满意地点点头。“干得漂亮，” [teacher.GetSheHe] 说道。“你今天在战场上的迅速行动拯救了许多生命。”"
+#失败
+learn_commander_trait.3402.desc:0 "一切似乎进展顺利，直到伤员压倒我们！\n\n[teacher.GetTitledFirstName] 站在散布着绷带的混乱中间当我走过去。“我相信我已经找出了问题所在，” [teacher.GetSheHe] 提出，[teacher.Custom('quirk_pos_pp')]。
+
+#谨慎规划者
+learn_commander_trait.301.t:0 "谨慎规划者"
+#提供：
+learn_commander_trait.3103.desc:0 "\n\n[teacher.GetFirstName] 以其周密的计划和对战争的谨慎态度而闻名。如果有人能传授智慧，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.3203.desc:0 "[teacher.GetTitledFirstName] 向我分享了他的谨慎计划和风险规避策略。我的最终测试是模拟战斗，我必须在一系列挑战中导航，依靠谨慎的策略来确保胜利。"
+#成功
+learn_commander_trait.3303.desc:0 "[teacher.GetTitledFirstName] 走向我，满意地笑了笑。“执行得很好，” [teacher.GetSheHe] 评论道。“你的谨慎规划在今天的交战中取得了丰厚的回报。”"
+#失败
+learn_commander_trait.3403.desc:0 "一切似乎都很好准备，直到意外情况使一切陷入混乱！\n\n[teacher.GetTitledFirstName] 站在混乱的残骸中当我到达时，分析着情况。“有一些意外的变数，” [teacher.GetSheHe] 反思道，[teacher.Custom('quirk_pos_pp')]。
+
+#狡猾指挥官
+learn_commander_trait.401.t:0 "狡猾指挥官"
+#提供：
+learn_commander_trait.3104.desc:0 "\n\n[teacher.GetFirstName] 以其在战场上的狡猾和战略创造力而闻名。如果有人能传授这样的知识，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.3204.desc:0 "[teacher.GetTitledFirstName] 揭示了战争中欺骗和狡诈的艺术。我的最终测试是模拟战斗，在其中我必须使用狡猾的策略来智胜敌人。"
+#成功
+learn_commander_trait.3304.desc:0 "[teacher.GetTitledFirstName] 带着一个会意的笑容走向我。“出色的表现，” [teacher.GetSheHe] 称赞道。“你的狡猾让敌人在每一个转折处感到困惑。”"
+#失败
+learn_commander_trait.3404.desc:0 "一切似乎很有希望，直到敌人识破我们的诡计！” [teacher.GetTitledFirstName] 站在我面前，分析着情况。“有一些意外的变数，” [teacher.GetSheHe] 反思道，[teacher.Custom('quirk_pos_pp')]。”
+
+#无畏领袖
+learn_commander_trait.501.t:0 "无畏领袖"
+#提供：
+learn_commander_trait.3105.desc:0 "\n\n[teacher.GetFirstName] 以其在战场上的坚定勇气和无畏领导而闻名。如果有人能激励我，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.3205.desc:0 "[teacher.GetTitledFirstName] 展示了无畏领袖的品质，率先领导并在逆境中激励勇气。我的最终测试是模拟战斗，在其中我必须在混战中展现勇气和决心。"
+#成功
+learn_commander_trait.3305.desc:0 "[teacher.GetTitledFirstName] 带着自豪的笑容走向我。“干得好，” [teacher.GetSheHe] 称赞道。“你的领导真是鼓舞人心，让我们的部队取得了胜利。”"
+#失败
+learn_commander_trait.3405.desc:0 "一切似乎都很有希望，直到恐惧笼罩了我们的队伍！\n\n[teacher.GetTitledFirstName] 站在我走过来时的不确定中。“勇气并不意味着没有恐惧，” [teacher.GetSheHe] 说道，[teacher.Custom('quirk_pos_pp')]。”
+
+#专注专家
+learn_commander_trait.601.t:0 "专注专家"
+#提供：
+learn_commander_trait.3106.desc:0 "\n\n[teacher.GetFirstName] 以其即使在战场混乱中也能保持专注和集中的能力而闻名。如果有人能教我，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.3206.desc:0 "[teacher.GetTitledFirstName] 向我展示了在指挥中保持专注和清晰的重要性。我的最终测试是模拟战斗，在其中我必须在混乱的战斗中保持思维的清晰和战略的远见。"
+#成功
+learn_commander_trait.3306.desc:0 "[teacher.GetTitledFirstName] 带着一个认可的点头走向我。“出色的表现，” [teacher.GetSheHe] 称赞道。“你的专注保持不变，指导我们的部队取得了胜利。”"
+#失败
+learn_commander_trait.3406.desc:0 "一切似乎都很有希望，直到分心导致混乱！\n\n[teacher.GetTitledFirstName] 站在我走过来时的混乱中。“专注是指挥的关键，” [teacher.GetSheHe] 说道，[teacher.Custom('quirk_pos_pp')]。"
+
+#潜行专家
+learn_commander_trait.701.t:0 "潜行专家"
+#提供：
+learn_commander_trait.3107.desc:0 "\n\n[teacher.GetFirstName] 以其在战场上渗透和隐秘行动方面的专业知识而闻名。如果有人能教我隐秘的艺术，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.3207.desc:0 "[teacher.GetTitledFirstName] 展示了渗透和隐秘行动的策略。我的最终测试是模拟演习，在其中我必须在敌人阵线中不被察觉地行动，并收集重要情报。"
+#成功
+learn_commander_trait.3307.desc:0 "[teacher.GetTitledFirstName] 带着满意的笑容走向我。“表现出色，” [teacher.GetSheHe] 称赞道。“你对渗透的精通在获取重要情报方面非常宝贵。”"
+#失败
+learn_commander_trait.3407.desc:0 "一切似乎都很有希望，直到我们的掩护被发现！\n\n[teacher.GetTitledFirstName] 站在混乱的后果中，分析着情况。“隐秘需要周密的计划，” [teacher.GetSheHe] 反思道，[teacher.Custom('quirk_pos_pp')]。”
+
+#坚定的本土主义者
+learn_commander_trait.801.t:0 "坚定的本土主义者"
+#提供：
+learn_commander_trait.3108.desc:0 "\n\n[teacher.GetFirstName] 以其在冲突时期对本地民众和他们福祉的坚定承诺而闻名。如果有人能教我社区的重要性，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.3208.desc:0 "[teacher.GetTitledFirstName] 典范了坚定本土主义的原则，即使在战争的混乱中也优先考虑本地社区的需求。我的最终测试是在危机时期展示我与本地民众融合和支持的能力。"
+#成功
+learn_commander_trait.3308.desc:0 "[teacher.GetTitledFirstName] 带着认可的点头走向我。“承诺出色，” [teacher.GetSheHe] 称赞道。“你对本地民众的奉献加强了我们的联系，增强了我们的支持。”"
+#失败
+learn_commander_trait.3408.desc:0 "一切似乎都很有希望，直到与当地居民的紧张关系爆发！\n\n[teacher.GetTitledFirstName] 站在混乱中，分析着情况。“当地支持至关重要，” [teacher.GetSheHe] 反思道，[teacher.Custom('quirk_pos_pp')]。”
+
+#制图专家
+learn_commander_trait.901.t:0 "制图专家"
+#提供：
+learn_commander_trait.3109.desc:0 "\n\n[teacher.GetFirstName] 以其在制图和制图技术方面的专业知识而闻名，这是在战场复杂环境中导航的关键技能。如果有人能教我制图的艺术，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.3209.desc:0 "[teacher.GetTitledFirstName] 展示了军事战略中准确制图和制图技能的重要性。我的最终测试是制作陌生地形的详细地图，并在模拟战斗情景中有效地利用它们。"
+#成功
+learn_commander_trait.3309.desc:0 "[teacher.GetTitledFirstName] 带着满意的笑容走向我。“表现出色，” [teacher.GetSheHe] 称赞道。“你的精确制图为我们提供了宝贵的见解和战略优势。”"
+#失败
+learn_commander_trait.3409.desc:0 "一切似乎都很有希望，直到我们的地图证明不准确！\n\n[teacher.GetTitledFirstName] 站在混乱中，分析着情况。“制图的精确性至关重要，” [teacher.GetSheHe] 反思道，[teacher.Custom('quirk_pos_pp')]。"
+
+#精通伏击者
+learn_commander_trait.1001.t:0 "精通伏击者"
+#提供：
+learn_commander_trait.4001.desc:0 "\n\n[teacher.GetFirstName] 以其在伏击战术方面的精湛技艺而闻名，使 [teacher.GetHerHis] 在战场上成为一名可怕的对手。如果有人能教我伏击的艺术，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.4002.desc:0 "[teacher.GetTitledFirstName] 展示了伏击和突袭的战术。我的最终测试是计划并执行一次成功的伏击，对模拟敌军进行突袭。"
+#成功
+learn_commander_trait.4003.desc:0 "[teacher.GetTitledFirstName] 带着满意的笑容走向我。“表现出色，” [teacher.GetSheHe] 称赞道。“你对伏击战术的掌握使敌人措手不及，确保了决定性的胜利。”"
+#失败
+learn_commander_trait.4004.desc:0 "一切似乎都很有希望，直到我们的伏击被发现得太早！\n\n[teacher.GetTitledFirstName] 站在混乱中，分析着情况。“在伏击中时机至关重要，” [teacher.GetSheHe] 反思道，[teacher.Custom('quirk_pos_pp')]。”
+
+#航海家
+learn_commander_trait.1002.t:0 "航海家"
+#提供：
+learn_commander_trait.4101.desc:0 "\n\n[teacher.GetFirstName] 以其在导航方面的出色技能而闻名，这是在陌生地形中引导部队的不可或缺的能力。如果有人能教我导航的艺术，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.4102.desc:0 "[teacher.GetTitledFirstName] 展示了导航和地图阅读的技巧。我的最终测试是带领一组人穿越具有挑战性的地形，仅凭借地图和指南针。"
+#成功
+learn_commander_trait.4103.desc:0 "[teacher.GetTitledFirstName] 带着满意的笑容走向我。“干得好，” [teacher.GetSheHe] 称赞道。“你的导航技能确保了我们顺利通过了困难的地形。”"
+#失败
+learn_commander_trait.4104.desc:0 "一切似乎都很有希望，直到我们迷失了方向！\n\n[teacher.GetTitledFirstName] 站在混乱中，分析着情况。“导航需要精准和细心，” [teacher.GetSheHe] 反思道，[teacher.Custom('quirk_pos_pp')]。”
+
+#敏锐的探路者
+learn_commander_trait.1003.t:0 "敏锐的探路者"
+#提供：
+learn_commander_trait.4201.desc:0 "\n\n[teacher.GetFirstName] 以其敏锐的观察技能和在找到最有利路径方面的专业知识而闻名。如果有人能教我敏锐的探路艺术，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.4202.desc:0 "[teacher.GetTitledFirstName] 展示了敏锐的探路技巧，识别出具有挑战性地形中的隐藏路径和捷径。我的最终测试是在最大程度地利用战略优势的同时，带领一组人穿越困难的地形。"
+#成功
+learn_commander_trait.4203.desc:0 "[teacher.GetTitledFirstName] 带着满意的笑容走向我。“令人印象深刻，” [teacher.GetSheHe] 称赞道。“你的敏锐的探路确保了我们的有效行动和战略定位。”"
+#失败
+learn_commander_trait.4204.desc:0 "一切似乎都很有希望，直到我们遇到了意外的障碍！\n\n[teacher.GetTitledFirstName] 站在挫折中，分析着情况。“观察是有效探路的关键，” [teacher.GetSheHe] 反思道，[teacher.Custom('quirk_pos_pp')]。"
+#不屈追击者
+learn_commander_trait.1004.t:0 "不屈追击者"
+#提供：
+learn_commander_trait.4301.desc:0 "\n\n[teacher.GetFirstName] 以 [teacher.GetHerHis] 在战场上对敌人不懈的追击而闻名，使 [teacher.GetHerHim] 成为一名可怕的对手。如果有人能教我不屈追击的艺术，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.4302.desc:0 "[teacher.GetTitledFirstName] 展示了不屈追击的战术，不知疲倦地追踪并与敌军交战，直到取得胜利。我的最终测试是领导一次对模拟敌人的追击任务，确保他们被追击并消灭而无法逃脱。"
+#成功
+learn_commander_trait.4303.desc:0 "[teacher.GetTitledFirstName] 带着满意的笑容走向我。“令人印象深刻，” [teacher.GetSheHe] 称赞道。“你的不屈追击让敌人毫无逃脱的机会，确保了决定性的胜利。”"
+#失败
+learn_commander_trait.4304.desc:0 "一切似乎都很有希望，直到敌人溜走了！\n\n[teacher.GetTitledFirstName] 站在挫败中，分析着情况。“坚持是不屈追击的关键，” [teacher.GetSheHe] 反思道，[teacher.Custom('quirk_pos_pp')]。”
+
+#受尊敬的领袖
+learn_commander_trait.1005.t:0 "受尊敬的领袖"
+#提供：
+learn_commander_trait.4401.desc:0 "\n\n[teacher.GetFirstName] 因其卓越的领导技能和能够激发士兵忠诚和奉献精神而备受尊敬。如果有人能教我成为受尊敬的领袖的品质，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.4402.desc:0 "[teacher.GetTitledFirstName] 展示了受尊敬领袖的品质，通过 [teacher.GetHerHis] 行动和决策赢得了士兵的信任和钦佩。我的最终测试是在一个具有挑战性的场景中领导一群人，依靠部队的尊重和忠诚来克服障碍。"
+#成功
+learn_commander_trait.4403.desc:0 "[teacher.GetTitledFirstName] 带着自豪的微笑走向我。“干得好，” [teacher.GetSheHe] 称赞道。“你的领导赢得了部队的尊重和忠诚，在充满挑战的情况下取得了成功。”"
+#失败
+learn_commander_trait.4404.desc:0 "一切似乎都很有希望，直到我的权威受到挑战！\n\n[teacher.GetTitledFirstName] 站在纷争中，分析着情况。“尊重必须不断赢得，” [teacher.GetSheHe] 反思道，[teacher.Custom('quirk_pos_pp')]。”
+
+#经验丰富的流浪者
+learn_commander_trait.1006.t:0 "经验丰富的流浪者"
+#提供：
+learn_commander_trait.4501.desc:0 "\n\n[teacher.GetFirstName] 是一名经验丰富的流浪者，以 [teacher.GetHerHis] 在穿越各种地形和在恶劣条件下生存的专业知识而闻名。如果有人能教我成为一名经验丰富的流浪者的技能，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.4502.desc:0 "[teacher.GetTitledFirstName] 展示了经验丰富的流浪者的技能，在各种地形中导航和克服荒野中的挑战。我的最终测试是领导一次穿越崎岖地形的远征，利用从 [teacher.GetHerHis] 教导中学到的技能。"
+#成功
+learn_commander_trait.4503.desc:0 "[teacher.GetTitledFirstName] 带着满意的微笑走向我。“令人印象深刻，” [teacher.GetSheHe] 称赞道。“你作为一名经验丰富的流浪者的专业知识确保了远征的成功，在挑战的地形中轻松导航。”"
+#失败
+learn_commander_trait.4504.desc:0 "一切似乎都很有希望，直到我们遇到了意外的障碍！\n\n[teacher.GetTitledFirstName] 站在挫折中，分析着情况。“适应性是成为经验丰富的流浪者的关键，” [teacher.GetSheHe] 反思道，[teacher.Custom('quirk_pos_pp')]。”
+
+#狂热者
+learn_commander_trait.1007.t:0 "狂热者"
+#提供：
+learn_commander_trait.4601.desc:0 "\n\n[teacher.GetFirstName] 以在战场上对 [teacher.GetHerHis] 事业的坚定奉献而闻名。如果有人能教我狂热者的热情，那一定是 [teacher.GetHerHim]。"
+#最终测试
+learn_commander_trait.4602.desc:0 "[teacher.GetTitledFirstName] 展示了一个真正信徒的热情，通过 [teacher.GetHerHis] 的激情和奉献激发了其他人。我的最终测试是带领部队冲向战场，体现 [teacher.GetHerHis] 教诲中灌输的热情。"
+#成功
+learn_commander_trait.4603.desc:0 "[teacher.GetTitledFirstName] 带着自豪的微笑走向我。“干得好，” [teacher.GetSheHe] 称赞道。“你的热情和奉献激励了部队，在战场上取得了胜利。”"
+#失败
+learn_commander_trait.4604.desc:0 "一切似乎都很有希望，直到怀疑开始滋生！\n\n[teacher.GetTitledFirstName] 站在不确定之中，分析着情况。“信仰必须坚定不移，” [teacher.GetSheHe] 反思道，[teacher.Custom('quirk_pos_pp')]。"

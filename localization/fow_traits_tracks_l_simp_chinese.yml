@@ -1,0 +1,117 @@
+﻿l_simp_chinese:
+TRAIT_FLAG_DESC_fow_advantage_enemy_territory_flag: "[command_modifier_i|E]#medium 不受控制的领土 #![advantage|E]: @advantage_icon!#P +3#!\n"
+TRAIT_FLAG_DESC_fow_advantage_own_territory_flag: "[command_modifier_i|E]#medium 控制的领土 #![advantage|E]: @advantage_icon!#P +3#!\n"
+TRAIT_FLAG_DESC_fow_disadvantage_enemy_territory_flag: "[command_modifier_i|E]#medium 不受控制的领土 #![advantage|E]: @advantage_icon!#N -2#!\n"
+TRAIT_FLAG_DESC_fow_disadvantage_own_territory_flag: "[command_modifier_i|E]#medium 控制的领土 #![advantage|E]: @advantage_icon!#N -2#!\n"
+TRAIT_FLAG_DESC_fow_army_speed_per_win_flag: "[command_modifier_i|E][army|E] #medium 每场战斗胜利后的行军速度:#!@movement_speed_icon!#P +2%#! #weak (4个月)#!\n"
+TRAIT_FLAG_DESC_fow_pursue_efficiency_per_win_flag: "[command_modifier_i|E]#medium 每场战斗胜利后的追击效率:#!@pursuit_icon!#P +4%#! #weak (4个月)#!\n"
+TRAIT_FLAG_DESC_fow_infiltration_specialist_flag: "如果指挥官的 @skill_intrigue_icon! [intrigue|E] 高于县主的话:\n[command_modifier_i|E]#medium 最小 [combat_roll|E] : #!#P +4#!\n围城阶段时间:#! #P -25%#!\n[command_modifier_i|E]#medium [advantage|E]: @advantage_icon!#P 4#!\n"
+TRAIT_FLAG_DESC_fow_supply_duration_scaling: "[command_modifier_i|E]#medium 每5个 @skill_stewardship_icon! 管理技能 @supply_icon! 的补给持续时间:#P +10%#!\n"
+TRAIT_FLAG_DESC_fow_master_ambusher: "[command_modifier_i|E]#medium 每5个 @skill_intrigue_icon! 侦查技能 :#P +5%#!\n"
+TRAIT_FLAG_DESC_fow_bannerlord: "[command_modifier_i|E][army|E] #medium 战争开始后的行军速度: #!@movement_speed_icon!#P +10%#! #weak (1年)#!\n[command_modifier_i|E]#medium 战争开始后的敌人 [伤亡|E]: #P +20%#! #weak (1年)#!\n[command_modifier_i|E]#medium 攻击者 战争开始后的 [优势|E]: #!@advantage_icon!#P +5#! #weak (1年)#!\n"
+TRAIT_FLAG_DESC_fow_focus_specialist: "[command_modifier_i|E][army|E] #medium 在敌方首都省的围城阶段时间:#! #P -50%#!\n"
+trait_track_seasoned_rover_desc: "一个游牧老兵，延长了补给持续时间，在不同的地形和遥远的战役中体现了韧性。\n\n[command_modifier_i|E]#medium 不受控制的领土 #![advantage|E]: @advantage_icon!#P +3#!\n[command_modifier_i|E]#medium 控制的领土 #![advantage|E]: @advantage_icon!#N -2#!"
+trait_track_resolute_localist_desc: "一个捍卫家园的人，用当地的智慧加强军队。\n\n[command_modifier_i|E]#medium 控制的领土 #![advantage|E]: @advantage_icon!#P +3#!\n[command_modifier_i|E]#medium 不受控制的领土 #![advantage|E]: @advantage_icon!#N -2#!"
+trait_track_relentless_pursuer_desc: "在追击方面坚定不移，振奋攻击和大胆，以不懈的压力换取供应。\n\n[command_modifier_i|E][army|E] #medium 每场战斗胜利后的行军速度:#!@movement_speed_icon!#P +2%#! #weak (4个月)#!\n[command_modifier_i|E]#medium 每场战斗胜利后的追击效率:#!@pursuit_icon!#P +4%#! #weak (4个月)#!"
+
+ ###### MOD
+trait_track_mapper:0 "绘图员"
+trait_track_mapper_desc:0 "利用地形优势和速度开辟道路，以战略洞察力绘制征服之路。"
+
+trait_track_observant_pathfinder:0 "观察型探路者"
+trait_track_observant_pathfinder_desc:0 "对战略有敏锐的洞察力，提高战斗精度和追击战术，达到精湛的战场技巧。"
+
+trait_track_respected_leader:0 "备受尊敬的领袖"
+trait_track_respected_leader_desc:0 "在战场上备受尊敬，减少伤亡并获得战略优势，晋升为武功卓越的领袖。"
+
+trait_track_seasoned_rover:0 "老练的漫游者"
+
+trait_track_resolute_localist:0 "坚决的地方主义者"
+
+trait_track_relentless_pursuer:0 "无情的追击者"
+
+trait_track_infiltration_specialist:0 "渗透专家"
+trait_track_infiltration_specialist_desc:0 "一位隐藏在阴谋中的战略家，用隐藏的智慧策划战役，揭示胜利的秘密。"
+
+trait_track_sea_raider:0 "海盗突袭者"
+trait_track_sea_raider_desc:0 "一位航海劫掠者，无视上岸处罚，延长补给时间，迅速的袭击技能。"
+
+trait_track_battlefield_medic:0 "战场药师"
+trait_track_battlefield_medic_desc:0 "一位在混乱中的医者，减少伤亡，提高士气，并以武士的决心抵挡死亡的掌握。"
+
+trait_track_dauntless_leader:0 "大胆的领袖"
+trait_track_dauntless_leader_desc:0 "一位无畏的指挥官，在危险面前鼓舞勇气和韧性，提高士气并减少战斗中的损失。"
+
+trait_track_crafty_commander:0 "狡诈指挥官"
+trait_track_crafty_commander_desc:0 "一位精明的战略家，精通物资管理和足智多谋，优化对领土和后勤的控制。"
+
+trait_track_cautious_planner:0 "谨慎的策划者"
+trait_track_cautious_planner_desc:0 "一位细心的策划者，优先考虑谨慎和防御性策略，最大限度地减少风险，掌控战局。"
+
+trait_track_bannerlord:0 "旗帜之主"
+trait_track_bannerlord_desc:0 "一位高贵的指挥官，以荣誉和权威领导，激发士兵的忠诚和卓越，增强进攻能力。"
+
+trait_track_focus_specialist:0 "专注专家"
+trait_track_focus_specialist_desc:0 "一位专攻特定战术和围城战的指挥官，最大化围攻和防御中的效率和效果。"
+
+trait_track_master_ambusher:0 "精通伏击者"
+trait_track_master_ambusher_desc:0 "一位狡猾的指挥官，精通伏击战术，利用地形优势，对敌人进行突袭。"
+
+trait_track_navigator:0 "航海家"
+trait_track_navigator_desc:0 "精通航海的导航专家，在地形有利的战斗中确保安全和战略位置的规划。"
+
+trait_track_zealot:0 "狂热者"
+trait_track_zealot_desc:0 "踏上狂热之路，这位指挥官变得越来越热切地投入到自己的事业中，在部队中激发出坚定的奉献精神和热情。"
+
+ ###### VANILLA
+
+trait_track_logistician:0 "后勤专家"
+trait_track_logistician_desc:0 "供给管理和安全行军的大师，确保部队在行进中得到充分供应并保持安全。"
+
+trait_track_military_engineer:0 "军事工程师"
+trait_track_military_engineer_desc:0 "围攻战术的熟练建筑师，缩短围攻阶段时间并应对防御工事的挑战。"
+
+trait_track_aggressive_attacker:0 "激进进攻者"
+trait_track_aggressive_attacker_desc:0 "凶猛的指挥官，在激进进攻中获得优势，造成更严重的伤亡。"
+
+trait_track_unyielding_defender:0 "坚不可摧的防御者"
+trait_track_unyielding_defender_desc:0 "坚定不移的防御者，在保持阵地方面获得优势，减少损失并增强防御。"
+
+trait_track_forder:0 "水路突破者"
+trait_track_forder_desc:0 "精通越水障碍的指挥官，在不可预测的地形中保持速度并抓住机遇。"
+
+trait_track_flexible_leader:0 "灵活的领袖"
+trait_track_flexible_leader_desc:0 "适应性强的领导者，最大程度减少地形劣势，在多样化的地貌中优化作战效率。"
+
+trait_track_desert_warrior:0 "沙漠战士"
+trait_track_desert_warrior_desc:0 "专长于沙漠战斗的勇士，利用优势并化解干旱环境中的挑战。"
+
+trait_track_jungle_stalker:0 "丛林猎手"
+trait_track_jungle_stalker_desc:0 "精通丛林战争的隐秘指挥官，利用地形并在密林中最小化消耗。"
+
+trait_track_reaver:0 "劫掠者"
+trait_track_reaver_desc:0 "大胆的掠夺者，指挥快速袭击并在敌对领土中生存，恐吓敌人并最大化机动性。"
+
+trait_track_reckless:0 "鲁莽者"
+trait_track_reckless_desc:0 "大胆而激进的领导者，愿意冒险并将战斗推向极限，有时付出巨大代价。"
+
+trait_track_holy_warrior:0 "圣战士"
+trait_track_holy_warrior_desc:0 "虔诚的指挥官，信仰增强士气和效率，以神圣的启示和决心领导。"
+
+trait_track_open_terrain_expert:0 "开阔地形专家"
+trait_track_open_terrain_expert_desc:0 "擅长于开阔地战斗的指挥官，利用优势并在广阔无遮挡的地形中优化策略。"
+
+trait_track_rough_terrain_expert:0 "崎岖地形专家"
+trait_track_rough_terrain_expert_desc:0 "精通于穿越崎岖地形的指挥官，获得优势并最小化崎岖地形中的风险。"
+
+trait_track_forest_fighter:0 "森林战士"
+trait_track_forest_fighter_desc:0 "熟练的战士，擅长于密林中的战斗，利用优势并在森林环境中有效机动。"
+
+trait_track_cautious_leader:0 "谨慎的领导者"
+trait_track_cautious_leader_desc:0 "谨慎的指挥官，优先考虑最小化风险和损失，确保对战争的系统和谨慎的处理。"
+
+trait_track_organizer:0 "组织者"
+trait_track_organizer_desc:0 "擅长于协调行动和撤退的指挥官，最大化效率并最小化机动中的损失。"
+
+trait_track_winter_soldier:0 "冬季战士"
+trait_track_winter_soldier_desc:0 "习惯于严寒条件的强悍战士，利用优势并在冰冻的地形中保持韧性。"

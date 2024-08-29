@@ -1,0 +1,103 @@
+﻿l_french:
+TRAIT_FLAG_DESC_fow_advantage_enemy_territory_flag: "[command_modifier_i|E]#medium Territoire Non Contrôlé #![advantage|E]: @advantage_icon!#P +3#!\n"
+TRAIT_FLAG_DESC_fow_advantage_own_territory_flag: "[command_modifier_i|E]#medium Territoire Contrôlé #![advantage|E]: @advantage_icon!#P +3#!\n"
+TRAIT_FLAG_DESC_fow_disadvantage_enemy_territory_flag: "[command_modifier_i|E]#medium Territoire Non Contrôlé #![advantage|E]: @advantage_icon!#N -2#!\n"
+TRAIT_FLAG_DESC_fow_disadvantage_own_territory_flag: "[command_modifier_i|E]#medium Territoire Contrôlé #![advantage|E]: @advantage_icon!#N -2#!\n"
+TRAIT_FLAG_DESC_fow_army_speed_per_win_flag: "[command_modifier_i|E][army|E] #medium Vitesse de Déplacement Par Bataille Gagnée: #!@movement_speed_icon!#P +2% #faible (4 mois)#!\n"
+TRAIT_FLAG_DESC_fow_pursue_efficiency_per_win_flag: "[command_modifier_i|E]#medium Efficacité de Poursuite Par Bataille Gagnée: #!@pursuit_icon!#P +4% #faible (4 mois)#!\n"
+TRAIT_FLAG_DESC_fow_infiltration_specialist_flag: "Si l'@skill_intrigue_icon! [intrigue|E] du Commandant est supérieure à celle du Titulaire du Comté:\n[command_modifier_i|E]#medium Minimum [combat_roll|E]: #!#P +4#!\nDurée de la Phase de Siège: #! #P -25%#!\n[command_modifier_i|E]#medium [advantage|E]: @advantage_icon!#P 4#!\n"
+TRAIT_FLAG_DESC_fow_supply_duration_scaling: "[command_modifier_i|E]#medium Durée de [supply|E] par 5 @skill_stewardship_icon! Stewardship @supply_icon!:#P +10%#!\n"
+TRAIT_FLAG_DESC_fow_master_ambusher: "[command_modifier_i|E]#medium Efficacité de Contre par 5 @skill_intrigue_icon! Intrigue :#P +5%#!\n"
+TRAIT_FLAG_DESC_fow_bannerlord: "[command_modifier_i|E][army|E] #medium Vitesse de Déplacement Après un Déclenchement de Guerre: #!@movement_speed_icon!#P +10% #faible (1 an)#!\n[command_modifier_i|E]#medium Dommages Ennemis Après un Déclenchement de Guerre: #P +20% #faible (1 an)#!\n[command_modifier_i|E]#medium Avantage de l'Attaquant Après un Déclenchement de Guerre: #!@advantage_icon!#P +5 #faible (1 an)#!\n"
+TRAIT_FLAG_DESC_fow_focus_specialist: "[command_modifier_i|E][army|E] #medium Durée de la Phase de Siège dans la Province de la Capitale Ennemie: #! #P -50%#!\n"
+trait_track_seasoned_rover_desc: "Un vétéran nomade, prolongeant les durées de ravitaillement, incarnant la résilience dans des terrains variés et des campagnes lointaines.\n\n[command_modifier_i|E]#medium Territoire Non Contrôlé #![advantage|E]: @advantage_icon!#P +3#!\n[command_modifier_i|E]#medium Territoire Contrôlé #![advantage|E]: @advantage_icon!#N -2#!"
+trait_track_resolute_localist_desc: "Un défenseur du sol natal, renforçant les armées avec une sagesse localisée.\n\n[command_modifier_i|E]#medium Territoire Contrôlé #![advantage|E]: @advantage_icon!#P +3#!\n[command_modifier_i|E]#medium Territoire Non Contrôlé #![advantage|E]: @advantage_icon!#N -2#!"
+trait_track_relentless_pursuer_desc: "Inflexible dans la poursuite, dynamisant les attaques et l'audace, sacrifiant l'approvisionnement pour une pression incessante.\n\n[command_modifier_i|E][army|E] #medium Vitesse de Déplacement Par Bataille Gagnée:#!@movement_speed_icon!#P +2% #faible (4 mois)#!\n[command_modifier_i|E]#medium Efficacité de Poursuite Par Bataille Gagnée:#!@pursuit_icon!#P +4% #faible (4 mois)#!"
+
+ ###### MOD
+trait_track_mapper: "Pionnier"
+trait_track_observant_pathfinder: "Éclaireur Observateur"
+trait_track_respected_leader: "Leader Respecté"
+trait_track_infiltration_specialist: "Commandant Informé"
+trait_track_sea_raider: "Pillard des Mers"
+trait_track_battlefield_medic: "Apothicaire de Bataille"
+trait_track_dauntless_leader: "Leader Intrépide"
+trait_track_crafty_commander: "Commandant Astucieux"
+trait_track_cautious_planner: "Planificateur Prudent"
+trait_track_bannerlord: "Seigneur des Bannières"
+trait_track_focus_specialist: "Spécialiste de la Concentration"
+trait_track_master_ambusher: "Maître Embusqueur"
+trait_track_navigator: "Navigateur"
+trait_track_seasoned_rover: "Voyageur Aguerri"
+trait_track_resolute_localist: "Localiste Résolu"
+trait_track_relentless_pursuer: "Poursuivant Implacable"
+
+trait_track_mapper_desc: "Un pionnier exploitant les avantages du terrain et la vitesse, traçant des chemins pour conquérir avec un discernement stratégique."
+trait_track_observant_pathfinder_desc: "Un observateur stratégique, améliorant la précision au combat et les tactiques de poursuite, aboutissant à une maîtrise magistrale du champ de bataille."
+trait_track_respected_leader_desc: "Vénéré sur le champ de bataille, réduisant les pertes et obtenant des avantages stratégiques, atteignant la grandeur martiale."
+trait_track_infiltration_specialist_desc: "Un stratège enveloppé de mystère, orchestrant des campagnes avec sagesse cachée, révélant les secrets de la victoire."
+trait_track_sea_raider_desc: "Un pillard des mers, défiant les pénalités de débarquement, prolongeant les approvisionnements et l'agilité des raids rapides."
+trait_track_battlefield_medic_desc: "Un guérisseur au milieu du chaos, réduisant les pertes, renforçant le moral et défiant la prise de la mort avec résolution martiale."
+trait_track_dauntless_leader_desc: "Un commandant intrépide qui inspire courage et résilience face au danger, renforçant le moral et réduisant les pertes au combat."
+trait_track_crafty_commander_desc: "Un stratège astucieux doué en gestion des approvisionnements et en ingéniosité, optimisant le contrôle des territoires et de la logistique."
+trait_track_cautious_planner_desc: "Un planificateur méticuleux qui privilégie la prudence et les stratégies défensives, minimisant les risques et maximisant le contrôle des engagements."
+trait_track_bannerlord_desc: "Un noble commandant menant avec honneur et autorité, inspirant la loyauté et l'excellence parmi les troupes, renforçant les capacités offensives."
+trait_track_focus_specialist_desc: "Un commandant spécialisé dans les tactiques ciblées et le siège, maximisant l'efficacité et l'efficience dans les assauts et les défenses."
+trait_track_master_ambusher_desc: "Un commandant rusé expert en tactiques d'embuscade, exploitant les avantages du terrain et surprenant les ennemis avec des attaques dévastatrices."
+trait_track_navigator_desc: "Navigateur expert excelle dans le tracé des routes, assurant la sécurité et le positionnement stratégique dans les batailles où le terrain est favorable."
+
+ ###### VANILLA
+
+trait_track_logistician: "Logisticien"
+trait_track_logistician_desc: "Un maître de la gestion des approvisionnements et des déplacements sûrs, garantissant que les troupes sont bien approvisionnées et sécurisées en mouvement."
+
+trait_track_military_engineer: "Ingénieur Militaire"
+trait_track_military_engineer_desc: "Un architecte qualifié des tactiques de siège, réduisant les temps de phase de siège et les défis de fortification."
+
+trait_track_aggressive_attacker: "Attaquant Agressif"
+trait_track_aggressive_attacker_desc: "Un commandant féroce qui gagne des avantages en attaquant les ennemis de manière agressive, infligeant des pertes plus lourdes."
+
+trait_track_unyielding_defender: "Défenseur Inflexible"
+trait_track_unyielding_defender_desc: "Un défenseur inflexible qui gagne des avantages en maintenant des positions, réduisant les pertes et renforçant les défenses."
+
+trait_track_forder: "Traverseur de Gué"
+trait_track_forder_desc: "Un commandant doué pour traverser les obstacles d'eau, maintenant la vitesse et saisissant les opportunités dans un terrain imprévisible."
+
+trait_track_flexible_leader: "Leader Flexible"
+trait_track_flexible_leader_desc: "Un chef adaptable qui minimise les désavantages du terrain, optimisant l'efficacité au combat sur des paysages variés."
+
+trait_track_desert_warrior: "Guerrier du Désert"
+trait_track_desert_warrior_desc: "Un guerrier spécialisé dans le combat en désert, utilisant des avantages et atténuant les défis uniques des environnements arides."
+
+trait_track_jungle_stalker: "Rôdeur de la Jungle"
+trait_track_jungle_stalker_desc: "Un commandant furtif doué pour la guerre dans la jungle, exploitant le terrain et minimisant l'attrition dans la végétation dense."
+
+trait_track_reaver: "Pillard"
+trait_track_reaver_desc: "Un audacieux pillard commandant des frappes rapides et survivant dans des territoires hostiles, terrorisant les ennemis et maximisant la mobilité."
+
+trait_track_reckless: "Téméraire"
+trait_track_reckless_desc: "Un chef audacieux et agressif, prêt à prendre des risques et à pousser le combat à la limite, parfois à grands frais."
+
+trait_track_holy_warrior: "Guerrier Sacré"
+trait_track_holy_warrior_desc: "Un commandant dévoué dont la foi renforce le moral et l'efficacité, menant avec inspiration divine et résolution."
+
+trait_track_open_terrain_expert: "Expert des Terrains Ouverts"
+trait_track_open_terrain_expert_desc: "Un commandant habile dans les batailles en terrain découvert, utilisant des avantages et optimisant les stratégies dans des paysages vastes et non obstrués."
+
+trait_track_rough_terrain_expert: "Expert des Terrains Difficiles"
+trait_track_rough_terrain_expert_desc: "Un commandant compétent dans la navigation en terrain difficile, gagnant des avantages et minimisant les risques dans des paysages accidentés."
+
+trait_track_forest_fighter: "Combattant des Forêts"
+trait_track_forest_fighter_desc: "Un guerrier expérimenté habile au combat dans des forêts denses, exploitant des avantages et manœuvrant efficacement dans des environnements boisés."
+
+trait_track_cautious_leader: "Chef Prudent"
+trait_track_cautious_leader_desc: "Un commandant prudent qui donne la priorité à la réduction des risques et des pertes, assurant une approche méthodique et prudente de la guerre."
+
+trait_track_organizer: "Organisateur"
+trait_track_organizer_desc: "Un commandant compétent dans la coordination des mouvements et des retraites, maximisant l'efficacité et minimisant les pertes dans les manœuvres."
+
+trait_track_winter_soldier: "Soldat d'Hiver"
+trait_track_winter_soldier_desc: "Un guerrier endurci habitué aux conditions hivernales difficiles, exploitant des avantages et maintenant la résilience dans des paysages gelés."
+
+trait_track_zealot: "Fanatique"
+trait_track_zealot_desc: "S'engageant sur la voie du zèle, ce commandant devient de plus en plus fanatique dans sa foi, inspirant une dévotion inébranlable et un fervent engagement à ses troupes."

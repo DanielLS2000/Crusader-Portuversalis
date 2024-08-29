@@ -1,0 +1,64 @@
+﻿l_french:
+trait_mapper: "Cartographe"
+trait_mapper_desc: "En tant que général, ce personnage excelle à tirer parti de n'importe quel terrain."
+trait_mapper_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] excelle à tirer parti de n'importe quel terrain."
+
+trait_observant_pathfinder: "Sentinelle Avisée"
+trait_observant_pathfinder_desc: "En commandant des armées, ce personnage trouve toujours un moyen... d'entrer, de sortir ou de contourner l'ennemi."
+trait_observant_pathfinder_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] trouve toujours un moyen... d'entrer, de sortir ou de contourner l'ennemi."
+
+trait_respected_leader: "Leader Respecté"
+trait_respected_leader_desc: "Les soldats de ce personnage tiennent leur commandant en haute estime, ce qui conduit à une efficacité accrue basée sur la loyauté au combat."
+trait_respected_leader_character_desc: "Les soldats de [ROOT.GetCharacter.GetFirstNameNoTooltip] tiennent leur commandant en haute estime, ce qui conduit à une efficacité accrue basée sur la loyauté au combat."
+
+trait_seasoned_rover: "Voyageur Aguerri"
+trait_seasoned_rover_desc: "Ce personnage s'est spécialisé dans les territoires inexplorés, accumulant une expertise fine sur n'importe quel terrain que d'autres craindraient de fouler. Cependant, cela s'est fait au prix d'oublier un peu sa patrie."
+trait_seasoned_rover_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] s'est spécialisé dans les territoires inexplorés, accumulant une expertise fine sur n'importe quel terrain que d'autres craindraient de fouler. Cependant, cela s'est fait au prix d'oublier un peu sa patrie."
+
+trait_resolute_localist: "Localiste Résolu" 
+trait_resolute_localist_desc: "Ce personnage est un vrai enfant de sa terre, ayant passé des années à explorer ses bourgs et sa campagne. Cependant, errer à l'étranger est une autre histoire..."
+trait_resolute_localist_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] est un vrai enfant de sa terre, ayant passé des années à explorer ses bourgs et sa campagne. Cependant, errer à l'étranger est une autre histoire..."
+
+trait_relentless_pursuer: "Poursuivant Implacable"
+trait_relentless_pursuer_desc: "Ce personnage continue toujours en avant au combat, tirant le meilleur parti de l'élan accumulé pour finir ses ennemis."
+trait_relentless_pursuer_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] continue toujours en avant au combat, tirant le meilleur parti de l'élan accumulé pour finir ses ennemis."
+
+trait_infiltration_specialist: "Spécialiste de l'Infiltration"
+trait_infiltration_specialist_desc: "Ce personnage peut faire un excellent usage de n'importe quel champ de bataille grâce à l'intelligence, le nerf de la guerre."
+trait_infiltration_specialist_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] peut faire un excellent usage de n'importe quel champ de bataille grâce à l'intelligence, le nerf de la guerre."
+
+trait_battlefield_medic: "Apothicaire de Bataille"
+trait_battlefield_medic_desc: "Ce commandant se spécialise dans la réduction des pertes sur le champ de bataille."
+trait_battlefield_medic_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] est connu pour réduire les pertes sur le champ de bataille."
+ 
+trait_dauntless_leader: "Leader Intrépide"
+trait_dauntless_leader_desc: "Ce commandant inspire l'audace à ses troupes, bien que cela représente un risque pour eux-mêmes."
+trait_dauntless_leader_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] inspire l'audace à ses troupes, bien que cela représente un risque pour eux-mêmes."
+ 
+trait_crafty_commander: "Commandant Astucieux"
+trait_crafty_commander_desc: "Connu pour sa ruse stratégique, ce commandant semble toujours avoir un plan."
+trait_crafty_commander_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] est connu pour sa ruse stratégique."
+ 
+trait_cautious_planner: "Planificateur Prudent"
+trait_cautious_planner_desc: "Ce commandant planifie soigneusement chaque mouvement, en priorisant la sécurité de ses forces."
+trait_cautious_planner_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] planifie soigneusement chaque mouvement, en priorisant la sécurité de ses forces."
+ 
+trait_bannerlord: "Seigneur des Bannières"
+trait_bannerlord_desc: "Considéré comme un symbole d'autorité, ce commandant inspire le respect et la loyauté."
+trait_bannerlord_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] est considéré comme un symbole d'autorité."
+ 
+trait_focus_specialist: "Spécialiste de la Concentration"
+trait_focus_specialist_desc: "Spécialisé dans un aspect particulier de la guerre, ce commandant excelle dans son domaine choisi."
+trait_focus_specialist_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] est spécialisé dans un aspect particulier de la guerre."
+ 
+trait_master_ambusher: "Maître Embusqueur"
+trait_master_ambusher_desc: "Maître des tactiques d'embuscade, ce commandant frappe rapidement et avec décision."
+trait_master_ambusher_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] est un maître des tactiques d'embuscade."
+
+trait_navigator: "Navigateur"
+trait_navigator_desc: "Doué en navigation, ce commandant assure que son armée trouve toujours le meilleur chemin."
+trait_navigator_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] est doué en navigation, assurant que son armée trouve toujours le meilleur chemin."
+
+trait_zealot: "Fanatique"
+trait_zealot_desc: "Un commandant zélé dévoué à sa cause, inspirant un fervent engagement et une dévotion inébranlable à ses troupes."
+trait_zealot_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] est un commandant zélé, inspirant un fervent engagement et une dévotion inébranlable à ses troupes."

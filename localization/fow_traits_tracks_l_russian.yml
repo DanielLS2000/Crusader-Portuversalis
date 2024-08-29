@@ -1,0 +1,117 @@
+﻿l_russian:
+TRAIT_FLAG_DESC_fow_advantage_enemy_territory_flag: "[command_modifier_i|E]#medium Неуправляемая Территория #![advantage|E]: @advantage_icon!#P +3#!\n"
+TRAIT_FLAG_DESC_fow_advantage_own_territory_flag: "[command_modifier_i|E]#medium Контролируемая Территория #![advantage|E]: @advantage_icon!#P +3#!\n"
+TRAIT_FLAG_DESC_fow_disadvantage_enemy_territory_flag: "[command_modifier_i|E]#medium Неуправляемая Территория #![advantage|E]: @advantage_icon!#N -2#!\n"
+TRAIT_FLAG_DESC_fow_disadvantage_own_territory_flag: "[command_modifier_i|E]#medium Контролируемая Территория #![advantage|E]: @advantage_icon!#N -2#!\n"
+TRAIT_FLAG_DESC_fow_army_speed_per_win_flag: "[command_modifier_i|E][army|E] #medium Скорость Движения За Победу: #![movement_speed_icon|E]#P +2%#! #weak (4 месяца)#!\n"
+TRAIT_FLAG_DESC_fow_pursue_efficiency_per_win_flag: "[command_modifier_i|E]#medium Эффективность Преследования За Победу: #![pursuit_icon|E]#P +4%#! #weak (4 месяца)#!\n"
+TRAIT_FLAG_DESC_fow_infiltration_specialist_flag: "Если [skill_intrigue_icon|E] навык Командира выше, чем у Владельца Графства:\n[command_modifier_i|E]#medium Минимальный [combat_roll|E] : #![skill_combat_icon|E]#P +4#!\nВремя Осады:#! #P -25%#!\n[command_modifier_i|E]#medium [advantage|E]: @advantage_icon!#P 4#!\n"
+TRAIT_FLAG_DESC_fow_supply_duration_scaling: "[command_modifier_i|E]#medium Длительность [supply|E] за 5 @skill_stewardship_icon! Навык Управления @supply_icon!:#P +10%#!\n"
+TRAIT_FLAG_DESC_fow_master_ambusher: "[command_modifier_i|E]#medium Эффективность Противодействия за 5 @skill_intrigue_icon! Навык Интриги :#P +5%#!\n"
+TRAIT_FLAG_DESC_fow_bannerlord: "[command_modifier_i|E][army|E] #medium Скорость Движения После Объявления Войны: #![movement_speed_icon|E]#P +10%#! #weak (1 год)#!\n[command_modifier_i|E]#medium Вражеские [casualties|E] После Объявления Войны: #P +20%#! #weak (1 год)#!\n[command_modifier_i|E]#medium Преимущество Атакующего После Объявления Войны: #![advantage_icon|E]#P +5#! #weak (1 год)#!\n"
+TRAIT_FLAG_DESC_fow_focus_specialist: "[command_modifier_i|E][army|E] #medium Время Осады в Вражеской Столице:#! #P -50%#!\n"
+trait_track_seasoned_rover_desc: "Старый вояка, увеличивающий длительность снабжения, воплощающий устойчивость в разнообразных местностях и дальних кампаниях.\n\n[command_modifier_i|E]#medium Неуправляемая Территория #![advantage|E]: @advantage_icon!#P +3#!\n[command_modifier_i|E]#medium Контролируемая Территория #![advantage|E]: @advantage_icon!#N -2#!"
+trait_track_resolute_localist_desc: "Защитник родной земли, укрепляющий армии местной мудростью.\n\n[command_modifier_i|E]#medium Контролируемая Территория #![advantage|E]: @advantage_icon!#P +3#!\n[command_modifier_i|E]#medium Неуправляемая Территория #![advantage|E]: @advantage_icon!#N -2#!"
+trait_track_relentless_pursuer_desc: "Непреклонный в преследовании, энергизирующий атаки и смелость, жертвующий снабжением ради неусыпной давки.\n\n[command_modifier_i|E][army|E] #medium Скорость Движения За Победу:#!@movement_speed_icon!#P +2%#! #weak (4 месяца)#!\n[command_modifier_i|E]#medium Эффективность Преследования За Победу:#!@pursuit_icon!#P +4%#! #weak (4 месяца)#!"
+
+ ###### MOD
+ trait_track_mapper:0 "Картограф"
+trait_track_mapper_desc:0 "Первопроходец, использующий преимущества местности и скорость, прокладывающий пути завоевания с стратегическим прозорливостью."
+
+trait_track_observant_pathfinder:0 "Внимательный Следопыт"
+trait_track_observant_pathfinder_desc:0 "Острый взгляд на стратегию, улучшение точности боевых действий и тактики преследования, достигая мастерства на поле боя."
+
+trait_track_respected_leader:0 "Уважаемый Лидер"
+trait_track_respected_leader_desc:0 "Почитаемый на поле боя, снижающий потери и получающий стратегические преимущества, возвышаясь до боевого величия."
+
+trait_track_seasoned_rover:0 "Опытный Странник"
+
+trait_track_resolute_localist:0 "Непоколебимый Локалист"
+
+trait_track_relentless_pursuer:0 "Неутомимый Преследователь"
+
+trait_track_infiltration_specialist:0 "Специалист по Внедрению"
+trait_track_infiltration_specialist_desc:0 "Стратег, окутанный интригой, оркестрирующий кампании с скрытой мудростью, раскрывающий секреты победы."
+
+trait_track_sea_raider:0 "Морской Разбойник"
+trait_track_sea_raider_desc:0 "Морской мародер, игнорирующий штрафы за высадку, продлевающий снабжение и обладающий стремительной силой набегов."
+
+trait_track_battlefield_medic:0 "Полевой Аптекарь"
+trait_track_battlefield_medic_desc:0 "Целитель среди хаоса, уменьшающий потери, поднимающий боевой дух и отвергающий смерть с боевым решимостью."
+
+trait_track_dauntless_leader:0 "Бесстрашный Лидер"
+trait_track_dauntless_leader_desc:0 "Бесстрашный командир, вдохновляющий отвагу и упорство в лице опасности, повышающий боевой дух и смягчающий потери в битве."
+
+trait_track_crafty_commander:0 "Хитрый Командир"
+trait_track_crafty_commander_desc:0 "Известный своей стратегической хитростью, этот командир всегда имеет план."
+
+trait_track_cautious_planner:0 "Осторожный Планировщик"
+trait_track_cautious_planner_desc:0 "Тщательный планировщик, который приоритизирует осторожность и оборонительные стратегии, минимизируя риски и максимизируя контроль над столкновениями."
+
+trait_track_bannerlord:0 "Повелитель Знамен"
+trait_track_bannerlord_desc:0 "Почитаемый как символ власти, этот командир внушает уважение и преданность."
+
+trait_track_focus_specialist:0 "Специалист по Фокусу"
+trait_track_focus_specialist_desc:0 "Командир, специализирующийся на сосредоточенных тактиках и осадной войне, максимизирующий эффективность и эффективность в наступлениях и обороне."
+
+trait_track_master_ambusher:0 "Мастер Засад"
+trait_track_master_ambusher_desc:0 "Хитрый командир, искусный в тактике засады, использующий преимущества местности и удивляющий врагов разрушительными атаками."
+
+trait_track_navigator:0 "Навигатор"
+trait_track_navigator_desc:0 "Опытный навигатор, отличающийся в прокладке путей, обеспечивающий безопасность
+
+ ###### VANILLA
+
+trait_track_logistician:0 "Логист"
+trait_track_logistician_desc:0 "Мастер управления поставками и безопасными перемещениями, обеспечивающий хорошее снабжение войск и их безопасность в пути."
+
+trait_track_military_engineer:0 "Военный Инженер"
+trait_track_military_engineer_desc:0 "Опытный архитектор осадных тактик, сокращающий время фаз осады и преодолевающий препятствия фортификации."
+
+trait_track_aggressive_attacker:0 "Агрессивный Атакующий"
+trait_track_aggressive_attacker_desc:0 "Сильный командир, который получает преимущества в агрессивной атаке на врагов, нанося им тяжелые потери."
+
+trait_track_unyielding_defender:0 "Непреклонный Защитник"
+trait_track_unyielding_defender_desc:0 "Непоколебимый защитник, который получает преимущества при удержании позиций, сокращая потери и укрепляя оборону."
+
+trait_track_forder:0 "Брод"
+trait_track_forder_desc:0 "Командир, искусный в преодолении водных препятствий, поддерживающий скорость и использование возможностей на непредсказуемой местности."
+
+trait_track_flexible_leader:0 "Гибкий Лидер"
+trait_track_flexible_leader_desc:0 "Адаптивный лидер, который минимизирует недостатки местности, оптимизируя боевую эффективность в различных ландшафтах."
+
+trait_track_desert_warrior:0 "Воин Пустыни"
+trait_track_desert_warrior_desc:0 "Воин, специализирующийся на боях в пустынях, использующий преимущества и смягчая угрозы, уникальные для засушливых условий."
+
+trait_track_jungle_stalker:0 "Лесной Скрытник"
+trait_track_jungle_stalker_desc:0 "Скрытный командир, мастерски владеющий джунглями, используя местность и минимизируя износ в густой листве."
+
+trait_track_reaver:0 "Разбойник"
+trait_track_reaver_desc:0 "Смелый рейдер, который командует быстрыми ударами и выживает в враждебных территориях, устрашая врагов и максимизируя мобильность."
+
+trait_track_reckless:0 "Безрассудный"
+trait_track_reckless_desc:0 "Смелый и агрессивный лидер, готовый рисковать и доводить боевые действия до предела, иногда за большую цену."
+
+trait_track_holy_warrior:0 "Священный Воин"
+trait_track_holy_warrior_desc:0 "Набожный командир, чья вера поднимает боевой дух и эффективность, ведущий с божественным вдохновением и решимостью."
+
+trait_track_open_terrain_expert:0 "Эксперт по Открытой Местности"
+trait_track_open_terrain_expert_desc:0 "Командир, искусный в сражениях на открытой местности, использующий преимущества и оптимизирующий стратегии в обширных, непрепятствованных ландшафтах."
+
+trait_track_rough_terrain_expert:0 "Эксперт по Сложной Местности"
+trait_track_rough_terrain_expert_desc:0 "Командир, в совершенстве владеющий навигацией по сложной местности, получая преимущества и минимизируя риски в грубых ландшафтах."
+
+trait_track_forest_fighter:0 "Лесной Боец"
+trait_track_forest_fighter_desc:0 "Опытный воин, мастерски ведущий бои в густых лесах, используя преимущества и эффективно маневрируя в лесных условиях."
+
+trait_track_cautious_leader:0 "Осторожный Лидер"
+trait_track_cautious_leader_desc:0 "Осторожный командир, который приоритизирует минимизацию рисков и потерь, обеспечивая методичный и осторожный подход к ведению войны."
+
+trait_track_organizer:0 "Организатор"
+trait_track_organizer_desc:0 "Командир, в совершенстве владеющий координацией движений и отступлений, максимизируя эффективность и минимизируя потери в маневрах."
+
+trait_track_winter_soldier:0 "Зимний Воин"
+trait_track_winter_soldier_desc:0 "Закаленный воин, привыкший к суровым зимним условиям, использующий преимущества и поддерживающий устойчивость в морозных ландшафтах."
+
+trait_track_zealot:0 "Ревнитель"
+trait_track_zealot_desc:0 "Идя по пути ревнительства, этот командир становится все более рьяным в своем преданности, вдохновляя неизменную преданность и усердие в своих войсках."

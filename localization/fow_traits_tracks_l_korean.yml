@@ -1,0 +1,118 @@
+﻿l_korean:
+TRAIT_FLAG_DESC_fow_advantage_enemy_territory_flag: "[command_modifier_i|E]#medium 미점령 영토 #![advantage|E]: @advantage_icon!#P +3#!\n"
+TRAIT_FLAG_DESC_fow_advantage_own_territory_flag: "[command_modifier_i|E]#medium 점령한 영토 #![advantage|E]: @advantage_icon!#P +3#!\n"
+TRAIT_FLAG_DESC_fow_disadvantage_enemy_territory_flag: "[command_modifier_i|E]#medium 미점령영토 #![advantage|E]: @advantage_icon!#N -2#!\n"
+TRAIT_FLAG_DESC_fow_disadvantage_own_territory_flag: "[command_modifier_i|E]#medium 점령한 영토 #![advantage|E]: @advantage_icon!#N -2#!\n"
+TRAIT_FLAG_DESC_fow_army_speed_per_win_flag: "[command_modifier_i|E][army|E] #medium 전투 승리 당 이동 속도:#!@movement_speed_icon!#P +2%#! #weak (4개월)#!\n"
+TRAIT_FLAG_DESC_fow_pursue_efficiency_per_win_flag: "[command_modifier_i|E]#medium 전투 승리 당 추격 효율:#!@pursuit_icon!#P +4%#! #weak (4개월)#!\n"
+TRAIT_FLAG_DESC_fow_infiltration_specialist_flag: "만약 지휘관의 @skill_intrigue_icon! [intrigue|E] 능력이 보유 영지수 보다 높다면:\n[command_modifier_i|E]#medium 최소[combat_roll|E] : #!#P +4#!\n[command_modifier_i|E]공성 국면 시간:#! #P -25%#!\n[command_modifier_i|E]#medium [advantage|E]: @advantage_icon!#P +4#!\n"
+TRAIT_FLAG_DESC_fow_supply_duration_scaling: "[command_modifier_i|E]#medium @skill_stewardship_icon! 관리력 5당 @supply_icon! [supply|E] 지속 시간:#P +10%#!\n"
+TRAIT_FLAG_DESC_fow_master_ambusher: "[command_modifier_i|E]#medium @skill_intrigue_icon! 상성 효율 5당 반격 효율:#P +5%#!\n"
+TRAIT_FLAG_DESC_fow_bannerlord: "[command_modifier_i|E][army|E] #medium 전쟁 선포 후 이동 속도: #!@movement_speed_icon!#P +10%#! #weak (1년)#!\n[command_modifier_i|E]#medium 전쟁 선포 후 적군 [casualties|E]: #P +20%#! #weak (1년)#!\n[command_modifier_i|E]#medium 전쟁 선포 후 공격자 [advantage|E]: #!@advantage_icon!#P+5#! #weak (1년)#!\n"
+TRAIT_FLAG_DESC_fow_focus_specialist: "[command_modifier_i|E][army|E] #medium 적군 수도 지역 공성 단계 시간:#! #P -50%#!\n"
+trait_track_seasoned_rover_desc: "유목 경험자, 보급 지속 시간을 연장하며, 다양한 지형과 먼 여정에서 탄탄함을 나타냅니다.\n\n[command_modifier_i|E]#medium 미점령 영토 #![advantage|E]: @advantage_icon!#P +3#!\n[command_modifier_i|E]#medium 점령한 영토 #![advantage|E]: @advantage_icon!#N -2#!"
+trait_track_resolute_localist_desc: "고국의 수호자, 지역 특색 있는 지형학으로 군대를 강화합니다.\n\n[command_modifier_i|E]#medium 점령한 영토 #![advantage|E]: @advantage_icon!#P +3#!\n[command_modifier_i|E]#medium 미점령 영토 #![advantage|E]: @advantage_icon!#N -2#!"
+trait_track_relentless_pursuer_desc: "추격을 포기하지 않으며, 공격과 대담함을 활기를 불어넣어, 끈질긴 압박을 위해 보급을 희생합니다.\n\n[command_modifier_i|E][army|E] #medium 전투 승리 당 이동 속도:#!@movement_speed_icon!#P +2%#! #weak (4개월)#!\n[command_modifier_i|E]#medium 전투 승리 당 추격 효율:#!@pursuit_icon!#P +4%#! #weak (4개월)#!"
+ 
+ ###### MOD
+trait_track_mapper:0 "지도 제작자"
+trait_track_mapper_desc:0 "지형의 장점과 속도를 활용하는 개척자로, 전략적 통찰력으로 정복을 위한 길을 개척합니다."
+
+trait_track_observant_pathfinder:0 "주의깊은 길 찾기자"
+trait_track_observant_pathfinder_desc:0 "전략에 대한 예리한 시선을 가지고 전투 정밀도와 추적 전술을 향상시키며, 숙련된 전투 기교를 발휘합니다."
+
+trait_track_respected_leader:0 "존경받는 지도자"
+trait_track_respected_leader_desc:0 "전장에서 존경받으며, 피해를 줄이고 전략적 이점을 얻으며, 무술적 위대함에 도달합니다."
+
+trait_track_seasoned_rover:0 "경험이 풍부한 방랑자"
+
+trait_track_resolute_localist:0 "단호한 지역주의자"
+
+trait_track_relentless_pursuer:0 "끈질긴 추적자"
+
+trait_track_infiltration_specialist:0 "침투 전문가"
+trait_track_infiltration_specialist_desc:0 "은밀한 지혜로 전투를 계획하고, 비밀을 풀어 승리로 이끄는 전략가입니다."
+
+trait_track_sea_raider:0 "해적"
+trait_track_sea_raider_desc:0 "해상 약탈자로, 상륙 벌칙을 무시하고 공급을 연장하며, 기민한 약탈 능력을 발휘합니다."
+
+trait_track_battlefield_medic:0 "전장 약사"
+trait_track_battlefield_medic_desc:0 "혼돈 속에서 치사율을 줄이고, 사기를 고무하며, 무술적 결단력으로 죽음을 막는 치유사입니다."
+
+trait_track_dauntless_leader:0 "불굴의 지도자"
+trait_track_dauntless_leader_desc:0 "위험에도 불구하고 용기와 인내심을 부여하는 두려움 없는 지휘관으로, 전투에서의 손실을 줄이고 사기를 높입니다."
+
+trait_track_crafty_commander:0 "교활한 지휘관"
+trait_track_crafty_commander_desc:0 "조달 관리와 총명함에 능숙한 능력을 가진 전략가로, 영토와 물류를 효율적으로 관리합니다."
+
+trait_track_cautious_planner:0 "신중한 계획가"
+trait_track_cautious_planner_desc:0 "위험을 최소화하고 전투 통제력을 극대화하기 위해 주의 깊게 계획하는 세심한 계획가입니다."
+
+trait_track_bannerlord:0 "배너 군주"
+trait_track_bannerlord_desc:0 "명예와 권위로 이끄는 귀족 지휘관으로, 병사들 사이에서 충성과 훌륭함을 일으키며, 공격 능력을 강화합니다."
+
+trait_track_focus_specialist:0 "집중 전문가"
+trait_track_focus_specialist_desc:0 "특정 전술과 공성 전술에 특화된 지휘관으로, 공격과 방어에서 효율과 효과를 극대화합니다."
+
+trait_track_master_ambusher:0 "마스터 약탈자"
+trait_track_master_ambusher_desc:0 "약탈 전술에 능숙한 간교한 지휘관으로, 지형의 장점을 이용하여 적을 놀라게 합니다."
+
+trait_track_navigator:0 "항해사"
+trait_track_navigator_desc:0 "길을 찾고, 안전하고 전략적인 위치를 확보하는데 능숙한 전문 항해사입니다."
+
+ ###### VANILLA
+
+
+trait_track_logistician:0 "후속관리 전문가"
+trait_track_logistician_desc:0 "공급 관리와 안전한 이동의 달인으로, 병력이 움직일 때 충분히 공급되고 안전하다는 것을 보장합니다."
+
+trait_track_military_engineer:0 "군사 엔지니어"
+trait_track_military_engineer_desc:0 "공성 전술의 숙련된 건축가로, 공성 단계의 시간과 요새 도전을 줄입니다."
+
+trait_track_aggressive_attacker:0 "공격적인 공격자"
+trait_track_aggressive_attacker_desc:0 "적을 공격하여 이점을 취하는 강렬한 지휘관으로, 더 많은 피해를 입힙니다."
+
+trait_track_unyielding_defender:0 "불굴의 수비자"
+trait_track_unyielding_defender_desc:0 "지위를 지키면서 이점을 얻는 확고한 수비자로, 손실을 줄이고 방어를 강화합니다."
+
+trait_track_forder:0 "수색병"
+trait_track_forder_desc:0 "물 장애물을 효과적으로 통과하는 지휘관으로, 속도를 유지하고 예측할 수 없는 지형에서 기회를 잡습니다."
+
+trait_track_flexible_leader:0 "유연한 지도자"
+trait_track_flexible_leader_desc:0 "지형의 단점을 최소화하고 다양한 지형에서 전투 효율성을 최적화하는 적응력 있는 지도자입니다."
+
+trait_track_desert_warrior:0 "사막 전사"
+trait_track_desert_warrior_desc:0 "사막 전투에 특화된 전사로, 건조한 환경에 특유의 이점을 활용하고 도전을 완화합니다."
+
+trait_track_jungle_stalker:0 "정글 추적자"
+trait_track_jungle_stalker_desc:0 "정글 전쟁에 능숙한 은밀한 지휘관으로, 지형을 이용하고 밀림 속에서 손실을 최소화합니다."
+
+trait_track_reaver:0 "약탈자"
+trait_track_reaver_desc:0 "적대적인 영토에서 살아남으며, 적을 공포에 떨게 하고 기동성을 극대화하는 대담한 약탈자입니다."
+
+trait_track_reckless:0 "무모한"
+trait_track_reckless_desc:0 "대담하고 공격적인 지도자로, 종종 큰 대가를 치르더라도 위험을 감수하고 전투를 한계까지 밀어붑니다."
+
+trait_track_holy_warrior:0 "성전사"
+trait_track_holy_warrior_desc:0 "신앙으로 사기와 효율성을 향상시키는 경건한 지휘관으로, 신성한 영감과 결의를 가지고 이끕니다."
+
+trait_track_open_terrain_expert:0 "평야 전문가"
+trait_track_open_terrain_expert_desc:0 "평야 전투에 능숙한 지휘관으로, 이점을 활용하고 넓고 장애물이 없는 지형에서 전략을 최적화합니다."
+
+trait_track_rough_terrain_expert:0 "험준한 지형 전문가"
+trait_track_rough_terrain_expert_desc:0 "난폭한 지형을 탐색하고, 이점을 얻으며, 울퉁불퉁한 지형에서의 위험을 최소화하는 숙련된 지휘관입니다."
+
+trait_track_forest_fighter:0 "숲 전사"
+trait_track_forest_fighter_desc:0 "밀림 전투에 숙련된 베테랑 전사로, 이점을 활용하고 숲 지형에서 효과적으로 기동합니다."
+
+trait_track_cautious_leader:0 "신중한 지도자"
+trait_track_cautious_leader_desc:0 "위험과 손실을 최소화하기 위해 신중한 지휘관으로, 전술적이고 신중한 전투 방식을 보장합니다."
+
+trait_track_organizer:0 "조직가"
+trait_track_organizer_desc:0 "움직임과 철수를 조직하는 데 능숙한 지휘관으로, 기동성을 극대화하고 손실을 최소화합니다."
+
+trait_track_winter_soldier:0 "겨울 전사"
+trait_track_winter_soldier_desc:0 "혹독한 겨울 조건에 익숙한 경계된 전사로, 이점을 활용하고 얼어붙은 지형에서 인내심을 유지합니다."
+
+trait_track_zealot:0 "열광자"
+trait_track_zealot_desc:0 "열광의 길을 걸어가는 이 지휘관은 자신의 헌신에 점점 더 열정적이 되어, 그들의 부대에 불굴의 헌신과 열정을 일으킵니다."

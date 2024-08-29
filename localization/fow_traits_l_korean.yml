@@ -1,0 +1,67 @@
+﻿l_korean:
+
+task_train_commanders_effect_desc:3 "\n\n#P [SCOPE.ScriptValue('marshal_train_commanders_monthly_chance_value')|1P]% 개선의 기회가 있거나, 매달 새로운 [commander|E] 또는 [knight|E]를 찾을 확률\n$TAB$[martial_skill|E]의 고문: #P +[SCOPE.ScriptValue('marshal_train_commanders_monthly_chance_value_base')|2P]%\n\n#[SCOPE.ScriptValue('marshal_train_commanders_trait_track_increase')|1P] 매월 [commander|E] 또는 [knight|E] 특성 트랙 경험치\n"
+
+trait_mapper:0 "지도 제작자"
+trait_mapper_desc:0 "이 캐릭터는 어떤 지형에서도 장점을 살리는 데 능숙합니다."
+trait_mapper_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]은(는) 어떤 지형에서도 장점을 살리는 데 능숙합니다."
+
+trait_observant_pathfinder:0 "주의 깊은 길잡이"
+trait_observant_pathfinder_desc:0 "군대를 지휘할 때, 이 캐릭터는 항상 길을 찾습니다... 적에게, 떨어져 나가거나, 또는 우회합니다."
+trait_observant_pathfinder_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]은(는) 항상 길을 찾습니다... 적에게, 떨어져 나가거나, 또는 우회합니다."
+
+trait_respected_leader:0 "존경받는 지도자"
+trait_respected_leader_desc:0 "이 캐릭터의 병사들은 그들의 지휘관을 높이 평가하며, 전투에서의 효율성이 증가합니다."
+trait_respected_leader_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]의 병사들은 그들의 지휘관을 높이 평가하며, 전투에서의 효율성이 증가합니다."
+
+trait_seasoned_rover:0 "경험이 많은 순회자"
+trait_seasoned_rover_desc:0 "이 캐릭터는 미지의 영역에 특화되어 있으며, 다른 사람들이 걱정할 만한 어떤 지형에서도 뛰어난 전문 기술을 축적했습니다. 그러나, 이것은 어느 정도 그의 고향을 잊어버리는 대가로 왔습니다."
+trait_seasoned_rover_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]은(는) 미지의 영역에 특화되어 있으며, 다른 사람들이 걱정할 만한 어떤 지형에서도 뛰어난 전문 기술을 축적했습니다. 그러나, 이것은 어느 정도 [Character.GetHerHis] 고향을 잊어버리는 대가로 왔습니다."
+
+trait_resolute_localist:0 "강인한 지방주의자"
+trait_resolute_localist_desc:0 "이 캐릭터는 그의 땅의 진정한 자식으로, 그의 마을과 시골을 탐험한 지 오랜 시간이 걸렸습니다. 그러나, 해외로 여행하는 것은 다른 이야기입니다..."
+trait_resolute_localist_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]은(는) 그의 땅의 진정한 자식으로, 그의 마을과 시골을 탐험한 지 오랜 시간이 걸렸습니다. 그러나, 해외로 여행하는 것은 다른 이야기입니다..."
+
+trait_relentless_pursuer:0 "끝없는 추격자"
+trait_relentless_pursuer_desc:0 "이 캐릭터는 항상 전투에서 앞으로 나아가며, 쌓인 모든 탄력을 최대한 활용하여 적을 처치합니다."
+trait_relentless_pursuer_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]은(는) 항상 전투에서 앞으로 나아가며, 쌓인 모든 탄력을 최대한 활용하여 [Character.GetHerHis] 적을 처치합니다."
+
+trait_infiltration_specialist:0 "잠입 전문가"
+trait_infiltration_specialist_desc:0 "이 캐릭터는 정보를 통해 모든 전장을 탁월하게 활용할 수 있습니다."
+trait_infiltration_specialist_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]은(는) 정보를 통해 모든 전장을 탁월하게 활용할 수 있습니다."
+
+trait_battlefield_medic:0 "전투 약사"
+trait_battlefield_medic_desc:0 "이 지휘관은 전장에서의 손상을 최소화하는 데 특화되어 있습니다."
+trait_battlefield_medic_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]은(는) 전장에서의 손상을 최소화하는 데로 알려져 있습니다."
+ 
+trait_dauntless_leader:0 "두려움 없는 지도자"
+trait_dauntless_leader_desc:0 "이 지휘관은 자신의 병사들에게 두려움을 일으킵니다. 단, 그들 스스로에게 위험이 따릅니다."
+trait_dauntless_leader_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]은(는) 자신의 병사들에게 두려움을 일으키지만, 그들 스스로에게 위험이 따릅니다."
+
+trait_crafty_commander:0 "교활한 지휘관"
+trait_crafty_commander_desc:0 "전략적으로 교활하게 유명한 이 지휘관은 항상 계획이 있는 것처럼 보입니다."
+trait_crafty_commander_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]은(는) 전략적으로 교활하게 유명합니다."
+
+trait_cautious_planner:0 "조심스러운 기획자"
+trait_cautious_planner_desc:0 "이 지휘관은 각각의 움직임을 신중하게 계획하며, 그들의 군대의 안전을 우선시합니다."
+trait_cautious_planner_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]은(는) 각각의 움직임을 신중하게 계획하며, 그들의 군대의 안전을 우선시합니다."
+
+trait_bannerlord:0 "배너로드"
+trait_bannerlord_desc:0 "권위의 상징으로 존경받으며, 이 지휘관은 존경과 충성을 명령합니다."
+trait_bannerlord_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]은(는) 권위의 상징으로 존경받습니다."
+
+trait_focus_specialist:0 "전문가"
+trait_focus_specialist_desc:0 "전쟁의 특정 측면에 특화된 이 지휘관은 선택한 분야에서 뛰어납니다."
+trait_focus_specialist_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]은(는) 특정 전쟁 측면에 특화되어 있습니다."
+
+trait_master_ambusher:0 "숙련된 매복병"
+trait_master_ambusher_desc:0 "매복 전술의 달인인 이 지휘관은 빠르고 결정적으로 공격합니다."
+trait_master_ambusher_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]은(는) 매복 전술의 달인입니다."
+
+trait_navigator:0 "항해사"
+trait_navigator_desc:0 "항해에 능통한 이 지휘관은 그들의 군대가 언제나 최적의 경로를 찾도록 보장합니다."
+trait_navigator_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]은(는) 항해에 능통하며, 그들의 군대가 언제나 최적의 경로를 찾도록 보장합니다."
+
+trait_zealot:0 "열광자"
+trait_zealot_desc:0 "자신의 목적에 헌신적인 열광적인 지휘관으로, 그들의 부대에 열정과 불굴의 헌신을 일으킵니다."
+trait_zealot_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip]은(는) 그들의 부대에 열정과 불굴의 헌신을 일으키는 열광적인 지휘관입니다."

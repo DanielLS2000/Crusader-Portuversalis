@@ -1,0 +1,99 @@
+﻿l_german:
+TRAIT_FLAG_DESC_fow_advantage_enemy_territory_flag: "[command_modifier_i|E]#medium Unkontrolliertes Gebiet #![advantage|E]: @advantage_icon!#P +3#!\n"
+TRAIT_FLAG_DESC_fow_advantage_own_territory_flag: "[command_modifier_i|E]#medium Kontrolliertes Gebiet #![advantage|E]: @advantage_icon!#P +3#!\n"
+TRAIT_FLAG_DESC_fow_disadvantage_enemy_territory_flag: "[command_modifier_i|E]#medium Unkontrolliertes Gebiet #![advantage|E]: @advantage_icon!#N -2#!\n"
+TRAIT_FLAG_DESC_fow_disadvantage_own_territory_flag: "[command_modifier_i|E]#medium Kontrolliertes Gebiet #![advantage|E]: @advantage_icon!#N -2#!\n"
+TRAIT_FLAG_DESC_fow_army_speed_per_win_flag: "[command_modifier_i|E][armee|E] #medium Bewegungsgeschwindigkeit pro gewonnenem Kampf:#!@movement_speed_icon!#P +2%#! #schwach (4 Monate)#!\n"
+TRAIT_FLAG_DESC_fow_pursue_efficiency_per_win_flag: "[command_modifier_i|E]#medium Verfolgungseffizienz pro gewonnenem Kampf:#!@pursuit_icon!#P +4%#! #schwach (4 Monate)#!\n"
+TRAIT_FLAG_DESC_fow_infiltration_specialist_flag: "Wenn die Intrige des Kommandanten @skill_intrigue_icon! [Intrige|E] höher ist als die des Landesherrn:\n[command_modifier_i|E]#medium Mindest-[Kampfwurf|E]:#!#P +4#! Belagerungsphasenzeit:#! #P -25%#!\n[command_modifier_i|E]#medium [Vorteil|E]: @advantage_icon!#P 4#!\n"
+TRAIT_FLAG_DESC_fow_supply_duration_scaling: "[command_modifier_i|E]#medium [Versorgung|E]sdauer pro 5 @skill_stewardship_icon! Staatsschatz @supply_icon!:#P +10%#!\n"
+TRAIT_FLAG_DESC_fow_master_ambusher: "[command_modifier_i|E]#medium Gegnerische Effizienz pro 5 @skill_intrigue_icon! Intrige:#P +5%#!\n"
+TRAIT_FLAG_DESC_fow_bannerlord: "[command_modifier_i|E][armee|E] #medium Bewegungsgeschwindigkeit nach Kriegserklärung:#!@movement_speed_icon!#P +10%#! #schwach (1 Jahr)#!\n[command_modifier_i|E]#medium Feindliche [Verluste|E] nach Kriegserklärung: #P +20%#! #schwach (1 Jahr)#!\n[command_modifier_i|E]#medium Angreiferischer [Vorteil|E] nach Kriegserklärung: #!@advantage_icon!#P +5#! #schwach (1 Jahr)#!\n"
+TRAIT_FLAG_DESC_fow_focus_specialist: "[command_modifier_i|E][armee|E] #medium Belagerungsphasenzeit in der feindlichen Hauptprovinz:#! #P -50%#!\n"
+trait_track_seasoned_rover_desc: "Ein nomadischer Veteran, der die Versorgungsdauern verlängert und widerstandsfähig in verschiedenen Geländearten und fernen Feldzügen ist.\n\n[command_modifier_i|E]#medium Unkontrolliertes Gebiet #![advantage|E]: @advantage_icon!#P +3#!\n[command_modifier_i|E]#medium Kontrolliertes Gebiet #![advantage|E]: @advantage_icon!#N -2#!"
+trait_track_resolute_localist_desc: "Ein Verteidiger der Heimat, der Armeen mit lokalem Wissen stärkt.\n\n[command_modifier_i|E]#medium Kontrolliertes Gebiet #![advantage|E]: @advantage_icon!#P +3#!\n[command_modifier_i|E]#medium Unkontrolliertes Gebiet #![advantage|E]: @advantage_icon!#N -2#!"
+trait_track_relentless_pursuer_desc: "Unnachgiebig in der Verfolgung, belebt Angriffe und Kühnheit und opfert Versorgung für unerbittlichen Druck.\n\n[command_modifier_i|E][armee|E] #medium Bewegungsgeschwindigkeit pro gewonnenem Kampf:#!@movement_speed_icon!#P +2%#! #schwach (4 Monate)#!\n[command_modifier_i|E]#medium Verfolgungseffizienz pro gewonnenem Kampf:#!@pursuit_icon!#P +4%#! #schwach (4 Monate)#!"
+
+ ###### MOD
+ trait_track_mapper:0 "Kartograph"
+trait_track_mapper_desc:0 "Ein Wegbereiter, der Geländevorteile und Geschwindigkeit nutzt, um Pfade zu kartieren und mit strategischem Einblick zu erobern."
+
+trait_track_observant_pathfinder:0 "Aufmerksamer Pfadfinder"
+trait_track_observant_pathfinder_desc:0 "Ein scharfes Auge für Strategie, das die Präzision im Kampf und die Verfolgungstaktiken verbessert und in meisterlicher Schlachtkunst gipfelt."
+
+trait_track_respected_leader:0 "Geachteter Anführer"
+trait_track_respected_leader_desc:0 "Auf dem Schlachtfeld verehrt, reduziert Verluste und erlangt strategische Vorteile, um martialische Größe zu erreichen."
+
+trait_track_seasoned_rover:0 "Erfahrener Nomade"
+
+trait_track_resolute_localist:0 "Entschlossener Lokalist"
+
+trait_track_relentless_pursuer:0 "Unnachgiebiger Verfolger"
+
+trait_track_infiltration_specialist:0 "Infiltrations-Spezialist"
+trait_track_infiltration_specialist_desc:0 "Ein in Intrigen gehüllter Stratege, der Kampagnen mit verborgenem Wissen orchestriert und Geheimnisse zum Sieg enthüllt."
+
+trait_track_sea_raider:0 "Seeräuber"
+trait_track_sea_raider_desc:0 "Ein seemännischer Plünderer, der sich den Ausschiffungsstrafen widersetzt, Vorräte verlängert und über schnelle Beutezüge verfügt."
+
+trait_track_battlefield_medic:0 "Schlacht-Apotheker"
+trait_track_battlefield_medic_desc:0 "Ein Heiler im Chaos, der Verluste verringert, die Moral stärkt und dem Tod mit martialischem Entschluss trotzt."
+
+trait_track_dauntless_leader:0 "Furchtloser Anführer"
+trait_track_dauntless_leader_desc:0 "Ein furchtloser Kommandant, der Mut und Widerstandsfähigkeit in Gefahrensituationen inspiriert, die Moral steigert und Verluste im Kampf mindert."
+
+ ###### VANILLA
+
+trait_track_logistician:0 "Logistiker"
+trait_track_logistician_desc:0 "Ein Meister der Versorgungslogistik und sicheren Reisen, der dafür sorgt, dass die Truppen gut versorgt und sicher unterwegs sind."
+
+trait_track_military_engineer:0 "Militäringenieur"
+trait_track_military_engineer_desc:0 "Ein versierter Architekt der Belagerungstaktik, der die Belagerungsphasen verkürzt und die Herausforderungen der Befestigungen reduziert."
+
+trait_track_aggressive_attacker:0 "Aggressiver Angreifer"
+trait_track_aggressive_attacker_desc:0 "Ein kämpferischer Kommandant, der Vorteile beim aggressiven Angriff auf Feinde gewinnt und schwerere Verluste zufügt."
+
+trait_track_unyielding_defender:0 "Unnachgiebiger Verteidiger"
+trait_track_unyielding_defender_desc:0 "Ein standhafter Verteidiger, der Vorteile beim Halten von Positionen gewinnt, Verluste reduziert und die Verteidigung stärkt."
+
+trait_track_forder:0 "Furtmeister"
+trait_track_forder_desc:0 "Ein Kommandant, der geschickt ist, Wasserhindernisse zu überqueren, die Geschwindigkeit aufrechtzuerhalten und Chancen in unberechenbarem Gelände zu nutzen."
+
+trait_track_flexible_leader:0 "Flexibler Anführer"
+trait_track_flexible_leader_desc:0 "Ein anpassungsfähiger Anführer, der Geländenachteile minimiert und die Kampfeffektivität in verschiedenen Landschaften optimiert."
+
+trait_track_desert_warrior:0 "Wüstenkrieger"
+trait_track_desert_warrior_desc:0 "Ein Krieger, der auf Wüstenkampf spezialisiert ist, Vorteile nutzt und Herausforderungen in ariden Umgebungen mildert."
+
+trait_track_jungle_stalker:0 "Dschungeljäger"
+trait_track_jungle_stalker_desc:0 "Ein heimlich agierender Kommandant, der im Dschungelkampf versiert ist, das Gelände ausnutzt und den Verschleiß in dichtem Laub minimiert."
+
+trait_track_reaver:0 "Plünderer"
+trait_track_reaver_desc:0 "Ein kühner Plünderer, der schnelle Schläge befiehlt und in feindlichen Gebieten überlebt, Feinde terrorisiert und die Mobilität maximiert."
+
+trait_track_reckless:0 "Rücksichtslos"
+trait_track_reckless_desc:0 "Ein kühner und aggressiver Anführer, der bereit ist, Risiken einzugehen und den Kampf bis an die Grenzen zu führen, manchmal mit hohen Kosten."
+
+trait_track_holy_warrior:0 "Heiliger Krieger"
+trait_track_holy_warrior_desc:0 "Ein frommer Kommandant, dessen Glaube die Moral und die Effektivität stärkt, der mit göttlicher Inspiration und Entschlossenheit führt."
+
+trait_track_open_terrain_expert:0 "Experte für offenes Gelände"
+trait_track_open_terrain_expert_desc:0 "Ein Kommandant, der in offenen Feldschlachten versiert ist, Vorteile nutzt und Strategien in weiten, unbehinderten Landschaften optimiert."
+
+trait_track_rough_terrain_expert:0 "Experte für schwieriges Gelände"
+trait_track_rough_terrain_expert_desc:0 "Ein Kommandant, der sich in der Navigation durch schwieriges Gelände auskennt, Vorteile gewinnt und Risiken in rauen Landschaften minimiert."
+
+trait_track_forest_fighter:0 "Waldkämpfer"
+trait_track_forest_fighter_desc:0 "Ein erfahrener Krieger, der im Kampf in dichten Wäldern versiert ist, Vorteile nutzt und sich effektiv in Waldbereichen bewegt."
+
+trait_track_cautious_leader:0 "Vorsichtiger Anführer"
+trait_track_cautious_leader_desc:0 "Ein umsichtiger Kommandant, der darauf bedacht ist, Risiken und Verluste zu minimieren und einen methodischen und vorsichtigen Ansatz im Krieg zu gewährleisten."
+
+trait_track_organizer:0 "Organisator"
+trait_track_organizer_desc:0 "Ein Kommandant, der geschickt ist, Bewegungen und Rückzüge zu koordinieren, die Effizienz maximiert und Verluste in Manövern minimiert."
+
+trait_track_winter_soldier:0 "Winterkämpfer"
+trait_track_winter_soldier_desc:0 "Ein gehärteter Krieger, der an raue Winterbedingungen gewöhnt ist, Vorteile nutzt und Widerstandsfähigkeit in gefrorenen Landschaften aufrechterhält."
+
+trait_track_zealot:0 "Eiferer"
+trait_track_zealot_desc:0 "Auf dem Weg des Eiferers wird dieser Befehlshaber zunehmend feurig in seiner Hingabe und inspiriert unerschütterliche Hingabe und Eifer in seinen Truppen."
