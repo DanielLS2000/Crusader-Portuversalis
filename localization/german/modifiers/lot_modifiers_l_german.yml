@@ -1,0 +1,17 @@
+﻿l_german:
+ 
+ lot_positive_opinion_1:0 "Verbesserte Beziehungen zu Vasallen"
+ lot_positive_opinion_1_desc:1 "Dieser Charakter hat positive Beziehungen zu seinen [powerful_vassals|E], wodurch er in der Lage ist, die Beziehungen zu all seinen [vassals|E] weiter zu stärken."
+ 
+ lot_positive_opinion_2:0 "Gute Beziehungen zu Vasallen"
+ lot_positive_opinion_2_desc:1 "Dieser Charakter hat gute Beziehungen zu seinen [powerful_vassals|E], wodurch er in der Lage ist, die Beziehungen zu all seinen [vassals|E] weiter zu stärken."
+ 
+ lot_positive_opinion_3:0 "Ausgezeichnete Beziehungen zu Vasallen"
+ lot_positive_opinion_3_desc:1 "Dieser Charakter hat ausgezeichnete Beziehungen zu seinen [powerful_vassals|E], wodurch er in der Lage ist, die Beziehungen zu all seinen [vassals|E] weiter zu stärken."
+ 
+ lot_negative_opinion_1:0 "Schlechte Beziehungen zu Vasallen"
+ lot_negative_opinion_1_desc:1 "Dieser Charakter hat schlechte Beziehungen zu seinen [powerful_vassals|E], was dazu führt, dass seine [vassals|E] an seiner [legitimacy|E] zweifeln."
+ 
+ lot_negative_opinion_2:0 "Angespannte Beziehungen zu Vasallen"
+ lot_negative_opinion_2_desc:1 "Dieser Charakter hat angespannte Beziehungen zu seinen [powerful_vassals|E], was dazu führt, dass seine [vassals|E] an seiner [legitimacy|E] zweifeln."
+ 

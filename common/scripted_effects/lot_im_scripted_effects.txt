@@ -1,0 +1,45 @@
+﻿# by JawwadBR #
+
+send_legitimacy_gain_message = {
+    if = {
+        limit = {
+            $POSITIVE_FLAG_TYPE$ = yes
+        }
+        send_interface_message = {
+            type = lot_msg_legitimacy_gain
+            right_icon = root
+            title = $TITLE$
+            desc = $DESC$
+        }
+    }
+    else_if = {
+        limit = { 
+            $NEGATIVE_FLAG_TYPE$ = yes
+        }
+        send_interface_message = {
+            type = lot_legitimacy_loss
+            right_icon = root
+            title = $TITLE$
+            desc = $DESC$
+        }
+    }
+    else_if = {
+        limit = { 
+            $CRITICAL_FLAG_TYPE$ = yes
+        }
+        send_interface_message = {
+            type = lot_legitimacy_loss
+            right_icon = root
+            title = $TITLE$
+            desc = $DESC$
+        }
+    }
+    else = {
+        send_interface_message = {
+            type = lot_neutral_msg_legitimacy_gain
+            right_icon = root
+            title = $TITLE$
+            desc = $DESC$
+        }
+    }
+}

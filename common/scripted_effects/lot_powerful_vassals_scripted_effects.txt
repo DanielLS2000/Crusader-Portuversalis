@@ -1,0 +1,78 @@
+﻿# by JawwadBR #
+
+increment_amount_of_powerful_vassals = {
+    set_variable = {
+        name = temp_lot_amount_of_positive_powerful_vassal
+        value = 0
+    }
+    set_variable = {
+        name = temp_lot_amount_of_negative_powerful_vassal
+        value = 0 
+    }
+    if = {
+        limit = {
+            $POSITIVE$ = yes
+        }
+        change_variable = { name =  temp_lot_amount_of_positive_powerful_vassal add = $ADD$ }
+    }
+    else = {
+        change_variable = { name =  temp_lot_amount_of_negative_powerful_vassal add = $ADD$ }
+    }
+}
+
+calculate_percentage_of_powerful_vassals_with_positive_opinion = {
+    set_variable = {
+        name = temp_lot_percentage_of_powerful_vassals_with_positive_opinion
+        value = 0
+    }
+    change_variable = { 
+        name = temp_lot_percentage_of_powerful_vassals_with_positive_opinion
+        add = $AMOUNT_OF_POSITIVE_POWERFUL_VASSAL$   
+    }
+    change_variable = { 
+        name = temp_lot_percentage_of_powerful_vassals_with_positive_opinion
+        divide = $NUMBER_OF_POWERFUL_VASSALS$   
+    }
+    change_variable = { 
+        name = temp_lot_percentage_of_powerful_vassals_with_positive_opinion
+        multiply = 100 
+    }
+}
+
+# Shoutout to --> WeeLittleSpoon <-- on paradoxplaza forum
+# for sharing his knowledge and helping me make this script the best it can be!
+get_powerful_vassal_with_negative_opinion_closest_to_zero = {
+    # Order all powerful vassals that have at most -1 opinion of root
+    ordered_powerful_vassal = {
+        limit = {
+            opinion = {
+                target = root
+                value <= -1
+            }
+            # If there is a character that has a targeting
+            # scheme against them, then, when the effect fires, it will still select them, but
+            # do nothing when it tries to save the scope
+            OR = {
+                NOT = {
+                    any_targeting_scheme = {
+                        scheme_owner = root
+                    }
+                }
+                NOT = {
+                    friendly_targeting_scheme = {
+                        scheme_owner = root
+                    }
+                }
+            }
+        }
+        # Order by opinion subtracted from 100
+        # e.g., 100 + -1 = 99; a powerful vassal with -1 will be the first result,
+        # a powerful vassal with -100 will be the last
+        order_by = {
+            value = 100
+            add = "opinion(root)" # This gets the opinion the scope character has of the (character)
+        }
+        max = 1 # Save only one result
+        save_scope_as = recipient
+    }
+}

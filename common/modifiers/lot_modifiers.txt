@@ -1,0 +1,35 @@
+﻿# by JawwadBR #
+
+## Opinion modifiers for all vassals ##
+lot_positive_opinion_1 = {
+    icon = diplomacy_positive
+
+    vassal_opinion = 5
+}
+
+lot_positive_opinion_2 = {
+    icon = diplomacy_positive
+
+    vassal_opinion = 10
+    diplomacy = minor_skill_bonus
+}
+
+lot_positive_opinion_3 = {
+    icon = diplomacy_positive
+
+    vassal_opinion = 15
+    diplomacy = medium_skill_bonus
+}
+
+lot_negative_opinion_1 = {
+    icon = diplomacy_negative
+
+    vassal_opinion = -5
+}
+
+lot_negative_opinion_2 = {
+    icon = diplomacy_negative
+
+    vassal_opinion = -10
+    diplomacy = minor_skill_penalty
+}

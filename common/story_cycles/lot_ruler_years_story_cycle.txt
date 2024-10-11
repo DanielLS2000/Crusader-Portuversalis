@@ -1,0 +1,257 @@
+﻿# by JawwadBR #
+
+lot_years_as_ruler_for_legitimacy_gain_story_cycle = {
+    on_setup = {
+        # Add variables to hold years as ruler from each tier
+        story_owner = {
+            set_variable = {
+                name = lot_years_as_ruler
+                value = 0
+            }
+            set_variable = {
+                name = lot_years_as_ruler_count
+                value = 0
+            }
+            set_variable = {
+                name = lot_years_as_ruler_duke
+                value = 0
+            }
+            set_variable = {
+                name = lot_years_as_ruler_king
+                value = 0
+            }
+            set_variable = {
+                name = lot_years_as_ruler_emperor
+                value = 0
+            }
+            add_character_flag = lot_years_as_ruler_for_legitimacy_gain_story_cycle_flag
+
+            if = {
+                limit = {
+                    has_game_rule = powerful_vassal_opinion_enabled
+                }
+                # Vassals opinion mod counter
+                set_variable = {
+                    name = lot_consecutive_legitimacy
+                    value = 0
+                }
+            }
+
+            if = { # If powerful vassal opinion matter enabled and grace period game rule active then do this
+                limit = {
+                    has_game_rule = powerful_vassal_opinion_enabled
+                    NOT = {
+                        has_game_rule = lot_grace_period_default
+                    }
+                }
+                if = {
+                    limit = {
+                        has_game_rule = lot_grace_period_1_year
+                    }
+                    add_character_flag = {
+                        flag = lot_grace_period_time_enabled_flag
+                        years = 1
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_game_rule = lot_grace_period_2_year
+                    }
+                    add_character_flag = {
+                        flag = lot_grace_period_time_enabled_flag
+                        years = 2
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_game_rule = lot_grace_period_3_year
+                    }
+                    add_character_flag = {
+                        flag = lot_grace_period_time_enabled_flag
+                        years = 3
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_game_rule = lot_grace_period_4_year
+                    }
+                    add_character_flag = {
+                        flag = lot_grace_period_time_enabled_flag
+                        years = 4
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_game_rule = lot_grace_period_5_year
+                    }
+                    add_character_flag = {
+                        flag = lot_grace_period_time_enabled_flag
+                        years = 5
+                    }
+                }
+            }
+        }
+    }
+
+	on_end = {
+        # Cleanup all unused variables after story ends
+        story_owner = {
+            remove_character_flag = lot_years_as_ruler_for_legitimacy_gain_story_cycle_flag
+            remove_variable = lot_years_as_ruler
+            remove_variable = lot_years_as_ruler_count
+            remove_variable = lot_years_as_ruler_duke
+            remove_variable = lot_years_as_ruler_king
+            remove_variable = lot_years_as_ruler_emperor
+            remove_variable = lot_amount_of_negative_powerful_vassal
+            remove_variable = lot_amount_of_positive_powerful_vassal
+            remove_variable = lot_ruler_years_tier
+            remove_variable = received_legitimacy
+            remove_variable = next_legitimacy
+            remove_variable = legitimacy_multiplier_level
+            remove_variable = lot_consecutive_legitimacy
+        }
+    }
+
+	on_owner_death = { end_story = yes }
+
+    # Effect to trigger the calculation of years as ruler and legitimacy gain
+    effect_group = {
+        triggered_effect = {
+            trigger = {
+                story_owner = {
+                    age >= lot_legitimacy_min_eligible_age
+                }
+                current_month = 1
+                current_day = 1
+            }
+            effect = {
+                story_owner = {
+                    # Remove flag just in case he still has it even as an adult
+                    if = {
+                        limit = { has_character_flag = lot_underage_not_eligible_message_prompt_flag }
+                        remove_character_flag = lot_underage_not_eligible_message_prompt_flag
+                    }
+                    calculate_years_as_ruler = yes
+                    # Trigger if it's maxed and not have critical bad
+                    if = {
+                        limit = {
+                            legitimacy >= legitimacy_max
+                            NOT = { has_character_flag = critical_bad_percentage_from_powerful_vassals_flag }
+                        }
+                        # Trigger message saying that legitimacy is maxed
+                        trigger_event = lot.005
+                    }
+                    else = {
+                        # Can't lose more legitimacy if is at 0
+                        if = {
+                            limit = {
+                                legitimacy = 0
+                                has_character_flag = critical_bad_percentage_from_powerful_vassals_flag
+                            }
+                            trigger_event = lot.005
+                        }
+                        # Calculate legitimacy gain/lose normally
+                        else = {
+                            trigger_event = lot.002
+                        }
+                    }
+
+                    # If story owner is AI trigger AI event to start improving powerful vassal opinion
+                    if = {
+                        limit = {
+                            has_character_flag = critical_bad_percentage_from_powerful_vassals_flag
+                            is_ai = yes
+                            is_ruler = yes
+                            number_of_powerful_vassals >= 1
+                        }
+                        trigger_event = lot_ai.001
+                    }
+                }
+            }
+        }
+    }
+
+    # Effect to trigger the powerful vassal opinion percentage calculation
+    effect_group = {
+        triggered_effect = {
+            trigger = { 
+                # Game Rule enabled for powerful vassal system
+                has_game_rule = powerful_vassal_opinion_enabled
+                story_owner = {
+                    age >= lot_legitimacy_min_eligible_age
+                    NOT = { # Do not trigger if ruler has grace period active
+                        has_character_flag = lot_grace_period_time_enabled_flag
+                    }
+                }
+                current_month = 12
+                current_day = 31
+            }
+            effect = {
+                story_owner = {
+                    trigger_event = lot.003
+                }
+            }
+        }
+    }
+
+    # Effect to trigger the underage prompt
+    effect_group = {
+        triggered_effect = {
+            trigger = {
+                story_owner = {
+                    NOT = {
+                        has_character_flag = lot_underage_not_eligible_message_prompt_flag
+                    }
+                    age < lot_legitimacy_min_eligible_age
+                }
+                current_month = 1
+                current_day = 1
+            }
+            effect = {
+                story_owner = {
+                    trigger_event = lot.004
+                }
+            }
+        }
+    }
+
+    # If the character is no longer a ruler story ends
+    effect_group = {
+        triggered_effect = {
+            trigger = {
+                story_owner = {
+                    is_ruler = no
+                }
+            }
+            effect = {
+                end_story = yes
+            }
+        }
+    }
+
+    # Effect to make the story owner gain positive/negative opinion mod depending on consecutive years gaining/losing legitimacy
+    # If game rule about powerful vassal is disabled this effect is not triggered
+    effect_group = {
+        triggered_effect = {
+            trigger = {
+                has_game_rule = powerful_vassal_opinion_enabled
+                story_owner = {
+                    age >= lot_legitimacy_min_eligible_age
+                    
+                    # Do not trigger if ruler has grace period active 
+                    # ruler can only gain legitimacy but not the modifier bonus
+                    NOT = {
+                        has_character_flag = lot_grace_period_time_enabled_flag
+                    }
+                }
+                current_month = 1
+                current_day = 1
+            }
+            effect = {
+                story_owner = {
+                    trigger_event = lot.006
+                }
+            }
+        }
+    }
+}

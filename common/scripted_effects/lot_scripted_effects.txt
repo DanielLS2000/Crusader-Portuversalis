@@ -1,0 +1,250 @@
+﻿# by JawwadBR #
+
+calculate_legitimacy = {
+    set_variable = {
+        name = received_legitimacy
+        value = {
+            value = root.var:legitimacy_multiplier_level
+            multiply = {
+                value = root.var:lot_ruler_years_tier
+            }
+        }
+    }
+    set_variable = {
+        name = next_legitimacy
+        value = {
+            value = root.var:legitimacy_multiplier_level
+            multiply = {
+                value = root.var:lot_ruler_years_tier
+                add = {
+                    value = 1
+                }
+                min = 1
+            }
+        }
+    }
+
+    # 
+    set_variable = {
+        name = temp_legitimacy_extra_amount
+        value = var:received_legitimacy
+    }
+
+    if = {
+        limit = {
+            has_character_flag = positive_percentage_from_powerful_vassals_flag
+        }
+        change_variable = {
+            name = received_legitimacy
+            multiply = lot_positive_opinion_for_legitimacy_gain_mod
+        }
+        change_variable = {
+            name = temp_legitimacy_extra_amount
+            subtract = var:received_legitimacy
+        }
+        change_variable = {
+            name = temp_legitimacy_extra_amount
+            multiply = -1
+        }
+        change_variable = {
+            name = next_legitimacy
+            multiply = lot_positive_opinion_for_legitimacy_gain_mod
+        }
+    }
+    else_if = { # this one ugly but oh well :/
+        limit = {
+            has_character_flag = negative_percentage_from_powerful_vassals_flag
+        }
+        # Calculate % per negative powerful vassal
+        set_variable = {
+            name = temp_negative_vassals_percentage
+            value = {
+                value = root.var:lot_amount_of_negative_powerful_vassal
+                multiply = lot_percentage_per_negative_powerful_vassal_multipler
+            }
+        }
+        set_variable = {
+            name = temp_amout_to_subtract
+            value = var:received_legitimacy
+        }
+        change_variable = {
+            name = temp_amout_to_subtract
+            multiply = var:temp_negative_vassals_percentage
+        }
+        change_variable = {
+            name = temp_amout_to_subtract
+            divide = 100
+        }
+        set_variable = {
+            name = temp_final_value
+            value = {
+                value = var:received_legitimacy
+                subtract = var:temp_amout_to_subtract
+            }
+        }
+
+        # Set received legitimacy with the new value
+        set_variable = {
+            name = received_legitimacy
+            value = var:temp_final_value
+        }
+
+        # Set the deducted amount
+        set_variable = {
+            name = temp_legitimacy_extra_amount
+            value = var:temp_amout_to_subtract
+        }
+
+        # calculate next year value
+        set_variable = {
+            name = temp_amout_to_subtract
+            value = var:next_legitimacy
+        }
+        change_variable = {
+            name = temp_amout_to_subtract
+            multiply = var:temp_negative_vassals_percentage
+        }
+        change_variable = {
+            name = temp_amout_to_subtract
+            divide = 100
+        }
+        set_variable = {
+            name = temp_final_value
+            value = {
+                value = var:next_legitimacy
+                subtract = var:temp_amout_to_subtract
+            }
+        }
+        set_variable = {
+            name = next_legitimacy
+            value = var:temp_final_value
+        }
+
+        # Remove temp variables
+        remove_variable = temp_amout_to_subtract
+        remove_variable = temp_negative_vassals_percentage
+        remove_variable = temp_final_value
+    }
+    else_if = {
+        limit = {
+            has_character_flag = critical_bad_percentage_from_powerful_vassals_flag
+        }
+        # Lose legitimacy with the amount of negative poweful vassal * by x
+        set_variable = {
+            name = received_legitimacy
+            value = {
+                value = root.var:lot_amount_of_negative_powerful_vassal
+                multiply = lot_critical_bad_negative_powerful_vassal_multipler
+            }
+        }
+    }
+}
+
+# This calculation reset the counter for higher title tier in case the ruler does not have them anymore
+calculate_years_as_ruler = {
+    # Total years as ruler - unused atm, but will leave here still
+    change_variable = {
+        name = lot_years_as_ruler
+        add = 1
+    }
+    # Years as ruler based on title tier
+    if = {
+        limit = {
+            primary_title.tier = tier_county
+        }
+        change_variable = {
+            name = lot_years_as_ruler_count
+            add = 1
+        }
+        if = {
+            limit = {
+                lot_years_as_ruler_duke > 0
+            }
+            set_variable = {
+                name = lot_years_as_ruler_duke
+                value = 0
+            }
+            set_variable = {
+                name = lot_years_as_ruler_king
+                value = 0
+            }
+            set_variable = {
+                name = lot_years_as_ruler_emperor
+                value = 0
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            primary_title.tier = tier_duchy
+        }
+        change_variable = {
+            name = lot_years_as_ruler_count
+            add = 1
+        }
+        change_variable = {
+            name = lot_years_as_ruler_duke
+            add = 1
+        }
+        if = {
+            limit = {
+                lot_years_as_ruler_king > 0
+            }
+            set_variable = {
+                name = lot_years_as_ruler_king
+                value = 0
+            }
+            set_variable = {
+                name = lot_years_as_ruler_emperor
+                value = 0
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            primary_title.tier = tier_kingdom
+        }
+        change_variable = {
+            name = lot_years_as_ruler_count
+            add = 1
+        }
+        change_variable = {
+            name = lot_years_as_ruler_duke
+            add = 1
+        }
+        change_variable = {
+            name = lot_years_as_ruler_king
+            add = 1
+        }
+        if = {
+            limit = {
+                lot_years_as_ruler_emperor > 0
+            }
+            set_variable = {
+                name = lot_years_as_ruler_emperor
+                value = 0
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            primary_title.tier = tier_empire
+        }
+        change_variable = {
+            name = lot_years_as_ruler_count
+            add = 1
+        }
+        change_variable = {
+            name = lot_years_as_ruler_duke
+            add = 1
+        }
+        change_variable = {
+            name = lot_years_as_ruler_king
+            add = 1
+        }
+        change_variable = {
+            name = lot_years_as_ruler_emperor
+            add = 1
+        }
+    }
+}

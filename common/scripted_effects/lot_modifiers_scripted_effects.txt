@@ -1,0 +1,229 @@
+﻿# by JawwadBR #
+
+calculate_consecutive_years_for_opinion_modifier = {
+    # $CALCULATION_TYPE$
+    # 1 = POSITIVE 
+    # 2 = NEGATIVE
+    # 3 = RESET
+
+    # Create variable if for some reason does not exists
+    if = {
+        limit = {
+            NOT = { exists = root.var:lot_consecutive_legitimacy }
+        }
+        root = {
+            set_variable = {
+                name = lot_consecutive_legitimacy
+                value = 0
+            }
+        }
+    }
+
+    if = {
+        limit = { $CALCULATION_TYPE$ = 1 }
+        if = { # Reset negative counter
+            limit = {
+                root.var:lot_consecutive_legitimacy < 0
+            }
+            set_variable = {
+                name = lot_consecutive_legitimacy
+                value = 0
+            }
+        }
+        # If powerful vassals positive add one into the lot_consecutive_legitimacy
+        change_variable = {
+            name = lot_consecutive_legitimacy
+            add = 1
+        }
+    }
+    else_if = {
+        limit = { $CALCULATION_TYPE$ = 2 }
+        if = { # Reset positive counter
+            limit = {
+                root.var:lot_consecutive_legitimacy > 0
+            }
+            set_variable = {
+                name = lot_consecutive_legitimacy
+                value = 0
+            }
+        }
+        # If powerful vassals negative subtract one into the lot_consecutive_legitimacy
+        change_variable = {
+            name = lot_consecutive_legitimacy
+            subtract = 1
+        }
+    }
+    else_if = {
+        limit = { $CALCULATION_TYPE$ = 3 }
+        set_variable = {
+            name = lot_consecutive_legitimacy
+            value = 0
+        }
+    }
+}
+
+add_character_modifier_opinion_by_consecutive_years = {
+    if = {
+        limit = { number_of_powerful_vassals > 0 }
+        if = { # Positive mod
+            limit = {
+                var:lot_consecutive_legitimacy >= lot_consecutive_years_legitimacy_level_1
+                NOT = { has_character_modifier = lot_positive_opinion_3 }
+            }
+            if = {
+                limit = {
+                    NOR = { 
+                        has_character_modifier = lot_positive_opinion_1 
+                        has_character_modifier = lot_positive_opinion_2
+                        has_character_modifier = lot_positive_opinion_3 
+                    }
+                    var:lot_consecutive_legitimacy < lot_consecutive_years_legitimacy_level_2
+                }
+
+                add_character_modifier_opinion = { OPINION_LEVEL = 1 }
+            }
+            else_if = {
+                limit = { 
+                    var:lot_consecutive_legitimacy >= lot_consecutive_years_legitimacy_level_2
+                    var:lot_consecutive_legitimacy < lot_consecutive_years_legitimacy_level_3
+                }
+                # Remove the older mod incase the ruler has it
+                if = {
+                    limit = { has_character_modifier = lot_positive_opinion_1  }
+                    remove_character_modifier = lot_positive_opinion_1
+                }
+
+                add_character_modifier_opinion = { OPINION_LEVEL = 2 }
+            }
+            else_if = {
+                limit = {
+                    var:lot_consecutive_legitimacy >= lot_consecutive_years_legitimacy_level_3
+                }
+                # Remove the older mod incase the ruler has it
+                if = {
+                    limit = { has_character_modifier = lot_positive_opinion_1  }
+                    remove_character_modifier = lot_positive_opinion_1
+                }
+                if = {
+                    limit = { has_character_modifier = lot_positive_opinion_2  }
+                    remove_character_modifier = lot_positive_opinion_2
+                }
+
+                add_character_modifier_opinion = { OPINION_LEVEL = 3 }
+            }
+            
+            # If ruler has a positive mod then the negative is removed
+            if = {
+                limit = { has_character_modifier = lot_negative_opinion_1 }
+                remove_character_modifier = lot_negative_opinion_1
+            }
+            if = {
+                limit = { has_character_modifier = lot_negative_opinion_2 }
+                remove_character_modifier = lot_negative_opinion_2
+            }
+
+        }
+        else_if = { # Negative mod
+            limit = {
+                var:lot_consecutive_legitimacy <= lot_negative_consecutive_years_legitimacy_level_1
+                NOT = { has_character_modifier = lot_negative_opinion_2 }
+            }
+            if = {
+                limit = {
+                    NOR = { 
+                        has_character_modifier = lot_negative_opinion_1 
+                        has_character_modifier = lot_negative_opinion_2
+                    }
+                    var:lot_consecutive_legitimacy > lot_negative_consecutive_years_legitimacy_level_2
+                }
+                add_character_modifier_opinion = { OPINION_LEVEL = -1 }
+            }
+            else_if = {
+                limit = {
+                    var:lot_consecutive_legitimacy <= lot_negative_consecutive_years_legitimacy_level_2
+                }
+                # Remove the older mod incase the ruler has it
+                if = {
+                    limit = { has_character_modifier = lot_negative_opinion_1  }
+                    remove_character_modifier = lot_negative_opinion_1
+                }
+                add_character_modifier_opinion = { OPINION_LEVEL = -2 }
+            }
+            
+            # If has any positive mod then remove
+            if = {
+                limit = { has_character_modifier = lot_positive_opinion_1 }
+                remove_character_modifier = lot_positive_opinion_1
+            }
+            if = {
+                limit = { has_character_modifier = lot_positive_opinion_2 }
+                remove_character_modifier = lot_positive_opinion_2
+            }
+            if = {
+                limit = { has_character_modifier = lot_positive_opinion_3 }
+                remove_character_modifier = lot_positive_opinion_3
+            }
+
+        }
+    }
+    else = { 
+    # Reset counter if ruler has no powerful vassals, this will ensure if the ruler lose all powerful vassal it will reset the counter too
+        if = { 
+            limit = {
+                var:lot_consecutive_legitimacy != 0
+            }
+            set_variable = {
+                name = lot_consecutive_legitimacy
+                value = 0
+            }
+        }
+    }
+}
+
+add_character_modifier_opinion = {
+    if = {
+        limit = {
+            $OPINION_LEVEL$ = 1
+        }
+        add_character_modifier = {
+            modifier = lot_positive_opinion_1
+            years = lot_minor_years_modifier
+        }
+    }
+    else_if = {
+        limit = {
+            $OPINION_LEVEL$ = 2
+        }
+        add_character_modifier = {
+            modifier = lot_positive_opinion_2
+            years = lot_major_years_modifier
+        }
+    }
+    else_if = {
+        limit = {
+            $OPINION_LEVEL$ = 3
+        }
+        add_character_modifier = {
+            modifier = lot_positive_opinion_3
+            years = lot_massive_years_modifier
+        }
+    }
+    else_if = {
+        limit = {
+            $OPINION_LEVEL$ = -1
+        }
+        add_character_modifier = {
+            modifier = lot_negative_opinion_1
+            years = lot_medium_years_modifier
+        }
+    }
+    else_if = {
+        limit = {
+            $OPINION_LEVEL$ = -2
+        }
+        add_character_modifier = {
+            modifier = lot_negative_opinion_2
+            years = lot_major_years_modifier
+        }
+    }
+}
