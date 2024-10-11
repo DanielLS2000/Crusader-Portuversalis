@@ -1,0 +1,288 @@
+﻿
+###########################################################
+# 
+# GRANADA
+# 
+###########################################################
+
+# Samuel ibn Naghrillah/Naghrela
+# RICE_granada_001 = {
+# 	name="Shmuel"
+# 	dynasty=RICE_hanagid
+# 	religion="rabbinism"
+# 	culture="sephardi"
+# 	diplomacy = 7
+# 	martial = 8
+# 	stewardship = 8
+# 	intrigue = 5
+# 	learning = 8
+# 	trait=education_learning_4
+# 	trait=intellect_good_2
+# 	trait=poet
+# 	trait=scholar
+# 	#disallow_random_traits = yes
+# 	993.6.1={ # Year known, date unknown???
+# 		birth=yes
+# 	}
+# 	1056.7.5={ # Year known, date unknown???
+# 		death=yes
+# 	}
+# }
+
+# # Joseph ibn Naghrillah/Naghrela
+# RICE_granada_002 = {
+# 	name="Yosef"
+# 	dynasty=RICE_hanagid
+# 	religion="rabbinism"
+# 	culture="sephardi"
+# 	diplomacy = 5
+# 	martial = 3
+# 	stewardship = 7
+# 	intrigue = 3 # Number of failed intrigues
+# 	learning = 7
+# 	prowess = 4
+# 	trait=education_learning_4
+# 	trait=intellect_good_1
+# 	trait=arrogant # Described by Jewish sources of the time as being capable enough but arrogant unlike his father
+# 	trait=zealous
+# 	trait=fickle
+# 	trait=poet
+# 	trait=scholar
+# 	#disallow_random_traits = yes
+# 	father=RICE_granada_001
+# 	1035.9.15={ # Known date
+# 		birth=yes
+# 	}
+# 	1058.1.1 = {
+# 		add_spouse = RICE_granada_004
+# 	}
+# 	1066.1.1 = {
+# 		employer = 45016
+# 		effect = {
+# 			set_relation_friend = character:45016
+# 			#set_relation_rival = character:RICE_granada_003
+# 		}
+# 	}
+# 	1066.12.30={ # Murdered by a mob
+# 		death = {
+# 			death_reason = death_murder
+# 		}
+# 	}
+# }
+
+# # Joseph ibn Naghrilla's father in law
+# RICE_granada_003 = {
+# 	name="Nissim"
+# 	religion="rabbinism"
+# 	culture="sephardi"
+# 	trait=education_learning_4
+# 	990.9.9={ # Known year
+# 		birth=yes
+# 	}
+# 	1062.3.4={ # Known year
+# 		death=yes
+# 	}
+# }
+
+# # Joseph ibn Naghrilla's wife
+# RICE_granada_004 = {
+# 	name="Rachel" # Can't find her name
+# 	female=yes
+# 	religion="rabbinism"
+# 	culture="sephardi"
+# 	father=RICE_granada_003
+# 	1035.7.9={ # Unknown, but marriage to Joseph was arranged in 1049
+# 		birth=yes
+# 	}
+# 	1066.1.1 = {
+# 		employer = 45016
+# 	}
+# 	1099.8.7={ # Unknown, but fled to Lucena in Cordoba with her son
+# 		death=yes
+# 	}
+# }
+
+# # Joseph ibn Naghrilla's son
+# RICE_granada_005 = {
+# 	name="Azariah"
+# 	dynasty=RICE_hanagid
+# 	religion="rabbinism"
+# 	culture="sephardi"
+# 	father=RICE_granada_002
+# 	mother=RICE_granada_004
+# 	trait=intellect_good_1
+# 	1060.5.4={ # Unknown, but died young in Cordoba soon after the massacre
+# 		birth=yes
+# 	}
+# 	1066.1.1 = {
+# 		employer = 45016
+# 	}
+# 	1070.10.7={ # Unknown
+# 		death=yes
+# 	}
+# }
+
+# Abu Ishaq - maybe have him spawn?
+# RICE_granada_005 = {
+# 	name="Abu_Ishaq"
+# 	religion="muwalladi"
+# 	culture="andalusian"
+# 	stewardship = 5
+# 	trait=education_learning_3
+# 	trait=zealous
+# 	trait=vengeful
+# 	trait=wrathful
+# 	trait=poet
+# 	1032.4.5={ # Unknown
+# 		birth=yes
+# 	}
+# 	1067.6.7={ # Sometime in 1067
+# 		death=yes
+# 	}
+# }
+
+
+# Hafsa bint al-Hajj al-Rukuniyya, famous female Granadan poet
+RICE_granada_006 = {
+	name="Hafsa"
+	female=yes
+	dynasty=RICE_al_rukuniyya_dynasty
+	religion="muwalladi"
+	culture="andalusian"
+	learning=7
+	trait=education_diplomacy_4
+	trait=generous 	# Said to be kind and would write poetry for people on request
+	trait=calm	 	# Said to be refined and have good manners
+	trait=diligent	# One of the best attested medieval Islamic female poets
+	#trait=chaste 	# Mourning the death of Abu Jafar
+	trait=beauty_good_3
+	trait=poet
+	trait=intellect_good_2
+	father=RICE_granada_007
+	1138.9.17={ # Born around or after 1135, I gave her a few years after 1135 so there's a chance she can have kids
+		birth=yes
+		effect = { add_character_flag = do_not_generate_starting_family }
+	}
+	# After Uthman, son of Abd al-Mu'min and then governor of Granada, killed her lover Abu Jafar following a love triangle
+	1163.1.1 = {	 
+		set_relation_rival = character:155086
+		effect = {
+			add_character_modifier = {
+				modifier = RICE_granada_hafsa_mourning
+			}
+		}
+	}
+	1191.12.13={ # Roughly
+		death=yes
+	}
+}
+
+# Hafsa's father, al-Hajj, who was a rich and noble Berber
+RICE_granada_007 = {
+	name="al-Hajj"
+	dynasty=RICE_al_rukuniyya_dynasty
+	religion="muwalladi"
+	culture="baranis"
+	1102.6.26={ # Unknown
+		birth=yes
+	}
+	1171.3.30={ # Unknown
+		death=yes
+	}
+}
+
+
+# Solomon ibn Gabirol
+# Famous Jewish Andalusian philosopher and poet in the Neo-platonist tradition
+RICE_granada_008 = {
+	name="Solomon"
+	dynasty=RICE_ibn_gabirol_dynasty
+	religion="rabbinism"
+	culture="sephardi"
+	diplomacy = 1 # Was said to be a social misfit
+	learning = 7
+	trait=education_learning_4
+	trait=cynical 			# Said to be a pretty bitter guy and sarcastic
+	trait=shy 				# Said to be anti-social
+	trait=arrogant 			# Boastful and made many enemies
+	trait=beauty_bad_2		# Considered himself ugly
+	trait=physique_bad_2	# Said to be physically frail and sickly
+	trait=intellect_good_2 	# Smart dude
+	trait=poet
+	1022.2.2={ # Late 1021 or early 122
+		birth=yes
+		effect = { add_character_flag = do_not_generate_starting_family }
+	}
+	1070.1.1={ # Death is uncertain but either 1050, 1054-1058 or 1069/1070 - obviously, I'm going with the latter so he's alive in 1066
+		death = {
+			death_reason = death_murder 	# According to legend, either trampled by an Arab horseman or murdered by a Muslim poet jealous of his talents
+		}
+	}
+}
+
+
+
+###########################################################
+# 
+# MISC ANDALUSIANS
+# 
+###########################################################
+
+# Ibn Jubayr, traveler, pilgrim, and scholar who was initially a civil servant for the Almohad governor of Granada
+RICE_andalusia_misc_001 = {
+	name="Abu_Husayn"
+	dynasty=RICE_ibn_jubayr_dynasty
+	religion="muwalladi"
+	culture="andalusian"
+	trait=education_stewardship_3
+	trait=zealous
+	1145.9.1={ # Known
+		birth=yes
+	}
+	1178.1.1 = {
+		employer = almohad_4
+	}
+	1217.11.29={ # Known
+		death = yes
+	}
+}
+
+# Abu al-Qasim Abbas Ibn Firnas, polymath and poet
+# Added in vanilla
+# RICE_andalusia_misc_002 = {
+# 	name="abu_al_qasim_abbas"
+# 	dynasty=RICE_ibn_firnas_dynasty
+# 	religion="muwalladi"
+# 	culture="andalusian"
+# 	trait=education_learning_4
+# 	trait=intellect_good_1
+# 	810.12.12={ # Unknown
+# 		birth=yes
+# 	}
+# 	887.6.5={ # Unknown
+# 		death = yes
+# 	}
+# }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

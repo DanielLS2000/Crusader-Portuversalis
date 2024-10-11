@@ -1,0 +1,33 @@
+﻿RICE_trans_saharan_trade_legacy_track = {
+	is_shown = {
+		is_landed = yes
+		dynasty = {
+			#has_global_variable = RICE_debug_testing_on
+			OR = {
+				dynast = {
+					# capital_province = {
+					# 	OR = {
+					# 		geographical_region = world_africa_north
+					# 		geographical_region = world_africa_sahara
+					# 		geographical_region = ghw_region_the_sahel	
+					# 		geographical_region = ghw_region_north_african_interior	
+					# 	}
+					# }					
+					any_held_title = {
+						tier = tier_county
+						any_county_province = {
+							geographical_region = RICE_trans_saharan_trade_region
+							# OR = {
+							# 	geographical_region = world_africa_north
+							# 	geographical_region = world_africa_sahara
+							# 	geographical_region = ghw_region_the_sahel	
+							# 	geographical_region = ghw_region_north_african_interior			
+							# }
+						}
+					}
+				}
+				has_dynasty_perk = RICE_trans_saharan_trade_legacy_1
+			}
+		}
+	}
+}
