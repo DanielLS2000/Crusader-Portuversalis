@@ -1,0 +1,150 @@
+﻿l_english:
+mod_counterfactuals:0 "Counterfactuals"
+
+#100: Byzantines
+  counterfactuals.102.t:0 "Fall of Rome"
+  counterfactuals.102.desc:0 "The political turmoil in Greece has proven too much for the ancient empire to bear, precipitating a complete collapse of imperial authority. While [former_byzantine_emperor.GetFirstNameNicknamedRegnal] still maintains the pretense of being the legitimate Emperor of the Romans, the region has largely devolved into a mess of squabbling lords as local governors are left to fend for themselves.\n\nThere is no telling whether this is a mere setback, or the final end of the great Roman Empire."
+  counterfactuals.102.a:0 "Perhaps it is for the best."
+  counterfactuals.102.b:0 "The empire is ours for the taking!"
+  counterfactuals.102.c:0 "A shocking development to be sure."
+  counterfactuals.102.seljuk:0 "Our ancient enemies laid low..."
+  counterfactuals.102.d:0 "I am still the rightful emperor!"
+  counterfactuals.103.t:0 "Fall of Rome"
+  counterfactuals.103.desc:0 "The political turmoil in Greece has proven too much for the ancient empire to bear, precipitating a complete collapse of imperial authority. With [constantinople_holder.GetFullNameRegnal] in control of Constantinople, [former_byzantine_emperor.GetFirstNameNicknamedRegnal] has lost all legitimacy, leaving the imperial throne effectively vacant.\n\nWith the former lands of the empire devolving into a mess of squabbling lords, the future of region seems to be in the hands of [constantinople_holder.GetPrimaryTitle.GetName] for now."
+  counterfactuals.103.desc.mongol:0 "The Great Khan has swept away the ancient empire of the Romans, seizing its lands through brutal conquest. With [former_byzantine_emperor.GetFirstNameNicknamedRegnal] having fled into exile, the imperial throne has been effectively abolished, and all its former subjects have been forced to bend the knee to [constantinople_holder.GetFullNameRegnal].\n\nIt remains to be seen whether the local lords will accept this new situation, or if the imperial cause will be taken up by a new Greek pretender."
+  counterfactuals.103.a:0 "We must adapt to this new reality."
+  counterfactuals.103.b:0 "We will drive out the invaders and reforge the empire!"
+  counterfactuals.103.c:0 "We are the new masters here!"
+  counterfactuals.103.d:0 "Will the empire ever rise again?"
+  counterfactuals.104.t:0 "End of Rome"
+  counterfactuals.104.desc:0 "Having seized the title for [constantinople_holder.GetHerselfHimself], [constantinople_holder.GetFullNameRegnal] has declared that the title of Emperor of the Romans be abolished, and its lands annexed directly into [constantinople_holder.GetPrimaryTitle.GetName].\n\nIt remains to be seen whether the local lords will accept this new status, or if the imperial throne will be taken up by a new Greek pretender."
+
+#200: Mongols
+  counterfactuals.202.t:0 "Mongols Sack [mongol_sacked_barony.GetNameNoTierNoTooltip]"
+  counterfactuals.202.a:0 "[ROOT.Char.GetFaith.HighGodName] protect us!"
+  counterfactuals.202.b:0 "The scourge of [ROOT.Char.GetFaith.HighGodName] is upon us!"
+  counterfactuals.202.c:0 "We shall ride eternal!"
+  counterfactuals.200.mongolsack.tooltip:0 "#N Up to three buildings in [mongol_sacked_barony.GetName] are downgraded or destroyed.#!"
+# Mongols sack Kiev
+  counterfactuals.202.kyiv:0 "The Mongol scourge has poured through the Golden Gates of [mongol_sacked_barony.GetNameNoTier] and sacked the once proud trading hub. The city has been left a smoldering ruin and the Dnieper now runs red with the blood of its former inhabitants."
+# Mongols sack Novgorod
+  counterfactuals.202.novgorod:0 "[mongol_sacked_barony.GetNameNoTier] has been stormed by the Tartar horde and both the city and its population are now suffering beyond measure. The Cathedral of Saint Sophia is engulfed in flames as the steppe warriors loot that which can be carried away and put the rest to the torch."
+# Mongols sack Krakow
+  counterfactuals.202.krakow:0 "The Mongols continue their push beyond the Vistula and into Poland. [mongol_sacked_barony.GetNameNoTier] has now fallen to the invaders, and it is said that at night the flames from the burning city can be seen from untold leagues away."
+# Mongols sack Aachen
+  counterfactuals.202.aachen:0 "Even [mongol_sacked_barony.GetNameNoTier], the former seat of Charlemagne's great Carolingian empire, has fallen under the shadow of the Mongol scourge. His spirit must surely be weeping at the atrocities now being committed within the city's walls."
+# Mongols sack Paris
+  counterfactuals.202.paris:0 "Like a swarm of locusts, the unstoppable Mongols have descended upon [mongol_sacked_barony.GetNameNoTier] and sacked the city, setting the still unfinished Notre Dame Cathedral ablaze. Under the light provided by the rest of the burning city, the Mongol warriors continued looting and murdering well into the night."
+# Mongols sack London
+  counterfactuals.202.london:0 "Not even the sea has proved a formidable enough barrier to halt the Mongol advance. [mongol_sacked_barony.GetNameNoTier] has fallen to their vanguard and the city is now the scene of a slaughter on a scale unrivaled since the days of Queen Boudica and her rebellion."
+# Mongols sack Rome
+  counterfactuals.202.rome:0 "Once more [mongol_sacked_barony.GetNameNoTier] suffers at the cruel hands of eastern barbarians. The Mongols have breached the Aurelian Walls, and their horses are now grazing on the field of the Circus Maximus while they raise their yurts on the Palatine Hill.\n\nAs expected, no mercy is shown to those Romans who have not yet fled the city. The blood of its former inhabitants runs freely down the gutters and into the Tiber."
+# Mongols sack Venice
+  counterfactuals.202.venice:0 "The grand canals of [mongol_sacked_barony.GetNameNoTier] have been filled with the bloated corpses of the dead as the city is sacked by frenzied Mongol warriors. The riches of the Doge's Palace were stripped bare and claimed by the Great Khan as the spoils of victory, along with all the remaining ships of the great Venetian navy.\n\nThose few fortunate enough to have escaped the slaughter claim the bodies are packed tightly enough in the Venetian Lagoon for the Mongols to ride to and from the mainland as they please!"
+# Mongols sack Constantinople
+  counterfactuals.202.constantinople:0 "The Theodosian Walls have not been enough to spare [mongol_sacked_barony.GetNameNoTier] from the vile touch of the Tartar scourge. The great imperial capital has been sacked, its citizens butchered or enslaved, the Hagia Sophia defiled and the Great Palace of the emperors put to the torch."
+# Mongols sack Lisbon
+  counterfactuals.202.lisbon:0 "The Mongols have now reached as far west as [mongol_sacked_barony.GetNameNoTier] in their conquests. While the city burns at their touch, the steppe warriors look out over the great blue expanse of the Atlantic.\n\nWho can tell where they will turn next?"
+# Mongols sack Smolensk
+  counterfactuals.202.smolensk:0 "[mongol_sacked_barony.GetNameNoTier] has been swallowed up by the Mongol hordes as they continue their relentless advance to the west. When the great host finally moves on, little remains of the city but ashes and charred rubble, and those lucky few inhabitants who somehow escaped the notice of the rampaging horsemen."
+# Mongols sack Prague
+  counterfactuals.202.prague:0 "The city of [mongol_sacked_barony.GetNameNoTier] has become a beacon of light in an otherwise dark world, as the Mongol barbarians move from house to house and set fire to everything not yet looted. A flood of refugees spread horrific tales about the cruelty of the bloodthirsty Tartar horsemen to every corner of Europe."
+# Mongols sack Vienna
+  counterfactuals.202.vienna:0 "[mongol_sacked_barony.GetNameNoTier], a city of growing importance on the Danube river, has become the latest victim of the Mongol hordes as they continue to pillage and burn their way across Europe. The smoking ruins and arrow-riddled corpses they leave behind when they move on do not lend much faith in the city's future prospects."
+# Mongols sack Esztergom
+  counterfactuals.202.esztergom:0 "The Mongols have reached beyond the Carpathians and fanned out across the Great Hungarian Plain. Now the city of [mongol_sacked_barony.GetNameNoTier] has fallen to the murderous host and is the scene of indiscriminate slaughter. Those that attempt to flee on foot are cut down without mercy by the fast horsemen as dark, billowing smoke rises towards the sky above the city."
+# Mongols sack Athens
+  counterfactuals.202.athens:0 "The ancient city of [mongol_sacked_barony.GetNameNoTier] has fallen to the Mongols, and they now rampage unchecked behind its walls. Great monuments and artifacts dating back to the dawn of Western Civilisation are lost forever in a cultural desecration that will surely be felt by future generations thousands of years from now."
+# Mongols sack Belgrade
+  counterfactuals.202.belgrade:0 "The "White City" has turned red as the Mongol invaders seize [mongol_sacked_barony.GetNameNoTier] and massacre the inhabitants without exception. After several days of slaughter and looting, the smell of death and rotting flesh proved too much even for the Mongols to bear, spurring them to move on from the ravaged city."
+# Mongols sack Baghdad
+  counterfactuals.202.baghdad:0 "The great city of [mongol_sacked_barony.GetNameNoTier], one of the world's foremost centers of learning, has succumbed to the ravenous Mongol hordes after a siege. Nothing can sate their appetite for destruction it seems. The Tigris river runs not only red with blood, but black with the ink of priceless and irreplaceable tomes from the House of Wisdom and the city's other great libraries.\n\nOnly ruins have been left behind, as if to signal the worth of old knowledge in the new world of the Mongols."
+# Mongols sack Damascus
+  counterfactuals.202.damascus:0 "[mongol_sacked_barony.GetNameNoTier], the ancient City of Jasmine, has been sacked by the advancing Mongols. They have gathered a colossal pile of severed heads on a field just outside the city walls, now renamed "burj al-ru'us" by the massacre's few survivors - the Tower of Heads."
+# Mongols sack Jerusalem
+  counterfactuals.202.jerusalem:0 "The Tartars have sacked [mongol_sacked_barony.GetNameNoTier] in a cyclone of violence. Christian, Jew, and Muslim alike were slaughtered alike, and their houses of worship looted and burned. The Great Khan's religious tolerance does not extend to [mongol_emperor.GetHerHis] enemies, as evidenced by the columns of smoke now rising over the most holy of cities."
+# Mongols sack Alexandria
+  counterfactuals.202.alexandria:0 "Not content with their vast empire surpassing Alexander the Great's in sheer size, the Mongol hordes are now laying waste to the city that is his namesake as well. Pompey's Pillar has been toppled, but at least the Pharos Lighthouse was spared when the Mongols deemed it not worth the great effort it would require to raze it to the ground."
+# Mongols sack Cairo
+  counterfactuals.202.cairo:0 "Riding through the fertile Nile Delta, the Tartar hordes have arrived at the Great Pyramids of Giza and breached the gates of [mongol_sacked_barony.GetNameNoTier]. Surely even the cruelest Pharaoh would be given pause by the pain and misery now inflicted on the city's hapless population."
+# Mongols sack Mecca 
+  counterfactuals.202.mecca:0 "The Holy City of [mongol_sacked_barony.GetNameNoTier] now burns at the cruel touch of the Mongol infidels. Pilgrims journeying from distant lands to show their submission to Allah are met only with death when approaching the city gates. This unforgivable desecration will be remembered for ages to come."
+# Mongols sack Delhi
+  counterfactuals.202.delhi:0 "The Mongol hordes have crossed the Indus and sacked [mongol_sacked_barony.GetNameNoTier]! Fanning out across the countryside, the roving warriors stole every morsel of food and enslaved every unfortunate soul they could lay their hands on.\n\nAfter slaughtering the inhabitants of the city, the mongol commander ordered the ancient Iron Pillar of Delhi torn down and transported back to Karakorum as a trophy of their victory."
+# Mongols sack Tanjavur
+  counterfactuals.202.tanjavur:0 "The great Tamil city of [mongol_sacked_barony.GetNameNoTier] has been pillaged by mongol armies. Brihadeeswarar Temple has been picked clean of all of its relics and treasures, and its grounds desecrated with the blood of holy men."
+# Mongols sack Dublin
+  counterfactuals.202.dublin:0 "The Mongols continue their conquest across the sea, and have now laid waste to [mongol_sacked_barony.GetNameNoTier] in their insatiable lust for bloodshed. With the port put to the torch, roving gangs of mounted bandits freely terrorize and burn the countryside.\n\nWith the British Isles trampled underhoof, only the Atlantic stands opposed to [mongol_emperor.GetNameRegnal] now."
+# Mongols sack Reykjavik
+  counterfactuals.202.reykjavik:0 "Even at the edge of the known world, [mongol_sacked_barony.GetNameNoTier] could not escape the grip of mongol terror. Iceland's brutal terrain provides a safe haven for the lucky few who have managed to flee into the hills, but with the port town reduced to ash, they have little hope for future recovery.\n\nUpon hearing tales of even more distant lands to the west, the mongol commander ordered the construction of a fleet that could carry the mongol hordes all the way to Greenland and Vinland. Will this madness never end?"
+# Mongols sack Samarkand
+  counterfactuals.202.samarkand:0 "The ancient city of [mongol_sacked_barony.GetNameNoTier] has fallen to the Great Khan. The mongol invaders ransacked the city and forced all of its skilled craftsmen into slavery to serve their growing empire. Those who bravely resisted within the citadel, or took shelter in the mosques, were slaughtered without mercy."
+# Mongols raze Nishapur
+  counterfactuals.202.nishapur:0 "The Great Khan has chosen to make an example of [mongol_sacked_barony.GetNameNoTier], ordering the city completely destroyed in a brutal 10 days of carnage. Every single resident was beheaded and their skulls piled in great mounds outside the gates. Even cats and dogs were put to death, and their heads added to the piles."
+  counterfactuals.202.nishapur.tooltip:0 "#N [county.GetName] is reduced to 0 Development.#!"
+# Mongols sack Timbuktu
+  counterfactuals.202.timbuktu:0 "The Mongols have crossed the Sahara and brought their reign of destruction unto [mongol_sacked_barony.GetNameNoTier]. During the ruthless sack of the city, the University of Sankoré was looted and leveled to the ground.\n\nHaving crossed into a fresh new grassland, can anything stop the terrible conquests of [mongol_emperor.GetNameRegnal]?"
+# Mongols sack Dagon
+  counterfactuals.202.dagon:0 "The spiritual center of [mongol_sacked_barony.GetNameNoTier] burned for five days after the mongols were done looting its temples and shrines. None could escape the tartar savagery, even the sturdy Shwedagon Pagoda that has stood for centuries was severely damaged in the carnage.\n\nWith the Indian Ocean to their south, and the dense jungles looming in the east, have the Mongols finally conquered to the ends of the earth?"
+# Mongols sack Cordoba
+  counterfactuals.202.cordoba:0 "The jewel of Al-Andalus has been sundered by the ever-advancing Mongols. Those who failed to flee into the countryside have been tortured and executed at the whims of the barbarians. The Great Mosque is said to be piled high with the bodies of the dead."
+
+### 300: HRE
+counterfactuals.301.t:0 "To [hre_emperor.GetFirstNameRegnal],"
+counterfactuals.301.desc:0 "Your brazen conversion to [hre_emperor.GetFaith.GetName] is deeply concerning. The imperial crown was bestowed upon you by the grace of God and the [pope.GetFaith.GetAdjectiveNoTooltip] Church! If you forsake our Lord, then you are also giving up any right to call yourself Emperor of the Romans! For the sake of Christendom and your immortal soul, I implore you to recant this madness immediately."
+# counterfactuals.301.desc:0 "It seems that news of my conversion to [hre_emperor.GetFaith.GetName] has attracted the attention of [pope.GetTitledFirstNameRegnal]. A papal legate has delivered a message from his holiness demanding that I recant and return to the [pope.GetFaith.GetAdjective] fold. It even suggests that I should personally travel to [pope.GetCapitalLocation.GetName] to beg for forgiveness from the Lord, for the sake of my eternal soul.\n\nThe pope claims that my entire position as Emperor of the Romans is by the grace of God and the [pope.GetFaith.GetAdjectiveNoTooltip] Church, and if I do not immediately reverse course, his holiness will be forced to take drastic action."
+counterfactuals.301.a:0 "I must beg for forgiveness."
+counterfactuals.301.b:0 "No! [ROOT.Char.GetFaith.HighGodName]'s will is clear to me now!"
+counterfactuals.301.b.cynical:0 "The Pope's words are as empty as his scriptures."
+counterfactuals.301.c:0 "Even if we disagree on some matters, I still recognize Papal authority."
+counterfactuals_submitted_to_pope_modifier:0 "Returned to Catholicism"
+counterfactuals.301.b.tooltip:0 "#N @warning_icon! The Pope will not accept an apostate claiming the title of Holy Roman Emperor!#!"
+e_german_apostate:0 "German Empire"
+e_german_apostate_article:0 "the "
+e_german_apostate_adj:0 "German"
+e_german_apostate_pre:0 "Germano"
+counterfactuals.302.t:0 "The Unholy Emperor"
+counterfactuals.302.desc:0 "[pope.GetTitledFirstNameRegnal] has issued a shocking declaration that [hre_emperor.GetTitledFirstNameRegnal] is to be stripped of [hre_emperor.GetHerHis] imperial title! The emperor, having brazenly converted to [hre_emperor.GetFaith.GetName], has rejected God and the Church, and thus forfeited [hre_emperor.GetHerHis] role as Emperor of the Romans!\n\nWhile [hre_emperor.GetTitledFirstNameRegnal] retains control of their lands for now as an illegitimate emperor, [hre_emperor.GetSheHe] surely can not hold on to power for long."
+counterfactuals.302.a:0 "Such outrage!"
+counterfactuals.302.b:0 "Damn the Pope!"
+counterfactuals.302.c:0 "Squabbling Fools."
+counterfactuals.303.t:0 "The Unholy Empire"
+counterfactuals.303.desc:0 "[pope.GetTitledFirstNameRegnal] has issued a shocking declaration that I have forfeited the title of Emperor of the Romans! Claiming that none who reject God and the Church can be considered legitimate, the Pope has denounced me as an "unholy german pretender" to imperial rule.\n\nObviously I will continue to rule as Emperor in my own name, but this pronouncement is sure to seriously undermine my authority over any remaining Catholics in my realm."
+counterfactuals.303.a:0 "I'll show you unholy..."
+counterfactuals_false_emperor_modifier:0 "False Emperor"
+counterfactuals_false_emperor_modifier_desc:0 "You are maintaining the pretense of being Holy Roman Emperor as a non-Catholic."
+counterfactuals_false_emperor_opinion:0 "False Emperor"
+false_emperor_opinion.tooltip:0 "Every [vassal|E] who heeds the words of [pope.GetTitledFirstNameRegnal] lost #N 50 #![opinion|E] of [hre_emperor.GetNameOrMe] #italic;weak (False Emperor)#!"
+# counterfactuals.304.t:0 "Prospective Emperors"
+# counterfactuals.304.desc:0 "The false emperor must be brought down. I will bestow the title of Emperor of the Romans upon a suitable Catholic lord."
+# counterfactuals.304.francia:0 "Francia"
+# counterfactuals.304.german:0 "German Prince"
+# counterfactuals.304.france:0 "France"
+counterfactuals.304.t:0 "To the esteemed [ROOT.Char.GetFirstNameRegnal],"
+counterfactuals.304.desc:0 "In light of the apostasy of [hre_emperor.GetTitledFirstNameRegnal], I have decided to rescind [hre_emperor.GetHerHis] title of Emperor of the Romans and instead offer it to you. I implore you to accept this great honor and move against the German pretender without delay."
+counterfactuals.304.a:0 "Deus Vult!"
+counterfactuals.304.b:0 "I cannot accept this."
+counterfactuals.305.t:0 "A New Emperor?"
+counterfactuals.305.desc:0 "In an attempt to dislodge the illegitimate [hre_emperor.GetTitledFirstNameRegnal] from power, [pope.GetTitledFirstNameRegnal] has granted the title of Emperor of the Romans to [true_hre_pick.GetNameRegnal]!\n\nIn practice, this claim is tenuous at best, but the Pope is certain that the rightful Emperor will oust the false pretender in short order."
+counterfactuals.305.a:0 "Perhaps [ROOT.Char.GetFaith.HighGodName] will grant [true_hre_pick.GetHerHim] success."
+
+#400: World Conquest
+counterfactuals_vast_empire_modifier:0 "Stretched Thin"
+counterfactuals_world_conquest_modifier:0 "Limits of Empire"
+counterfactuals.401.t:0 "And [ROOT.Char.GetFirstNameNoTooltip] Wept"
+counterfactuals.401.desc:0 "My rule has stretched to the ends of the Earth. Only nature herself can contain my vast empire, reaching from the vast western ocean to the furthest reaches of the east, and from the frozen north to the most southern deserts. While there may remain a few holdouts and independent peoples, no other power on the face of the Earth is able to challenge the might of [ROOT.Char.GetPrimaryTitle.GetNameNoTier]!\n\nHolding together such an immense empire requires equally immense effort. The vast extent of my realm has continued to prove a challenge to even the swiftests of messengers. Regardless, humanity will forever remember [ROOT.Char.GetPrimaryTitle.GetNameNoTier] as the greatest empire ever forged, and [ROOT.Char.GetDynasty.GetName] as the dynasty that shaped the history of the world!\n\nPerhaps one day, in some future era, my heirs will completely control the entire globe of the Earth. From there, even the heavens would not be out of our reach..."
+counterfactuals.401.a:0 "[ROOT.Char.GetPrimaryTitle.GetNameNoTier] shall last a thousand years!"
+counterfactuals.401.a.ambitious:0 "There must be more worlds to conquer!"
+counterfactuals.401.a.humble:0 "I wouldn't dare take all the credit..."
+counterfactuals.401.a.content:0 "Finally, my work is complete."
+counterfactuals.401.a.zealous:0 "It is all thanks to [ROOT.Char.GetFaith.HighGodName]!"
+counterfactuals.401.b:0 "I won! I won! Time to play again!"
+counterfactuals.401.tooltip:0 "Do you feel like a [ROOT.Char.GetTitleAsNameNoTooltip] yet?"
+
+counterfactuals.402.t:0 "A Vast Empire"
+counterfactuals.402.desc:0 "My empire has surpassed the achievements of the great conquerers of antiquity, even the victories of Alexander pale compare to my own! The armies of [ROOT.Char.GetPrimaryTitle.GetNameNoTier] crush all before us, forcing lords great and small to bow before our might!\n\nAs a product of such success, the vast distances of my realm have begun to pose challenges to my rule. The further our borders stretch, the longer it takes to recieve news from the frontier. The apparatus of state is stretching itself thin in its efforts to collect taxes and raise troops from the new lands we have absorbed.\n\nRegardless of any challenge facing us, as long as I am able to maintain a steady hand, there is nothing that can stop our might!"
+counterfactuals.402.a:0 "[ROOT.Char.GetPrimaryTitle.GetNameNoTier] shall rule the world!"
+
+#500: Crusaders
+counterfactuals.501.t:0 "Jerusalem Seized"
+counterfactuals.501.desc:0 "Our forces have seized the holy city! While a few pockets of fanatical defenders continue to hold out within the citadel, the rest of the city lies at our mercy. Our more zealous troops have already begun to ransack the Muslim and Jewish holy sites within, massacring any non-Christians that they come across!\n\nLocal holy men representing multiple faiths have beseeched for my intervention, to prevent wholesale slaughter and protect this most holy of cities!"

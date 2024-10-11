@@ -1,0 +1,5 @@
+﻿e_german_apostate = {
+	color = { 190 200 190 }
+ 	definite_form = yes 
+	capital = c_aachen
+}

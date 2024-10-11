@@ -1,0 +1,8 @@
+﻿counterfactuals_mongol_sack_effect = {
+	destroy_random_building_variable_effect = yes
+	destroy_random_building_effect = yes
+	destroy_random_building_variable_effect = yes
+	destroy_random_building_effect = yes
+	destroy_random_building_variable_effect = yes
+	destroy_random_building_effect = yes
+}

@@ -1,0 +1,427 @@
+﻿namespace = counterfactuals
+#################################
+# Counterfactuals
+# 300: HRE
+# by CaelReader
+#################################
+
+#301: HRE converts away from Catholicism
+counterfactuals.301 = {
+	type = letter_event
+	# title = counterfactuals.301.t
+	opening = {
+		desc = counterfactuals.301.t
+	}
+	desc = counterfactuals.301.desc
+	sender = scope:pope
+	# theme = faith
+	# right_portrait = {
+	# 	character = scope:pope
+	# 	animation = anger
+	# }
+	# left_portrait = {
+	# 	character = scope:hre_emperor
+	# 	animation = stress
+	# }
+	immediate = {
+		scope:pope = {
+			add_opinion = {
+				target = root
+				modifier = counterfactuals_false_emperor_opinion
+				opinion = -100
+			}
+		}
+	}
+	#I will recant
+	option = {
+		name = counterfactuals.301.a
+		set_character_faith_with_conversion = faith:catholic
+		add_prestige = monumental_prestige_loss
+		add_prestige_level = -1
+		add_piety = massive_piety_loss
+		add_piety_level = -2
+		add_character_modifier = {
+			modifier = counterfactuals_submitted_to_pope_modifier
+			years = 30
+		}
+	}
+	#I will not
+	option = {
+		name = {
+			text = {
+				first_valid = {
+					triggered_desc = { 
+						trigger = {
+							has_trait = cynical
+						}
+						desc = counterfactuals.301.b.cynical
+					}
+					desc = counterfactuals.301.b
+				}
+			}
+		}
+		add_internal_flag = dangerous
+		stress_impact = {
+			base = minor_stress_impact_gain
+			cynical = minor_stress_impact_loss
+		}
+		custom_tooltip = counterfactuals.301.b.tooltip
+		hidden_effect = {
+			#Notify everyone
+			every_ruler = {
+				limit = {
+					OR = {
+						any_realm_county = {
+							title_province = {
+								geographical_region = world_europe
+							}
+						}
+						faith.religious_head = scope:pope
+					}
+					NOT = {
+						this = scope:hre_emperor
+					}
+				}
+				trigger_event = {
+					id = counterfactuals.302
+					days = 10
+				}
+			}
+			#Pope is going to take your title
+			trigger_event = {
+				id = counterfactuals.303
+				days = 10
+			}
+		}
+	}
+	#Rite lets you argue that you are still in communion
+	option = {
+		name = counterfactuals.301.c
+		trigger = {
+			faith.religious_head = scope:pope
+			learning >= average_skill_rating
+		}
+		show_as_unavailable = {
+			faith.religious_head = scope:pope
+			learning < average_skill_rating
+		}
+		add_internal_flag = special
+	}
+}
+#302: Global notification that HRE is invalid
+counterfactuals.302 = {
+	type = character_event
+	# content_source = mod_counterfactuals
+	title = counterfactuals.302.t
+	desc = counterfactuals.302.desc
+	theme = faith
+	right_portrait = {
+		character = scope:pope
+		animation = anger
+	}
+	left_portrait = {
+		character = scope:hre_emperor
+		animation = disbelief
+	}
+
+	#Catholic
+	option = {
+		name = counterfactuals.302.a
+		trigger = {
+			faith = faith:catholic
+		}
+	}
+	#Same religion as emperor
+	option = {
+		name = counterfactuals.302.b
+		trigger = {
+			faith = scope:hre_emperor.faith
+		}
+	}
+	#Other
+	option = {
+		name = counterfactuals.302.c
+		trigger = {
+			NOT = {
+				faith = scope:hre_emperor.faith
+				faith = faith:catholic
+			}
+		}
+	}
+}
+#303: HRE notification that they are invalid
+counterfactuals.303 = {
+	type = character_event
+	# content_source = mod_counterfactuals
+	title = counterfactuals.303.t
+	desc = counterfactuals.303.desc
+	theme = faith
+	right_portrait = {
+		character = scope:pope
+		animation = anger
+	}
+	left_portrait = {
+		character = scope:hre_emperor
+		animation = disbelief
+	}
+
+	immediate = {
+		# if = {
+		# 	limit = { 
+		# 		title:e_german_apostate = { is_title_created = no }
+		# 	}
+		# 	get_title = title:e_german_apostate
+		# }
+		# destroy_title = title:e_hre
+
+		#HRT compatibility
+		trigger_event = { on_action = HRT_CF_action }
+
+		title:e_hre = {set_title_name = e_german_apostate}
+		give_nickname = nick_the_apostate
+		stress_impact = {
+			base = minor_stress_impact_gain
+			arrogant = medium_stress_impact_gain
+		}
+		add_prestige_level = -1
+		add_dread = -50
+		add_legitimacy = -2000
+		add_character_modifier = {
+			modifier = counterfactuals_false_emperor_modifier
+		}
+		hidden_effect = {
+			every_vassal_or_below = {
+				limit = {
+					faith.religious_head = scope:pope
+					NOT = {
+						has_trait = cynical
+					}
+				}
+				add_opinion = {
+					target = scope:hre_emperor
+					modifier = counterfactuals_false_emperor_opinion
+					opinion = -50
+				}
+			}
+			#if Francia exists, offer a claim to them
+			if = {
+				limit = {
+					exists = title:e_france.holder
+				}
+				title:e_france.holder = {
+					trigger_event = {
+						id = counterfactuals.304
+						days = 10
+					}
+				}
+			}
+		}
+		custom_tooltip = false_emperor_opinion.tooltip
+	}
+
+	option = {
+		name = counterfactuals.303.a
+	}
+}
+# Pope offers you the HRE (Claim version)
+counterfactuals.304 = {
+	type = letter_event
+	opening = {
+		desc = counterfactuals.304.t
+	}
+	desc = counterfactuals.304.desc
+	sender = scope:pope
+
+	#Yes
+	option = {
+		name = counterfactuals.304.a
+		#Ai always takes it
+		ai_chance = {
+			base = 100
+		}
+		add_unpressed_claim = title:e_hre
+		add_prestige = 1000
+		save_scope_as = true_hre_pick
+		hidden_effect = {
+			every_player = {
+				limit = {
+					OR = {
+						any_realm_county = {
+							title_province = {
+								geographical_region = world_europe
+							}
+						}
+						faith.religious_head = scope:pope
+					}
+				}
+				trigger_event = {
+					id = counterfactuals.305
+					days = 1
+				}
+			}
+		}
+	}
+	#No
+	option = {
+		name = counterfactuals.304.b
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+# counterfactuals.304 = {
+# 	type = character_event
+# 	title = counterfactuals.304.t
+# 	desc = counterfactuals.304.desc
+# 	theme = faith
+# 	immediate = {
+# 		save_scope_as = pope
+# 		title:e_hre.holder = {
+# 			save_scope_as = hre_emperor
+# 		}
+# 	}
+# 	#If Francia exists, legimitize them
+# 	option = {
+# 		name = counterfactuals.304.francia
+# 		trigger = {
+# 			exists = title:e_france.holder
+# 			title:e_france.holder.faith = faith:catholic
+# 		}
+# 		ai_chance = {
+# 			#Always prioritize Francia
+# 			base = 1000
+# 		}
+# 		title:e_france.holder = {
+# 			add_unpressed_claim = title:e_hre
+# 			add_prestige = 1000
+# 			save_scope_as = true_hre_pick
+# 		}
+# 		every_ruler = {
+# 			limit = {
+# 				OR = {
+# 					any_realm_county = {
+# 						title_province = {
+# 							geographical_region = world_europe
+# 						}
+# 					}
+# 					faith.religious_head = scope:pope
+# 				}
+# 			}
+# 			trigger_event = {
+# 				id = counterfactuals.305
+# 			}
+# 		}
+# 	}
+# 	#King of France
+# 	option = {
+# 		name = counterfactuals.304.france
+# 		trigger = {
+# 			exists = title:k_france.holder
+# 			title:k_france.holder.faith = faith:catholic
+# 		}
+# 		title:k_france.holder = {
+# 			add_unpressed_claim = title:e_hre
+# 			add_prestige = 1000
+# 			save_scope_as = true_hre_pick
+# 		}
+# 		every_ruler = {
+# 			limit = {
+# 				OR = {
+# 					any_realm_county = {
+# 						title_province = {
+# 							geographical_region = world_europe
+# 						}
+# 					}
+# 					faith.religious_head = scope:pope
+# 				}
+# 			}
+# 			trigger_event = {
+# 				id = counterfactuals.305
+# 			}
+# 		}
+# 	}
+# 	#Most powerful Catholic vassal under the HRE
+# 	option = {
+# 		name = counterfactuals.304.german
+# 		title:e_hre = {
+# 			ordered_de_jure_county_holder = {
+# 				limit = {
+# 					faith = faith:catholic
+# 					highest_held_title_tier >= tier_duchy
+# 					NOT = {
+# 						this = scope:hre_emperor
+# 					}
+# 				}
+# 				order_by = max_military_strength
+# 				add_unpressed_claim = title:e_hre
+# 				add_prestige = 1000
+# 				save_scope_as = true_hre_pick
+# 			}
+# 		}
+# 		every_ruler = {
+# 			limit = {
+# 				OR = {
+# 					any_realm_county = {
+# 						title_province = {
+# 							geographical_region = world_europe
+# 						}
+# 					}
+# 					faith.religious_head = scope:pope
+# 				}
+# 			}
+# 			trigger_event = {
+# 				id = counterfactuals.305
+# 			}
+# 		}
+# 	}
+
+# }
+#Notify of new HRE pick by Pope
+counterfactuals.305 = {
+	type = character_event
+	title = counterfactuals.305.t
+	desc = counterfactuals.305.desc
+	theme = faith
+	right_portrait = {
+		character = scope:pope
+		animation = chaplain 
+	}
+	left_portrait = {
+		character = scope:true_hre_pick
+		animation = marshal
+	}
+
+	immediate = {
+		show_as_tooltip = {
+			scope:true_hre_pick = {
+				add_unpressed_claim = title:e_hre
+			}
+		}
+	}
+	#Catholic
+	option = {
+		name = counterfactuals.305.a
+		trigger = {
+			faith = faith:catholic
+		}
+	}
+	#Same religion as emperor
+	option = {
+		name = counterfactuals.302.b
+		trigger = {
+			faith = scope:hre_emperor.faith
+		}
+	}
+	#Other
+	option = {
+		name = counterfactuals.302.c
+		trigger = {
+			NOT = {
+				faith = scope:hre_emperor.faith
+				faith = faith:catholic
+			}
+		}
+	}
+}
+#If German Empire collapses, pope might name the strongest catholic king in the area Emperor
+#Alternately, Francia will be legitimized as the new HRE if it exists

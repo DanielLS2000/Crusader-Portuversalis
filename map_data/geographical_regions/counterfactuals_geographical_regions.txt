@@ -1,0 +1,13 @@
+﻿# custom_counterfactuals_trajan_borders = {
+# 	custom_roman_full_borders custom_roman_mesopotamia custom_roman_illyricum custom_roman_syria_palestina
+# }
+
+# custom_counterfactuals_alexander_borders = {
+# 	world_asia_minor 
+# }
+
+custom_counterfactuals_mongol_sack_targets = {
+	counties = {
+		c_novgorod c_krakowska c_aachen c_ile_de_france c_middlesex c_roma c_venezia c_byzantion c_lisboa c_smolensk c_praha c_vienna c_esztergom c_attica c_beograd c_baghdad c_damascus c_jerusalem c_alexandria c_cairo c_mecca c_delhi c_cholamandalam c_dublin c_vestisland c_samarkand c_nishapur c_tirakka c_dagon c_cordoba 
+	}
+}

@@ -1,0 +1,133 @@
+﻿namespace = counterfactuals
+#################################
+# Counterfactuals
+# 400: World Conquest
+# by CaelReader
+#################################
+
+#Realm Size 2571: World Conquest
+counterfactuals.401 = {
+	type = character_event
+	# content_source = mod_counterfactuals
+	title = counterfactuals.401.t
+	desc = counterfactuals.401.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+	trigger = {
+		is_independent_ruler = yes
+		realm_size > 2500
+		NOT = {
+			has_character_flag = counterfactuals_world_conquest
+		}
+	}
+
+	#Default
+	option = {
+		name = {
+			text = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							has_trait = ambitious
+						}
+						desc = counterfactuals.401.a.ambitious
+					 }
+					triggered_desc = {
+						trigger = {
+							has_trait = humble	
+						}
+						desc = counterfactuals.401.a.humble
+					 }
+					 triggered_desc = {
+						trigger = {
+							has_trait = content
+						}
+						desc = counterfactuals.401.a.content
+					 }
+					 triggered_desc = {
+						trigger = {
+							has_trait = zealous
+						}
+						desc = counterfactuals.401.a.zealous
+					 }
+					 desc = counterfactuals.401.a
+				}
+			}
+		}
+		if = {
+			limit = { 
+				has_character_modifier = counterfactuals_vast_empire_modifier
+			}
+			remove_character_modifier = counterfactuals_vast_empire_modifier
+		}
+		add_character_modifier = {
+			modifier = counterfactuals_world_conquest_modifier
+		}
+		add_prestige = 10000
+		dynasty = {
+			add_dynasty_prestige = 5000
+		}
+		flavor = counterfactuals.401.tooltip
+	}
+	#Insane: Shatter World!
+	option = {
+		trigger = {
+			has_trait = lunatic
+		}
+		name = counterfactuals.401.b
+		every_held_title = {
+			limit = {
+				tier = tier_empire
+			}
+			root = { destroy_title = prev }
+		}
+		root = {
+			death = { death_reason = death_suicide}
+		}
+	}
+
+	after = {
+		add_character_flag = counterfactuals_world_conquest
+	}
+}
+
+#Realm Size 1500: Stretched Thin
+counterfactuals.402 = {
+	type = character_event
+	# content_source = mod_counterfactuals
+	title = counterfactuals.402.t
+	desc = counterfactuals.402.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+	trigger = {
+		is_independent_ruler = yes
+		realm_size > 1500
+		NOR = {
+			has_character_flag = counterfactuals_world_conquest
+			has_character_flag = counterfactuals_stretched_thin
+		}
+	}
+
+	#Default
+	option = {
+		name = counterfactuals.402.a
+	}
+
+	after = {
+		add_character_modifier = {
+			modifier = counterfactuals_vast_empire_modifier
+		}
+		add_prestige = 5000
+		dynasty = {
+			add_dynasty_prestige = 2000
+		}
+		add_character_flag = counterfactuals_stretched_thin
+	}
+
+}

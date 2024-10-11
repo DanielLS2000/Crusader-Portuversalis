@@ -1,0 +1,465 @@
+﻿namespace = counterfactuals
+#################################
+# Counterfactuals
+# 100: Byzantium Collapse Events
+# by CaelReader
+#################################
+
+#Handler Event when Byzantium is Destroyed
+counterfactuals.101 = {
+	hidden = yes
+
+
+	trigger = {
+		scope:landed_title = title:e_byzantium
+		# #If Rome Restored, don't trigger
+		title:e_roman_empire = { is_title_created = no }
+		# If Byzantines are wiped out by HRE, they won't have any De Jure, so don't fire this
+		any_county = {
+			any_this_title_or_de_jure_above = {
+				this = title:e_byzantium
+			}
+		}
+	}
+
+	immediate = {
+		debug_log = "Counterfactuals: 101 Fired"
+		root = {
+			save_scope_as = former_byzantine_emperor
+		}
+		#Notify EVERYONE who might be interested in the ERE
+		every_ruler = {
+			limit = {
+				OR = {
+					any_realm_county = {
+						title_province = {
+							OR = {
+								geographical_region = world_europe
+								geographical_region = world_asia_minor
+								geographical_region = world_middle_east
+								geographical_region = world_steppe_west
+								geographical_region = world_africa_north
+							}
+						}
+					}
+					any_sub_realm_county = {
+						any_this_title_or_de_jure_above = {
+							this = title:e_byzantium
+						}
+					}
+					faith = { religion_tag = christianity_religion }
+					is_within_diplo_range = { CHARACTER = root }
+				}
+				
+			}
+			if = {
+			#Is Constantinople held by a different empire?
+			limit = {
+					title:c_byzantion.holder.top_liege = { 
+						highest_held_title_tier >= tier_empire
+					}
+			}
+			title:c_byzantion.holder.top_liege = { 
+				save_scope_as = constantinople_holder
+			}
+			#Did the empire holder dissolve it themselves?
+			if = {
+				limit = { 
+					scope:former_byzantine_emperor = scope:constantinople_holder
+				}
+				#Empire dissolves Roman Title event
+				trigger_event = {
+					id = counterfactuals.104
+					days = 1
+				}
+			}
+			else = {
+				#Other Empire Conquers Byzantium event
+				trigger_event = {
+					id = counterfactuals.103
+					days = 1
+				}
+			}
+
+			} 
+			else = {
+				#Standard Byzantium Dissolved Event
+				trigger_event = {
+					id = counterfactuals.102
+					days = 1
+				}
+			}
+			
+		}
+		
+
+	}
+
+}
+#Default Byzantium Dissolved
+counterfactuals.102 = {
+	type = character_event
+	# content_source = mod_counterfactuals
+	title = counterfactuals.102.t
+	desc = counterfactuals.102.desc
+	theme = crown
+	override_sound = {
+		reference = event:/SFX/Events/Themes/sfx_event_theme_type_corruption
+	}
+	right_portrait = {
+		character = scope:former_byzantine_emperor
+		animation = shame
+	}
+
+	#Dejure: perhaps it is for the best
+	option = {
+		name = counterfactuals.102.a
+		trigger = {
+			capital_county ?= {
+				title:e_byzantium = {
+					is_de_jure_liege_or_above_target = prev
+				}
+			}
+		}
+		add_prestige_experience = minor_prestige_loss 
+		stress_impact = {
+			ambitious = medium_stress_impact_gain
+		}
+		if = {
+			limit = { 
+				this = scope:former_byzantine_emperor
+			}
+			add_stress = medium_stress_gain
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	#Dejure: we will reforge the empire!
+	option = {
+		name = counterfactuals.102.b
+		trigger = {
+			capital_county ?= {
+				title:e_byzantium = {
+					is_de_jure_liege_or_above_target = prev
+				}
+			}
+			NOT = {
+				this = scope:former_byzantine_emperor
+			}
+		}
+		show_as_unavailable = {
+			is_independent_ruler = no
+			capital_county ?= {
+				title:e_byzantium = {
+					is_de_jure_liege_or_above_target = prev
+				}
+			}
+			NOT = {
+				this = scope:former_byzantine_emperor
+			}
+		}
+		add_prestige = major_prestige_loss
+		stress_impact = {
+			humble = minor_stress_impact_gain
+			content = minor_stress_impact_gain
+		}
+		add_unpressed_claim = title:e_byzantium
+		add_unpressed_claim = title:k_thessalonika
+		add_unpressed_claim = title:k_nikaea
+		add_unpressed_claim = title:d_thrace
+		add_unpressed_claim = title:d_strymon
+		add_unpressed_claim = title:d_aegean_islands
+		add_unpressed_claim = title:d_thessalonika
+		add_unpressed_claim = title:d_optimatoi
+		add_unpressed_claim = title:d_opsikion
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_boldness = 1
+				ai_energy = 1
+			}
+		}
+	}
+	#We are still the empire damnit!
+	option = {
+		name = counterfactuals.102.d
+		trigger = {
+			this = scope:former_byzantine_emperor
+		}
+		show_as_unavailable = {
+			this = scope:former_byzantine_emperor 
+			OR = {
+				prestige_level < 1
+				is_independent_ruler = no 
+			}
+		}
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:e_byzantium = {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		if = {
+			limit = { 
+				has_trait = ambitious
+			}
+			add_stress = medium_stress_gain
+		}
+		else = {
+			add_stress = major_stress_gain
+		}
+		add_internal_flag = special
+		ai_chance = {
+			# AI Byzantium should always hold on to the title
+			base = 1000
+		}
+	}
+	#others
+	option = {
+		name = counterfactuals.102.c
+		trigger = {
+			NOT = {
+				capital_county ?= {
+					title:e_byzantium = {
+						is_de_jure_liege_or_above_target = prev
+					}
+				}
+			}
+		}
+	}
+	#Seljuk
+	option = {
+		name = counterfactuals.102.seljuk
+		trigger = {
+			root.primary_title = title:e_persia
+		}
+	}
+}
+#Another Empire dissolves Byzantium
+counterfactuals.103 = {
+	type = character_event
+	# content_source = mod_counterfactuals
+	title = counterfactuals.103.t
+	desc = {
+		first_valid = {
+			triggered_desc = { 
+				trigger = {
+					title:c_byzantion.holder.top_liege = title:e_mongol_empire.holder
+				}
+				desc = counterfactuals.103.desc.mongol
+			}
+			desc = counterfactuals.103.desc
+		}
+	}
+	theme = crown
+	override_sound = {
+		reference = event:/SFX/Events/Themes/sfx_event_theme_type_corruption
+	}
+	left_portrait = {
+		character = scope:former_byzantine_emperor
+		animation = fear
+	}
+	right_portrait = {
+		character = title:c_byzantion.holder
+		animation = war_over_win
+	}
+
+	#Dejure: perhaps it is for the best
+	option = {
+		name = counterfactuals.103.a
+		trigger = {
+			capital_county ?= {
+				title:e_byzantium = {
+					is_de_jure_liege_or_above_target = prev
+				}
+			}
+		}
+		add_prestige_experience = minor_prestige_loss 
+		stress_impact = {
+			ambitious = medium_stress_impact_gain
+		}
+		if = {
+			limit = { 
+				root = scope:former_byzantine_emperor
+			}
+			add_stress = medium_stress_gain
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	#Dejure: we will reforge the empire!
+	option = {
+		name = counterfactuals.103.b
+		trigger = {
+			capital_county ?= {
+				title:e_byzantium = {
+					is_de_jure_liege_or_above_target = prev
+				}
+			}
+		}
+		show_as_unavailable = {
+			is_independent_ruler = no
+			capital_county ?= {
+				title:e_byzantium = {
+					is_de_jure_liege_or_above_target = prev
+				}
+			}
+			NOT = {
+				this = scope:former_byzantine_emperor
+			}
+		}
+		add_prestige = major_prestige_loss
+		stress_impact = {
+			base = minor_stress_impact_gain
+			humble = minor_stress_impact_gain
+			content = minor_stress_impact_gain
+		}
+		add_unpressed_claim = title:e_byzantium
+		add_unpressed_claim = title:k_thessalonika
+		add_unpressed_claim = title:k_nikaea
+		add_unpressed_claim = title:d_thrace
+		add_unpressed_claim = title:d_strymon
+		add_unpressed_claim = title:d_aegean_islands
+		add_unpressed_claim = title:d_thessalonika
+		add_unpressed_claim = title:d_optimatoi
+		add_unpressed_claim = title:d_opsikion
+		add_unpressed_claim = title:c_byzantion
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_boldness = 1
+				ai_energy = 1
+			}
+		}
+	}
+	#It was us
+	option = {
+		name = counterfactuals.103.c
+		trigger = {
+				root = scope:constantinople_holder
+		}
+		add_prestige = major_prestige_gain
+	}
+	#Others
+	option = {
+		trigger = {
+			NOT = {
+				capital_county ?= {
+					title:e_byzantium = {
+						is_de_jure_liege_or_above_target = prev
+					}
+				}
+			}
+			NOT = {
+				root = scope:constantinople_holder
+			}
+		}
+		name = counterfactuals.103.d
+	}
+}
+#Another Empire takes the Byzantium title and dissolves it themselves
+counterfactuals.104 = {
+	type = character_event
+	# content_source = mod_counterfactuals
+	title = counterfactuals.104.t
+	desc = counterfactuals.104.desc
+	theme = crown
+	right_portrait = {
+		character = title:c_byzantion.holder
+		animation = war_over_win
+	}
+
+	#Dejure: perhaps it is for the best
+	option = {
+		name = counterfactuals.103.a
+		trigger = {
+			capital_county ?= {
+				title:e_byzantium = {
+					is_de_jure_liege_or_above_target = prev
+				}
+			}
+		}
+		add_prestige_experience = minor_prestige_loss 
+		stress_impact = {
+			ambitious = medium_stress_impact_gain
+		}
+		if = {
+			limit = { 
+				root = scope:former_byzantine_emperor
+			}
+			add_stress = medium_stress_gain
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	#Dejure: we will reforge the empire!
+	option = {
+		name = counterfactuals.103.b
+		trigger = {
+			capital_county ?= {
+				title:e_byzantium = {
+					is_de_jure_liege_or_above_target = prev
+				}
+			}
+		}
+		show_as_unavailable = {
+			is_independent_ruler = no
+		}
+		add_prestige = major_prestige_loss
+		stress_impact = {
+			base = minor_stress_impact_gain
+			humble = minor_stress_impact_gain
+			content = minor_stress_impact_gain
+		}
+		add_unpressed_claim = title:e_byzantium
+		add_unpressed_claim = title:k_thessalonika
+		add_unpressed_claim = title:k_nikaea
+		add_unpressed_claim = title:d_thrace
+		add_unpressed_claim = title:d_strymon
+		add_unpressed_claim = title:d_aegean_islands
+		add_unpressed_claim = title:d_thessalonika
+		add_unpressed_claim = title:d_optimatoi
+		add_unpressed_claim = title:d_opsikion
+		add_unpressed_claim = title:c_byzantion
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_boldness = 1
+				ai_energy = 1
+			}
+		}
+	}
+	#It was us
+	option = {
+		name = counterfactuals.103.c
+		trigger = {
+				root = scope:constantinople_holder
+		}
+		add_prestige = major_prestige_gain
+	}
+	#Others
+	option = {
+		trigger = {
+			NOT = {
+				capital_county ?= {
+					title:e_byzantium = {
+						is_de_jure_liege_or_above_target = prev
+					}
+				}
+			}
+			NOT = {
+				root = scope:constantinople_holder
+			}
+		}
+		name = counterfactuals.103.d
+	}
+}
