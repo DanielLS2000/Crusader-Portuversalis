@@ -1,0 +1,5 @@
+﻿
+RICE_nick_the_liar = {}
+VIET_nick_crow_lord = {}
+VIET_nick_crow_lady = {}
+VIET_nick_runs_in_circles = {}
