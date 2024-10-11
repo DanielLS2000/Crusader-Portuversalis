@@ -1,4 +1,0 @@
-﻿marshal_train_commanders_trait_track_increase = {
-	add = martial
-	divide = 50
-}
