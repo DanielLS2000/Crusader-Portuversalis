@@ -1,0 +1,16 @@
+﻿namespace = HRT_error_suppression
+
+HRT_error_suppression.1 = {
+    hidden = yes
+    orphan = yes
+
+    immediate = {
+        fix_variable_error = {ERROR = HRT_authority_prestige_gui}
+        fix_variable_error = {ERROR = HRT_authority_dread_gui}
+        fix_variable_error = {ERROR = HRT_authority_years_reigned_gui}
+		fix_variable_error = {ERROR = Trinity_is_loaded}
+		fix_variable_error = {ERROR = investiture_cooldown}
+		fix_variable_error = {ERROR = HRT_CF_apostate_active}
+		fix_variable_error = {ERROR = HRT_core_cultures}
+    }
+}

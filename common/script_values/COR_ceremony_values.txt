@@ -1,0 +1,17 @@
+﻿COR_base_ceremony_cost = {
+	# Base cost
+	value = 25
+	if = {
+		limit = {
+			highest_held_title_tier = tier_empire
+		}
+		multiply = 2
+	}
+	multiply = activity_cost_scale_by_era
+	if = {
+		limit = {
+			is_ai = yes
+		}
+		multiply = 0
+	}
+}

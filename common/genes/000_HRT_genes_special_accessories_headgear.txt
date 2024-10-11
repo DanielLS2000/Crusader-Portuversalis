@@ -1,0 +1,55 @@
+﻿special_genes = {
+
+	accessory_genes = {
+
+		headgear_HRT = {
+
+			no_headgear = {
+				index = 0
+				male = {
+					1 = empty
+				}
+				female = male
+				boy = male
+				girl = male
+			}
+			
+			HRT_brunhilde = {
+				index = 1
+				male = {
+					1 = valkyrie_helmet_male
+				}
+				female = {
+					1 = valkyrie_helmet_female
+				}
+				boy = male
+				girl = female
+			}
+		}
+		
+		headgear_2 = {
+
+			no_headgear = {
+				index = 0
+				male = {
+					1 = empty
+				}
+				female = male
+				boy = male
+				girl = male
+			}
+		}
+		headgear_CFP = {
+
+			no_headgear = {
+				index = 0
+				male = {
+					1 = empty
+				}
+				female = male
+				boy = male
+				girl = male
+			}
+		}
+	}
+}

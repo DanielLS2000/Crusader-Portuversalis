@@ -1,0 +1,1047 @@
+﻿#excellent_food
+#impressed_courtly_vassal
+#hook_trusting_guest
+#impressed_guest_honor
+#leftover_food_giveaway
+
+COR_excellent_food = {
+	icon = public
+	
+	is_valid = {
+		is_current_phase_active = yes
+		OR = {
+			AND = {
+				has_activity_option = {
+					category = COR_ceremony_option_food
+					option = COR_ceremony_food_good
+				}
+			}
+			AND = {
+				has_activity_option = {
+					category = COR_ceremony_option_food
+					option = COR_ceremony_food_normal
+				}
+			}
+		}
+		any_attending_character = {
+			NOT = { this = scope:host }
+			is_physically_able_ai_adult = yes
+			location = scope:province
+			OR = {
+				likes_character_trigger = { CHARACTER = scope:host }
+				loves_food_trigger = yes
+			}
+		}
+	}
+
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				scope:activity = {
+					OR = {
+						AND = {
+							#has_activity_type = COR_activity_coronation_ceremony
+							has_activity_option = {
+								category = COR_ceremony_option_food
+								option = COR_ceremony_food_normal
+							}
+						}
+						AND = {
+							#has_activity_type = COR_activity_coronation_ceremony_hof
+							has_activity_option = {
+								category = COR_ceremony_option_food
+								option = COR_ceremony_food_normal
+							}
+						}
+					}
+				}
+			}
+			add = -0.5
+		}
+	}
+
+	effect = {
+		scope:host = {
+			save_scope_as = root_scope
+		}
+		
+		random_attending_character = {
+			limit = {
+				NOT = { this = scope:host }
+				is_physically_able_ai_adult = yes
+				location = scope:province
+				OR = {
+					likes_character_trigger = { CHARACTER = scope:host }
+					loves_food_trigger = yes
+				}
+			}
+			save_scope_as = first
+		}
+
+		add_activity_log_entry = {
+			key = excellent_food
+			tags = { pulse_action }
+			character = scope:first
+			
+			scope:host = {
+				add_stress = medium_stress_loss
+			}
+			scope:first = {
+				add_opinion = {
+					modifier = impressed_opinion
+					target = scope:host
+					opinion = 5
+				}
+			}
+		}
+	}
+}
+
+COR_dynasty_blessing = {
+	icon = public
+	
+	is_valid = {
+		is_current_phase_active = yes
+		exists = scope:host.dynasty
+		any_attending_character = {
+			NOR = {
+				this = scope:host
+				this = scope:activity.special_guest:COR_coronator
+			}
+			is_physically_able_ai_adult = yes
+			location = scope:province
+			dynasty ?= { dynasty_prestige_level > scope:host.dynasty.dynasty_prestige_level }
+		}
+	}
+
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = COR_ceremony_option_decoration
+						option = COR_ceremony_decoration_good
+					}
+				}
+			}
+			add = 0.5
+		}
+	}
+
+	effect = {
+		scope:host = {
+			save_scope_as = root_scope
+		}
+		
+		random_attending_character = {
+			limit = {
+				NOR = {
+					this = scope:host
+					this = scope:activity.special_guest:COR_coronator
+				}
+				is_physically_able_ai_adult = yes
+				location = scope:province
+				dynasty ?= { dynasty_prestige_level > scope:host.dynasty.dynasty_prestige_level }
+			}
+			save_scope_as = first
+		}
+
+		add_activity_log_entry = {
+			key = dynasty_blessing
+			tags = { pulse_action }
+			character = scope:first
+			
+			scope:host.dynasty = {
+				add_dynasty_prestige = minor_dynasty_prestige_gain
+			}
+			scope:first = {
+				add_opinion = {
+					modifier = impressed_opinion
+					target = scope:host
+					opinion = 5
+				}
+			}
+		}
+	}
+}
+
+COR_royal_gift = {
+	icon = courtly
+	
+	is_valid = {
+		is_current_phase_active = yes
+		any_attending_character = {
+			NOR = {
+				this = scope:host
+				this = scope:activity.special_guest:COR_coronator
+			}
+			is_physically_able_ai_adult = yes
+			location = scope:province
+			highest_held_title_tier >= tier_kingdom
+			gold > minor_gold_value
+		}
+	}
+
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				any_attending_character = {
+					NOR = {
+						this = scope:host
+						this = scope:activity.special_guest:COR_coronator
+					}
+					is_physically_able_ai_adult = yes
+					location = scope:province
+					highest_held_title_tier = tier_empire
+					gold > minor_gold_value
+				}
+			}
+			add = 0.5
+		}
+	}
+
+	effect = {
+		scope:host = {
+			save_scope_as = root_scope
+		}
+		
+		random_attending_character = {
+			limit = {
+				NOR = {
+					this = scope:host
+					this = scope:activity.special_guest:COR_coronator
+				}
+				is_physically_able_ai_adult = yes
+				location = scope:province
+				highest_held_title_tier = tier_empire
+				gold > minor_gold_value
+			}
+			alternative_limit = {
+				NOR = {
+					this = scope:host
+					this = scope:activity.special_guest:COR_coronator
+				}
+				is_physically_able_ai_adult = yes
+				location = scope:province
+				highest_held_title_tier >= tier_kingdom
+				gold > minor_gold_value
+			}
+			save_scope_as = first
+		}
+		scope:host = { save_scope_as = second }
+
+
+		add_activity_log_entry = {
+			key = royal_gift
+			tags = { pulse_action }
+			character = scope:first
+			target = scope:second
+			
+			scope:first = {
+				pay_short_term_gold = {
+					target = scope:second
+					gold = minor_gold_value
+				}
+			}
+		}
+	}
+}
+
+COR_contact_network = {
+	icon = courtly
+	
+	is_valid = {
+		is_current_phase_active = yes
+		any_attending_character = {
+			is_physically_able_adult = yes
+			OR = {
+				is_ai = no
+				this = scope:host
+			}
+			location = scope:province
+			has_lifestyle = diplomacy_lifestyle
+		}
+	}
+
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				any_attending_character = {
+					is_physically_able_adult = yes
+					OR = {
+						is_ai = no
+						this = scope:host
+					}
+					location = scope:province
+					has_lifestyle = diplomacy_lifestyle
+				}
+			}
+			add = 1
+		}
+	}
+
+	effect = {
+		scope:host = {
+			save_scope_as = root_scope
+		}
+		
+		random_attending_character = {
+			limit = {
+				is_physically_able_adult = yes
+				OR = {
+					is_ai = no
+					this = scope:host
+				}
+				location = scope:province
+				has_lifestyle = diplomacy_lifestyle
+			}
+			save_scope_as = first
+		}
+
+		add_activity_log_entry = {
+			key = contact_network
+			tags = { pulse_action }
+			character = scope:first
+			
+			scope:first = {
+				add_diplomacy_lifestyle_xp = miniscule_lifestyle_xp
+			}
+		}
+	}
+}
+
+COR_admired_venue = {
+	icon = public
+	
+	is_valid = {
+		is_current_phase_active = yes
+		any_attending_character = {
+			NOT = { this = scope:host }
+			is_physically_able_ai_adult = yes
+			location = scope:province
+			has_activity_intent = reduce_stress_intent
+		}
+	}
+
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = COR_ceremony_option_decoration
+						option = COR_ceremony_decoration_good
+					}
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = COR_ceremony_option_decoration
+						option = COR_ceremony_decoration_normal
+					}
+				}
+			}
+			add = 0.5
+		}
+	}
+
+	effect = {
+		scope:host = {
+			save_scope_as = root_scope
+		}
+		
+		random_attending_character = {
+			limit = {
+				NOT = { this = scope:host }
+				is_physically_able_ai_adult = yes
+				location = scope:province
+				has_activity_intent = reduce_stress_intent
+			}
+			save_scope_as = first
+		}
+
+		add_activity_log_entry = {
+			key = admired_venue
+			tags = { pulse_action }
+			character = scope:first
+			
+			scope:first = {
+				stress_impact = {
+					base = minor_stress_impact_loss
+				}
+			}
+		}
+	}
+}
+
+COR_impressed_courtly_vassal = {
+	icon = courtly
+	
+	is_valid = {
+		is_current_phase_active = yes
+		OR = {
+			AND = {
+				#has_activity_type = COR_activity_coronation_ceremony
+				has_activity_option = {
+					category = COR_ceremony_option_food
+					option = COR_ceremony_food_good
+				}
+				has_activity_option = {
+					category = COR_ceremony_option_decoration
+					option = COR_ceremony_decoration_good
+				}
+			}
+			AND = {
+				#has_activity_type = COR_activity_coronation_ceremony_hof
+				has_activity_option = {
+					category = COR_ceremony_option_food
+					option = COR_ceremony_food_good
+				}
+				has_activity_option = {
+					category = COR_ceremony_option_decoration
+					option = COR_ceremony_decoration_good
+				}
+			}
+		}
+		any_attending_character = {
+			count >= 2
+			NOT = { this = scope:host }
+			is_physically_able_ai_adult = yes
+			is_vassal_of = scope:host
+			has_vassal_stance = courtly
+			location = scope:province
+		}
+	}
+
+	weight = 1
+
+	effect = {
+		random_attending_character = {
+			limit = {
+				NOT = { this = scope:host }
+				is_physically_able_ai_adult = yes
+				is_vassal_of = scope:host
+				has_vassal_stance = courtly
+				location = scope:province
+			}
+			save_scope_as = first
+		}
+		random_attending_character = {
+			limit = {
+				NOT = { this = scope:host }
+				is_physically_able_ai_adult = yes
+				is_vassal_of = scope:host
+				has_vassal_stance = courtly
+				location = scope:province
+				NOT = { this = scope:first }
+			}
+			save_scope_as = second
+		}
+
+		add_activity_log_entry = {
+			key = impressed_courtly_vassal
+			tags = { pulse_action }
+			character = scope:first
+			target = scope:second
+			
+			scope:host = {
+				add_prestige = minor_prestige_gain
+			}
+			
+			scope:first = {
+				add_opinion = {
+					modifier = impressed_opinion
+					target = scope:host
+					opinion = 10
+				}
+			}
+			
+			scope:second = {
+				add_opinion = {
+					modifier = impressed_opinion
+					target = scope:host
+					opinion = 10
+				}
+			}
+		}
+	}
+}
+
+COR_music_performance = {
+	icon = public
+	
+	is_valid = {
+		is_current_phase_active = yes
+		any_attending_character = {
+			NOT = { this = scope:host }
+			is_physically_able_ai_adult = yes
+			location = scope:province
+			has_court_position = court_musician_court_position
+			aptitude = {
+				court_position = court_musician_court_position
+				value >= 3
+			}
+			court_owner = scope:host
+		}
+	}
+
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = COR_ceremony_option_entertainment
+						option = COR_ceremony_entertainment_good
+					}
+				}
+			}
+			add = 1
+		}
+	}
+
+	effect = {
+		scope:host = {
+			save_scope_as = root_scope
+		}
+		
+		random_attending_character = {
+			limit = {
+				NOT = { this = scope:host }
+				is_physically_able_ai_adult = yes
+				location = scope:province
+				has_court_position = court_musician_court_position
+				aptitude = {
+					court_position = court_musician_court_position
+					value >= 3
+				}
+				court_owner = scope:host
+			}
+			save_scope_as = first
+		}
+
+		add_activity_log_entry = {
+			key = music_performance
+			tags = { pulse_action }
+			character = scope:first
+			
+			scope:first = {
+				add_prestige = miniscule_prestige_gain
+			}
+			scope:host = {
+				add_prestige = miniscule_prestige_gain
+			}
+		}
+	}
+}
+
+COR_poetry_performance = {
+	icon = public
+	
+	is_valid = {
+		is_current_phase_active = yes
+		any_attending_character = {
+			OR = {
+				has_trait = poet
+				AND = {
+					has_court_position = court_poet_court_position
+					aptitude = {
+						court_position = court_poet_court_position
+						value >= 3
+					}
+					court_owner = scope:host
+				}
+			}
+			is_physically_able_ai_adult = yes
+			location = scope:province
+		}
+	}
+
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = COR_ceremony_option_entertainment
+						option = COR_ceremony_entertainment_good
+					}
+				}
+			}
+			add = 0.5
+		}
+		if = {
+			limit = {
+				scope:host = { has_trait = poet }
+			}
+			add = 0.5
+		}
+	}
+
+	effect = {
+		scope:host = {
+			save_scope_as = root_scope
+		}
+		if = {
+			limit = {
+				scope:host = {
+					has_trait = poet
+					is_physically_able_ai_adult = yes
+					location = scope:province
+				}
+			}
+			scope:host = { save_scope_as = first }
+		}
+		else = {
+			random_attending_character = {
+				limit = {
+					OR = {
+						has_trait = poet
+						AND = {
+							has_court_position = court_poet_court_position
+							aptitude = {
+								court_position = court_poet_court_position
+								value >= 3
+							}
+							court_owner = scope:host
+						}
+					}
+					is_physically_able_ai_adult = yes
+					location = scope:province
+				}
+				save_scope_as = first
+			}
+		}
+
+		add_activity_log_entry = {
+			key = poetry_performance
+			tags = { pulse_action }
+			character = scope:first
+			
+			scope:first = {
+				add_prestige = miniscule_prestige_gain
+			}
+			if = {
+				limit = {
+					NOT = { scope:first = scope:host }
+				}
+				scope:host = {
+					add_prestige = miniscule_prestige_gain
+				}
+			}
+		}
+	}
+}
+
+COR_officiant_impressed = {
+	icon = courtly
+	
+	is_valid = {
+		is_current_phase_active = yes
+	}
+
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = COR_ceremony_option_decoration
+						option = COR_ceremony_decoration_good
+					}
+				}
+			}
+			add = 0.5
+		}
+		if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = COR_ceremony_option_food
+						option = COR_ceremony_food_good
+					}
+				}
+			}
+			add = 0.5
+		}
+		if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = COR_ceremony_option_entertainment
+						option = COR_ceremony_entertainment_good
+					}
+				}
+			}
+			add = 0.5
+		}
+	}
+
+	effect = {
+		scope:host = {
+			save_scope_as = root_scope
+		}
+		
+		scope:activity.special_guest:COR_coronator = {
+			save_scope_as = first
+		}
+		scope:host = { save_scope_as = second }
+
+		add_activity_log_entry = {
+			key = COR_officiant_impressed
+			tags = { pulse_action }
+			character = scope:first
+			target = scope:second
+			
+			scope:first = {
+				add_opinion = {
+					modifier = impressed_opinion
+					target = scope:host
+					opinion = 5
+				}
+			}
+		}
+	}
+}
+
+COR_lauded_food = {
+	icon = public
+	is_valid = {
+		is_current_phase_active = yes
+		OR = {
+			AND = {
+				#has_activity_type = COR_activity_coronation_ceremony
+				has_activity_option = {
+					category = COR_ceremony_option_food
+					option = COR_ceremony_food_good
+				}
+			}
+			AND = {
+				#has_activity_type = COR_activity_coronation_ceremony
+				has_activity_option = {
+					category = COR_ceremony_option_food
+					option = COR_ceremony_food_normal
+				}
+			}
+			AND = {
+				#has_activity_type = COR_activity_coronation_ceremony_hof
+				has_activity_option = {
+					category = COR_ceremony_option_food
+					option = COR_ceremony_food_good
+				}
+			}
+			AND = {
+				#has_activity_type = COR_activity_coronation_ceremony_hof
+				has_activity_option = {
+					category = COR_ceremony_option_food
+					option = COR_ceremony_food_normal
+				}
+			}
+		}
+		any_attending_character = {
+			NOT = { this = scope:host }
+			is_physically_able_ai_adult = yes
+			location = scope:province
+			OR = {
+				likes_character_trigger = { CHARACTER = scope:host }
+				loves_food_trigger = yes
+			}
+		}
+	}
+
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				scope:activity = {
+					OR = {
+						AND = {
+							#has_activity_type = COR_activity_coronation_ceremony
+							has_activity_option = {
+								category = COR_ceremony_option_food
+								option = COR_ceremony_food_normal
+							}
+						}
+						AND = {
+							#has_activity_type = COR_activity_coronation_ceremony_hof
+							has_activity_option = {
+								category = COR_ceremony_option_food
+								option = COR_ceremony_food_normal
+							}
+						}
+					}
+				}
+			}
+			add = -0.5
+		}
+	}
+
+	effect = {
+		scope:host = {
+			save_scope_as = root_scope
+		}
+		
+		random_attending_character = {
+			limit = {
+				NOT = { this = scope:host }
+				is_physically_able_ai_adult = yes
+				location = scope:province
+				OR = {
+					likes_character_trigger = { CHARACTER = scope:host }
+					loves_food_trigger = yes
+				}
+			}
+			save_scope_as = first
+		}
+
+		add_activity_log_entry = {
+			key = lauded_food
+			tags = { pulse_action }
+			character = scope:first
+			
+			scope:host = {
+				add_prestige = miniscule_prestige_gain
+			}
+			scope:first = {
+				add_opinion = {
+					modifier = impressed_opinion
+					target = scope:host
+					opinion = 5
+				}
+			}
+		}
+	}
+}
+
+COR_courtly_vassals_appeased = {
+	icon = courtly
+	is_valid = {
+		is_current_phase_active = yes
+		NOT = {
+			AND = {
+				#has_activity_type = COR_activity_coronation_ceremony
+				has_activity_option = {
+					category = COR_ceremony_option_food
+					option = COR_ceremony_food_bad
+				}
+			}
+			AND = {
+				#has_activity_type = COR_activity_coronation_ceremony_hof
+				has_activity_option = {
+					category = COR_ceremony_option_food
+					option = COR_ceremony_food_bad
+				}
+			}
+		}
+		any_attending_character = {
+			count >= 2
+			NOT = { this = scope:host }
+			is_physically_able_ai_adult = yes
+			location = scope:province
+			is_vassal_of = scope:host
+			has_vassal_stance = courtly
+		}
+	}
+
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				scope:activity = {
+					OR = {
+						AND = {
+							#has_activity_type = COR_activity_coronation_ceremony
+							has_activity_option = {
+								category = COR_ceremony_option_food
+								option = COR_ceremony_food_normal
+							}
+						}
+						AND = {
+							#has_activity_type = COR_activity_coronation_ceremony_hof
+							has_activity_option = {
+								category = COR_ceremony_option_food
+								option = COR_ceremony_food_normal
+							}
+						}
+					}
+				}
+			}
+			add = -0.5
+		}
+	}
+
+	effect = {
+		scope:host = {
+			save_scope_as = root_scope
+		}
+		
+		random_attending_character = {
+			limit = {
+				NOT = { this = scope:host }
+				is_physically_able_ai_adult = yes
+				location = scope:province
+				is_vassal_of = scope:host
+				has_vassal_stance = courtly
+			}
+			save_scope_as = first
+		}
+		
+		random_attending_character = {
+			limit = {
+				NOT = { this = scope:host }
+				NOT = { this = scope:first }
+				is_physically_able_ai_adult = yes
+				location = scope:province
+				is_vassal_of = scope:host
+				has_vassal_stance = courtly
+			}
+			save_scope_as = second
+		}
+
+		add_activity_log_entry = {
+			key = courtly_vassals_appeased
+			tags = { pulse_action }
+			character = scope:first
+			target = scope:second
+			
+			scope:host = {
+				add_prestige = miniscule_prestige_gain
+			}
+			
+			scope:first = {
+				add_opinion = {
+					modifier = admiration_opinion
+					target = scope:host
+					opinion = 5
+				}
+			}
+			
+			scope:second = {
+				add_opinion = {
+					modifier = admiration_opinion
+					target = scope:host
+					opinion = 5
+				}
+			}
+		}
+	}
+}
+
+COR_ridiculed_food = {
+	icon = public
+	is_valid = {
+		is_current_phase_active = yes
+		OR = {
+			AND = {
+				#has_activity_type = COR_activity_coronation_ceremony
+				has_activity_option = {
+					category = COR_ceremony_option_food
+					option = COR_ceremony_food_bad
+				}
+			}
+			AND = {
+				#has_activity_type = COR_activity_coronation_ceremony
+				has_activity_option = {
+					category = COR_ceremony_option_food
+					option = COR_ceremony_food_normal
+				}
+			}
+			AND = {
+				#has_activity_type = COR_activity_coronation_ceremony_hof
+				has_activity_option = {
+					category = COR_ceremony_option_food
+					option = COR_ceremony_food_bad
+				}
+			}
+			AND = {
+				#has_activity_type = COR_activity_coronation_ceremony_hof
+				has_activity_option = {
+					category = COR_ceremony_option_food
+					option = COR_ceremony_food_normal
+				}
+			}
+		}
+		any_attending_character = {
+			NOT = { this = scope:host }
+			is_physically_able_ai_adult = yes
+			location = scope:province
+			NOR = {
+				has_trait = inappetetic
+				has_trait = temperate
+				has_trait = loyal
+			}
+		}
+	}
+
+	weight = {
+		value = 1
+		if = {
+			limit = {
+				scope:activity = {
+					OR = {
+						AND = {
+							#has_activity_type = COR_activity_coronation_ceremony
+							has_activity_option = {
+								category = COR_ceremony_option_food
+								option = COR_ceremony_food_normal
+							}
+						}
+						AND = {
+							#has_activity_type = COR_activity_coronation_ceremony_hof
+							has_activity_option = {
+								category = COR_ceremony_option_food
+								option = COR_ceremony_food_normal
+							}
+						}
+					}
+				}
+			}
+			add = -0.75
+		}
+	}
+
+	effect = {
+		scope:host = {
+			save_scope_as = root_scope
+		}
+		
+		random_attending_character = {
+			limit = {
+				NOT = { this = scope:host }
+				is_physically_able_ai_adult = yes
+				location = scope:province
+				NOR = {
+					has_trait = inappetetic
+					has_trait = temperate
+					has_trait = loyal
+				}
+			}
+			save_scope_as = first
+		}
+
+		add_activity_log_entry = {
+			key = ridiculed_food
+			tags = { pulse_action }
+			character = scope:first
+			
+			scope:host = {
+				add_prestige = minor_prestige_loss
+			}
+			scope:first = {
+				add_opinion = {
+					modifier = was_unimpressed_at_feast_opinion
+					target = scope:host
+					opinion = -10
+				}
+			}
+		}
+	}
+}

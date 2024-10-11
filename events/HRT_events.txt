@@ -1,0 +1,1964 @@
+﻿namespace = HRT
+#################################
+#
+# Holy Roman Triumph
+# 0001 - 0010	Introduction Events
+# 0011 - 0020	Decision Events
+# 1001 - 1010	Italienzug Notification
+# 2001 - 2100	Unity Events
+# 3001 - 3100	Centralization
+# 9001 - 9999	Mechanical and on_action
+#################################
+
+## Introduction Events
+HRT.0001 = { # Louis II of Italy (867)
+	type = character_event
+	title = HRT.0001.t
+	desc = HRT.0001.desc
+	theme = crown
+
+	left_portrait =	root
+
+	immediate = {
+		hidden_effect = {
+			set_variable = {
+				name = COR_coronator
+				value = character:7855 # Pope Leo IV
+			}
+			if = {
+				limit = { has_character_modifier = COR_uncrowned_modifier }
+				remove_all_character_modifier_instances = COR_uncrowned_modifier
+			}
+			remove_variable = COR_years_reigned
+			if = {
+				limit = {
+					NOT = { has_nickname = nick_the_crownless }
+				}
+				remove_character_flag = sold_crown_charmod
+			}
+			every_spouse = {
+				limit = {
+					NOT = { has_nickname = nick_the_crownless }
+					has_character_flag = sold_crown_charmod
+				}
+				remove_character_flag = sold_crown_charmod
+			}
+			# 3.1 centralization
+			title:c_aachen = {
+				change_variable = {
+					name = HRT_centralization
+					add = { 1 39 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = HRT.0001.a
+		add_trait = HRT_emperor
+		add_unpressed_claim = title:e_hre
+	}
+
+	after = {
+		change_variable = {
+			name = HRT_authority_years_reigned
+			add = 17
+		}
+	}
+}
+
+HRT.0002 = { # Heinrich IV (1066)
+	type = character_event
+	title = HRT.0001.t
+	desc = HRT.0002.desc
+	theme = crown
+	left_portrait =	root
+
+	immediate = { 
+		hidden_effect = {
+			# 3.1 centralization
+			title:c_aachen = {
+				change_variable = {
+					name = HRT_centralization
+					add = { 81 119 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = HRT.0001.a
+	}
+}
+
+HRT.0003 = { # Barbarossa
+	type = character_event
+	title = HRT.0001.t
+	desc = HRT.0003.desc
+	theme = crown
+
+	left_portrait =	root
+
+	immediate = {
+		hidden_effect = {
+			set_variable = {
+				name = COR_coronator
+				value = character:71809 # Pope Hadrianus IV
+			}
+			if = {
+				limit = { has_character_modifier = COR_uncrowned_modifier }
+				remove_all_character_modifier_instances = COR_uncrowned_modifier
+			}
+			remove_variable = COR_years_reigned
+			if = {
+				limit = {
+					NOT = { has_nickname = nick_the_crownless }
+				}
+				remove_character_flag = sold_crown_charmod
+			}
+			every_spouse = {
+				limit = {
+					NOT = { has_nickname = nick_the_crownless }
+					has_character_flag = sold_crown_charmod
+				}
+				remove_character_flag = sold_crown_charmod
+			}
+			# 3.1 centralization
+			title:c_aachen = {
+				change_variable = {
+					name = HRT_centralization
+					add = { 121 159 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = HRT.0001.a
+		add_trait = HRT_emperor
+	}
+
+	after = {
+		change_variable = {
+			name = HRT_authority_years_reigned
+			add = 23
+		}
+	}
+}
+
+#HRT.0009 = { # Generic
+#	type = character_event
+#	title = HRT.0001.t
+#	desc = HRT.0010.desc
+#	theme = crown
+#	left_portrait =	root
+#
+#	immediate = { }
+#
+#	option = {
+#		name = HRT.0001.a
+#	}
+#}
+
+HRT.0010 = { # Maintenance Pulse
+	scope = culture
+	hidden = yes
+
+	immediate = {
+		title:e_hre.holder ?= {
+			create_story = HRT_emperor_story
+			if = {
+				limit = {
+					NOT = { has_character_flag = HRT_italienzug }
+				}
+				trigger_event = {
+					id = HRT.1001
+					days = { 7 14 }
+				}
+			}
+		}
+	}
+}
+
+##on_title_destroyed
+#HRT.0006 = { # HRE title is destroyed
+#	hidden = yes
+#	
+#	immediate = {
+#		HRT_disable_effect = yes
+#		title:c_aachen = {
+#			set_variable = {
+#				name = HRT_dismantled
+#				value = yes
+#			}
+#		}
+#	}
+#}
+
+##on_title_gain
+#HRT.0007 = { # HRE restored but not by current emperor
+#	hidden = yes
+#	
+#	trigger = {
+#		HRT_is_emperor_trigger = no
+#		OR = {
+#			AND = {
+#				title:c_aachen = {
+#					NOT = { has_variable = HRT_CF_apostate_active } #CF Compat
+#				}
+#			}
+#			AND = {
+#				title:c_aachen = {
+#					has_variable = HRT_CF_apostate_active
+#				}
+#				faith = faith:catholic
+#			}
+#		}
+#	}
+#	
+#	immediate = {
+#		HRT_close_window = yes
+#		title:c_aachen = {
+#			var:HRT_emperor = { # Dethroned Emperor
+#				#add_character_flag = { #TODO For Antagonist Event & rival relation
+#				#	flag = HRT_usurper
+#				#	days = 7
+#				#}
+#				if = {
+#					limit = {
+#						NOT = { this = root }
+#					}
+#					random_owned_story = {
+#						limit = { story_type = HRT_emperor_story }
+#						end_story = yes
+#					}
+#				}
+#			}
+#			if = {
+#				limit = { has_variable = HRT_dismantled }
+#				remove_variable = HRT_dismantled
+#			}
+#			if = {
+#				limit = { has_variable = HRT_CF_apostate_active } #CF Compat
+#				remove_variable = HRT_CF_apostate_active
+#			}
+#		}
+#		if = {
+#			limit = {
+#				NOT = { this ?= title:c_aachen.var:HRT_emperor }
+#			}
+#			save_scope_as = HRT_new_emperor
+#			create_story = HRT_emperor_story
+#			if = {
+#				limit = {
+#					NOR = {
+#						has_trait = HRT_emperor
+#						has_trait = COR_crowned_by_myself
+#					}
+#				}
+#				add_character_flag = HRT_italienzug
+#			}
+#		}
+#	}
+#}
+
+#on_title_lost
+#HRT.0008 = {
+#	hidden = yes
+#	
+#	immediate = {
+#		HRT_close_window = yes
+#
+#		random_owned_story = {
+#			limit = { story_type = HRT_emperor_story }
+#			end_story = yes
+#		}
+#		trigger_event = HRT.9003 # Notification Event
+#
+#		if = {
+#			limit = {
+#				NOR = {
+#					AND = {
+#						exists = title:e_hre.holder
+#						highest_held_title_tier >= tier_kingdom
+#					}
+#					title:c_aachen = {
+#						OR = {
+#							has_variable = HRT_dismantled
+#							has_variable = HRT_CF_apostate_active #CF Compat
+#						}
+#					}
+#				}
+#			}
+#			HRT_initialize_succession = yes
+#		}
+#	}
+#}
+
+#Decisions
+HRT.0011 = { # Prepare for Unification War
+	type = character_event
+	title = HRT.0011.t
+	desc = HRT.0011.desc
+	theme = crown
+	override_background = { reference = courtyard }
+
+	right_portrait = {
+		character = root
+		animation = marshal
+	}
+
+	immediate = { }
+
+	option = {
+		name = HRT.0011.a
+		custom_tooltip = HRT.0011.a.tt
+	}
+}
+
+##############
+# Italienzug #
+##############
+
+HRT.1001 = {
+	type = character_event
+	title = HRT.1001.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = title:c_aachen.var:HRT_deceasedemperor
+				}
+				desc = HRT.1001.desc.a
+			}
+			desc = HRT.1001.desc.b
+		}
+	}
+	theme = crown
+	left_portrait =	root
+
+	trigger = {
+		NOT = { has_character_flag = HRT_italienzug }
+		OR = {
+			is_ai = yes
+			AND = {
+				has_dlc_feature = tours_and_tournaments
+				has_dlc_feature = advanced_activities
+			}
+		}
+		NOR = {
+			has_trait = HRT_emperor
+			has_trait = COR_crowned_by_myself
+		}
+	}
+
+	immediate = {
+		title:c_aachen.var:HRT_deceasedemperor ?= { save_scope_as = HRTdeceasedemperor }
+		faith:catholic.religious_head.capital_province = { save_scope_as = HRT_hoflocation }
+
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		add_character_flag = HRT_italienzug
+	}
+
+	option = { #Prepare Coronation
+		name = HRT.1001.a
+		add_internal_flag = special
+		custom_tooltip = HRT.1001.a.tooltip
+		if = {
+			limit = { is_ai = no }
+			decision:COR_prepare_coronation_ceremony_decision = { open_view_data = decision_detail }
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = { #Raise Army
+		name = HRT.1001.b
+		custom_tooltip = HRT.1001.b.tooltip
+		if = {
+			limit = {
+				is_ai = no
+			}
+			open_view_data = military
+		}
+	}
+	option = { #Not now
+		name = HRT.1001.c
+	}
+}
+
+#####################
+#Fired on_army_enter_province
+#Hidden first event fires for the owner of the army.
+#root = owner of the army
+#scope:army = the army itself.
+#HRT.1101 = {
+#	hidden = yes
+#	
+#	trigger = {
+#		exists = scope:army
+#		scope:army = {
+#			exists = army_commander
+#			army_commander = {
+#				is_ai = no
+#				HRT_is_emperor_trigger = yes
+#				NOR = {
+#					has_trait = COR_crowned_by_myself
+#					has_trait = HRT_emperor
+#					has_variable = HRT_declined_travel_coronation
+#				}
+#				OR = {
+#					has_character_flag = HRT_italienzug
+#					has_variable = COR_years_reigned
+#				}
+#				has_variable = COR_coronator
+#				var:COR_coronator = faith:catholic.religious_head
+#			}
+#		}
+#		exists = faith:catholic.religious_head.capital_province
+#		location = faith:catholic.religious_head.capital_province
+#	}
+#
+#	immediate = {
+#		location = { save_scope_as = location }
+#		scope:army = {
+#			army_commander = { trigger_event = HRT.1102 }
+#		}
+#	}
+#}
+
+#Arrival
+HRT.1102 = {
+	title = HRT.1102.t
+	desc = HRT.1102.desc
+	theme = travel
+	
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+
+	immediate = {
+		root = { save_scope_as = COR_ruler }
+		faith:catholic.religious_head = { save_scope_as = COR_coronator }
+	}
+
+	option = {
+		name = HRT.1102.a
+		trigger_event = HRT.1103
+	}
+	option = {
+		name = HRT.1102.b
+		set_variable = {
+			name = HRT_declined_travel_coronation
+			days = 30
+		}
+	}
+}
+
+#Coronation
+HRT.1103 = {
+	type = character_event
+	title = COR_ceremony.0322.t
+	desc = COR_ceremony.0322.desc_hre
+	theme = faith
+
+	right_portrait = {
+		character = scope:COR_coronator
+		animation = wedding_priest
+	}
+	
+	left_portrait = {
+		character = root
+		animation = throne_room_bow_1 #throne_room_kneel_1
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = HRT.1103.a
+		switch = {
+			trigger = has_trait
+			COR_crowned_by_priest = { remove_trait = COR_crowned_by_priest }
+			COR_crowned_by_bishop = { remove_trait = COR_crowned_by_bishop }
+			COR_crowned_by_pope = { remove_trait = COR_crowned_by_pope }
+			COR_byz_crowned_by_patriarch = { remove_trait = COR_byz_crowned_by_patriarch }
+		}
+
+		add_trait = HRT_emperor
+		if = {
+			limit = {
+				has_nickname = HRT_in_romanorum_regem_electus
+			}
+			remove_nickname = yes
+		}
+		if = {
+			limit = {
+				NOR = {
+					has_title = title:e_hre
+					has_claim_on = title:e_hre
+				}
+			}
+			add_unpressed_claim = title:e_hre
+		}
+
+		remove_character_flag = COR_flag_preparing_coronation
+		remove_character_flag = HRT_italienzug
+		if = {
+			limit = {
+				NOT = { has_nickname = nick_the_crownless }
+			}
+			remove_character_flag = sold_crown_charmod
+		}
+		remove_variable = COR_years_reigned
+		remove_variable = COR_coronation_request_cooldown
+		remove_variable = COR_coronator_rank
+		if = {
+			limit = { has_character_modifier = COR_uncrowned_modifier }
+			remove_all_character_modifier_instances = COR_uncrowned_modifier
+		}
+		scope:COR_coronator = {
+			remove_list_variable = {
+				name = COR_coronation_targets
+				target = scope:COR_ruler
+			}
+		}
+		every_spouse = {
+			limit = {
+				NOT = { has_nickname = nick_the_crownless }
+				has_character_flag = sold_crown_charmod
+			}
+			remove_character_flag = sold_crown_charmod
+		}
+
+		add_piety = medium_piety_gain
+		add_prestige = major_prestige_gain
+        dynasty = {
+			add_dynasty_prestige = medium_dynasty_prestige_value
+		}
+	}
+}
+
+#############
+# 2.2 Unity #
+#############
+HRT.2001 = { # Promote Unity
+	type = character_event
+	title = HRT.2001.t
+	desc = HRT.2001.desc
+	theme = crown
+	left_portrait = scope:stammesfuehrer_1
+	right_portrait = scope:stammesfuehrer_2
+	lower_left_portrait = scope:stammesfuehrer_3
+	lower_right_portrait = scope:stammesfuehrer_4
+
+	trigger = {
+		HRT_is_emperor_trigger = yes
+		var:HRT_authority >= 20
+		NOR = {
+			has_character_flag = HRT_promote_unity_open
+			has_variable = HRT_promote_unity_cd
+		}
+	}
+
+	immediate = {
+		save_scope_as = emperor
+		add_character_flag = HRT_promote_unity_open
+
+		var:HRT_core_culture_1 ?= {
+			save_scope_as = culture_1
+		}
+		var:HRT_core_culture_2 ?= {
+			save_scope_as = culture_2
+			culture_head ?= {
+				add_to_list = stammesfuehrer
+			}
+		}
+		var:HRT_core_culture_3 ?= {
+			save_scope_as = culture_3
+			culture_head ?= {
+				add_to_list = stammesfuehrer
+			}
+		}
+		var:HRT_core_culture_4 ?= {
+			save_scope_as = culture_4
+			culture_head ?= {
+				add_to_list = stammesfuehrer
+			}
+		}
+		var:HRT_core_culture_5 ?= {
+			save_scope_as = culture_5
+			culture_head ?= {
+				add_to_list = stammesfuehrer
+			}
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			save_scope_as = stammesfuehrer_1
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			limit = {
+				NOT = { this = scope:stammesfuehrer_1 }
+			}
+			save_scope_as = stammesfuehrer_2
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			limit = {
+				NOR = {
+					this = scope:stammesfuehrer_1
+					this = scope:stammesfuehrer_2
+				}
+			}
+			save_scope_as = stammesfuehrer_3
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			limit = {
+				NOR = {
+					this = scope:stammesfuehrer_1
+					this = scope:stammesfuehrer_2
+					this = scope:stammesfuehrer_3
+				}
+			}
+			save_scope_as = stammesfuehrer_4
+		}
+	}
+
+	option = {
+		name = HRT.2001.a # Cultural Festivals
+		custom_tooltip = HRT.2001.a.tt
+		trigger_event = HRT.2011
+	}
+	option = {
+		name = HRT.2001.b # Marriage Alliances
+		custom_tooltip = HRT.2001.b.tt
+		trigger_event = HRT.2012
+	}
+	option = {
+		name = HRT.2001.c # Feudal Contracts
+		custom_tooltip = HRT.2001.c.tt
+		trigger_event = HRT.2013
+	}
+	option = {
+		name = HRT.2001.d # Trade and Commerce
+		custom_tooltip = HRT.2001.d.tt
+		trigger_event = HRT.2014
+	}
+	option = {
+		name = HRT_edicts.1001.f # Not yet
+		remove_character_flag = HRT_promote_unity_open
+	}
+}
+
+HRT.2011 = { # Cultural Festivals
+	type = character_event
+	title = HRT.2011.t
+	desc = HRT.2011.desc
+	theme = crown
+	override_background = { reference = tournament_contest }
+	left_portrait = scope:stammesfuehrer_1
+	right_portrait = scope:stammesfuehrer_2
+	lower_left_portrait = scope:stammesfuehrer_3
+	lower_right_portrait = scope:stammesfuehrer_4
+
+	immediate = {
+		random_in_list = {
+			list = stammesfuehrer
+			save_scope_as = stammesfuehrer_1
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			limit = {
+				NOT = { this = scope:stammesfuehrer_1 }
+			}
+			save_scope_as = stammesfuehrer_2
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			limit = {
+				NOR = {
+					this = scope:stammesfuehrer_1
+					this = scope:stammesfuehrer_2
+				}
+			}
+			save_scope_as = stammesfuehrer_3
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			limit = {
+				NOR = {
+					this = scope:stammesfuehrer_1
+					this = scope:stammesfuehrer_2
+					this = scope:stammesfuehrer_3
+				}
+			}
+			save_scope_as = stammesfuehrer_4
+		}
+	}
+
+	option = {
+		name = HRT.2011.a
+		custom_tooltip = HRT.2011.a.tt
+		custom_tooltip = HRT.20_authority.tt
+		remove_short_term_gold = medium_gold_value
+		add_prestige = medium_prestige_loss
+		add_character_modifier = {
+			modifier = HRT_unity_festival
+			years = 3
+		}
+
+		hidden_effect = {
+			scope:culture_1 = {
+				change_cultural_acceptance = {
+					target = scope:culture_2
+					value = 1
+					desc = HRT_cultural_acceptance_festival
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_3
+					value = 1
+					desc = HRT_cultural_acceptance_festival
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 1
+					desc = HRT_cultural_acceptance_festival
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 1
+					desc = HRT_cultural_acceptance_festival
+				}
+			}
+			scope:culture_2 = {
+				change_cultural_acceptance = {
+					target = scope:culture_3
+					value = 1
+					desc = HRT_cultural_acceptance_festival
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 1
+					desc = HRT_cultural_acceptance_festival
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 1
+					desc = HRT_cultural_acceptance_festival
+				}
+			}
+			scope:culture_3 = {
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 1
+					desc = HRT_cultural_acceptance_festival
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 1
+					desc = HRT_cultural_acceptance_festival
+				}
+			}
+			scope:culture_4 = {
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 1
+					desc = HRT_cultural_acceptance_festival
+				}
+			}
+			change_variable = {
+				name = HRT_authority
+				subtract = 20
+			}
+			set_variable = {
+				name = HRT_promote_unity_cd
+				value = yes
+				years = 20
+			}
+		}
+	}
+	option = {
+		name = HRT.2011.b
+		trigger = { var:HRT_authority >= 30 }
+		custom_tooltip = HRT.2011.b.tt
+		custom_tooltip = HRT.30_authority.tt
+		remove_short_term_gold = medium_gold_value
+		add_prestige = major_prestige_loss
+		add_character_modifier = {
+			modifier = HRT_unity_festival
+			years = 3
+		}
+
+		hidden_effect = {
+			scope:culture_1 = {
+				change_cultural_acceptance = {
+					target = scope:culture_2
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_3
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			scope:culture_2 = {
+				change_cultural_acceptance = {
+					target = scope:culture_3
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			scope:culture_3 = {
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			scope:culture_4 = {
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			change_variable = {
+				name = HRT_authority
+				subtract = 30
+			}
+			set_variable = {
+				name = HRT_promote_unity_cd
+				value = yes
+				years = 20
+			}
+		}
+	}
+	option = {
+		name = HRT.2011.c
+		trigger = { var:HRT_authority >= 40 }
+		custom_tooltip = HRT.2011.c.tt
+		custom_tooltip = HRT.40_authority.tt
+		remove_short_term_gold = medium_gold_value
+		add_prestige = massive_prestige_loss
+		add_character_modifier = {
+			modifier = HRT_unity_festival
+			years = 3
+		}
+
+		hidden_effect = {
+			scope:culture_1 = {
+				change_cultural_acceptance = {
+					target = scope:culture_2
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_3
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			scope:culture_2 = {
+				change_cultural_acceptance = {
+					target = scope:culture_3
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			scope:culture_3 = {
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			scope:culture_4 = {
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			change_variable = {
+				name = HRT_authority
+				subtract = 40
+			}
+			set_variable = {
+				name = HRT_promote_unity_cd
+				value = yes
+				years = 20
+			}
+		}
+	}
+	option = {
+		name = HRT_edicts.0010.b
+	}
+
+	after = {
+		remove_character_flag = HRT_promote_unity_open
+	}
+}
+
+HRT.2012 = { # Marriage Alliances
+	type = character_event
+	title = HRT.2012.t
+	desc = HRT.2012.desc
+	theme = crown
+	override_background = { reference = garden }
+	left_portrait = scope:stammesfuehrer_1
+	right_portrait = scope:stammesfuehrer_2
+	lower_left_portrait = scope:stammesfuehrer_3
+	lower_right_portrait = scope:stammesfuehrer_4
+
+	immediate = {
+		random_in_list = {
+			list = stammesfuehrer
+			save_scope_as = stammesfuehrer_1
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			limit = {
+				NOT = { this = scope:stammesfuehrer_1 }
+			}
+			save_scope_as = stammesfuehrer_2
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			limit = {
+				NOR = {
+					this = scope:stammesfuehrer_1
+					this = scope:stammesfuehrer_2
+				}
+			}
+			save_scope_as = stammesfuehrer_3
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			limit = {
+				NOR = {
+					this = scope:stammesfuehrer_1
+					this = scope:stammesfuehrer_2
+					this = scope:stammesfuehrer_3
+				}
+			}
+			save_scope_as = stammesfuehrer_4
+		}
+	}
+
+	option = {
+		name = HRT.2012.a
+		trigger = { exists = scope:stammesfuehrer_1 }
+		custom_tooltip = HRT.2012.a.tt
+		custom_tooltip = HRT.20_authority.tt
+		remove_short_term_gold = medium_gold_value
+		add_piety = minor_piety_loss
+		add_prestige = minor_prestige_loss
+		add_character_modifier = {
+			modifier = HRT_unity_marriage
+			years = 3
+		}
+
+		hidden_effect = {
+			scope:culture_1 = {
+				change_cultural_acceptance = {
+					target = scope:culture_2
+					value = 10
+					desc = HRT_cultural_acceptance_marriage
+				}
+			}
+			change_variable = {
+				name = HRT_authority
+				subtract = 20
+			}
+			set_variable = {
+				name = HRT_promote_unity_cd
+				value = yes
+				years = 20
+			}
+		}
+	}
+	option = {
+		name = HRT.2012.b
+		trigger = { exists = scope:stammesfuehrer_2 }
+		custom_tooltip = HRT.2012.b.tt
+		custom_tooltip = HRT.20_authority.tt
+		remove_short_term_gold = medium_gold_value
+		add_piety = minor_piety_loss
+		add_prestige = minor_prestige_loss
+		add_character_modifier = {
+			modifier = HRT_unity_marriage
+			years = 3
+		}
+
+		hidden_effect = {
+			scope:culture_1 = {
+				change_cultural_acceptance = {
+					target = scope:culture_3
+					value = 10
+					desc = HRT_cultural_acceptance_marriage
+				}
+			}
+			change_variable = {
+				name = HRT_authority
+				subtract = 20
+			}
+			set_variable = {
+				name = HRT_promote_unity_cd
+				value = yes
+				years = 20
+			}
+		}
+	}
+	option = {
+		name = HRT.2012.c
+		trigger = { exists = scope:stammesfuehrer_3 }
+		custom_tooltip = HRT.2012.c.tt
+		custom_tooltip = HRT.20_authority.tt
+		remove_short_term_gold = medium_gold_value
+		add_piety = minor_piety_loss
+		add_prestige = minor_prestige_loss
+		add_character_modifier = {
+			modifier = HRT_unity_marriage
+			years = 3
+		}
+
+		hidden_effect = {
+			scope:culture_1 = {
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 10
+					desc = HRT_cultural_acceptance_marriage
+				}
+			}
+			change_variable = {
+				name = HRT_authority
+				subtract = 20
+			}
+			set_variable = {
+				name = HRT_promote_unity_cd
+				value = yes
+				years = 20
+			}
+		}
+	}
+	option = {
+		name = HRT.2012.d
+		trigger = { exists = scope:stammesfuehrer_4 }
+		custom_tooltip = HRT.2012.d.tt
+		custom_tooltip = HRT.20_authority.tt
+		remove_short_term_gold = medium_gold_value
+		add_piety = minor_piety_loss
+		add_prestige = minor_prestige_loss
+		add_character_modifier = {
+			modifier = HRT_unity_marriage
+			years = 3
+		}
+
+		hidden_effect = {
+			scope:culture_1 = {
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 10
+					desc = HRT_cultural_acceptance_marriage
+				}
+			}
+			change_variable = {
+				name = HRT_authority
+				subtract = 20
+			}
+			set_variable = {
+				name = HRT_promote_unity_cd
+				value = yes
+				years = 20
+			}
+		}
+	}
+	option = {
+		name = HRT_edicts.0008.b
+	}
+
+	after = {
+		remove_character_flag = HRT_promote_unity_open
+	}
+}
+
+HRT.2013 = { # Feudal Contracts
+	type = character_event
+	title = HRT.2013.t
+	desc = HRT.2013.desc
+	theme = crown
+	left_portrait = scope:stammesfuehrer_1
+	right_portrait = scope:stammesfuehrer_2
+	lower_left_portrait = scope:stammesfuehrer_3
+	lower_right_portrait = scope:stammesfuehrer_4
+
+	immediate = {
+		random_in_list = {
+			list = stammesfuehrer
+			save_scope_as = stammesfuehrer_1
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			limit = {
+				NOT = { this = scope:stammesfuehrer_1 }
+			}
+			save_scope_as = stammesfuehrer_2
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			limit = {
+				NOR = {
+					this = scope:stammesfuehrer_1
+					this = scope:stammesfuehrer_2
+				}
+			}
+			save_scope_as = stammesfuehrer_3
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			limit = {
+				NOR = {
+					this = scope:stammesfuehrer_1
+					this = scope:stammesfuehrer_2
+					this = scope:stammesfuehrer_3
+				}
+			}
+			save_scope_as = stammesfuehrer_4
+		}
+	}
+
+	option = {
+		name = HRT.2013.a
+		trigger = { exists = scope:stammesfuehrer_1 }
+		custom_tooltip = HRT.2013.a.tt
+		custom_tooltip = HRT.20_authority.tt
+		add_prestige = major_prestige_loss
+		add_character_modifier = {
+			modifier = HRT_unity_contracts
+			years = 3
+		}
+
+		hidden_effect = {
+			scope:culture_1 = {
+				change_cultural_acceptance = {
+					target = scope:culture_2
+					value = 5
+					desc = HRT_cultural_acceptance_contracts
+				}
+			}
+			change_variable = {
+				name = HRT_authority
+				subtract = 20
+			}
+			set_variable = {
+				name = HRT_promote_unity_cd
+				value = yes
+				years = 20
+			}
+		}
+	}
+	option = {
+		name = HRT.2013.b
+		trigger = {
+			exists = scope:stammesfuehrer_2
+			var:HRT_authority >= 30
+		}
+		custom_tooltip = HRT.2013.b.tt
+		custom_tooltip = HRT.30_authority.tt
+		add_prestige = major_prestige_loss
+		add_character_modifier = {
+			modifier = HRT_unity_contracts
+			years = 3
+		}
+
+		hidden_effect = {
+			scope:culture_1 = {
+				change_cultural_acceptance = {
+					target = scope:culture_3
+					value = 10
+					desc = HRT_cultural_acceptance_contracts
+				}
+			}
+			change_variable = {
+				name = HRT_authority
+				subtract = 30
+			}
+			set_variable = {
+				name = HRT_promote_unity_cd
+				value = yes
+				years = 20
+			}
+		}
+	}
+	option = {
+		name = HRT.2013.c
+		trigger = {
+			exists = scope:stammesfuehrer_3
+			var:HRT_authority >= 40
+		}
+		custom_tooltip = HRT.2013.c.tt
+		custom_tooltip = HRT.40_authority.tt
+		add_prestige = massive_prestige_loss
+		add_character_modifier = {
+			modifier = HRT_unity_contracts
+			years = 3
+		}
+
+		hidden_effect = {
+			scope:culture_1 = {
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 15
+					desc = HRT_cultural_acceptance_contracts
+				}
+			}
+			change_variable = {
+				name = HRT_authority
+				subtract = 40
+			}
+			set_variable = {
+				name = HRT_promote_unity_cd
+				value = yes
+				years = 20
+			}
+		}
+	}
+	option = {
+		name = HRT.2013.d
+		trigger = {
+			exists = scope:stammesfuehrer_4
+			var:HRT_authority >= 40
+		}
+		custom_tooltip = HRT.2013.d.tt
+		custom_tooltip = HRT.40_authority.tt
+		add_prestige = massive_prestige_loss
+		add_character_modifier = {
+			modifier = HRT_unity_contracts
+			years = 3
+		}
+
+		hidden_effect = {
+			scope:culture_1 = {
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 15
+					desc = HRT_cultural_acceptance_contracts
+				}
+			}
+			change_variable = {
+				name = HRT_authority
+				subtract = 40
+			}
+			set_variable = {
+				name = HRT_promote_unity_cd
+				value = yes
+				years = 20
+			}
+		}
+	}
+	option = {
+		name = HRT_edicts.0005.b
+	}
+
+	after = {
+		remove_character_flag = HRT_promote_unity_open
+	}
+}
+
+HRT.2014 = { # Trade and Commerce
+	type = character_event
+	title = HRT.2014.t
+	desc = HRT.2014.desc
+	theme = crown
+	override_background = { reference = market }
+	left_portrait = scope:stammesfuehrer_1
+	right_portrait = scope:stammesfuehrer_2
+	lower_left_portrait = scope:stammesfuehrer_3
+	lower_right_portrait = scope:stammesfuehrer_4
+
+	immediate = {
+		random_in_list = {
+			list = stammesfuehrer
+			save_scope_as = stammesfuehrer_1
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			limit = {
+				NOT = { this = scope:stammesfuehrer_1 }
+			}
+			save_scope_as = stammesfuehrer_2
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			limit = {
+				NOR = {
+					this = scope:stammesfuehrer_1
+					this = scope:stammesfuehrer_2
+				}
+			}
+			save_scope_as = stammesfuehrer_3
+		}
+		random_in_list = {
+			list = stammesfuehrer
+			limit = {
+				NOR = {
+					this = scope:stammesfuehrer_1
+					this = scope:stammesfuehrer_2
+					this = scope:stammesfuehrer_3
+				}
+			}
+			save_scope_as = stammesfuehrer_4
+		}
+	}
+
+	option = {
+		name = HRT.2014.a
+		custom_tooltip = HRT.2014.a.tt
+		custom_tooltip = HRT.20_authority.tt
+		remove_short_term_gold = medium_gold_value
+		add_character_modifier = {
+			modifier = HRT_unity_trade
+			years = 3
+		}
+
+		hidden_effect = {
+			scope:culture_1 = {
+				change_cultural_acceptance = {
+					target = scope:culture_2
+					value = 1
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_3
+					value = 1
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 1
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 1
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			scope:culture_2 = {
+				change_cultural_acceptance = {
+					target = scope:culture_3
+					value = 1
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 1
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 1
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			scope:culture_3 = {
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 1
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 1
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			scope:culture_4 = {
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 1
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			change_variable = {
+				name = HRT_authority
+				subtract = 20
+			}
+			set_variable = {
+				name = HRT_promote_unity_cd
+				value = yes
+				years = 20
+			}
+		}
+	}
+	option = {
+		name = HRT.2014.b
+		trigger = { var:HRT_authority >= 30 }
+		custom_tooltip = HRT.2014.b.tt
+		custom_tooltip = HRT.30_authority.tt
+		remove_short_term_gold = major_gold_value
+		add_character_modifier = {
+			modifier = HRT_unity_trade
+			years = 3
+		}
+
+		hidden_effect = {
+			scope:culture_1 = {
+				change_cultural_acceptance = {
+					target = scope:culture_2
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_3
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			scope:culture_2 = {
+				change_cultural_acceptance = {
+					target = scope:culture_3
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			scope:culture_3 = {
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			scope:culture_4 = {
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 2
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			change_variable = {
+				name = HRT_authority
+				subtract = 30
+			}
+			set_variable = {
+				name = HRT_promote_unity_cd
+				value = yes
+				years = 20
+			}
+		}
+	}
+	option = {
+		name = HRT.2014.c
+		trigger = { var:HRT_authority >= 40 }
+		custom_tooltip = HRT.2014.c.tt
+		custom_tooltip = HRT.40_authority.tt
+		remove_short_term_gold = massive_gold_value
+		add_character_modifier = {
+			modifier = HRT_unity_trade
+			years = 3
+		}
+
+		hidden_effect = {
+			scope:culture_1 = {
+				change_cultural_acceptance = {
+					target = scope:culture_2
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_3
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			scope:culture_2 = {
+				change_cultural_acceptance = {
+					target = scope:culture_3
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			scope:culture_3 = {
+				change_cultural_acceptance = {
+					target = scope:culture_4
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			scope:culture_4 = {
+				change_cultural_acceptance = {
+					target = scope:culture_5
+					value = 3
+					desc = HRT_cultural_acceptance_trade
+				}
+			}
+			change_variable = {
+				name = HRT_authority
+				subtract = 40
+			}
+			set_variable = {
+				name = HRT_promote_unity_cd
+				value = yes
+				years = 20
+			}
+		}
+	}
+	option = {
+		name = HRT_edicts.0004.b
+	}
+
+	after = {
+		remove_character_flag = HRT_promote_unity_open
+	}
+}
+
+##############
+# Mechanical #
+##############
+HRT.9001 = { # Dismantle HRE
+	type = character_event
+	title = HRT.9001.t
+	desc = HRT.9001.desc
+	theme = crown
+	override_background = { reference = study }
+
+	right_portrait = {
+		character = root
+		animation = stress
+	}
+
+	trigger = {
+		# To prevent multiple instances of event when clicking the button
+		NOT = { has_character_flag = HRT_dismantle_hre }
+	}
+
+	immediate = {
+		add_character_flag = HRT_dismantle_hre
+		save_scope_as = emperor
+	}
+
+	option = {
+		name = HRT.9001.a
+		add_internal_flag = dangerous
+		custom_tooltip = HRT.9001.a.tt.a
+		custom_tooltip = HRT.9001.a.tt.b
+
+		every_ruler = {
+			limit = {
+				NOT = { this = root }
+				any_realm_province = { geographical_region = HRT_core_territory }
+			}
+			trigger_event = {
+				id = HRT.9002
+				days = 2
+			}
+		}
+		add_prestige = -5700
+		remove_character_flag = HRT_dismantle_hre
+		HRT_disable_effect = yes
+		title:c_aachen = {
+			set_variable = {
+				name = HRT_dismantled
+				value = yes
+			}
+		}
+	}
+	option = {
+		name = HRT.9001.b
+
+		remove_character_flag = HRT_dismantle_hre
+	}
+}
+
+HRT.9002 = { # Dismantle HRE Vassal Notification
+	type = character_event
+	title = HRT.9002.t
+	desc = HRT.9002.desc
+	theme = crown
+	override_background = { reference = study }
+
+	right_portrait = {
+		character = root
+		animation = worry
+	}
+	lower_left_portrait = {
+		character = scope:emperor
+	}
+
+	immediate = { }
+
+	option = {
+		name = HRT.9002.a
+		add_opinion = {
+			target = scope:emperor
+			modifier = HRT_dismantled_hre_opinion
+		}
+	}
+}
+
+HRT.9003 = { # Notification about Status Loss on title loss
+	type = character_event
+	title = HRT.9003.t
+	desc = HRT.9003.desc
+	theme = crown
+	override_background = { reference = study }
+
+	right_portrait = {
+		character = root
+		animation = stress
+	}
+
+	immediate = { }
+
+	option = {
+		name = HRT.9003.a
+	}
+}
+
+#on_title_lost
+HRT.9004 = {
+	hidden = yes
+	
+	immediate = {
+		random_owned_story = {
+			limit = { story_type = HRT_emperor_story }
+			end_story = yes
+		}
+		trigger_event = HRT.9003 # Notification Event
+
+		if = {
+			limit = {
+				NOR = {
+					AND = {
+						exists = title:e_hre.holder
+						highest_held_title_tier >= tier_kingdom
+					}
+					title:c_aachen = {
+						OR = {
+							has_variable = HRT_dismantled
+							has_variable = HRT_CF_apostate_active #CF Compat
+						}
+					}
+				}
+			}
+			HRT_initialize_succession = yes
+		}
+		remove_global_variable = HRT_disabled
+	}
+}
+
+HRT.9005 = {
+	title = HRT.1001.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = title:c_aachen.var:HRT_deceasedemperor
+				}
+				desc = HRT.9005.desc.a
+			}
+			desc = HRT.9005.desc.b
+		}
+	}
+	theme = crown
+
+	left_portrait = {
+		character = scope:title_recipient
+		animation = war_defender
+	}
+	
+	trigger = {
+		is_ai = no
+		HRT_is_emperor_trigger = no
+		exists = title:c_aachen.var:HRT_emperor
+	}
+	
+	immediate = {
+		title:c_aachen.var:HRT_emperor = {
+			save_scope_as = title_recipient
+		}
+		title:c_aachen.var:HRT_deceasedemperor ?= {
+			save_scope_as = HRTdeceasedemperor
+		}
+	}
+
+	option = {
+		name = great_holy_war.0070.a
+		add_internal_flag = dangerous
+		set_player_character = scope:title_recipient
+	}
+	option = { name = great_holy_war.0070.b }
+}
+
+#Close Window delayed effect
+HRT.9006 = {
+	scope = culture
+	hidden = yes
+
+	immediate = {
+		remove_global_variable = HRT_close_window_temp_var
+	}
+}
+
+################################
+# Emperor Story Delayed Effect #
+################################
+HRT.9100 = {
+	hidden = yes
+
+	immediate = {
+		#Vassal Values
+		every_vassal = {
+			#Total Vassal Count
+			prev = {
+				change_variable = {
+					name = HRT_authority_vassals_var
+					add = 1
+				}
+			}
+			#Vassal Bonus per Tier
+			if = {
+				limit = { highest_held_title_tier = tier_kingdom }
+				prev = {
+					change_variable = {
+						name = HRT_authority_vassals_bonus_var
+						add = authority_gain_per_vassal_kingdom_bonus
+					}
+				}
+			}
+			else_if = {
+				limit = { highest_held_title_tier = tier_duchy }
+				prev = {
+					change_variable = {
+						name = HRT_authority_vassals_bonus_var
+						add = authority_gain_per_vassal_duchy_bonus
+					}
+				}
+			}
+			#Vassals Waging War Malus
+			if = {
+				limit = { is_at_war = yes }
+				prev = {
+					change_variable = {
+						name = HRT_authority_vassals_war_var
+						add = authority_loss_per_waged_vassal_war
+					}
+				}
+			}
+			#Infidel Vassal Malus
+			if = {
+				limit = { NOT = { faith = prev.faith } }
+				prev = {
+					change_variable = {
+						name = HRT_authority_infidels_var
+						add = 1
+					}
+				}
+			}
+			# 3.1 centralization
+			capital_county = {
+				title:c_aachen.var:HRT_emperor = {
+					change_variable = {
+						name = HRT_centralization_vassal_development
+						add = prev.development_level
+					}
+				}
+			}
+			if = {
+				limit = {
+					save_temporary_opinion_value_as = {
+						name = vopinion
+						target = prev
+					}
+					exists = scope:vopinion
+				}
+				prev = {
+					change_variable = {
+						name = HRT_vopinion
+						add = scope:vopinion
+					}
+				}
+			}
+		}
+		#Territory Bonus
+		every_realm_county = {
+			prev = {
+				change_variable = {
+					name = HRT_authority_territory
+					add = 1
+				}
+			}
+		}
+		#Unheld Heartlands Malus
+		every_county_in_region = {
+			region = HRT_core_territory
+			limit = {
+				holder.top_liege = {
+					NOT = { this = scope:story.story_owner }
+				}
+			}
+			prev = {
+				change_variable = {
+					name = HRT_authority_unheld_heartlands
+					add = 1
+				}
+			}
+		}
+		every_ally = {
+			save_temporary_scope_as = ally
+			prev = {
+				change_variable = {
+					name = HRT_authority_ally_military_strength
+					add = scope:ally.max_military_strength
+				}
+			}
+		}
+		#Artifact Bonus
+		every_character_artifact = {
+			limit = { rarity = illustrious }
+			prev = {
+				change_variable = {
+					name = HRT_authority_artifacts
+					add = 0.1
+				}
+			}
+		}
+		#Cardinals Bonus
+		if = {
+			limit = { exists = var:HRT_authority_cardinals }
+			every_living_cardinal = {
+				limit = { is_vassal_or_below_of = prev }
+				prev = {
+					change_variable = {
+						name = HRT_authority_cardinals
+						add = 1
+					}
+				}
+			}
+		}
+
+		# Unity Effect
+		HRT_unity_effect = yes
+
+		trigger_event = {
+			id = HRT.9101
+			days = 1
+		}
+	}
+}
+
+HRT.9101 = {
+	hidden = yes
+
+	immediate = {
+		set_variable = {
+			name = HRT_centralization_baseline
+			value = HRT_centralization_baseline_value
+		}
+		HRT_assign_centralization_modifier_effect = yes
+	}
+}

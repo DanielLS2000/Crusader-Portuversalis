@@ -1,0 +1,25 @@
+﻿#by Rylock
+demanded_my_title_hre_opinion = {
+	opinion = -25
+	years = 20
+	decaying = yes
+}
+
+demanded_my_subjugation_opinion = {
+	opinion = -25
+	years = 20
+	decaying = yes
+}
+
+working_together_hre_opinion = {
+	opinion = 25
+	years = 10
+	decaying = yes
+}
+
+former_liege_convinced_opinion = {
+	opinion = 25
+	years = 10
+	decaying = yes
+}
+

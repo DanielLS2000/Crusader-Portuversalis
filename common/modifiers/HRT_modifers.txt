@@ -1,0 +1,355 @@
+﻿###################
+# Imperial Edicts #
+###################
+
+# Edict of Legal Unification (Era 2)
+HRT_edict_legal_unification = {
+	icon = diplomacy_positive
+	tyranny_gain_mult = 0.2
+	monthly_prestige_gain_mult = 0.01
+	title_creation_cost_mult = -0.05
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+
+HRT_edict_legal_unification_vassal = {
+	icon = diplomacy_positive
+	tyranny_gain_mult = 0.25
+	title_creation_cost_mult = -0.05
+}
+
+# Consular Taxation Directive (Era 2)
+HRT_edict_consular_taxation = {
+	icon = stewardship_positive
+	domain_tax_mult = 0.02
+	vassal_tax_mult = 0.02
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+
+# Imperial Decree of Chivalric Excellence (Era 3)
+HRT_edict_chivalric_excellence = { 
+	icon = martial_positive
+	monthly_prestige_gain_mult = 0.03
+	army_maintenance_mult = 0.02
+	knight_effectiveness_mult = 0.02
+	accolade_glory_gain_mult = 0.1
+	army_toughness_mult = 0.01
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+
+# Edict of Imperial Works (Era 3)
+HRT_edict_imperial_works = {
+	icon = stewardship_positive
+	character_travel_safety_mult = 0.1
+	character_travel_speed_mult = 0.1
+	domain_tax_mult = -0.01
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+
+HRT_edict_imperial_works_vassal = {
+	icon = travel_speed_good
+	character_travel_safety_mult = 0.15
+	character_travel_speed_mult = 0.15
+}
+
+HRT_edict_imperial_works_county = {
+	icon = county_modifier_development_positive
+	tax_mult = -0.01
+	build_speed = -0.05
+	build_gold_cost = -0.02
+	supply_limit_mult = 0.05
+	development_growth_factor = 0.01
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+
+# Edict of Scholastic Advancement (Era 3)
+HRT_edict_scholastic_advancement = {
+	icon = learning_positive
+	cultural_head_fascination_mult = 0.02
+	learn_language_scheme_phase_duration_add = -5
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+
+HRT_edict_scholastic_advancement_vassal = {
+	icon = learning_positive
+	learn_language_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
+}
+
+# Edict of Ecclesiastical Patronage (Era 3)
+HRT_edict_ecclesiastical_patronage = {
+	icon = learning_positive
+	monthly_piety_gain_mult = 0.02
+	clergy_opinion = 4
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+
+HRT_edict_ecclesiastical_patronage_county = {
+	icon = county_modifier_development_positive
+	church_holding_build_speed = -0.05
+	church_holding_build_gold_cost = -0.02
+	church_holding_holding_build_speed = -0.05
+	church_holding_holding_build_gold_cost = -0.02
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+
+# Diplomatic Corps Activation Edict (Era 4)
+HRT_edict_diplomatic_corps = {
+	icon = diplomacy_positive
+	independent_ruler_opinion = 2
+	different_culture_opinion = 2
+	monthly_piety_gain_mult = 0.02
+	sway_scheme_phase_duration_add = -5
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+
+# Imperial Levy Conscription Order (Era 4)
+HRT_edict_levy_conscription = {
+	icon = martial_positive
+	levy_size = 0.02
+	levy_reinforcement_rate = 0.02
+	levy_maintenance = 0.05
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+
+# Edict of Urban Rights and Privileges (Era 4)
+HRT_edict_urban_rights = {
+	icon = diplomacy_positive
+	barons_and_minor_landholders_opinion = 5
+}
+
+HRT_edict_urban_rights_county = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 2
+	development_growth_factor = 0.02
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+
+# Border Defense Temporary Directive (Era 4)
+HRT_edict_border_defense = {
+	icon = martial_positive
+	glory_hound_opinion = 5
+}
+
+HRT_edict_border_defense_county = {
+	icon = county_modifier_development_positive
+	#fort_level = 1
+	hostile_raid_time = 0.05
+	garrison_size = 0.02
+	castle_holding_holding_build_gold_cost = -0.02
+	castle_holding_holding_build_speed = -0.05
+	castle_holding_build_gold_cost = -0.02
+	castle_holding_build_speed = -0.05
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+
+#Proclaim Directive
+HRT_edict_proclaim_directive_diplomacy = {
+	icon = diplomacy_positive
+	diplomacy = 1
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+HRT_edict_proclaim_directive_martial = {
+	icon = martial_positive
+	martial = 1
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+HRT_edict_proclaim_directive_stewardship = {
+	icon = stewardship_positive
+	stewardship = 1
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+HRT_edict_proclaim_directive_intrigue = {
+	icon = intrigue_positive
+	intrigue = 1
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+HRT_edict_proclaim_directive_learning = {
+	icon = learning_positive
+	learning = 1
+	scale = {
+		value = HRT_edict_centralization_scale_value
+		desc = HRT_EDICT_MODIFIER_DEFINITION_VALUE_PER_CENTRALIZATION_LEVEL
+		display_mode = scaled
+	}
+}
+
+HRT_preparing_for_unification_war = {
+	icon = martial_positive
+	levy_size = 0.1
+	levy_reinforcement_rate = 0.2
+	army_maintenance_mult = -0.1
+	knight_effectiveness_mult = 0.1
+}
+
+#Nibelungen
+HRT_nibelungen_valkyr_helmet_modifier = {
+	icon = prestige_positive
+	monthly_piety = -0.1
+	monthly_dynasty_prestige = 0.2
+	prowess_no_portrait = 6
+	enemy_hostile_scheme_phase_duration_add = minor_scheme_phase_duration_malus_value
+	attraction_opinion = 10
+}
+
+#2.2 Unity
+HRT_unity_festival = {
+	icon = learning_negative
+	learning = -1
+}
+HRT_unity_marriage = {
+	icon = intrigue_negative
+	intrigue = -1
+}
+HRT_unity_contracts = {
+	icon = diplomacy_negative
+	diplomacy = -1
+}
+HRT_unity_trade = {
+	icon = stewardship_negative
+	stewardship = -1
+}
+
+#2.3 Hoftag
+HRT_hoftag_gather_support_mod = {
+	icon = martial_positive
+	happy_powerful_vassal_levy_contribution_mult = 0.2
+}
+
+#2.5 Reichsstadt
+HRT_reichsstadt_1 = {
+	icon = county_modifier_development_positive
+	#march_01
+	supply_limit_mult = 0.25
+	levy_reinforcement_rate = 0.25
+	garrison_size = 0.25
+	hostile_raid_time = 0.2
+	defender_holding_advantage = 5
+	additional_fort_level = normal_building_fort_level_tier_2
+	travel_danger = -10
+	#royal_forest_01
+	county_opinion_add = 5
+	development_growth_factor = 0.1
+}
+
+HRT_reichsstadt_2 = {
+	icon = county_modifier_development_positive
+	#march_02
+	supply_limit_mult = 0.5
+	levy_reinforcement_rate = 0.5
+	garrison_size = 0.5
+	hostile_raid_time = 0.3
+	defender_holding_advantage = 10
+	additional_fort_level = normal_building_fort_level_tier_4
+	travel_danger = -20
+	#royal_forest_02
+	county_opinion_add = 10
+	development_growth_factor = 0.2
+}
+
+HRT_reichsstadt_3 = {
+	icon = county_modifier_development_positive
+	#march_03
+	supply_limit_mult = 1
+	levy_reinforcement_rate = 1
+	garrison_size = 1
+	hostile_raid_time = 0.4
+	defender_holding_advantage = 15
+	additional_fort_level = normal_building_fort_level_tier_6
+	travel_danger = -30
+	#royal_forest_03
+	county_opinion_add = 15
+	development_growth_factor = 0.3
+}
+
+failedtoprotectfreecity = {
+	icon = social_negative
+	direct_vassal_opinion = -15
+}
+
+# 3.1 centralization
+HRT_centralization_0_mod = {
+	icon = county_modifier_corruption_mixed
+	vassal_limit = 10
+}
+HRT_centralization_1_mod = {
+	icon = county_modifier_corruption_mixed
+	vassal_limit = 5
+	domain_limit = 1
+}
+HRT_centralization_2_mod = {
+	icon = county_modifier_corruption_mixed
+	domain_limit = 2
+}
+HRT_centralization_3_mod = {
+	icon = county_modifier_corruption_mixed
+	vassal_limit = -5
+	domain_limit = 3
+}
+HRT_centralization_4_mod = {
+	icon = county_modifier_corruption_mixed
+	vassal_limit = -10
+	domain_limit = 4
+}

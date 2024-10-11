@@ -1,0 +1,38 @@
+﻿# Papal requests for Coronation
+#opinion used to make the Pope remember what he asked from whom in exchange for a Coronation.
+COR_opinion_requested_papal_investiture = {
+	opinion = -12
+	years = 10
+}
+#COR_opinion_requested_papal_land = {
+#	opinion = -12
+#	years = 10
+#}
+COR_opinion_requested_independence = {
+	opinion = -12
+	years = 10
+}
+COR_opinion_requested_artifact = {
+	opinion = -12
+	years = 10
+}
+
+# Ceremony
+COR_ceremony_good_option_opinion = {
+	opinion = 5
+	monthly_change = 0.5
+	decaying = yes
+	stacking = yes
+}
+
+COR_ceremony_balanced_option_opinion = {
+	opinion = 5
+	monthly_change = 0.5
+	decaying = yes
+	stacking = yes
+}
+
+COR_hosted_ceremony_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+}

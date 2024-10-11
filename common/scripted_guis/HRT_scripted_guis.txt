@@ -1,0 +1,474 @@
+﻿HRT_update_candidati_sgui = {
+	scope = character
+
+	effect = {
+		HRT_update_window_effect = yes
+	}
+}
+
+HRT_abort_sgui = {
+	scope = character
+
+	effect = {
+		HRT_clear_variables_effect = yes
+	}
+}
+
+HRT_formed_sgui = {
+    scope = character
+	is_shown = {
+		has_variable = HRT_formed_gui
+	}
+}
+
+HRT_open_election_sgui = {
+	scope = character
+
+	effect = {
+		title:e_hre = {
+			open_view_data = {
+				view = title_election
+			}
+		}
+	}
+}
+
+HRT_missing_1_sgui = {
+    scope = character
+	is_shown = {
+		has_variable = HRT_missing_1_gui
+	}
+}
+HRT_missing_2_sgui = {
+    scope = character
+	is_shown = {
+		has_variable = HRT_missing_2_gui
+	}
+}
+HRT_missing_3_sgui = {
+    scope = character
+	is_shown = {
+		has_variable = HRT_missing_3_gui
+	}
+}
+HRT_expectatus_sgui = {
+    scope = character
+	is_shown = {
+		NOT = { has_variable = HRT_missing_expectatus_gui }
+	}
+}
+HRT_missing_expectatus_sgui = {
+    scope = character
+	is_shown = {
+		has_variable = HRT_missing_expectatus_gui
+	}
+}
+HRT_imperator_sgui = {
+    scope = character
+	is_shown = {
+		NOT = { has_variable = HRT_missing_imperator_gui }
+	}
+}
+HRT_missing_imperator_sgui = {
+    scope = character
+	is_shown = {
+		has_variable = HRT_missing_imperator_gui
+	}
+}
+HRT_show_player_score_sgui = {
+    scope = character
+	is_shown = {
+		has_variable = HRT_show_player_score
+	}
+}
+HRT_show_player_score_invalid_sgui = {
+    scope = character
+	is_shown = {
+		has_variable = HRT_show_player_score_invalid
+	}
+}
+
+#Edicts
+HRT_edict_legal_unification_sgui = {
+	scope = character
+
+	effect = {
+		trigger_event = HRT_edicts.0001
+	}
+}
+HRT_edict_chivalric_excellence_sgui = {
+	scope = character
+
+	effect = {
+		trigger_event = HRT_edicts.0002
+	}
+}
+HRT_edict_diplomatic_corps_sgui = {
+	scope = character
+
+	effect = {
+		trigger_event = HRT_edicts.0003
+	}
+}
+HRT_edict_consular_taxation_sgui = {
+	scope = character
+
+	effect = {
+		trigger_event = HRT_edicts.0004
+	}
+}
+HRT_edict_levy_conscription_sgui = {
+	scope = character
+
+	effect = {
+		trigger_event = HRT_edicts.0005
+	}
+}
+HRT_edict_urban_rights_sgui = {
+	scope = character
+
+	effect = {
+		trigger_event = HRT_edicts.0006
+	}
+}
+HRT_edict_border_defense_sgui = {
+	scope = character
+
+	effect = {
+		trigger_event = HRT_edicts.0007
+	}
+}
+HRT_edict_scholastic_advancement_sgui = {
+	scope = character
+
+	effect = {
+		trigger_event = HRT_edicts.0008
+	}
+}
+HRT_edict_imperial_works_sgui = {
+	scope = character
+
+	effect = {
+		trigger_event = HRT_edicts.0009
+	}
+}
+HRT_edict_ecclesiastical_patronage_sgui = {
+	scope = character
+
+	effect = {
+		trigger_event = HRT_edicts.0010
+	}
+}
+
+HRT_edict_proclaim_directive_sgui = {
+	scope = character
+
+	effect = {
+		trigger_event = HRT_edicts.1001
+	}
+}
+#HRT_edict_enact_resolution_sgui= {
+#	scope = character
+#
+#	effect = {
+#		trigger_event = HRT_edicts.1002
+#	}
+#}
+HRT_dismantle_hre_sgui = {
+	scope = character
+
+	effect = {
+		if = {
+			limit = {
+				exists = title:e_hre.holder
+			}
+			title:e_hre = {
+				open_view_data = {
+					view = title_view_window
+				}
+			}
+		}
+		else = {
+			trigger_event = HRT.9001
+		}
+	}
+}
+
+## Misc
+#Manages Display of HRT Button in Realm View
+HRT_is_involved_sgui = {
+	scope = character
+	is_shown = {
+		is_ai = no
+		NOR = {
+			title:c_aachen = {
+				has_variable = HRT_dismantled
+				has_variable = HRT_CF_apostate_active #CF Compat
+			}
+		}
+		HRT_is_involved_trigger = yes
+	}
+}
+
+# 2.2 Unity
+HRT_unity_module_sgui = {
+    scope = character
+	is_shown = {
+		has_variable = HRT_formed_gui
+		has_variable = HRT_authority_unity
+	}
+}
+
+HRT_promote_unity_sgui = {
+	scope = character
+
+	effect = {
+		trigger_event = HRT.2001
+	}
+}
+
+# 2.3 Hoftag
+HRT_summon_hoftag_sgui = {
+	scope = character
+
+	effect = {
+		trigger_event = HRT_hoftag.0001
+	}
+}
+
+# 2.5 Reichsstadt
+HRT_reichsstadt_module_sgui = {
+    scope = character
+	is_shown = {
+		has_variable = HRT_formed_gui
+	}
+}
+
+HRT_get_reichsstadt_candidates_sgui = {
+	scope = character
+
+	effect = {
+		every_vassal_or_below = {
+			limit = {
+				NOT = { has_government = free_imperial_city_government }
+				is_ai = yes
+				is_landed = yes
+				can_be_granted_titles_by = { RULER = root }
+				NOT = { is_at_war_with = root }
+				is_claimant = no
+				any_held_title = {
+					tier = tier_county
+					count = 1
+				}
+				NOT = {
+					any_close_or_extended_family_member = {
+						is_landed = yes
+					}
+				}
+				any_heir_title = {
+					count < 1
+					tier >= tier_county
+				}
+				any_held_title = {
+					count = 1
+					tier = tier_county
+					OR = {
+						any_county_province = {
+							has_holding_type = city_holding
+						}
+						development_level > 20
+					}
+					title:c_aachen = {
+						NOT = {
+							is_target_in_variable_list = {
+								name = HRT_reichsstaedte
+								target = prev
+							}
+						}
+					}
+				}
+				save_temporary_scope_as = vassal
+				OR = {
+					NOT = {
+						title:e_hre = {
+							any_elector = {
+								this = scope:vassal
+							}
+						}
+					}
+					AND = {
+						title:e_hre = {
+							any_elector = {
+								this = scope:vassal
+							}
+						}
+						government_has_flag = government_is_theocracy
+					}
+				}
+				trigger_if = {
+					limit = {
+						scope:vassal = {
+							is_ruler = no
+						}
+					}
+					scope:vassal = {
+						is_imprisoned = no
+					}
+				}
+			}
+			root = {
+				add_to_variable_list = {
+					name = HRT_reichsstadt_candidates
+					target = prev
+				}
+			}
+		}
+	}
+}
+
+HRT_clear_reichsstadt_candidates_sgui = {
+	scope = character
+
+	effect = {
+		clear_variable_list = HRT_reichsstadt_candidates
+	}
+}
+
+HRT_imperial_charters_unlocked_sgui = {
+	scope = character
+
+	is_shown = {
+		culture = {
+			has_innovation = innovation_HRT_imperial_charter
+		}
+	}
+}
+
+# 3.1 centralization
+HRT_open_council_sgui = {
+	scope = character
+
+	effect = {
+		open_view_data = {
+			view = council_window
+		}
+	}
+}
+
+HRT_is_emperor_sgui = { #Why didn't I use this before
+	scope = character
+
+	is_shown = {
+		HRT_is_emperor_trigger = yes
+	}
+}
+
+HRT_is_centralizing_trigger_sgui = {
+	scope = character
+
+	is_shown = {
+		HRT_is_centralizing_trigger = yes
+	}
+}
+
+HRT_centralizing_effort_low_sgui = {
+	scope = character
+
+	is_shown = {
+		var:HRT_centralization_effort_value = 0
+	}
+	effect = {
+		set_variable = {
+			name = HRT_centralization_effort_value
+			value = 1
+		}
+	}
+}
+
+HRT_centralizing_effort_medium_sgui = {
+	scope = character
+
+	is_shown = {
+		var:HRT_centralization_effort_value = 1
+	}
+	effect = {
+		set_variable = {
+			name = HRT_centralization_effort_value
+			value = 2
+		}
+	}
+}
+
+HRT_centralizing_effort_high_sgui = {
+	scope = character
+
+	is_shown = {
+		var:HRT_centralization_effort_value = 2
+	}
+	effect = {
+		set_variable = {
+			name = HRT_centralization_effort_value
+			value = 0
+		}
+	}
+}
+
+HRT_has_centralization_0_sgui = {
+	scope = character
+
+	is_shown = {
+		HRT_has_centralization_0_trigger = yes
+	}
+}
+HRT_has_centralization_1_sgui = {
+	scope = character
+
+	is_shown = {
+		HRT_has_centralization_1_trigger = yes
+	}
+}
+HRT_has_centralization_2_sgui = {
+	scope = character
+
+	is_shown = {
+		HRT_has_centralization_2_trigger = yes
+	}
+}
+HRT_has_centralization_3_sgui = {
+	scope = character
+
+	is_shown = {
+		HRT_has_centralization_3_trigger = yes
+	}
+}
+HRT_has_centralization_4_sgui = {
+	scope = character
+
+	is_shown = {
+		HRT_has_centralization_4_trigger = yes
+	}
+}
+
+HRT_centralization_decreasing_sgui = {
+	scope = character
+
+	is_shown = {
+		HRT_centralization_progressbar_change_value < 0
+		HRT_centralization_reduction_imminent_trigger = no
+	}
+}
+HRT_centralization_increasing_sgui = {
+	scope = character
+
+	is_shown = {
+		HRT_centralization_progressbar_change_value > 0
+		HRT_centralization_reduction_imminent_trigger = no
+	}
+}
+HRT_centralization_reduction_imminent_sgui = {
+	scope = character
+
+	is_shown = {
+		HRT_centralization_reduction_imminent_trigger = yes
+	}
+}

@@ -1,0 +1,71 @@
+﻿HRT_emperor = {
+	category = fame
+	
+	random_creation = 0
+	
+	monthly_prestige = 0.25
+	monthly_piety = 0.25
+	
+	shown_in_ruler_designer = no
+	random_creation = 0
+	clergy_opinion = 10
+	vassal_opinion = 5
+	
+	shown_in_ruler_designer = no
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_HRT_emperor_name
+			}
+			triggered_desc = {
+				trigger = {
+					has_variable = COR_coronator
+				}
+				desc = trait_HRT_emperor_pope
+			}
+			desc = trait_HRT_emperor_name
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_HRT_emperor_desc
+			}
+			triggered_desc = {
+                trigger = {
+                    has_variable = COR_coronator
+					var:COR_coronator = { has_title = title:k_papal_state }
+                }
+                desc = trait_HRT_emperor_pope_desc
+            }
+			desc = trait_HRT_emperor_character_desc
+		}
+	}
+}
+
+HRT_decline_succession = {
+	category = fame
+
+	random_creation = 0
+	shown_in_ruler_designer = no
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_HRT_decline_succession_desc
+			}
+			desc = trait_HRT_decline_succession_character_desc
+		}
+	}
+}

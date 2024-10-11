@@ -1,0 +1,187 @@
+﻿COR_coronator_story = {
+
+	on_setup = { }
+
+	on_end = { }
+
+	on_owner_death = {
+		story_owner = {
+			if = {
+				limit = { has_variable_list = COR_coronation_targets }
+				every_in_list = {
+					variable = COR_coronation_targets
+					limit = {
+						is_alive = yes
+						has_variable = COR_coronator
+					}
+					trigger_event = COR_ceremony.0003
+				}
+			}
+		}
+		end_story = yes
+	}
+}
+
+HRT_King_of_the_germans_story = {
+
+	on_setup = {
+		story_owner = {
+			give_nickname = HRT_in_romanorum_regem_electus
+		}
+	}
+
+	on_end = {
+		story_owner = {
+			if = {
+				limit = {
+					has_nickname = HRT_in_romanorum_regem_electus
+				}
+				remove_nickname = yes
+			}
+		}
+	}
+
+	on_owner_death = {
+		story_owner = {
+			if = {
+				limit = {
+					exists = title:k_king_of_the_germans.holder
+					this = title:k_king_of_the_germans.holder
+				}
+				destroy_title = title:k_king_of_the_germans
+			}
+			if = {
+				limit = {
+					has_nickname = HRT_in_romanorum_regem_electus
+				}
+				remove_nickname = yes
+			}
+		}
+		end_story = yes
+	}
+}
+
+HRT_on_player_death_story = {
+
+	on_setup = { }
+
+	on_end = { }
+
+	on_owner_death = {
+		story_owner = {
+			if = {
+				limit = {
+					is_ai = no
+					exists = global_var:HRT_window_is_open
+				}
+				HRT_close_window = yes
+			}
+		}
+		end_story = yes
+	}
+}
+
+HRT_imperial_city_story = {
+
+	on_setup = {
+		story_owner = {
+			add_character_flag = ai_should_not_transfer
+		}
+	}
+
+	on_end = { }
+
+	on_owner_death = {
+		story_owner = {
+			if = {
+				limit = {
+					liege = title:e_hre.holder
+					OR = {
+						has_government = free_imperial_city_government
+						government_has_flag = government_is_theocracy
+					}
+				}
+				capital_county = { save_scope_as = freecity }
+				culture = { # Don't ask
+					trigger_event = {
+						id = KoH_FreeCity.11
+						days = 1
+					}
+				}
+			}
+			else = {
+				every_held_title = {
+					save_scope_as = title
+					title:c_aachen = {
+						random_in_list = {
+							variable = HRT_reichsstaedte
+							limit = { this = scope:title }
+							remove_variable = HRT_reichsstadt_years
+							remove_county_modifier ?= HRT_reichsstadt_1
+							remove_county_modifier ?= HRT_reichsstadt_2
+							remove_county_modifier ?= HRT_reichsstadt_3
+							prev = {
+								remove_list_variable = {
+									name = HRT_reichsstaedte
+									target = prev
+								}
+							}
+						}
+					}
+				}
+				remove_character_flag ?= ai_should_not_transfer
+				if = {
+					limit = { has_government = free_imperial_city_government }
+					change_government = republic_government
+				}
+			}
+		}
+		end_story = yes
+	}
+
+	effect_group = {
+		months = 1
+		triggered_effect = {
+			trigger = {
+				story_owner = {
+					NAND = {
+						is_vassal_of = title:e_hre.holder
+						OR = {
+							has_government = free_imperial_city_government
+							government_has_flag = government_is_theocracy
+						}
+					}
+				}
+			}
+			effect = {
+				story_owner = {
+					every_held_title = {
+						save_scope_as = title
+						title:c_aachen = {
+							random_in_list = {
+								variable = HRT_reichsstaedte
+								limit = { this = scope:title }
+								remove_variable = HRT_reichsstadt_years
+								remove_county_modifier ?= HRT_reichsstadt_1
+								remove_county_modifier ?= HRT_reichsstadt_2
+								remove_county_modifier ?= HRT_reichsstadt_3
+								prev = {
+									remove_list_variable = {
+										name = HRT_reichsstaedte
+										target = prev
+									}
+								}
+							}
+						}
+					}
+					remove_character_flag ?= ai_should_not_transfer
+					if = {
+						limit = { has_government = free_imperial_city_government }
+						change_government = republic_government
+					}
+				}
+				end_story = yes
+			}
+		}
+	}
+}

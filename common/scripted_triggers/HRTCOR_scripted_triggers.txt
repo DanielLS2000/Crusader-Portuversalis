@@ -1,0 +1,172 @@
+﻿HRT_is_eligible_candidatus = {
+	HRT_is_emperor_trigger = no
+	is_male = yes
+	exists = dynasty
+	NOT = { this = faith.religious_head }
+	faith = { religion_tag = christianity_religion }
+	NOR = {
+		has_trait = HRT_decline_succession
+		has_trait = excommunicated
+		has_trait = disinherited
+		has_trait = eunuch
+		has_trait = crusader_king
+		has_trait = devoted
+		has_trait = order_member
+		AND = {
+			exists = faith:catholic.religious_head
+			is_at_war_with = faith:catholic.religious_head
+		}
+	}
+	OR = {
+		AND = {
+			exists = title:c_aachen.var:HRT_emperor
+			is_close_or_extended_family_of = title:c_aachen.var:HRT_emperor
+		}
+		has_variable = HRT_prince_var
+		has_claim_on = title:e_hre
+		AND = {
+			is_landed = yes
+			highest_held_title_tier >= tier_duchy
+			any_realm_province = { geographical_region = HRT_core_territory }
+			OR = {
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
+			}
+		}
+	}
+}
+
+HRT_is_emperor_trigger = {
+	any_owned_story = {
+		story_type = HRT_emperor_story
+	}
+	#this = title:c_aachen.var:HRT_emperor
+	#any_held_title = title:e_hre
+}
+
+HRT_is_involved_trigger = {
+	is_landed = yes
+	OR = {
+		HRT_is_emperor_trigger = yes
+		any_realm_province = { geographical_region = HRT_core_territory }
+		AND = {
+			exists = title:e_hre.holder
+			is_vassal_of = title:e_hre.holder
+		}
+		any_neighboring_top_liege_realm_owner = {
+			OR = {
+				any_realm_province = { geographical_region = HRT_core_territory }
+				AND = {
+					exists = title:e_hre.holder
+					is_vassal_of = title:e_hre.holder
+				}
+			}
+		}
+		# 2.4 Jewel of Byzantine
+		has_title = title:e_byzantium
+		has_title = title:e_roman_empire
+	}
+}
+
+# 3.1 centralization
+HRT_is_centralizing_trigger = {
+	title:c_aachen.var:HRT_emperor ?= {
+		OR = {
+			has_variable = HRT_chancellor_task_centralization_efforts
+			has_variable = HRT_steward_task_centralization_efforts
+		}
+	}
+}
+
+HRT_has_centralization_0_trigger = {
+	title:c_aachen.var:HRT_centralization <= 40
+}
+HRT_has_centralization_1_trigger = {
+	title:c_aachen.var:HRT_centralization > 40
+	title:c_aachen.var:HRT_centralization <= 80
+}
+HRT_has_centralization_2_trigger = {
+	title:c_aachen.var:HRT_centralization > 80
+	title:c_aachen.var:HRT_centralization <= 120
+}
+HRT_has_centralization_3_trigger = {
+	title:c_aachen.var:HRT_centralization > 120
+	title:c_aachen.var:HRT_centralization <= 160
+}
+HRT_has_centralization_4_trigger = {
+	title:c_aachen.var:HRT_centralization > 160
+}
+
+HRT_centralization_reduction_imminent_trigger = {
+	OR = {
+		HRT_centralization_reduction_imminent_1_to_0_trigger = yes
+		HRT_centralization_reduction_imminent_2_to_1_trigger = yes
+		HRT_centralization_reduction_imminent_3_to_2_trigger = yes
+		HRT_centralization_reduction_imminent_4_to_3_trigger = yes
+	}
+}
+
+HRT_centralization_reduction_imminent_1_to_0_trigger = {
+	HRT_has_centralization_1_trigger = yes # 40-80
+	HRT_centralization_progressbar_limiter_value <= 40.01
+}
+HRT_centralization_reduction_imminent_2_to_1_trigger = {
+	HRT_has_centralization_2_trigger = yes # 80-120
+	HRT_centralization_progressbar_limiter_value <= 80.01
+}
+HRT_centralization_reduction_imminent_3_to_2_trigger = {
+	HRT_has_centralization_3_trigger = yes # 120-160
+	HRT_centralization_progressbar_limiter_value <= 120.01
+}
+HRT_centralization_reduction_imminent_4_to_3_trigger = {
+	HRT_has_centralization_4_trigger = yes # >160
+	HRT_centralization_progressbar_limiter_value <= 160.01
+}
+
+
+### Coronation Ceremonies
+COR_location_has_cathedral_trigger = {
+	OR = {
+		has_building_or_higher = holy_site_cathedral_01
+		has_building_or_higher = holy_site_cologne_cathedral_01
+		has_building_or_higher = holy_site_canterbury_cathedral_01
+		has_building_or_higher = temple_of_uppsala_01
+		has_building_or_higher = lund_cathedral_01
+		has_building_or_higher = notre_dame_01
+		has_building_or_higher = hagia_sophia_01
+		has_building_or_higher = temple_in_jerusalem_01
+		has_building_or_higher = holy_site_basilica_santiago_01
+	}
+}
+
+COR_child_can_take_vows_trigger = {
+	age >= 10
+	is_available_ai = yes
+	faith = faith:catholic
+	is_ruler = no
+	is_married = no
+	is_betrothed = no
+	NOR = {
+		is_primary_heir_of = scope:COR_ruler
+		has_trait = devoted
+		has_trait = order_member
+		has_trait = excommunicated
+		has_character_flag = holy_order_member_requested_return_home
+	}
+}
+
+COR_holy_order_child_trigger = {
+	can_be_warrior_trigger = { ARMY_OWNER = scope:COR_ruler }
+	is_available_ai = yes
+	faith = faith:catholic
+	is_ruler = no
+	is_married = no
+	is_betrothed = no
+	NOR = {
+		is_primary_heir_of = scope:COR_ruler
+		has_trait = devoted
+		has_trait = order_member
+		has_trait = excommunicated
+		has_character_flag = holy_order_member_requested_return_home
+	}
+}

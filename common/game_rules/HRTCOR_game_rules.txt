@@ -1,0 +1,17 @@
+﻿HRT_authority_gains = {
+	default = HRT_authority_default
+
+	HRT_authority_default = { }
+
+	HRT_authority_one_and_a_half = { }	
+
+	HRT_authority_twice = { }	
+}
+
+COR_crowns = {
+	default = COR_crowns_taketh
+
+	COR_crowns_taketh = { }
+
+	COR_crowns_giveth = { }	
+}

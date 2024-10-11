@@ -1,0 +1,8 @@
+﻿valkyrie_helmet_male = {
+	set_tags = "no_hair,helmet,snug_headgear,nose_guard"
+ 	entity = { required_tags = ""			shared_pose_entity = head		entity = valkyrie_helmet_male_entity 	 }
+}
+valkyrie_helmet_female = {
+	set_tags = "no_hair,helmet,snug_headgear,nose_guard"
+ 	entity = { required_tags = ""			shared_pose_entity = head		entity = valkyrie_helmet_female_entity 	 }
+}

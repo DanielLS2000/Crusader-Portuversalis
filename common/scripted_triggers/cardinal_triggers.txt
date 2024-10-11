@@ -1,0 +1,12 @@
+﻿# Is this character a valid cardinal?
+is_cardinal = {
+	OR = {
+		faith = faith:catholic
+		faith = faith:insular_celtic
+	}
+	OR = {
+		has_trait = cardinal_archbishop
+		has_trait = cardinal_bishop
+		has_trait = cardinal_priest
+	}
+}

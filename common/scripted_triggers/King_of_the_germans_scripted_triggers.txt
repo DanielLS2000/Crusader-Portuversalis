@@ -1,0 +1,31 @@
+﻿#By Uber (KOH)
+#Co-Emperor Scripted Trigger to establish candidates.
+
+is_shown_character_King_of_the_germans_candidate = {
+	scope:employee = {
+	is_male = yes
+	exists = dynasty
+	faith = faith:catholic
+		OR = {
+			is_close_or_extended_family_of = scope:liege
+			AND = {
+				is_vassal_of = scope:liege
+				highest_held_title_tier >= tier_county
+			}
+			NOR = {
+				has_trait = HRT_decline_succession
+				has_trait = excommunicated
+				has_trait = disinherited
+				has_trait = eunuch
+				has_trait = devoted
+				has_trait = order_member
+			}
+			trigger_if = {
+				limit = {
+					scope:liege = { has_title = title:e_hre }
+				}
+				has_claim_on = title:e_hre
+			}
+		}
+	}
+}

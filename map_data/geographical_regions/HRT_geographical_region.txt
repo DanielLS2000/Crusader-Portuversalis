@@ -1,0 +1,20 @@
+﻿HRT_core_territory = {
+	#regions = {
+	#	world_europe_west_germania
+	#	custom_northern_italy
+	#	custom_burgundy
+	#}
+	duchies = {
+		## world_europe_west_germania
+		# Saxony
+		d_anhalt d_angria d_westfalen d_ostfalen d_meissen d_lausitz d_holstein d_thuringia
+		# Frisia
+		d_holland d_gelre d_utrecht d_frisia
+		# Lotharingia
+		d_luxembourg d_brabant d_julich d_upper_lorraine d_lower_lorraine d_bar
+		# Bavaria
+		d_bavaria d_nordgau d_salzburg d_augsburg d_steyermark d_osterreich d_tyrol d_carinthia d_krain d_istria
+		# East Francia
+		d_west_franconia d_east_franconia d_hesse d_currezia d_alsace d_swabia
+	}
+}

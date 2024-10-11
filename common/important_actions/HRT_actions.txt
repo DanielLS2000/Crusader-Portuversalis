@@ -1,0 +1,50 @@
+﻿action_max_authority_reached = {
+	priority = 1
+	check_create_action = {
+		if = {
+			limit = {
+				HRT_is_emperor_trigger = yes
+				title:c_aachen.var:HRT_emperor.var:HRT_authority >= 100
+			}
+			try_create_important_action = {
+				important_action_type = action_max_authority_reached
+				actor = root
+			}
+		}
+	}
+
+	effect = {
+		scope:actor = {
+			open_view_data = {
+				view = my_realm
+			}
+		}
+	}
+}
+
+action_centralization_reduction_imminent = {
+	priority = 1
+	is_dangerous = yes
+	check_create_action = {
+		if = {
+			limit = {
+				HRT_is_emperor_trigger = yes
+				exists = title:c_aachen.var:HRT_centralization
+				HRT_is_centralizing_trigger = no
+				HRT_centralization_reduction_imminent_trigger = yes
+			}
+			try_create_important_action = {
+				important_action_type = action_centralization_reduction_imminent
+				actor = root
+			}
+		}
+	}
+
+	effect = {
+		scope:actor = {
+			open_view_data = {
+				view = council_window
+			}
+		}
+	}
+}

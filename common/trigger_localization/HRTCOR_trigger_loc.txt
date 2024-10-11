@@ -1,0 +1,39 @@
+﻿COR_excommunicated_free_investiture_tooltip = {
+	global = COR_excommunicated_free_investiture_tooltip
+	first = COR_excommunicated_free_investiture_tooltip
+}
+
+HRT_nibelungen_activity_search_month_requirement = {
+	global = HRT_nibelungen_activity_search_month_requirement
+	first = HRT_nibelungen_activity_search_month_requirement
+}
+
+HRT_nibelungen_activity_barony_searched = {
+	global = HRT_nibelungen_activity_barony_searched
+	first = HRT_nibelungen_activity_barony_searched
+}
+
+HRT_nibelungen_activity_rhine_barony = {
+	global = HRT_nibelungen_activity_rhine_barony
+	first = HRT_nibelungen_activity_rhine_barony
+}
+
+# 2.3 Hoftag
+HRT_activity_hoftag_req = {
+	global = HRT_activity_hoftag_req
+}
+
+# 2.5 Reichsstadt
+HRT_too_many_republics = {
+	global = HRT_too_many_republics_tt
+	third_not = HRT_too_many_republics_tt
+}
+HRT_is_elector_prince = {
+	global = HRT_is_elector_prince_tt
+	third_not = HRT_is_elector_prince_tt
+}
+HRT_demand_fealty_interaction_authority_req = {
+	global = HRT_demand_fealty_interaction_authority_req_tt
+	global_not = HRT_demand_fealty_interaction_authority_req_tt
+	third_not = HRT_demand_fealty_interaction_authority_req_tt
+}

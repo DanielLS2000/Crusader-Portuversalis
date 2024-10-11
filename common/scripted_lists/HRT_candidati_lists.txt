@@ -1,0 +1,6 @@
+﻿HRT_candidati = {
+	base = living_character
+	conditions = {
+		HRT_is_eligible_candidatus = yes
+	}
+}

@@ -1,0 +1,59 @@
+widget = {
+	name = "HRT_floating_button"
+	datacontext = "[GetVariableSystem]"
+	datacontext = "[GetPlayer]"
+	visible = "[And( GetPlayer.IsValid, And(IsInGame,And(IsDefaultGUIMode,IsGameViewOpen('my_realm'))) )]"
+	parentanchor = top|right
+	allow_outside = yes
+	layer = middle
+	using = Window_Size_MainTab
+
+	state = {
+		name = _show
+		position_y = -20
+		using = Animation_FadeIn_Quick
+		using = Window_Position_MainTab
+	}
+
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Quick
+		using = Window_Position_MainTab_Hide
+	}
+
+	button = {
+		visible = "[And(GetScriptedGui('HRT_is_involved_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End),Not(GetGlobalVariable('HRT_disabled').IsSet))]"
+		name = "HRT_open" #I tear my
+		size = { 40 40 }
+		#position = { 548 229 }
+		position = { 613 95 }
+		using = tooltip_sw
+		texture = "gfx/interface/icons/HRT_realm_icon.dds"
+		glow = {
+			glow_radius = 3
+			using = Glow_Standard
+			using = Color_Bright_Yellow
+		}
+
+		onclick = "[GetVariableSystem.Set('HRT_window_open', 'yes')]"
+		tooltip = "HRT_floating_button_tt"
+	}
+
+	button = {
+		name = "HRT_close"
+		visible = "[And( GetScriptedGui('HRT_is_involved_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End), And(GetVariableSystem.HasValue('HRT_window_open', 'yes'),IsInGame) )]"
+		size = { 40 40 }
+		#position = { 548 229 }
+		position = { 613 95 }
+		using = tooltip_sw
+		texture = "gfx/interface/icons/HRT_realm_icon.dds"
+		glow = {
+			glow_radius = 5
+			using = Glow_Standard
+			using = Color_Bright_Yellow
+		}
+
+		onclick = "[GetVariableSystem.Set('HRT_window_open', 'no')]"
+		tooltip = "HRT_floating_button_tt"
+	}
+}

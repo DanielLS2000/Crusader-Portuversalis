@@ -1,0 +1,189 @@
+﻿HRT_chancellor_task_centralization_efforts = {
+	position = councillor_chancellor
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	effect_desc = {
+		desc = HRT_task_centralization_efforts_effect_desc
+		# Bureaucrats tooltip
+		triggered_desc = {
+			trigger = {
+				councillor_liege_has_erudition_legacy_5_perk = yes
+			}
+			desc = HRT_task_centralization_efforts_effect_desc_bureaucrats_bonus
+		}
+
+		desc = {
+			desc = council_task_possible_side_effects
+			triggered_desc = {
+				trigger = {
+					diplomacy > mediocre_skill_rating
+				}
+				desc = task_increase_control_improved_vassal_opinion
+			}
+			triggered_desc = {
+				trigger = {
+					diplomacy > mediocre_skill_rating
+					liege = {
+						any_vassal = {
+							government_has_flag = government_is_feudal
+							primary_title.tier > tier_barony
+						}
+					}
+				}
+				desc = task_increase_control_improve_vassal_contract
+			}
+			triggered_desc = {
+				trigger = {
+					diplomacy > mediocre_skill_rating
+				}
+				desc = task_increase_control_end_internal_war
+			}
+			triggered_desc = {
+				trigger = {
+					diplomacy > mediocre_skill_rating
+				}
+				desc = task_increase_control_force_vassal_partition
+			}
+			triggered_desc = {
+				trigger = {
+					diplomacy < high_skill_rating
+				}
+				desc = task_increase_control_lose_vassal_opinion
+			}
+			triggered_desc = {
+				trigger = {
+					diplomacy < high_skill_rating
+					liege = {
+						any_vassal = {
+							government_has_flag = government_is_feudal
+							primary_title.tier > tier_barony
+						}
+					}
+				}
+				desc = task_increase_control_worsen_contract
+			}
+		}
+	}
+
+	is_shown = {
+		liege = {
+			HRT_is_emperor_trigger = yes
+			is_ai = no
+		}
+	}
+
+	is_valid_showing_failures_only =  {
+		custom_tooltip = {
+			text = HRT_centralization_maxed_out
+			title:c_aachen.var:HRT_centralization < 200
+		}
+		custom_tooltip = {
+			text = HRT_centralization_already_performing
+			liege = {
+				NOT = { has_variable = HRT_steward_task_centralization_efforts }
+			}
+		}
+	}
+
+	on_start_task = {
+		liege = {
+			set_variable = {
+				name = HRT_chancellor_task_centralization_efforts
+				value = yes
+			}
+		}
+	}
+
+	on_cancel_task = {
+		liege = {
+			remove_variable = HRT_chancellor_task_centralization_efforts
+		}
+	}
+
+	monthly_on_action = task_domestic_affairs_side_effects
+
+	ai_will_do = {
+		value = 0
+	}
+}
+
+
+HRT_steward_task_centralization_efforts = {
+	position = councillor_steward
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	effect_desc = {
+		desc = HRT_task_centralization_efforts_effect_desc
+		# Bureaucrats tooltip
+		triggered_desc = {
+			trigger = {
+				councillor_liege_has_erudition_legacy_5_perk = yes
+			}
+			desc = HRT_task_centralization_efforts_effect_desc_bureaucrats_bonus
+		}
+
+		desc = {
+			desc = council_task_possible_side_effects
+			triggered_desc = {
+				trigger = {
+					stewardship > mediocre_skill_rating
+				}
+				desc = task_collect_taxes_extra_taxes
+			}
+			triggered_desc = {
+				trigger = {
+					stewardship < high_skill_rating
+					liege = {
+						any_sub_realm_county = {
+							steward_task_county_corruption_county_trigger = yes
+						}
+					}	
+				}
+				desc = task_collect_taxes_county_corruption
+			}
+		}
+	}
+
+	is_shown = {
+		liege = {
+			HRT_is_emperor_trigger = yes
+			is_ai = no
+		}
+	}
+
+	is_valid_showing_failures_only =  {
+		custom_tooltip = {
+			text = HRT_centralization_maxed_out
+			title:c_aachen.var:HRT_centralization < 200
+		}
+		custom_tooltip = {
+			text = HRT_centralization_already_performing
+			liege = {
+				NOT = { has_variable = HRT_chancellor_task_centralization_efforts }
+			}
+		}
+	}
+
+	on_start_task = {
+		liege = {
+			set_variable = {
+				name = HRT_steward_task_centralization_efforts
+				value = yes
+			}
+		}
+	}
+
+	on_cancel_task = {
+		liege = {
+			remove_variable = HRT_steward_task_centralization_efforts
+		}
+	}
+
+	monthly_on_action = task_collect_taxes_side_effects
+
+	ai_will_do = {
+		value = 0
+	}
+}

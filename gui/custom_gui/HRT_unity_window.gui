@@ -1,0 +1,658 @@
+﻿window = {
+	name = "HRT_unity_window"
+	datacontext = "[GetVariableSystem]"
+	datacontext = "[GetPlayer]"
+	parentanchor = center
+    layer = middle
+	size = { 1035 520 }
+	visible = "[And(GetVariableSystem.HasValue('HRT_unity_window_open', 'yes'),Not(GetGlobalVariable('HRT_close_window_temp_var').IsSet))]"
+	using = Window_Background
+	using = Window_Decoration_Spike
+
+	state = {
+		name = _show
+		position = { -170 -245 }
+		using = Animation_FadeIn_Quick
+        using = Sound_WindowShow_Standard
+		on_start = "[GetVariableSystem.Set('HRT_unity_window_open', 'yes')]"
+		#on_start = "[GetScriptedGui('HRT_update_unity_sgui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+	}
+
+	state = {
+		name = _hide
+		position_y = -550
+		using = Animation_FadeOut_Quick
+        using = Sound_WindowHide_Standard
+		on_start = "[GetVariableSystem.Set('HRT_unity_window_open', 'no')]"
+	}
+
+	vbox = {
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		using = Window_Margins
+		header_pattern = {
+			layoutpolicy_horizontal = expanding
+
+			blockoverride "header_text"
+			{
+				text = "HRT_Unity"
+			}
+
+			blockoverride "button_close"
+			{
+				onclick = "[GetVariableSystem.Set('HRT_unity_window_open', 'no')]"
+			}
+		}
+		container = {
+			layoutpolicy_vertical = expanding
+			layoutpolicy_horizontal = expanding
+
+			### Horizontal Header ###
+			hbox = {
+				margin_bottom = 500
+				widget = {
+					size = { 150 110 }
+					text_single = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						text = "HRT_total_unity_bad"
+						position = { 0 -20 }
+						visible = "[LessThan_CFixedPoint(GetPlayer.MakeScope.Var('HRT_authority_unity').GetValue,'(CFixedPoint)40')]"
+					}
+					text_single = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						text = "HRT_total_unity"
+						position = { 0 -20 }
+						visible = "[And( LessThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.Var('HRT_authority_unity').GetValue,'(CFixedPoint)69'), GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.Var('HRT_authority_unity').GetValue,'(CFixedPoint)40') )]"
+					}
+					text_single = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						text = "HRT_total_unity_good"
+						position = { 0 -20 }
+						visible = "[GreaterThan_CFixedPoint(GetPlayer.MakeScope.Var('HRT_authority_unity').GetValue,'(CFixedPoint)69')]"
+					}
+					button_primary = {
+						text = "HRT_UNITY_PROMOTE"
+						size = { 155 33 }
+						position = { 0 75 }
+						visible = "[Not(GreaterThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_promote_unity_cd'), '(CFixedPoint)0'))]"
+						enabled = "[And( GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_authority_progressbar_value'), '(CFixedPoint)20'), GreaterThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_stammesherzogtuemer_innovation'), '(CFixedPoint)0') )]"
+						onclick = "[GetScriptedGui('HRT_promote_unity_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						tooltip = "HRT_UNITY_PROMOTE_TT"
+						using = tooltip_se
+					}
+					button_primary = {
+						text = "HRT_UNITY_PROMOTE"
+						size = { 155 33 }
+						position = { 0 75 }
+						visible = "[GreaterThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_promote_unity_cd'), '(CFixedPoint)0')]"
+						enabled = no
+						onclick = "[GetScriptedGui('HRT_promote_unity_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						tooltip = "HRT_UNITY_PROMOTE_CD_TT"
+						using = tooltip_se
+					}
+				}
+				widget = {
+					divider_light = {
+						size = { 5 425 }
+					}
+				}
+				widget = {
+					size = { 150 110 }
+					vbox = {
+						visible = "[GetPlayer.MakeScope.Var('HRT_core_culture_2').IsSet]"
+						portrait_head_small = {
+							datacontext = "[GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetCultureHead)]"
+						}
+						hbox = {
+							text_single = {
+								using = Font_Size_Medium
+								maximumsize = { 113 45 }
+								multiline = yes
+								autoresize = yes
+								text = "[GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetName)]"
+							}
+							text_single = {
+								using = Font_Size_Medium
+								multiline = yes
+								autoresize = yes
+								raw_text = " ([GetPlayer.MakeScope.ScriptValue('HRT_2_weight'),GetValue|0]%)"
+							}
+							tooltip = "HRT_WEIGHT_TT"
+							using = tooltip_se
+						}
+						
+					}
+				}
+				widget = {
+					divider_light = {
+						size = { 5 425 }
+					}
+				}
+				widget = {
+					size = { 150 110 }
+					vbox = {
+						visible = "[GetPlayer.MakeScope.Var('HRT_core_culture_3').IsSet]"
+						portrait_head_small = {
+							datacontext = "[GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetCultureHead)]"
+						}
+						hbox = {
+							text_single = {
+								using = Font_Size_Medium
+								maximumsize = { 113 45 }
+								multiline = yes
+								autoresize = yes
+								text = "[GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetName)]"
+							}
+							text_single = {
+								using = Font_Size_Medium
+								multiline = yes
+								autoresize = yes
+								raw_text = " ([GetPlayer.MakeScope.ScriptValue('HRT_3_weight'),GetValue|0]%)"
+							}
+							tooltip = "HRT_WEIGHT_TT"
+							using = tooltip_se
+						}
+						
+					}
+				}
+				widget = {
+					divider_light = {
+						size = { 5 425 }
+					}
+				}
+				widget = {
+					size = { 150 110 }
+					vbox = {
+						visible = "[GetPlayer.MakeScope.Var('HRT_core_culture_4').IsSet]"
+						portrait_head_small = {
+							datacontext = "[GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture.GetCultureHead)]"
+						}
+						hbox = {
+							text_single = {
+								using = Font_Size_Medium
+								maximumsize = { 113 45 }
+								multiline = yes
+								autoresize = yes
+								text = "[GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture.GetName)]"
+							}
+							text_single = {
+								using = Font_Size_Medium
+								multiline = yes
+								autoresize = yes
+								raw_text = " ([GetPlayer.MakeScope.ScriptValue('HRT_4_weight'),GetValue|0]%)"
+							}
+							tooltip = "HRT_WEIGHT_TT"
+							using = tooltip_se
+						}
+						
+					}
+				}
+				widget = {
+					divider_light = {
+						size = { 5 425 }
+					}
+				}
+				widget = {
+					size = { 150 110 }
+					vbox = {
+						visible = "[GetPlayer.MakeScope.Var('HRT_core_culture_5').IsSet]"
+						portrait_head_small = {
+							datacontext = "[GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture.GetCultureHead)]"
+						}
+						hbox = {
+							text_single = {
+								using = Font_Size_Medium
+								maximumsize = { 113 45 }
+								multiline = yes
+								autoresize = yes
+								text = "[GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture.GetName)]"
+							}
+							text_single = {
+								using = Font_Size_Medium
+								multiline = yes
+								autoresize = yes
+								raw_text = " ([GetPlayer.MakeScope.ScriptValue('HRT_5_weight'),GetValue|0]%)"
+							}
+							tooltip = "HRT_WEIGHT_TT"
+							using = tooltip_se
+						}
+					}
+				}
+			}
+
+			## Row A ##
+			hbox = {
+				margin_bottom = 110
+				widget = {
+					size = { 150 60 }
+				}
+				widget = {
+					size = { 150 60 }
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.95 0.36 0.36 1 } # Light Red
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture),GetValue|0]%"
+						visible = "[And( LessThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_2_value'),'(CFixedPoint)40'), And( GetPlayer.MakeScope.Var('HRT_core_culture_1').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_2').IsSet ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture),GetValue|0]%"
+						visible = "[And( And( LessThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_2_value'),'(CFixedPoint)69'), GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_2_value'),'(CFixedPoint)40') ), And( GetPlayer.MakeScope.Var('HRT_core_culture_1').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_2').IsSet ) ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.4 0.61 0.3 1 } # Green
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture),GetValue|0]%"
+						visible = "[And( GreaterThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_2_value'),'(CFixedPoint)69'), And( GetPlayer.MakeScope.Var('HRT_core_culture_1').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_2').IsSet ) )]"
+					}
+					tooltip = "HRT_ACCEPTANCE_TT"
+					using = tooltip_se
+				}
+				widget = {
+					size = { 150 60 }
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.95 0.36 0.36 1 } # Light Red
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture),GetValue|0]%"
+						visible = "[And( LessThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_3_value'),'(CFixedPoint)40'), And( GetPlayer.MakeScope.Var('HRT_core_culture_1').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_3').IsSet ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture),GetValue|0]%"
+						visible = "[And( And( LessThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_3_value'),'(CFixedPoint)69'), GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_3_value'),'(CFixedPoint)40') ), And( GetPlayer.MakeScope.Var('HRT_core_culture_1').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_3').IsSet ) ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.4 0.61 0.3 1 } # Green
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture),GetValue|0]%"
+						visible = "[And( GreaterThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_3_value'),'(CFixedPoint)69'), And( GetPlayer.MakeScope.Var('HRT_core_culture_1').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_3').IsSet ) )]"
+					}
+					tooltip = "HRT_ACCEPTANCE_TT"
+					using = tooltip_se
+				}
+				widget = {
+					size = { 150 60 }
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.95 0.36 0.36 1 } # Light Red
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture),GetValue|0]%"
+						visible = "[And( LessThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_4_value'),'(CFixedPoint)40'), And( GetPlayer.MakeScope.Var('HRT_core_culture_1').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_4').IsSet ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture),GetValue|0]%"
+						visible = "[And( And( LessThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_4_value'),'(CFixedPoint)69'), GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_4_value'),'(CFixedPoint)40') ), And( GetPlayer.MakeScope.Var('HRT_core_culture_1').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_4').IsSet ) ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.4 0.61 0.3 1 } # Green
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture),GetValue|0]%"
+						visible = "[And( GreaterThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_4_value'),'(CFixedPoint)69'), And( GetPlayer.MakeScope.Var('HRT_core_culture_1').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_4').IsSet ) )]"
+					}
+					tooltip = "HRT_ACCEPTANCE_TT"
+					using = tooltip_se
+				}
+				widget = {
+					size = { 150 60 }
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.95 0.36 0.36 1 } # Light Red
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture),GetValue|0]%"
+						visible = "[And( LessThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_5_value'),'(CFixedPoint)40'), And( GetPlayer.MakeScope.Var('HRT_core_culture_1').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_5').IsSet ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture),GetValue|0]%"
+						visible = "[And( And( LessThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_5_value'),'(CFixedPoint)69'), GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_5_value'),'(CFixedPoint)40') ), And( GetPlayer.MakeScope.Var('HRT_core_culture_1').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_5').IsSet ) ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.4 0.61 0.3 1 } # Green
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture),GetValue|0]%"
+						visible = "[And( GreaterThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_1_5_value'),'(CFixedPoint)69'), And( GetPlayer.MakeScope.Var('HRT_core_culture_1').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_5').IsSet ) )]"
+					}
+					tooltip = "HRT_ACCEPTANCE_TT"
+					using = tooltip_se
+				}
+			}
+
+			## Row B ##
+			hbox = {
+				margin_bottom = -50
+				widget = {
+					size = { 150 60 }
+				}
+				widget = {
+					size = { 150 60 }
+				}
+				widget = {
+					size = { 150 60 }
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.95 0.36 0.36 1 } # Light Red
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture),GetValue|0]%"
+						visible = "[And( LessThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_2_3_value'),'(CFixedPoint)40'), And( GetPlayer.MakeScope.Var('HRT_core_culture_2').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_3').IsSet ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture),GetValue|0]%"
+						visible = "[And( And( LessThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_2_3_value'),'(CFixedPoint)69'), GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_2_3_value'),'(CFixedPoint)40') ), And( GetPlayer.MakeScope.Var('HRT_core_culture_2').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_3').IsSet ) ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.4 0.61 0.3 1 } # Green
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture),GetValue|0]%"
+						visible = "[And( GreaterThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_2_3_value'),'(CFixedPoint)69'), And( GetPlayer.MakeScope.Var('HRT_core_culture_2').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_3').IsSet ) )]"
+					}
+					tooltip = "HRT_ACCEPTANCE_TT"
+					using = tooltip_se
+				}
+				widget = {
+					size = { 150 60 }
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.95 0.36 0.36 1 } # Light Red
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture),GetValue|0]%"
+						visible = "[And( LessThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_2_4_value'),'(CFixedPoint)40'), And( GetPlayer.MakeScope.Var('HRT_core_culture_2').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_4').IsSet ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture),GetValue|0]%"
+						visible = "[And( And( LessThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_2_4_value'),'(CFixedPoint)69'), GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_2_4_value'),'(CFixedPoint)40') ), And( GetPlayer.MakeScope.Var('HRT_core_culture_2').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_4').IsSet ) ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.4 0.61 0.3 1 } # Green
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture),GetValue|0]%"
+						visible = "[And( GreaterThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_2_4_value'),'(CFixedPoint)69'), And( GetPlayer.MakeScope.Var('HRT_core_culture_2').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_4').IsSet ) )]"
+					}
+					tooltip = "HRT_ACCEPTANCE_TT"
+					using = tooltip_se
+				}
+				widget = {
+					size = { 150 60 }
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.95 0.36 0.36 1 } # Light Red
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture),GetValue|0]%"
+						visible = "[And( LessThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_2_5_value'),'(CFixedPoint)40'), And( GetPlayer.MakeScope.Var('HRT_core_culture_2').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_5').IsSet ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture),GetValue|0]%"
+						visible = "[And( And( LessThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_2_5_value'),'(CFixedPoint)69'), GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_2_5_value'),'(CFixedPoint)40') ), And( GetPlayer.MakeScope.Var('HRT_core_culture_2').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_5').IsSet ) ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.4 0.61 0.3 1 } # Green
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture),GetValue|0]%"
+						visible = "[And( GreaterThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_2_5_value'),'(CFixedPoint)69'), And( GetPlayer.MakeScope.Var('HRT_core_culture_2').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_5').IsSet ) )]"
+					}
+					tooltip = "HRT_ACCEPTANCE_TT"
+					using = tooltip_se
+				}
+			}
+
+			## Row C ##
+			hbox = {
+				margin_bottom = -205
+				widget = {
+					size = { 150 60 }
+				}
+				widget = {
+					size = { 150 60 }
+				}
+				widget = {
+					size = { 150 60 }
+				}
+				widget = {
+					size = { 150 60 }
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.95 0.36 0.36 1 } # Light Red
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture),GetValue|0]%"
+						visible = "[And( LessThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_3_4_value'),'(CFixedPoint)40'), And( GetPlayer.MakeScope.Var('HRT_core_culture_3').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_4').IsSet ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture),GetValue|0]%"
+						visible = "[And( And( LessThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_3_4_value'),'(CFixedPoint)69'), GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_3_4_value'),'(CFixedPoint)40') ), And( GetPlayer.MakeScope.Var('HRT_core_culture_3').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_4').IsSet ) ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.4 0.61 0.3 1 } # Green
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture),GetValue|0]%"
+						visible = "[And( GreaterThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_3_4_value'),'(CFixedPoint)69'), And( GetPlayer.MakeScope.Var('HRT_core_culture_3').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_4').IsSet ) )]"
+					}
+					tooltip = "HRT_ACCEPTANCE_TT"
+					using = tooltip_se
+				}
+				widget = {
+					size = { 150 60 }
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.95 0.36 0.36 1 } # Light Red
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture),GetValue|0]%"
+						visible = "[And( LessThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_3_5_value'),'(CFixedPoint)40'), And( GetPlayer.MakeScope.Var('HRT_core_culture_3').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_5').IsSet ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture),GetValue|0]%"
+						visible = "[And( And( LessThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_3_5_value'),'(CFixedPoint)69'), GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_3_5_value'),'(CFixedPoint)40') ), And( GetPlayer.MakeScope.Var('HRT_core_culture_3').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_5').IsSet ) ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.4 0.61 0.3 1 } # Green
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture),GetValue|0]%"
+						visible = "[And( GreaterThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_3_5_value'),'(CFixedPoint)69'), And( GetPlayer.MakeScope.Var('HRT_core_culture_3').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_5').IsSet ) )]"
+					}
+					tooltip = "HRT_ACCEPTANCE_TT"
+					using = tooltip_se
+				}
+			}
+
+			## Row D ##
+			hbox = {
+				margin_bottom = -345
+				widget = {
+					size = { 150 60 }
+				}
+				widget = {
+					size = { 150 60 }
+				}
+				widget = {
+					size = { 150 60 }
+				}
+				widget = {
+					size = { 150 60 }
+				}
+				widget = {
+					size = { 150 60 }
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.95 0.36 0.36 1 } # Light Red
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture),GetValue|0]%"
+						visible = "[And( LessThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_4_5_value'),'(CFixedPoint)40'), And( GetPlayer.MakeScope.Var('HRT_core_culture_4').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_5').IsSet ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture),GetValue|0]%"
+						visible = "[And( And( LessThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_4_5_value'),'(CFixedPoint)69'), GreaterThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_4_5_value'),'(CFixedPoint)40') ), And( GetPlayer.MakeScope.Var('HRT_core_culture_4').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_5').IsSet ) ) )]"
+					}
+					textbox = {
+						using = Font_Size_Big
+						parentanchor = center
+						align = center
+						fontcolor = { 0.4 0.61 0.3 1 } # Green
+						raw_text = "[GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture.GetAcceptance(GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture),GetValue|0]%"
+						visible = "[And( GreaterThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_4_5_value'),'(CFixedPoint)69'), And( GetPlayer.MakeScope.Var('HRT_core_culture_4').IsSet,GetPlayer.MakeScope.Var('HRT_core_culture_5').IsSet ) )]"
+					}
+					tooltip = "HRT_ACCEPTANCE_TT"
+					using = tooltip_se
+				}
+			}
+
+			### Vertical Header ###
+			vbox = {
+				margin_right = 1000
+				widget = {
+					size = { 150 110 }
+				}
+				widget = {
+					divider_light = {
+						size = { 950 5 }
+					}
+				}
+				widget = {
+					size = { 145 65 } #Don't change
+					hbox = {
+						visible = "[GetPlayer.MakeScope.Var('HRT_core_culture_1').IsSet]"
+						coa_title_small_crown = {
+							datacontext = "[GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetCultureHead.GetPrimaryTitle]"
+						}
+						text_single = {
+							using = Font_Size_Medium
+							maximumsize = { 125 80 }
+							multiline = yes
+							autoresize = yes
+							text = "[GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetName)]"
+							
+							margin_bottom = 20
+						}
+						
+					}
+				}
+				widget = {
+					
+					divider_light = {
+						size = { 950 5 }
+					}
+				}
+				widget = {
+					size = { 150 60 }
+					hbox = {
+						visible = "[GetPlayer.MakeScope.Var('HRT_core_culture_2').IsSet]"
+						coa_title_small = {
+							datacontext = "[GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetCultureHead.GetPrimaryTitle]"
+						}
+						text_single = {
+							using = Font_Size_Medium
+							maximumsize = { 125 80 }
+							multiline = yes
+							autoresize = yes
+							text = "[GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetName)]"
+						}
+					}
+
+				}
+				widget = {
+					divider_light = {
+						size = { 950 5 }
+					}
+				}
+				widget = {
+					size = { 150 60 }
+					hbox = {
+						visible = "[GetPlayer.MakeScope.Var('HRT_core_culture_3').IsSet]"
+						coa_title_small = {
+							datacontext = "[GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetCultureHead.GetPrimaryTitle]"
+						}
+						text_single = {
+							using = Font_Size_Medium
+							maximumsize = { 125 80 }
+							multiline = yes
+							autoresize = yes
+							text = "[GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetName)]"
+						}
+					}
+				}
+				widget = {
+					divider_light = {
+						size = { 950 5 }
+					}
+				}
+				widget = {
+					size = { 150 60 }
+					hbox = {
+						visible = "[GetPlayer.MakeScope.Var('HRT_core_culture_4').IsSet]"
+						coa_title_small = {
+							datacontext = "[GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture.GetCultureHead.GetPrimaryTitle]"
+						}
+						text_single = {
+							using = Font_Size_Medium
+							maximumsize = { 125 80 }
+							multiline = yes
+							autoresize = yes
+							text = "[GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture.GetName)]"
+						}
+					}
+				}
+			}
+		}		
+	}
+
+}

@@ -1,0 +1,334 @@
+﻿#by Rylock
+hre_conquest_ai_score_value = {
+	value = 1
+	if = {
+		limit = {
+			any_in_list = {
+				list = target_titles
+				this = title:d_julich
+			}
+		}
+		multiply = 40
+	}
+	else_if = {
+		limit = {
+			OR = {
+				AND = {
+					scope:attacker.capital_county.title_province = { geographical_region = world_europe_west_germania }
+					any_in_list = {
+						list = target_titles
+						tier = tier_duchy
+						title_capital_county.title_province = { geographical_region = world_europe_west_germania }
+					}
+				}
+				AND = {
+					scope:attacker.capital_county.title_province = { geographical_region = custom_northern_italy }
+					any_in_list = {
+						list = target_titles
+						tier = tier_duchy
+						title_capital_county.title_province = { geographical_region = custom_northern_italy }
+					}
+				}
+				AND = {
+					scope:attacker.capital_county.title_province = { geographical_region = custom_carolingian_francia }
+					any_in_list = {
+						list = target_titles
+						tier = tier_duchy
+						title_capital_county.title_province = { geographical_region = custom_carolingian_francia }
+					}
+				}
+			}
+		}
+		multiply = 20
+	}
+	else_if = {
+		limit = {
+			any_in_list = {
+				list = target_titles
+				tier = tier_duchy
+				title_capital_county.title_province = { geographical_region = world_europe_west_germania }
+			}
+		}
+		multiply = 10
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_in_list = {
+					list = target_titles
+					tier = tier_duchy
+					title_capital_county.title_province = { geographical_region = custom_northern_italy }
+				}
+				any_in_list = {
+					list = target_titles
+					tier = tier_duchy
+					title_capital_county.title_province = { geographical_region = custom_burgundy }
+				}
+			}
+		}
+		multiply = 5
+	}
+	scope:attacker = {
+		if = {
+			limit = { dynasty = scope:defender.dynasty }
+			multiply = 0.5
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = { faith = scope:defender.faith }
+					has_relation_rival = scope:defender
+				}
+			}
+			multiply = 5
+		}
+	}
+}
+
+total_tribal_conversion_cost_value = {
+	value = 0
+	scope:possible_county = {
+		duchy = {
+			every_in_de_jure_hierarchy = {
+				limit = {
+					tier = tier_county
+					any_county_province = { has_holding_type = tribal_holding }
+				}
+				add = 500
+			}
+		}
+	}
+}
+
+sub_realm_size_plus_10 = {
+	value = sub_realm_size
+	add = 10
+}
+
+sub_realm_size_plus_20 = {
+	value = sub_realm_size
+	add = 20
+}
+
+military_strength_inverted_hre_score = {
+	value = 0
+	subtract = strength_with_relevant_allies_vs_root_value
+	if = {
+		limit = {
+			any_realm_county = {
+				title_province = {
+					OR = {
+						geographical_region = world_europe_west_germania
+						geographical_region = custom_northern_italy
+					}
+				}
+			}
+		}
+		multiply = 0.5
+	}
+}
+
+military_strength_inverted_score = {
+	value = 0
+	subtract = strength_with_relevant_allies_vs_root_value
+}
+
+strength_with_relevant_allies_vs_root_value = {
+	value = current_military_strength
+	every_ally = {
+		limit = {
+			NOR = {
+				target_is_liege_or_above = prev
+				target_is_liege_or_above = root
+			}
+		}
+		add = {
+			add = current_military_strength
+			if = {
+				limit = { is_at_war = yes }
+				multiply = 0.25
+			}
+			else = {
+				multiply = 0.75
+			}
+		}
+	}
+}
+
+strength_with_relevant_allies_vs_war_attacker_value = {
+	value = current_military_strength
+	every_ally = {
+		limit = {
+			NOR = {
+				target_is_liege_or_above = prev
+				target_is_liege_or_above = scope:attacker
+			}
+		}
+		add = {
+			add = current_military_strength
+			if = {
+				limit = { is_at_war = yes }
+				multiply = 0.50
+			}
+		}
+	}
+}
+
+strength_with_relevant_allies_vs_war_defender_value = {
+	value = current_military_strength
+	every_ally = {
+		limit = {
+			NOR = {
+				target_is_liege_or_above = prev
+				target_is_liege_or_above = scope:defender
+				is_at_war = yes
+			}
+		}
+		add = {
+			add = current_military_strength
+			multiply = 0.75
+		}
+	}
+}
+
+histmod_war_strength_difference_value = {
+	value = 0
+	add = scope:defender.strength_with_relevant_allies_vs_war_attacker_value
+	subtract = scope:attacker.strength_with_relevant_allies_vs_war_defender_value
+	min = 0
+}
+
+strength_with_relevant_allies_vs_england_value = {
+	value = current_military_strength
+	every_ally = {
+		limit = {
+			NOR = {
+				target_is_liege_or_above = prev
+				target_is_liege_or_above = title:k_england.holder
+				is_at_war = yes
+			}
+		}
+		add = {
+			add = current_military_strength
+			multiply = 0.75
+		}
+	}
+}
+
+strength_with_relevant_allies_vs_root_seventy_five_percent_value = {
+	value = current_military_strength
+	every_ally = {
+		limit = {
+			NOR = {
+				target_is_liege_or_above = prev
+				target_is_liege_or_above = root
+			}
+		}
+		add = {
+			add = current_military_strength
+			if = {
+				limit = { is_at_war = yes }
+				multiply = 0.25
+			}
+			else = {
+				multiply = 0.75
+			}
+		}
+	}
+	multiply = 0.75
+}
+
+strength_with_relevant_allies_value = {
+	value = current_military_strength
+	every_ally = {
+		limit = {
+			NOT = { target_is_liege_or_above = prev }
+		}
+		add = {
+			add = current_military_strength
+			if = {
+				limit = { is_at_war = yes }
+				multiply = 0.25
+			}
+			else = {
+				multiply = 0.75
+			}
+		}
+	}
+}
+
+one_and_a_half_times_current_strength_with_relevant_allies_vs_root = {
+	value = current_military_strength
+	every_ally = {
+		limit = {
+			NOR = {
+				target_is_liege_or_above = prev
+				target_is_liege_or_above = root
+			}
+		}
+		add = {
+			add = current_military_strength
+			if = {
+				limit = { is_at_war = yes }
+				multiply = 0.25
+			}
+			else = {
+				multiply = 0.75
+			}
+		}
+	}
+	multiply = 1.50
+}
+
+double_current_strength_with_relevant_allies_vs_root = {
+	value = current_military_strength
+	every_ally = {
+		limit = {
+			NOR = {
+				target_is_liege_or_above = prev
+				target_is_liege_or_above = root
+			}
+		}
+		add = {
+			add = current_military_strength
+			if = {
+				limit = { is_at_war = yes }
+				multiply = 0.25
+			}
+			else = {
+				multiply = 0.75
+			}
+		}
+	}
+	multiply = 2
+}
+
+strength_with_relevant_allies_vs_target_value = {
+	value = current_military_strength
+	every_ally = {
+		limit = {
+			NOR = {
+				target_is_liege_or_above = prev
+				target_is_liege_or_above = scope:target
+				is_at_war = yes
+			}
+		}
+		add = {
+			add = current_military_strength
+			multiply = 0.75
+		}
+	}
+}
+
+# these are from vanilla and over-written because they're clearly wrong
+current_strength_seventy_five_percent_value = {
+	value = current_military_strength
+	multiply = 0.75
+}
+
+current_strength_with_allies_seventy_five_percent_value = {
+	value = current_military_strength
+	every_ally = { add = current_military_strength }
+	multiply = 0.75
+}
+
