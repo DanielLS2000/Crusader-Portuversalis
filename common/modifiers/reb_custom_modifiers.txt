@@ -1,0 +1,96 @@
+﻿reb_prestige_modifier_negative = {
+	icon = prestige_negative
+	general_opinion = -10
+	county_opinion_add = -10
+	vassal_levy_contribution_mult = -0.25
+}
+
+reb_piety_modifier_negative = {
+	icon = piety_negative
+	zealot_opinion = -20
+	clergy_opinion = -30
+	domain_tax_same_faith_mult = -0.3
+}
+
+parent_disinherited_child_modifier = {
+	icon = prestige_negative
+	general_opinion = -15
+	stacking = yes
+}
+
+hard_difficulty = {
+	army_maintenance_mult = -0.15
+	monthly_prestige_gain_mult = 0.1
+	monthly_piety_gain_mult = 0.1
+	short_reign_duration_mult = -0.15
+	movement_speed = 0.05
+	vassal_opinion = 10
+	stress_gain_mult = -0.1
+	hostile_county_attrition = -0.15
+}
+
+very_hard_difficulty = {
+	army_maintenance_mult = -0.3
+	monthly_prestige_gain_mult = 0.2
+	monthly_piety_gain_mult = 0.2
+	short_reign_duration_mult = -0.25
+	movement_speed = 0.1
+	vassal_opinion = 20
+	stress_gain_mult = -0.25
+	hostile_county_attrition = -0.3
+}
+
+insane_difficulty = {
+	army_maintenance_mult = -0.5
+	monthly_prestige_gain_mult = 0.4
+	monthly_piety_gain_mult = 0.4
+	short_reign_duration_mult = -0.4
+	movement_speed = 0.15
+	vassal_opinion = 25
+	stress_gain_mult = -0.4
+	hostile_county_attrition = -0.4
+}
+
+ludicrous_difficulty = {
+	army_maintenance_mult = -0.75
+	monthly_prestige_gain_mult = 0.5
+	monthly_piety_gain_mult = 0.5
+	short_reign_duration_mult = -0.75
+	movement_speed = 0.2
+	vassal_opinion = 40
+	stress_gain_mult = -0.6
+	hostile_county_attrition = -0.5
+}
+
+player_insane_difficulty = {
+	monthly_prestige_gain_mult = -0.25
+	monthly_piety_gain_mult = -0.25
+	stress_gain_mult = 0.4
+	vassal_opinion = -10
+}
+
+player_ludicrous_difficulty = {
+	monthly_prestige_gain_mult = -0.5
+	monthly_piety_gain_mult = -0.5
+	stress_gain_mult = 0.8
+	vassal_opinion = -20
+}
+
+##### STRESS #####
+stress_level_1 = {
+	fertility = -0.1
+	monthly_lifestyle_xp_gain_mult = -0.1
+	attraction_opinion = -5
+}
+stress_level_2 = {
+	fertility = -0.3
+	monthly_lifestyle_xp_gain_mult = -0.2
+	attraction_opinion = -10
+	health = -1
+}
+stress_level_3 = {
+	fertility = -0.5
+	monthly_lifestyle_xp_gain_mult = -0.3
+	attraction_opinion = -20
+	health = -2
+}

@@ -1,0 +1,7 @@
+﻿l_korean:
+calltowar_opinion:0 "나를 공격 전쟁에 참여시켰습니다."
+rule_call_to_war_activated:0 "공격 전쟁 마이너스"
+setting_disabled_extra_cost:0 "비활성화됨"
+setting_disabled_extra_cost_desc:0 "바닐라에 변경 사항이 없습니다."
+setting_enabled_extra_cost:1 "활성화됨"
+setting_enabled_extra_cost_desc:0 "동맹을 공격 전쟁에 호출하는 것은 훨씬 더 많은 명성을 비용으로 들이게 할 뿐만 아니라 위신도 손해를 입을 것입니다. 전쟁에 참여한 동맹들은 당신에 대해 부정적인 의견 조정자를 받게 될 것입니다."

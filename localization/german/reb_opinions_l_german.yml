@@ -1,0 +1,7 @@
+﻿l_german:
+calltowar_opinion:0 "Rief mich zu einem Angriffskrieg"
+rule_call_to_war_activated:0 "Angriffskrieg Malus"
+setting_disabled_extra_cost:0 "Deaktiviert"
+setting_disabled_extra_cost_desc:0 "Keine Änderungen zum Vanilla."
+setting_enabled_extra_cost:1 "Aktiviert"
+setting_enabled_extra_cost_desc:0 "Das Aufrufen von Verbündeten zu Angriffskriegen wird viel mehr Prestige kosten, sowie Legitimität kosten. Verbündete, die zum Krieg gerufen werden, erhalten einen negativen Meinungsmodifikator gegenüber dir."

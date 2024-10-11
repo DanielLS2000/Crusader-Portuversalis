@@ -1,0 +1,4 @@
+﻿calltowar_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+}
