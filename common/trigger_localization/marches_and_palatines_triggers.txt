@@ -1,0 +1,4 @@
+﻿
+vassal_has_immediacy = {
+	third_not = VASSAL_HAS_IMMEDIACY
+}

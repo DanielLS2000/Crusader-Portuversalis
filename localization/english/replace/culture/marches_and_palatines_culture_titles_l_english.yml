@@ -1,0 +1,37 @@
+﻿l_english:
+
+### March Lords ###
+# Feudal March
+ feudal_margrave_county_title:0 "March"
+ feudal_margrave_title_german_group:0 "Margraviate"
+ feudal_margrave_title_arabic_group:0 "al-Thaghr"
+ feudal_margrave_county_male_arabic_group:0 "$count_theocracy_male_islam_religion$ $feudal_margrave_title_arabic_group$"
+ feudal_margrave_county_female_arabic_group:0 "$count_theocracy_female_islam_religion$ $feudal_margrave_title_arabic_group$"
+ feudal_margrave_duchy_male_arabic_group:0 "$duke_feudal_male_arabic_group$ $feudal_margrave_title_arabic_group$"
+ feudal_margrave_duchy_female_arabic_group:0 "$duke_feudal_female_arabic_group$ $feudal_margrave_title_arabic_group$"
+
+### Palatine Lords ###
+# Feudal Palatinate
+ feudal_palatinate_county_title:0 "County Palatine"
+ feudal_palatinate_county_male_german_group:0 "Palsgrave"
+ feudal_palatinate_county_female_german_group:0 "Palsgravine"
+ feudal_palatinate_duchy_title_arabic_group:0 "al-Balatin"
+ feudal_palatinate_county_male_arabic_group:0 "$count_theocracy_male_islam_religion$ $feudal_palatinate_duchy_title_arabic_group$"
+ feudal_palatinate_county_female_arabic_group:0 "$count_theocracy_female_islam_religion$ $feudal_palatinate_duchy_title_arabic_group$"
+ feudal_palatinate_duchy_male_arabic_group:0 "$duke_feudal_male_arabic_group$ $feudal_palatinate_duchy_title_arabic_group$"
+ feudal_palatinate_duchy_female_arabic_group:0 "$duke_feudal_female_arabic_group$ $feudal_palatinate_duchy_title_arabic_group$"
+
+### Burgrave Lords ###
+# Feudal Burgraviate
+ feudal_castellan_title_german_group:0 "Burgraviate"
+
+### Landgrave Lords ###
+# Feudal Landgraviate
+ feudal_landgrave_male:0 "Landgrave"
+ feudal_landgrave_female:0 "Landgravine"
+ feudal_landgrave_title:0 "Landgraviate"
+
+### Norse ###
+# Feudal / Tribal 
+ count_feudal_female_norse:0 "Wife"     # This is here due to Paradox shenanigans
+ duke_feudal_female_norse:0 "$count_feudal_male_norse$"

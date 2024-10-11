@@ -1,0 +1,166 @@
+﻿
+save_vassal_contract_before_government_change_effect = {
+	if = {
+		limit = { exists = liege }
+		set_local_variable = {
+			name = feudal_taxes
+			value = vassal_contract_obligation_level:feudal_government_taxes
+		}
+		set_local_variable = {
+			name = feudal_levies
+			value = vassal_contract_obligation_level:feudal_government_levies
+		}
+		set_local_variable = {
+			name = special_contract
+			value = vassal_contract_obligation_level:special_contract
+		}
+		set_local_variable = {
+			name = religious_rights
+			value = vassal_contract_obligation_level:religious_rights
+		}
+		set_local_variable = {
+			name = fortification_rights
+			value = vassal_contract_obligation_level:fortification_rights
+		}
+		set_local_variable = {
+			name = coinage_rights
+			value = vassal_contract_obligation_level:coinage_rights
+		}
+		set_local_variable = {
+			name = succession_rights
+			value = vassal_contract_obligation_level:succession_rights
+		}
+		set_local_variable = {
+			name = war_declaration_rights
+			value = vassal_contract_obligation_level:war_declaration_rights
+		}
+		set_local_variable = {
+			name = council_rights
+			value = vassal_contract_obligation_level:council_rights
+		}
+		set_local_variable = {
+			name = title_revocation_rights
+			value = vassal_contract_obligation_level:title_revocation_rights
+		}
+		set_local_variable = {
+			name = jizya_special_rights
+			value = vassal_contract_obligation_level:jizya_special_rights
+		}
+		set_local_variable = {
+			name = iqta_special_rights
+			value = vassal_contract_obligation_level:iqta_special_rights
+		}
+		set_local_variable = {
+			name = ghazi_special_rights
+			value = vassal_contract_obligation_level:ghazi_special_rights
+		}
+		set_local_variable = {
+			name = marriage_favor_rights
+			value = vassal_contract_obligation_level:marriage_favor_rights
+		}
+	}
+}
+
+transfer_vassal_contract_after_government_change_effect = {
+	if = {
+		limit = { exists = liege }
+		if = {
+			limit = { NOT = { local_var:feudal_taxes = vassal_contract_obligation_level:feudal_government_taxes } }
+			vassal_contract_set_obligation_level = {
+				type = feudal_government_taxes
+				level = local_var:feudal_taxes
+			}
+		}
+		if = {
+			limit = { NOT = { local_var:feudal_levies = vassal_contract_obligation_level:feudal_government_levies } }
+			vassal_contract_set_obligation_level = {
+				type = feudal_government_levies
+				level = local_var:feudal_levies
+			}
+		}
+		if = {
+			limit = { NOT = { local_var:special_contract = vassal_contract_obligation_level:special_contract } }
+			vassal_contract_set_obligation_level = {
+				type = special_contract
+				level = local_var:special_contract
+			}
+		}
+		if = {
+			limit = { NOT = { local_var:religious_rights = vassal_contract_obligation_level:religious_rights } }
+			vassal_contract_set_obligation_level = {
+				type = religious_rights
+				level = local_var:religious_rights
+			}
+		}
+		if = {
+			limit = { NOT = { local_var:fortification_rights = vassal_contract_obligation_level:fortification_rights } }
+			vassal_contract_set_obligation_level = {
+				type = fortification_rights
+				level = local_var:fortification_rights
+			}
+		}
+		if = {
+			limit = { NOT = { local_var:coinage_rights = vassal_contract_obligation_level:coinage_rights } }
+			vassal_contract_set_obligation_level = {
+				type = coinage_rights
+				level = local_var:coinage_rights
+			}
+		}
+		if = {
+			limit = { NOT = { local_var:succession_rights = vassal_contract_obligation_level:succession_rights } }
+			vassal_contract_set_obligation_level = {
+				type = succession_rights
+				level = local_var:succession_rights
+			}
+		}
+		if = {
+			limit = { NOT = { local_var:war_declaration_rights = vassal_contract_obligation_level:war_declaration_rights } }
+			vassal_contract_set_obligation_level = {
+				type = war_declaration_rights
+				level = local_var:war_declaration_rights
+			}
+		}
+		if = {
+			limit = { NOT = { local_var:council_rights = vassal_contract_obligation_level:council_rights } }
+			vassal_contract_set_obligation_level = {
+				type = council_rights
+				level = local_var:council_rights
+			}
+		}
+		if = {
+			limit = { NOT = { local_var:title_revocation_rights = vassal_contract_obligation_level:title_revocation_rights } }
+			vassal_contract_set_obligation_level = {
+				type = title_revocation_rights
+				level = local_var:title_revocation_rights
+			}
+		}
+		if = {
+			limit = { NOT = { local_var:jizya_special_rights = vassal_contract_obligation_level:jizya_special_rights } }
+			vassal_contract_set_obligation_level = {
+				type = jizya_special_rights
+				level = local_var:jizya_special_rights
+			}
+		}
+		if = {
+			limit = { NOT = { local_var:iqta_special_rights = vassal_contract_obligation_level:iqta_special_rights } }
+			vassal_contract_set_obligation_level = {
+				type = iqta_special_rights
+				level = local_var:iqta_special_rights
+			}
+		}
+		if = {
+			limit = { NOT = { local_var:ghazi_special_rights = vassal_contract_obligation_level:ghazi_special_rights } }
+			vassal_contract_set_obligation_level = {
+				type = ghazi_special_rights
+				level = local_var:ghazi_special_rights
+			}
+		}
+		if = {
+			limit = { NOT = { local_var:marriage_favor_rights = vassal_contract_obligation_level:marriage_favor_rights } }
+			vassal_contract_set_obligation_level = {
+				type = marriage_favor_rights
+				level = local_var:marriage_favor_rights
+			}
+		}
+	}
+}

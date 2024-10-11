@@ -1,0 +1,50 @@
+﻿
+war_declarer_needs_hook_on_liege = {
+	scope:actor = {
+		trigger_if = {
+			limit = {
+				is_independent_ruler = no
+				liege = scope:recipient.liege
+				NOT = { liege = scope:recipient }
+				NAND = {
+					government_allows = administrative
+					liege = { government_allows = administrative }
+				}
+				liege = { has_realm_law_flag = vassal_internal_wars_banned }
+				NOT = {
+					vassal_contract_has_flag = vassal_contract_war_override
+				}
+			}
+			always = yes
+		}
+		trigger_else_if = {
+			limit = {
+				is_independent_ruler = no
+				NOT = { liege = scope:recipient }
+				NAND = {
+					government_allows = administrative
+					liege = { government_allows = administrative }
+				}
+				liege = { has_realm_law_flag = vassal_all_wars_banned }
+				NOT = {
+					vassal_contract_has_flag = vassal_contract_war_override
+				}
+			}
+			always = yes
+		}
+		trigger_else_if = {
+			limit = {
+				scope:recipient = {
+					OR = {
+						vassal_contract_has_flag = has_castellan_contract
+						vassal_contract_has_flag = has_palatinate_contract
+						vassal_contract_has_flag = has_landgraviate_contract
+					}
+				}
+			}
+		}
+		trigger_else = {
+			always = no
+		}
+	}
+}

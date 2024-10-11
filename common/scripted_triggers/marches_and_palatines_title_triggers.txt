@@ -1,0 +1,140 @@
+﻿
+self_or_primary_spouse_has_march_contract_trigger = {
+	OR = {
+		vassal_contract_has_flag = has_march_contract
+		AND = {
+			is_ruler = no
+			exists = primary_spouse
+			primary_spouse = {
+				vassal_contract_has_flag = has_march_contract
+			}
+		}
+	}
+}
+
+self_or_primary_spouse_has_palatinate_contract_trigger = {
+	OR = {
+		vassal_contract_has_flag = has_palatinate_contract
+		AND = {
+			is_ruler = no
+			exists = primary_spouse
+			primary_spouse = {
+				vassal_contract_has_flag = has_palatinate_contract
+			}
+		}
+	}
+}
+
+self_or_primary_spouse_has_landgraviate_contract_trigger = {
+	OR = {
+		vassal_contract_has_flag = has_landgraviate_contract
+		AND = {
+			is_ruler = no
+			exists = primary_spouse
+			primary_spouse = {
+				vassal_contract_has_flag = has_landgraviate_contract
+			}
+		}
+	}
+}
+
+mnp_has_correct_heritage_trigger = {
+	culture = {
+		OR = {
+			has_cultural_pillar = heritage_latin
+			has_cultural_pillar = heritage_byzantine
+			has_cultural_pillar = heritage_frankish
+			has_cultural_pillar = heritage_iberian
+			has_cultural_pillar = heritage_west_germanic
+			has_cultural_pillar = heritage_brythonic
+			has_cultural_pillar = heritage_goidelic
+		}
+	}
+}
+
+mnp_has_correct_heritage_but_not_latin_trigger = {
+	NOT = { 
+		culture = { has_cultural_pillar = heritage_latin }
+	}
+	mnp_has_correct_heritage_trigger = yes
+}
+
+custom_loc_margraviate_trigger = {
+	self_or_primary_spouse_has_march_contract_trigger = yes
+}
+
+custom_loc_margrave_trigger = {
+	self_or_primary_spouse_has_march_contract_trigger = yes
+}
+
+custom_loc_county_march_trigger = {
+	self_or_primary_spouse_has_march_contract_trigger = yes	
+}
+
+
+custom_loc_duchy_march_trigger = {
+	OR = {
+		AND = {
+			vassal_contract_has_flag = has_march_contract
+			mnp_has_correct_heritage_trigger = yes
+		}
+		AND = {
+			is_ruler = no
+			exists = primary_spouse
+			primary_spouse = {
+				vassal_contract_has_flag = has_march_contract
+				mnp_has_correct_heritage_trigger = yes
+			}
+		}
+	}
+}
+
+custom_loc_marquess_trigger = {
+	OR = {
+		AND = {
+			vassal_contract_has_flag = has_march_contract
+			mnp_has_correct_heritage_but_not_latin_trigger = yes
+		}
+		AND = {
+			is_ruler = no
+			exists = primary_spouse
+			primary_spouse = {
+				vassal_contract_has_flag = has_march_contract
+				mnp_has_correct_heritage_but_not_latin_trigger = yes
+			}
+		}
+	}
+}
+
+custom_loc_palatinate_trigger = {
+	self_or_primary_spouse_has_palatinate_contract_trigger = yes
+}
+
+custom_loc_palsgrave_trigger = {
+	self_or_primary_spouse_has_palatinate_contract_trigger = yes
+}
+
+custom_loc_palatine_trigger = {
+	OR = {
+		AND = {
+			vassal_contract_has_flag = has_palatinate_contract
+			mnp_has_correct_heritage_trigger = yes
+		}
+		AND = {
+			is_ruler = no
+			exists = primary_spouse
+			primary_spouse = {
+				vassal_contract_has_flag = has_palatinate_contract
+				mnp_has_correct_heritage_trigger = yes
+			}
+		}
+	}
+}
+
+custom_loc_landgraviate_trigger = {
+	self_or_primary_spouse_has_landgraviate_contract_trigger = yes
+}
+
+custom_loc_landgrave_trigger = {
+	self_or_primary_spouse_has_landgraviate_contract_trigger = yes
+}

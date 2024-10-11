@@ -1,0 +1,103 @@
+﻿#############################################
+
+count_feudal_female_norse = {	# This one is probably defined in code, for some bloody reason
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 29		# Changed from 30
+	governments = { feudal_government tribal_government administrative_government }
+	name_lists = { name_list_norse }
+	flavourization_rules = { 
+		top_liege = no
+		only_holder = yes
+	}
+}
+
+county_feudal_norse = {
+	type = title
+	tier = duchy
+	priority = 30
+	governments = { feudal_government tribal_government administrative_government }
+	name_lists = { name_list_norse }
+	flavourization_rules = { 
+		top_liege = no		# Mod added line
+	}
+}
+
+duke_feudal_female_norse = {	# To prevent data errors in loc strings
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 30
+	governments = { feudal_government tribal_government administrative_government }
+	name_lists = { name_list_norse }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+#Default Feudal tiers
+count_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	governments = { feudal_government }
+	flavourization_rules = { 
+		top_liege = no		# Mod added line
+	}
+}
+count_feudal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	governments = { feudal_government }
+	flavourization_rules = { 
+		top_liege = no		# Mod added line
+	}
+}
+county_feudal = {
+	type = title
+	tier = county
+	priority = 16
+	governments = { feudal_government }
+	flavourization_rules = { 
+		top_liege = no		# Mod added line
+	}
+}
+duke_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	governments = { feudal_government }
+	flavourization_rules = { 
+		top_liege = no		# Mod added line
+	}
+}
+duke_feudal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	governments = { feudal_government }
+	flavourization_rules = { 
+		top_liege = no		# Mod added line
+	}
+}
+duchy_feudal = {
+	type = title
+	tier = duchy
+	priority = 27
+	governments = { feudal_government }
+	flavourization_rules = { 
+		top_liege = no		# Mod added line
+	}
+}
