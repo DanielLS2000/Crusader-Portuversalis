@@ -1,0 +1,7 @@
+﻿l_simp_chinese:
+calltowar_opinion:0 "召唤我参加进攻性战争"
+rule_call_to_war_activated:0 "进攻战惩罚"
+setting_disabled_extra_cost:0 "已禁用"
+setting_disabled_extra_cost_desc:0 "与原始游戏相比无变化。"
+setting_enabled_extra_cost:1 "已启用"
+setting_enabled_extra_cost_desc:0 "召集盟友参加进攻性战争将耗费更多的声望，以及耗费合法性。被召集参战的盟友将对你产生负面的观点修饰。"

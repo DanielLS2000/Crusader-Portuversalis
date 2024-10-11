@@ -1,0 +1,7 @@
+﻿l_russian:
+calltowar_opinion:0 "Позвал меня на наступательную войну"
+rule_call_to_war_activated:0 "Минус при наступательной войне"
+setting_disabled_extra_cost:0 "Отключено"
+setting_disabled_extra_cost_desc:0 "Никаких изменений по сравнению с оригиналом."
+setting_enabled_extra_cost:1 "Включено"
+setting_enabled_extra_cost_desc:0 "Призыв союзников к наступательным войнам будет стоить гораздо больше престижа, а также стоить легитимности. Союзники, призванные на войну, получат отрицательный модификатор мнения о вас."
