@@ -1,0 +1,1890 @@
+﻿@advanced_bowmaking_3 = "gfx/interface/icons/culture_innovations/innovation_advanced_bowmaking_3.dds"
+
+### SAXON ### 
+innovation_advanced_bowmaking_saxon = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {       
+		OR = {		
+			this = culture:frankish             ### Important to leave without parent trigger, because it is parent to other!
+
+			this = culture:saxon
+			any_parent_culture_or_above = {
+				this = culture:saxon
+				}
+			this = culture:old_saxon
+			any_parent_culture_or_above = {
+				this = culture:old_saxon
+				}					
+            }
+		NOR = {
+            has_cultural_pillar = heritage_akan
+            has_cultural_pillar = heritage_ancient_greek
+            has_cultural_pillar = heritage_arabic
+            has_cultural_pillar = heritage_baltic
+            has_cultural_pillar = heritage_balto_finnic
+            has_cultural_pillar = heritage_bantu
+            has_cultural_pillar = heritage_berber
+            has_cultural_pillar = heritage_brythonic
+            has_cultural_pillar = heritage_burman
+            has_cultural_pillar = heritage_byzantine
+            has_cultural_pillar = heritage_central_african
+            ### has_cultural_pillar = heritage_central_germanic
+            has_cultural_pillar = heritage_chinese
+            has_cultural_pillar = heritage_dravidian
+            has_cultural_pillar = heritage_east_african
+            has_cultural_pillar = heritage_east_slavic
+            has_cultural_pillar = heritage_egyptian
+            ### has_cultural_pillar = heritage_frankish
+            has_cultural_pillar = heritage_goidelic
+            has_cultural_pillar = heritage_gothic
+            has_cultural_pillar = heritage_hunnic
+            has_cultural_pillar = heritage_iberian
+            has_cultural_pillar = heritage_indo_aryan
+            has_cultural_pillar = heritage_iranian
+            has_cultural_pillar = heritage_israelite
+            has_cultural_pillar = heritage_latin
+            has_cultural_pillar = heritage_magyar
+            has_cultural_pillar = heritage_mongolic
+            has_cultural_pillar = heritage_north_germanic
+            has_cultural_pillar = heritage_qiangic
+            has_cultural_pillar = heritage_sahelian
+            has_cultural_pillar = heritage_senegambian
+            has_cultural_pillar = heritage_somalian
+            has_cultural_pillar = heritage_south_slavic
+            has_cultural_pillar = heritage_tibetan
+            has_cultural_pillar = heritage_tocharian
+            has_cultural_pillar = heritage_turkic
+            has_cultural_pillar = heritage_ugro_permian
+            has_cultural_pillar = heritage_vlach
+            has_cultural_pillar = heritage_volga_finnic
+            has_cultural_pillar = heritage_west_african
+            has_cultural_pillar = heritage_west_germanic
+            has_cultural_pillar = heritage_west_slavic
+            has_cultural_pillar = heritage_yoruba
+			has_cultural_pillar = heritage_albanian				
+			has_cultural_pillar = heritage_syriac				
+			this = culture:french
+			any_parent_culture_or_above = {
+				this = culture:french
+			}
+			this = culture:occitan
+			any_parent_culture_or_above = {
+				this = culture:occitan
+			}
+			this = culture:anglo_saxon
+			any_parent_culture_or_above = {
+				this = culture:anglo_saxon
+			}				
+        }		
+    }
+
+	unlock_maa = saxon_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+### ANGLO-SAXON ### 
+innovation_advanced_bowmaking_anglosaxon = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {         
+			OR = {		
+				this = culture:anglo_saxon			
+				any_parent_culture_or_above = {
+				this = culture:anglo_saxon			
+				}
+				this = culture:old_saxon             
+				any_parent_culture_or_above = {
+				this = culture:old_saxon	
+					}					
+				}
+			NOR = {	
+				has_cultural_pillar = heritage_akan
+				has_cultural_pillar = heritage_ancient_greek
+				has_cultural_pillar = heritage_arabic
+				has_cultural_pillar = heritage_baltic
+				has_cultural_pillar = heritage_balto_finnic
+				has_cultural_pillar = heritage_bantu
+				has_cultural_pillar = heritage_berber
+				### has_cultural_pillar = heritage_brythonic
+				has_cultural_pillar = heritage_burman
+				has_cultural_pillar = heritage_byzantine
+				has_cultural_pillar = heritage_central_african
+				has_cultural_pillar = heritage_central_germanic
+				has_cultural_pillar = heritage_chinese
+				has_cultural_pillar = heritage_dravidian
+				has_cultural_pillar = heritage_east_african
+				has_cultural_pillar = heritage_east_slavic
+				has_cultural_pillar = heritage_egyptian
+				has_cultural_pillar = heritage_frankish
+				has_cultural_pillar = heritage_goidelic
+				has_cultural_pillar = heritage_gothic
+				has_cultural_pillar = heritage_hunnic
+				has_cultural_pillar = heritage_iberian
+				has_cultural_pillar = heritage_indo_aryan
+				has_cultural_pillar = heritage_iranian
+				has_cultural_pillar = heritage_israelite
+				has_cultural_pillar = heritage_latin
+				has_cultural_pillar = heritage_magyar
+				has_cultural_pillar = heritage_mongolic
+				has_cultural_pillar = heritage_north_germanic
+				has_cultural_pillar = heritage_qiangic
+				has_cultural_pillar = heritage_sahelian
+				has_cultural_pillar = heritage_senegambian
+				has_cultural_pillar = heritage_somalian
+				has_cultural_pillar = heritage_south_slavic
+				has_cultural_pillar = heritage_tibetan
+				has_cultural_pillar = heritage_tocharian
+				has_cultural_pillar = heritage_turkic
+				has_cultural_pillar = heritage_ugro_permian
+				has_cultural_pillar = heritage_vlach
+				has_cultural_pillar = heritage_volga_finnic
+				has_cultural_pillar = heritage_west_african
+				### has_cultural_pillar = heritage_west_germanic
+				has_cultural_pillar = heritage_west_slavic
+				has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_albanian				
+				has_cultural_pillar = heritage_syriac					
+				
+				this = culture:saxon		       ### anglo-saxon army is disabled for central germanic saxon	
+				any_parent_culture_or_above = {
+				this = culture:saxon			
+				}			
+				this = culture:english
+				any_parent_culture_or_above = {
+				this = culture:english	
+				}
+				this = culture:scottish
+				any_parent_culture_or_above = {
+				this = culture:scottish	
+				}
+				this = culture:gaelic
+				any_parent_culture_or_above = {
+				this = culture:gaelic
+				}
+				this = culture:pictish
+				any_parent_culture_or_above = {
+				this = culture:pictish
+				}
+				this = culture:cumbrian
+				any_parent_culture_or_above = {
+				this = culture:cumbrian
+			}				
+		} 
+	}
+
+	unlock_maa = anglosaxon_crossbowmen
+	unlock_building = workshops_01	
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+### ITALIAN ### 
+innovation_advanced_bowmaking_italian = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+           OR = {
+				has_cultural_pillar = heritage_latin
+           }
+           NOR = {
+                has_cultural_pillar = heritage_akan
+                has_cultural_pillar = heritage_ancient_greek
+                has_cultural_pillar = heritage_arabic
+                has_cultural_pillar = heritage_baltic
+                has_cultural_pillar = heritage_balto_finnic
+                has_cultural_pillar = heritage_bantu
+                has_cultural_pillar = heritage_berber
+                has_cultural_pillar = heritage_brythonic
+                has_cultural_pillar = heritage_burman
+                has_cultural_pillar = heritage_byzantine
+                has_cultural_pillar = heritage_central_african
+                has_cultural_pillar = heritage_central_germanic
+                has_cultural_pillar = heritage_chinese
+                has_cultural_pillar = heritage_dravidian
+                has_cultural_pillar = heritage_east_african
+                has_cultural_pillar = heritage_east_slavic
+                has_cultural_pillar = heritage_egyptian
+                has_cultural_pillar = heritage_frankish
+                has_cultural_pillar = heritage_goidelic
+                has_cultural_pillar = heritage_gothic
+                has_cultural_pillar = heritage_hunnic
+                has_cultural_pillar = heritage_iberian
+                has_cultural_pillar = heritage_indo_aryan
+                has_cultural_pillar = heritage_iranian
+                has_cultural_pillar = heritage_israelite
+                ### has_cultural_pillar = heritage_latin
+                has_cultural_pillar = heritage_magyar
+                has_cultural_pillar = heritage_mongolic
+                has_cultural_pillar = heritage_north_germanic
+                has_cultural_pillar = heritage_qiangic
+                has_cultural_pillar = heritage_sahelian
+                has_cultural_pillar = heritage_senegambian
+                has_cultural_pillar = heritage_somalian
+                has_cultural_pillar = heritage_south_slavic
+                has_cultural_pillar = heritage_tibetan
+                has_cultural_pillar = heritage_tocharian
+                has_cultural_pillar = heritage_turkic
+                has_cultural_pillar = heritage_ugro_permian
+                has_cultural_pillar = heritage_vlach
+                has_cultural_pillar = heritage_volga_finnic
+                has_cultural_pillar = heritage_west_african
+                has_cultural_pillar = heritage_west_germanic
+                has_cultural_pillar = heritage_west_slavic
+                has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_albanian				
+				has_cultural_pillar = heritage_syriac					
+        }
+    }
+
+	unlock_maa = italian_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+
+
+### SLAVIC ### 
+innovation_advanced_bowmaking_slavic = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+		OR = {
+			has_cultural_pillar = heritage_east_slavic	
+			}
+        NOR = {
+            has_cultural_pillar = heritage_akan
+            has_cultural_pillar = heritage_ancient_greek
+            has_cultural_pillar = heritage_arabic
+            has_cultural_pillar = heritage_baltic
+            has_cultural_pillar = heritage_balto_finnic
+            has_cultural_pillar = heritage_bantu
+            has_cultural_pillar = heritage_berber
+            has_cultural_pillar = heritage_brythonic
+            has_cultural_pillar = heritage_burman
+            has_cultural_pillar = heritage_byzantine
+            has_cultural_pillar = heritage_central_african
+            has_cultural_pillar = heritage_central_germanic
+            has_cultural_pillar = heritage_chinese
+            has_cultural_pillar = heritage_dravidian
+            has_cultural_pillar = heritage_east_african
+            ### has_cultural_pillar = heritage_east_slavic
+            has_cultural_pillar = heritage_egyptian
+            has_cultural_pillar = heritage_frankish
+            has_cultural_pillar = heritage_goidelic
+            has_cultural_pillar = heritage_gothic
+            has_cultural_pillar = heritage_hunnic
+            has_cultural_pillar = heritage_iberian
+            has_cultural_pillar = heritage_indo_aryan
+            has_cultural_pillar = heritage_iranian
+            has_cultural_pillar = heritage_israelite
+            has_cultural_pillar = heritage_latin
+            has_cultural_pillar = heritage_magyar
+            has_cultural_pillar = heritage_mongolic
+            has_cultural_pillar = heritage_north_germanic
+            has_cultural_pillar = heritage_qiangic
+            has_cultural_pillar = heritage_sahelian
+            has_cultural_pillar = heritage_senegambian
+            has_cultural_pillar = heritage_somalian
+            has_cultural_pillar = heritage_south_slavic
+            has_cultural_pillar = heritage_tibetan
+            has_cultural_pillar = heritage_tocharian
+            has_cultural_pillar = heritage_turkic
+            has_cultural_pillar = heritage_ugro_permian
+            has_cultural_pillar = heritage_vlach
+            has_cultural_pillar = heritage_volga_finnic
+            has_cultural_pillar = heritage_west_african
+            has_cultural_pillar = heritage_west_germanic
+            has_cultural_pillar = heritage_west_slavic
+            has_cultural_pillar = heritage_yoruba
+			has_cultural_pillar = heritage_albanian				
+			has_cultural_pillar = heritage_syriac				
+		}
+	}
+
+	unlock_maa = slavic_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+### WEST SLAVIC ### 
+innovation_advanced_bowmaking_westslavic = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+		OR = {
+			has_cultural_pillar = heritage_south_slavic
+			has_cultural_pillar = heritage_vlach
+			has_cultural_pillar = heritage_west_slavic		
+			}	
+        NOR = {
+            has_cultural_pillar = heritage_akan
+            has_cultural_pillar = heritage_ancient_greek
+            has_cultural_pillar = heritage_arabic
+            has_cultural_pillar = heritage_baltic
+            has_cultural_pillar = heritage_balto_finnic
+            has_cultural_pillar = heritage_bantu
+            has_cultural_pillar = heritage_berber
+            has_cultural_pillar = heritage_brythonic
+            has_cultural_pillar = heritage_burman
+            has_cultural_pillar = heritage_byzantine
+            has_cultural_pillar = heritage_central_african
+            has_cultural_pillar = heritage_central_germanic
+            has_cultural_pillar = heritage_chinese
+            has_cultural_pillar = heritage_dravidian
+            has_cultural_pillar = heritage_east_african
+            has_cultural_pillar = heritage_east_slavic
+            has_cultural_pillar = heritage_egyptian
+            has_cultural_pillar = heritage_frankish
+            has_cultural_pillar = heritage_goidelic
+            has_cultural_pillar = heritage_gothic
+            has_cultural_pillar = heritage_hunnic
+            has_cultural_pillar = heritage_iberian
+            has_cultural_pillar = heritage_indo_aryan
+            has_cultural_pillar = heritage_iranian
+            has_cultural_pillar = heritage_israelite
+            has_cultural_pillar = heritage_latin
+            ### has_cultural_pillar = heritage_magyar
+            has_cultural_pillar = heritage_mongolic
+            has_cultural_pillar = heritage_north_germanic
+            has_cultural_pillar = heritage_qiangic
+            has_cultural_pillar = heritage_sahelian
+            has_cultural_pillar = heritage_senegambian
+            has_cultural_pillar = heritage_somalian
+            ### has_cultural_pillar = heritage_south_slavic
+            has_cultural_pillar = heritage_tibetan
+            has_cultural_pillar = heritage_tocharian
+            has_cultural_pillar = heritage_turkic
+            has_cultural_pillar = heritage_ugro_permian
+            ### has_cultural_pillar = heritage_vlach
+            has_cultural_pillar = heritage_volga_finnic
+            has_cultural_pillar = heritage_west_african
+            has_cultural_pillar = heritage_west_germanic
+            ### has_cultural_pillar = heritage_west_slavic
+            has_cultural_pillar = heritage_yoruba
+			has_cultural_pillar = heritage_albanian				
+			has_cultural_pillar = heritage_syriac				
+		}
+	}
+
+	unlock_maa = westslavic_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+
+### ISLAMIC ### 
+innovation_advanced_bowmaking_islamic = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+           OR = {
+				has_cultural_pillar = heritage_iranian
+				has_cultural_pillar = heritage_arabic
+				has_cultural_pillar = heritage_berber
+				has_cultural_pillar = heritage_somalian	
+				has_cultural_pillar = heritage_israelite
+				has_cultural_pillar = heritage_egyptian
+				has_cultural_pillar = heritage_syriac				
+				this = culture:andalusian
+				any_parent_culture_or_above = {
+				this = culture:andalusian					
+				}
+		   }
+           NOR = {
+                has_cultural_pillar = heritage_akan
+                has_cultural_pillar = heritage_ancient_greek
+                ### has_cultural_pillar = heritage_arabic
+                has_cultural_pillar = heritage_baltic
+                has_cultural_pillar = heritage_balto_finnic
+                has_cultural_pillar = heritage_bantu
+                ### has_cultural_pillar = heritage_berber
+                has_cultural_pillar = heritage_brythonic
+                has_cultural_pillar = heritage_burman
+                has_cultural_pillar = heritage_byzantine
+                has_cultural_pillar = heritage_central_african
+                has_cultural_pillar = heritage_central_germanic
+                has_cultural_pillar = heritage_chinese
+                has_cultural_pillar = heritage_dravidian
+                has_cultural_pillar = heritage_east_african
+                has_cultural_pillar = heritage_east_slavic
+                ### has_cultural_pillar = heritage_egyptian
+                has_cultural_pillar = heritage_frankish
+                has_cultural_pillar = heritage_goidelic
+                has_cultural_pillar = heritage_gothic
+                has_cultural_pillar = heritage_hunnic
+                ### has_cultural_pillar = heritage_iberian
+                has_cultural_pillar = heritage_indo_aryan
+                ### has_cultural_pillar = heritage_iranian
+                ### has_cultural_pillar = heritage_israelite
+                has_cultural_pillar = heritage_latin
+                has_cultural_pillar = heritage_magyar
+                has_cultural_pillar = heritage_mongolic
+                has_cultural_pillar = heritage_north_germanic
+                has_cultural_pillar = heritage_qiangic
+                has_cultural_pillar = heritage_sahelian
+                has_cultural_pillar = heritage_senegambian
+                has_cultural_pillar = heritage_somalian
+                has_cultural_pillar = heritage_south_slavic
+                has_cultural_pillar = heritage_tibetan
+                has_cultural_pillar = heritage_tocharian
+                has_cultural_pillar = heritage_turkic
+                has_cultural_pillar = heritage_ugro_permian
+                has_cultural_pillar = heritage_vlach
+                has_cultural_pillar = heritage_volga_finnic
+                has_cultural_pillar = heritage_west_african
+                has_cultural_pillar = heritage_west_germanic
+                has_cultural_pillar = heritage_west_slavic
+                has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_albanian				
+				### has_cultural_pillar = heritage_syriac					
+            }
+        }
+
+	unlock_maa = islamic_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+
+
+### INDIAN ### 
+innovation_advanced_bowmaking_indian = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+           OR = {
+				has_cultural_pillar = heritage_dravidian
+				has_cultural_pillar = heritage_indo_aryan
+				has_cultural_pillar = heritage_burman
+           }
+           NOR = {
+                has_cultural_pillar = heritage_akan
+                has_cultural_pillar = heritage_ancient_greek
+                has_cultural_pillar = heritage_arabic
+                has_cultural_pillar = heritage_baltic
+                has_cultural_pillar = heritage_balto_finnic
+                has_cultural_pillar = heritage_bantu
+                has_cultural_pillar = heritage_berber
+                has_cultural_pillar = heritage_brythonic
+                ### has_cultural_pillar = heritage_burman
+                has_cultural_pillar = heritage_byzantine
+                has_cultural_pillar = heritage_central_african
+                has_cultural_pillar = heritage_central_germanic
+                has_cultural_pillar = heritage_chinese
+                ### has_cultural_pillar = heritage_dravidian
+                has_cultural_pillar = heritage_east_african
+                has_cultural_pillar = heritage_east_slavic
+                has_cultural_pillar = heritage_egyptian
+                has_cultural_pillar = heritage_frankish
+                has_cultural_pillar = heritage_goidelic
+                has_cultural_pillar = heritage_gothic
+                has_cultural_pillar = heritage_hunnic
+                has_cultural_pillar = heritage_iberian
+                ### has_cultural_pillar = heritage_indo_aryan
+                has_cultural_pillar = heritage_iranian
+                has_cultural_pillar = heritage_israelite
+                has_cultural_pillar = heritage_latin
+                has_cultural_pillar = heritage_magyar
+                has_cultural_pillar = heritage_mongolic
+                has_cultural_pillar = heritage_north_germanic
+                has_cultural_pillar = heritage_qiangic
+                has_cultural_pillar = heritage_sahelian
+                has_cultural_pillar = heritage_senegambian
+                has_cultural_pillar = heritage_somalian
+                has_cultural_pillar = heritage_south_slavic
+                has_cultural_pillar = heritage_tibetan
+                has_cultural_pillar = heritage_tocharian
+                has_cultural_pillar = heritage_turkic
+                has_cultural_pillar = heritage_ugro_permian
+                has_cultural_pillar = heritage_vlach
+                has_cultural_pillar = heritage_volga_finnic
+                has_cultural_pillar = heritage_west_african
+                has_cultural_pillar = heritage_west_germanic
+                has_cultural_pillar = heritage_west_slavic
+                has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_albanian				
+				has_cultural_pillar = heritage_syriac					
+        }
+    }
+
+	unlock_maa = indian_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+### AFRICAN ###
+innovation_advanced_bowmaking_african = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+		OR = {
+			has_cultural_pillar = heritage_akan
+			has_cultural_pillar = heritage_east_african
+			has_cultural_pillar = heritage_west_african
+			has_cultural_pillar = heritage_sahelian
+			has_cultural_pillar = heritage_bantu
+			has_cultural_pillar = heritage_yoruba	
+			has_cultural_pillar = heritage_central_african
+			has_cultural_pillar = heritage_senegambian	
+			}	
+        NOR = {
+            ### has_cultural_pillar = heritage_akan
+            has_cultural_pillar = heritage_ancient_greek
+            has_cultural_pillar = heritage_arabic
+            has_cultural_pillar = heritage_baltic
+            has_cultural_pillar = heritage_balto_finnic
+            ### has_cultural_pillar = heritage_bantu
+            has_cultural_pillar = heritage_berber
+            has_cultural_pillar = heritage_brythonic
+            has_cultural_pillar = heritage_burman
+            has_cultural_pillar = heritage_byzantine
+            ### has_cultural_pillar = heritage_central_african
+            has_cultural_pillar = heritage_central_germanic
+            has_cultural_pillar = heritage_chinese
+            has_cultural_pillar = heritage_dravidian
+            ### has_cultural_pillar = heritage_east_african
+            has_cultural_pillar = heritage_east_slavic
+            has_cultural_pillar = heritage_egyptian
+            has_cultural_pillar = heritage_frankish
+            has_cultural_pillar = heritage_goidelic
+            has_cultural_pillar = heritage_gothic
+            has_cultural_pillar = heritage_hunnic
+            has_cultural_pillar = heritage_iberian
+            has_cultural_pillar = heritage_indo_aryan
+            has_cultural_pillar = heritage_iranian
+            has_cultural_pillar = heritage_israelite
+            has_cultural_pillar = heritage_latin
+            has_cultural_pillar = heritage_magyar
+            has_cultural_pillar = heritage_mongolic
+            has_cultural_pillar = heritage_north_germanic
+            has_cultural_pillar = heritage_qiangic
+            ### has_cultural_pillar = heritage_sahelian
+            ### has_cultural_pillar = heritage_senegambian
+            has_cultural_pillar = heritage_somalian
+            has_cultural_pillar = heritage_south_slavic
+            has_cultural_pillar = heritage_tibetan
+            has_cultural_pillar = heritage_tocharian
+            has_cultural_pillar = heritage_turkic
+            has_cultural_pillar = heritage_ugro_permian
+            has_cultural_pillar = heritage_vlach
+            has_cultural_pillar = heritage_volga_finnic
+            ### has_cultural_pillar = heritage_west_african
+            has_cultural_pillar = heritage_west_germanic
+            has_cultural_pillar = heritage_west_slavic
+            ### has_cultural_pillar = heritage_yoruba
+			has_cultural_pillar = heritage_albanian				
+			has_cultural_pillar = heritage_syriac			
+			}
+		}
+	
+	unlock_maa = african_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+### CAUCASIAN ###
+innovation_advanced_bowmaking_caucasian = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {               
+            OR = {
+                has_cultural_pillar = heritage_tocharian
+				has_cultural_pillar = heritage_albanian					
+				this = culture:armenian
+				any_parent_culture_or_above = {
+				this = culture:armenian	
+				}				
+				this = culture:alan
+				any_parent_culture_or_above = {
+				this = culture:alan	
+				}					
+				this = culture:georgian
+				any_parent_culture_or_above = {
+				this = culture:georgian	
+				}					
+				this = culture:assyrian	
+				any_parent_culture_or_above = {
+				this = culture:assyrian	
+				}
+            }		   
+           NOR = {
+                has_cultural_pillar = heritage_akan
+                has_cultural_pillar = heritage_ancient_greek
+                has_cultural_pillar = heritage_arabic
+                has_cultural_pillar = heritage_baltic
+                has_cultural_pillar = heritage_balto_finnic
+                has_cultural_pillar = heritage_bantu
+                has_cultural_pillar = heritage_berber
+                has_cultural_pillar = heritage_brythonic
+                has_cultural_pillar = heritage_burman
+                ### has_cultural_pillar = heritage_byzantine         ### edited for caucasian
+                has_cultural_pillar = heritage_central_african
+                has_cultural_pillar = heritage_central_germanic
+                has_cultural_pillar = heritage_chinese
+                has_cultural_pillar = heritage_dravidian
+                has_cultural_pillar = heritage_east_african
+                has_cultural_pillar = heritage_east_slavic
+                has_cultural_pillar = heritage_egyptian
+                has_cultural_pillar = heritage_frankish
+                has_cultural_pillar = heritage_goidelic
+                has_cultural_pillar = heritage_gothic
+                has_cultural_pillar = heritage_hunnic
+                has_cultural_pillar = heritage_iberian
+                has_cultural_pillar = heritage_indo_aryan
+                has_cultural_pillar = heritage_iranian
+                has_cultural_pillar = heritage_israelite
+                has_cultural_pillar = heritage_latin
+                has_cultural_pillar = heritage_magyar
+                has_cultural_pillar = heritage_mongolic
+                has_cultural_pillar = heritage_north_germanic
+                has_cultural_pillar = heritage_qiangic
+                has_cultural_pillar = heritage_sahelian
+                has_cultural_pillar = heritage_senegambian
+                has_cultural_pillar = heritage_somalian
+                has_cultural_pillar = heritage_south_slavic
+                has_cultural_pillar = heritage_tibetan
+                ### has_cultural_pillar = heritage_tocharian
+                has_cultural_pillar = heritage_turkic
+                has_cultural_pillar = heritage_ugro_permian
+                has_cultural_pillar = heritage_vlach
+                has_cultural_pillar = heritage_volga_finnic
+                has_cultural_pillar = heritage_west_african
+                has_cultural_pillar = heritage_west_germanic
+                has_cultural_pillar = heritage_west_slavic
+                has_cultural_pillar = heritage_yoruba
+				### has_cultural_pillar = heritage_albanian				
+				has_cultural_pillar = heritage_syriac	
+			
+				this = culture:greek            ### Important to leave without parent trigger, because it is parent to caucasian!
+		}
+	}
+	
+	unlock_maa = caucasian_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+### MONGOL ###
+innovation_advanced_bowmaking_mongol = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+           OR = {
+				has_cultural_pillar = heritage_mongolic
+				has_cultural_pillar = heritage_hunnic
+           }
+           NOR = {
+                has_cultural_pillar = heritage_akan
+                has_cultural_pillar = heritage_ancient_greek
+                has_cultural_pillar = heritage_arabic
+                has_cultural_pillar = heritage_baltic
+                has_cultural_pillar = heritage_balto_finnic
+                has_cultural_pillar = heritage_bantu
+                has_cultural_pillar = heritage_berber
+                has_cultural_pillar = heritage_brythonic
+                has_cultural_pillar = heritage_burman
+                has_cultural_pillar = heritage_byzantine
+                has_cultural_pillar = heritage_central_african
+                has_cultural_pillar = heritage_central_germanic
+                has_cultural_pillar = heritage_chinese
+                has_cultural_pillar = heritage_dravidian
+                has_cultural_pillar = heritage_east_african
+                has_cultural_pillar = heritage_east_slavic
+                has_cultural_pillar = heritage_egyptian
+                has_cultural_pillar = heritage_frankish
+                has_cultural_pillar = heritage_goidelic
+                has_cultural_pillar = heritage_gothic
+                ### has_cultural_pillar = heritage_hunnic
+                has_cultural_pillar = heritage_iberian
+                has_cultural_pillar = heritage_indo_aryan
+                has_cultural_pillar = heritage_iranian
+                has_cultural_pillar = heritage_israelite
+                has_cultural_pillar = heritage_latin
+                has_cultural_pillar = heritage_magyar
+                ### has_cultural_pillar = heritage_mongolic
+                has_cultural_pillar = heritage_north_germanic
+                has_cultural_pillar = heritage_qiangic
+                has_cultural_pillar = heritage_sahelian
+                has_cultural_pillar = heritage_senegambian
+                has_cultural_pillar = heritage_somalian
+                has_cultural_pillar = heritage_south_slavic
+                has_cultural_pillar = heritage_tibetan
+                has_cultural_pillar = heritage_tocharian
+                has_cultural_pillar = heritage_turkic
+                has_cultural_pillar = heritage_ugro_permian
+                has_cultural_pillar = heritage_vlach
+                has_cultural_pillar = heritage_volga_finnic
+                has_cultural_pillar = heritage_west_african
+                has_cultural_pillar = heritage_west_germanic
+                has_cultural_pillar = heritage_west_slavic
+                has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_albanian				
+				has_cultural_pillar = heritage_syriac					
+        }
+    }
+	
+	unlock_maa = mongol_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+### BALTIC ###
+innovation_advanced_bowmaking_baltic = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+           OR = {
+				has_cultural_pillar = heritage_baltic
+				has_cultural_pillar = heritage_balto_finnic
+				has_cultural_pillar = heritage_ugro_permian	
+           }
+           NOR = {
+                has_cultural_pillar = heritage_akan
+                has_cultural_pillar = heritage_ancient_greek
+                has_cultural_pillar = heritage_arabic
+                ### has_cultural_pillar = heritage_baltic
+                ### has_cultural_pillar = heritage_balto_finnic
+                has_cultural_pillar = heritage_bantu
+                has_cultural_pillar = heritage_berber
+                has_cultural_pillar = heritage_brythonic
+                has_cultural_pillar = heritage_burman
+                has_cultural_pillar = heritage_byzantine
+                has_cultural_pillar = heritage_central_african
+                has_cultural_pillar = heritage_central_germanic
+                has_cultural_pillar = heritage_chinese
+                has_cultural_pillar = heritage_dravidian
+                has_cultural_pillar = heritage_east_african
+                has_cultural_pillar = heritage_east_slavic
+                has_cultural_pillar = heritage_egyptian
+                has_cultural_pillar = heritage_frankish
+                has_cultural_pillar = heritage_goidelic
+                has_cultural_pillar = heritage_gothic
+                has_cultural_pillar = heritage_hunnic
+                has_cultural_pillar = heritage_iberian
+                has_cultural_pillar = heritage_indo_aryan
+                has_cultural_pillar = heritage_iranian
+                has_cultural_pillar = heritage_israelite
+                has_cultural_pillar = heritage_latin
+                has_cultural_pillar = heritage_magyar
+                has_cultural_pillar = heritage_mongolic
+                has_cultural_pillar = heritage_north_germanic
+                has_cultural_pillar = heritage_qiangic
+                has_cultural_pillar = heritage_sahelian
+                has_cultural_pillar = heritage_senegambian
+                has_cultural_pillar = heritage_somalian
+                has_cultural_pillar = heritage_south_slavic
+                has_cultural_pillar = heritage_tibetan
+                has_cultural_pillar = heritage_tocharian
+                has_cultural_pillar = heritage_turkic
+                ### has_cultural_pillar = heritage_ugro_permian	
+                has_cultural_pillar = heritage_vlach
+                has_cultural_pillar = heritage_volga_finnic
+                has_cultural_pillar = heritage_west_african
+                has_cultural_pillar = heritage_west_germanic
+                has_cultural_pillar = heritage_west_slavic
+                has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_albanian				
+				has_cultural_pillar = heritage_syriac					
+		}
+    }
+
+	unlock_maa = baltic_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+### ASIAN ###
+innovation_advanced_bowmaking_asian = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+           OR = {
+				has_cultural_pillar = heritage_chinese
+				has_cultural_pillar = heritage_tibetan	
+				has_cultural_pillar = heritage_qiangic	
+           }
+           NOR = {
+                has_cultural_pillar = heritage_akan
+                has_cultural_pillar = heritage_ancient_greek
+                has_cultural_pillar = heritage_arabic
+                has_cultural_pillar = heritage_baltic
+                has_cultural_pillar = heritage_balto_finnic
+                has_cultural_pillar = heritage_bantu
+                has_cultural_pillar = heritage_berber
+                has_cultural_pillar = heritage_brythonic
+                has_cultural_pillar = heritage_burman
+                has_cultural_pillar = heritage_byzantine
+                has_cultural_pillar = heritage_central_african
+                has_cultural_pillar = heritage_central_germanic
+                ### has_cultural_pillar = heritage_chinese
+                has_cultural_pillar = heritage_dravidian
+                has_cultural_pillar = heritage_east_african
+                has_cultural_pillar = heritage_east_slavic
+                has_cultural_pillar = heritage_egyptian
+                has_cultural_pillar = heritage_frankish
+                has_cultural_pillar = heritage_goidelic
+                has_cultural_pillar = heritage_gothic
+                has_cultural_pillar = heritage_hunnic
+                has_cultural_pillar = heritage_iberian
+                has_cultural_pillar = heritage_indo_aryan
+                has_cultural_pillar = heritage_iranian
+                has_cultural_pillar = heritage_israelite
+                has_cultural_pillar = heritage_latin
+                has_cultural_pillar = heritage_magyar
+                has_cultural_pillar = heritage_mongolic
+                has_cultural_pillar = heritage_north_germanic
+                ### has_cultural_pillar = heritage_qiangic
+                has_cultural_pillar = heritage_sahelian
+                has_cultural_pillar = heritage_senegambian
+                has_cultural_pillar = heritage_somalian
+                has_cultural_pillar = heritage_south_slavic
+                ### has_cultural_pillar = heritage_tibetan
+                has_cultural_pillar = heritage_tocharian
+                has_cultural_pillar = heritage_turkic
+                has_cultural_pillar = heritage_ugro_permian
+                has_cultural_pillar = heritage_vlach
+                has_cultural_pillar = heritage_volga_finnic
+                has_cultural_pillar = heritage_west_african
+                has_cultural_pillar = heritage_west_germanic
+                has_cultural_pillar = heritage_west_slavic
+                has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_albanian				
+				has_cultural_pillar = heritage_syriac					
+            }
+        }
+
+	unlock_maa = asian_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+### SPANISH ###
+innovation_advanced_bowmaking_spanish = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {               
+           OR = {
+				has_cultural_pillar = heritage_iberian
+           }
+           NOR = {
+                has_cultural_pillar = heritage_akan
+                has_cultural_pillar = heritage_ancient_greek
+                has_cultural_pillar = heritage_arabic
+                has_cultural_pillar = heritage_baltic
+                has_cultural_pillar = heritage_balto_finnic
+                has_cultural_pillar = heritage_bantu
+                has_cultural_pillar = heritage_berber
+                has_cultural_pillar = heritage_brythonic
+                has_cultural_pillar = heritage_burman
+                has_cultural_pillar = heritage_byzantine
+                has_cultural_pillar = heritage_central_african
+                has_cultural_pillar = heritage_central_germanic
+                has_cultural_pillar = heritage_chinese
+                has_cultural_pillar = heritage_dravidian
+                has_cultural_pillar = heritage_east_african
+                has_cultural_pillar = heritage_east_slavic
+                has_cultural_pillar = heritage_egyptian
+                has_cultural_pillar = heritage_frankish
+                has_cultural_pillar = heritage_goidelic
+                has_cultural_pillar = heritage_gothic
+                has_cultural_pillar = heritage_hunnic
+                ### has_cultural_pillar = heritage_iberian
+                has_cultural_pillar = heritage_indo_aryan
+                has_cultural_pillar = heritage_iranian
+                has_cultural_pillar = heritage_israelite
+                has_cultural_pillar = heritage_latin
+                has_cultural_pillar = heritage_magyar
+                has_cultural_pillar = heritage_mongolic
+                has_cultural_pillar = heritage_north_germanic
+                has_cultural_pillar = heritage_qiangic
+                has_cultural_pillar = heritage_sahelian
+                has_cultural_pillar = heritage_senegambian
+                has_cultural_pillar = heritage_somalian
+                has_cultural_pillar = heritage_south_slavic
+                has_cultural_pillar = heritage_tibetan
+                has_cultural_pillar = heritage_tocharian
+                has_cultural_pillar = heritage_turkic
+                has_cultural_pillar = heritage_ugro_permian
+                has_cultural_pillar = heritage_vlach
+                has_cultural_pillar = heritage_volga_finnic
+                has_cultural_pillar = heritage_west_african
+                has_cultural_pillar = heritage_west_germanic
+                has_cultural_pillar = heritage_west_slavic
+                has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_albanian				
+				has_cultural_pillar = heritage_syriac					
+				this = culture:andalusian
+				any_parent_culture_or_above = {
+				this = culture:andalusian					
+			}				
+        }
+    }
+	
+	unlock_maa = spanish_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+### IRISH ###
+innovation_advanced_bowmaking_irish = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {               
+		OR = {
+				this = culture:irish
+				any_parent_culture_or_above = {
+					this = culture:irish
+				}
+			}
+           NOR = {
+                has_cultural_pillar = heritage_akan
+                has_cultural_pillar = heritage_ancient_greek
+                has_cultural_pillar = heritage_arabic
+                has_cultural_pillar = heritage_baltic
+                has_cultural_pillar = heritage_balto_finnic
+                has_cultural_pillar = heritage_bantu
+                has_cultural_pillar = heritage_berber
+                has_cultural_pillar = heritage_brythonic
+                has_cultural_pillar = heritage_burman
+                has_cultural_pillar = heritage_byzantine
+                has_cultural_pillar = heritage_central_african
+                has_cultural_pillar = heritage_central_germanic
+                has_cultural_pillar = heritage_chinese
+                has_cultural_pillar = heritage_dravidian
+                has_cultural_pillar = heritage_east_african
+                has_cultural_pillar = heritage_east_slavic
+                has_cultural_pillar = heritage_egyptian
+                has_cultural_pillar = heritage_frankish
+                ### has_cultural_pillar = heritage_goidelic
+                has_cultural_pillar = heritage_gothic
+                has_cultural_pillar = heritage_hunnic
+                has_cultural_pillar = heritage_iberian
+                has_cultural_pillar = heritage_indo_aryan
+                has_cultural_pillar = heritage_iranian
+                has_cultural_pillar = heritage_israelite
+                has_cultural_pillar = heritage_latin
+                has_cultural_pillar = heritage_magyar
+                has_cultural_pillar = heritage_mongolic
+                has_cultural_pillar = heritage_north_germanic
+                has_cultural_pillar = heritage_qiangic
+                has_cultural_pillar = heritage_sahelian
+                has_cultural_pillar = heritage_senegambian
+                has_cultural_pillar = heritage_somalian
+                has_cultural_pillar = heritage_south_slavic
+                has_cultural_pillar = heritage_tibetan
+                has_cultural_pillar = heritage_tocharian
+                has_cultural_pillar = heritage_turkic
+                has_cultural_pillar = heritage_ugro_permian
+                has_cultural_pillar = heritage_vlach
+                has_cultural_pillar = heritage_volga_finnic
+                has_cultural_pillar = heritage_west_african
+                has_cultural_pillar = heritage_west_germanic
+                has_cultural_pillar = heritage_west_slavic
+                has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_albanian				
+				has_cultural_pillar = heritage_syriac					
+				this = culture:gaelic
+				any_parent_culture_or_above = {
+				this = culture:gaelic
+				}				
+				this = culture:pictish
+				any_parent_culture_or_above = {
+				this = culture:pictish
+			}
+		}	
+	}
+		
+	unlock_maa = irish_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+### BYZANTINE ###
+innovation_advanced_bowmaking_byzantine = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+ 		   OR = {
+		   		has_cultural_pillar = heritage_ancient_greek
+		   		has_cultural_pillar = heritage_byzantine				
+				this = culture:greek
+				any_parent_culture_or_above = {
+				this = culture:greek
+				}
+		    }
+           NOR = {
+               has_cultural_pillar = heritage_akan
+                ### has_cultural_pillar = heritage_ancient_greek
+                has_cultural_pillar = heritage_arabic
+                has_cultural_pillar = heritage_baltic
+                has_cultural_pillar = heritage_balto_finnic
+                has_cultural_pillar = heritage_bantu
+                has_cultural_pillar = heritage_berber
+                has_cultural_pillar = heritage_brythonic
+                has_cultural_pillar = heritage_burman
+                ### has_cultural_pillar = heritage_byzantine
+                has_cultural_pillar = heritage_central_african
+                has_cultural_pillar = heritage_central_germanic
+                has_cultural_pillar = heritage_chinese
+                has_cultural_pillar = heritage_dravidian
+                has_cultural_pillar = heritage_east_african
+                has_cultural_pillar = heritage_east_slavic
+                has_cultural_pillar = heritage_egyptian
+                has_cultural_pillar = heritage_frankish
+                has_cultural_pillar = heritage_goidelic
+                has_cultural_pillar = heritage_gothic
+                has_cultural_pillar = heritage_hunnic
+                has_cultural_pillar = heritage_iberian
+                has_cultural_pillar = heritage_indo_aryan
+                has_cultural_pillar = heritage_iranian
+                has_cultural_pillar = heritage_israelite
+                has_cultural_pillar = heritage_latin
+                has_cultural_pillar = heritage_magyar
+                has_cultural_pillar = heritage_mongolic
+                has_cultural_pillar = heritage_north_germanic
+                has_cultural_pillar = heritage_qiangic
+                has_cultural_pillar = heritage_sahelian
+                has_cultural_pillar = heritage_senegambian
+                has_cultural_pillar = heritage_somalian
+                has_cultural_pillar = heritage_south_slavic
+                has_cultural_pillar = heritage_tibetan
+                has_cultural_pillar = heritage_tocharian
+                has_cultural_pillar = heritage_turkic
+                has_cultural_pillar = heritage_ugro_permian
+                has_cultural_pillar = heritage_vlach
+                has_cultural_pillar = heritage_volga_finnic
+                has_cultural_pillar = heritage_west_african
+                has_cultural_pillar = heritage_west_germanic
+                has_cultural_pillar = heritage_west_slavic
+                has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_albanian				
+				has_cultural_pillar = heritage_syriac					
+				this = culture:armenian
+				any_parent_culture_or_above = {
+				this = culture:armenian	
+				}				
+				this = culture:alan	
+				any_parent_culture_or_above = {
+				this = culture:alan	
+				}					
+				this = culture:georgian
+				any_parent_culture_or_above = {
+				this = culture:georgian	
+				}						
+				this = culture:assyrian	
+				any_parent_culture_or_above = {
+				this = culture:assyrian		
+			}
+		}
+	}
+
+	unlock_maa = byzantine_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+### TURKIC ###
+innovation_advanced_bowmaking_turkic = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+           OR = {
+				has_cultural_pillar = heritage_turkic
+				has_cultural_pillar = heritage_volga_finnic	
+				this = culture:mogyer
+				any_parent_culture_or_above = {
+				this = culture:mogyer
+				}				
+           }
+           NOR = {
+                has_cultural_pillar = heritage_akan
+                has_cultural_pillar = heritage_ancient_greek
+                has_cultural_pillar = heritage_arabic
+                has_cultural_pillar = heritage_baltic
+                has_cultural_pillar = heritage_balto_finnic
+                has_cultural_pillar = heritage_bantu
+                has_cultural_pillar = heritage_berber
+                has_cultural_pillar = heritage_brythonic
+                has_cultural_pillar = heritage_burman
+                has_cultural_pillar = heritage_byzantine
+                has_cultural_pillar = heritage_central_african
+                has_cultural_pillar = heritage_central_germanic
+                has_cultural_pillar = heritage_chinese
+                has_cultural_pillar = heritage_dravidian
+                has_cultural_pillar = heritage_east_african
+                has_cultural_pillar = heritage_east_slavic
+                has_cultural_pillar = heritage_egyptian
+                has_cultural_pillar = heritage_frankish
+                has_cultural_pillar = heritage_goidelic
+                has_cultural_pillar = heritage_gothic
+                has_cultural_pillar = heritage_hunnic
+                has_cultural_pillar = heritage_iberian
+                has_cultural_pillar = heritage_indo_aryan
+                has_cultural_pillar = heritage_iranian
+                has_cultural_pillar = heritage_israelite
+                has_cultural_pillar = heritage_latin
+                ### has_cultural_pillar = heritage_magyar
+                has_cultural_pillar = heritage_mongolic
+                has_cultural_pillar = heritage_north_germanic
+                has_cultural_pillar = heritage_qiangic
+                has_cultural_pillar = heritage_sahelian
+                has_cultural_pillar = heritage_senegambian
+                has_cultural_pillar = heritage_somalian
+                has_cultural_pillar = heritage_south_slavic
+                has_cultural_pillar = heritage_tibetan
+                has_cultural_pillar = heritage_tocharian
+                ### has_cultural_pillar = heritage_turkic
+                has_cultural_pillar = heritage_ugro_permian
+                has_cultural_pillar = heritage_vlach
+                ### has_cultural_pillar = heritage_volga_finnic
+                has_cultural_pillar = heritage_west_african
+                has_cultural_pillar = heritage_west_germanic
+                has_cultural_pillar = heritage_west_slavic
+                has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_albanian				
+				has_cultural_pillar = heritage_syriac					
+				this = culture:hungarian
+				any_parent_culture_or_above = {
+				this = culture:hungarian				
+            }
+        }
+    } 
+
+	unlock_maa = turkic_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+
+### NORTH ###
+innovation_advanced_bowmaking_north = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval             ### Edited
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+           OR = {
+				has_cultural_pillar = heritage_gothic
+				has_cultural_pillar = heritage_north_germanic
+           }
+           NOR = {
+                has_cultural_pillar = heritage_akan
+                has_cultural_pillar = heritage_ancient_greek
+                has_cultural_pillar = heritage_arabic
+                has_cultural_pillar = heritage_baltic
+                has_cultural_pillar = heritage_balto_finnic
+                has_cultural_pillar = heritage_bantu
+                has_cultural_pillar = heritage_berber
+                has_cultural_pillar = heritage_brythonic
+                has_cultural_pillar = heritage_burman
+                has_cultural_pillar = heritage_byzantine
+                has_cultural_pillar = heritage_central_african
+                has_cultural_pillar = heritage_central_germanic
+                has_cultural_pillar = heritage_chinese
+                has_cultural_pillar = heritage_dravidian
+                has_cultural_pillar = heritage_east_african
+                has_cultural_pillar = heritage_east_slavic
+                has_cultural_pillar = heritage_egyptian
+                has_cultural_pillar = heritage_frankish
+                has_cultural_pillar = heritage_goidelic
+                ### has_cultural_pillar = heritage_gothic
+                has_cultural_pillar = heritage_hunnic
+                has_cultural_pillar = heritage_iberian
+                has_cultural_pillar = heritage_indo_aryan
+                has_cultural_pillar = heritage_iranian
+                has_cultural_pillar = heritage_israelite
+                has_cultural_pillar = heritage_latin
+                has_cultural_pillar = heritage_magyar
+                has_cultural_pillar = heritage_mongolic
+                ### has_cultural_pillar = heritage_north_germanic
+                has_cultural_pillar = heritage_qiangic
+                has_cultural_pillar = heritage_sahelian
+                has_cultural_pillar = heritage_senegambian
+                has_cultural_pillar = heritage_somalian
+                has_cultural_pillar = heritage_south_slavic
+                has_cultural_pillar = heritage_tibetan
+                has_cultural_pillar = heritage_tocharian
+                has_cultural_pillar = heritage_turkic
+                has_cultural_pillar = heritage_ugro_permian
+                has_cultural_pillar = heritage_vlach
+                has_cultural_pillar = heritage_volga_finnic
+                has_cultural_pillar = heritage_west_african
+                has_cultural_pillar = heritage_west_germanic
+                has_cultural_pillar = heritage_west_slavic
+                has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_albanian				
+				has_cultural_pillar = heritage_syriac					
+        }
+    }
+
+	unlock_maa = north_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+### GERMAN ### 
+innovation_advanced_bowmaking_german = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {
+			has_cultural_pillar = heritage_central_germanic	
+            NOR = {
+                has_cultural_pillar = heritage_akan
+                has_cultural_pillar = heritage_ancient_greek
+                has_cultural_pillar = heritage_arabic
+                has_cultural_pillar = heritage_baltic
+                has_cultural_pillar = heritage_balto_finnic
+                has_cultural_pillar = heritage_bantu
+                has_cultural_pillar = heritage_berber
+                has_cultural_pillar = heritage_brythonic
+                has_cultural_pillar = heritage_burman
+                has_cultural_pillar = heritage_byzantine
+                has_cultural_pillar = heritage_central_african
+                ### has_cultural_pillar = heritage_central_germanic
+                has_cultural_pillar = heritage_chinese
+                has_cultural_pillar = heritage_dravidian
+                has_cultural_pillar = heritage_east_african
+                has_cultural_pillar = heritage_east_slavic
+                has_cultural_pillar = heritage_egyptian
+                has_cultural_pillar = heritage_frankish
+                has_cultural_pillar = heritage_goidelic
+                has_cultural_pillar = heritage_gothic
+                has_cultural_pillar = heritage_hunnic
+                has_cultural_pillar = heritage_iberian
+                has_cultural_pillar = heritage_indo_aryan
+                has_cultural_pillar = heritage_iranian
+                has_cultural_pillar = heritage_israelite
+                has_cultural_pillar = heritage_latin
+                has_cultural_pillar = heritage_magyar
+                has_cultural_pillar = heritage_mongolic
+                has_cultural_pillar = heritage_north_germanic
+                has_cultural_pillar = heritage_qiangic
+                has_cultural_pillar = heritage_sahelian
+                has_cultural_pillar = heritage_senegambian
+                has_cultural_pillar = heritage_somalian
+                has_cultural_pillar = heritage_south_slavic
+                has_cultural_pillar = heritage_tibetan
+                has_cultural_pillar = heritage_tocharian
+                has_cultural_pillar = heritage_turkic
+                has_cultural_pillar = heritage_ugro_permian
+                has_cultural_pillar = heritage_vlach
+                has_cultural_pillar = heritage_volga_finnic
+                has_cultural_pillar = heritage_west_african
+                has_cultural_pillar = heritage_west_germanic
+                has_cultural_pillar = heritage_west_slavic
+                has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_albanian				
+				has_cultural_pillar = heritage_syriac								
+				this = culture:saxon
+				any_parent_culture_or_above = {
+					this = culture:saxon
+					}
+				this = culture:old_saxon
+				any_parent_culture_or_above = {
+					this = culture:old_saxon
+				}					
+            }
+        }
+	
+	unlock_maa = german_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+
+
+### ENGLISH ### 
+
+innovation_advanced_bowmaking_english = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+		OR = {			
+				this = culture:english
+				any_parent_culture_or_above = {
+				this = culture:english
+				}				
+		    }
+		NOR = {	
+				has_cultural_pillar = heritage_akan
+				has_cultural_pillar = heritage_ancient_greek
+				has_cultural_pillar = heritage_arabic
+				has_cultural_pillar = heritage_baltic
+				has_cultural_pillar = heritage_balto_finnic
+				has_cultural_pillar = heritage_bantu
+				has_cultural_pillar = heritage_berber
+				has_cultural_pillar = heritage_brythonic
+				has_cultural_pillar = heritage_burman
+				has_cultural_pillar = heritage_byzantine
+				has_cultural_pillar = heritage_central_african
+				has_cultural_pillar = heritage_central_germanic
+				has_cultural_pillar = heritage_chinese
+				has_cultural_pillar = heritage_dravidian
+				has_cultural_pillar = heritage_east_african
+				has_cultural_pillar = heritage_east_slavic
+				has_cultural_pillar = heritage_egyptian
+				has_cultural_pillar = heritage_frankish
+				has_cultural_pillar = heritage_goidelic
+				has_cultural_pillar = heritage_gothic
+				has_cultural_pillar = heritage_hunnic
+				has_cultural_pillar = heritage_iberian
+				has_cultural_pillar = heritage_indo_aryan
+				has_cultural_pillar = heritage_iranian
+				has_cultural_pillar = heritage_israelite
+				has_cultural_pillar = heritage_latin
+				has_cultural_pillar = heritage_magyar
+				has_cultural_pillar = heritage_mongolic
+				has_cultural_pillar = heritage_north_germanic
+				has_cultural_pillar = heritage_qiangic
+				has_cultural_pillar = heritage_sahelian
+				has_cultural_pillar = heritage_senegambian
+				has_cultural_pillar = heritage_somalian
+				has_cultural_pillar = heritage_south_slavic
+				has_cultural_pillar = heritage_tibetan
+				has_cultural_pillar = heritage_tocharian
+				has_cultural_pillar = heritage_turkic
+				has_cultural_pillar = heritage_ugro_permian
+				has_cultural_pillar = heritage_vlach
+				has_cultural_pillar = heritage_volga_finnic
+				has_cultural_pillar = heritage_west_african
+				### has_cultural_pillar = heritage_west_germanic
+				has_cultural_pillar = heritage_west_slavic
+				has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_albanian				
+				has_cultural_pillar = heritage_syriac					
+
+				this = culture:anglo_saxon            ### Important to leave without parent trigger, because it is parent to english!
+								
+				this = culture:scottish	
+				any_parent_culture_or_above = {
+				this = culture:scottish	
+			}			
+		}
+	}
+		
+	unlock_maa = english_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+
+
+### SCOTTISH ###
+
+innovation_advanced_bowmaking_scottish = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+			OR = {
+				this = culture:scottish
+				any_parent_culture_or_above = {
+				this = culture:scottish
+				}
+				this = culture:gaelic
+				any_parent_culture_or_above = {
+				this = culture:gaelic
+				}
+				this = culture:pictish
+				any_parent_culture_or_above = {
+				this = culture:pictish
+				}
+				this = culture:cumbrian
+				any_parent_culture_or_above = {
+				this = culture:cumbrian
+				}					
+			}
+           NOR = {
+                has_cultural_pillar = heritage_akan
+                has_cultural_pillar = heritage_ancient_greek
+                has_cultural_pillar = heritage_arabic
+                has_cultural_pillar = heritage_baltic
+                has_cultural_pillar = heritage_balto_finnic
+                has_cultural_pillar = heritage_bantu
+                has_cultural_pillar = heritage_berber
+                ### has_cultural_pillar = heritage_brythonic
+                has_cultural_pillar = heritage_burman
+                has_cultural_pillar = heritage_byzantine
+                has_cultural_pillar = heritage_central_african
+                has_cultural_pillar = heritage_central_germanic
+                has_cultural_pillar = heritage_chinese
+                has_cultural_pillar = heritage_dravidian
+                has_cultural_pillar = heritage_east_african
+                has_cultural_pillar = heritage_east_slavic
+                has_cultural_pillar = heritage_egyptian
+                has_cultural_pillar = heritage_frankish
+                ### has_cultural_pillar = heritage_goidelic
+                has_cultural_pillar = heritage_gothic
+                has_cultural_pillar = heritage_hunnic
+                has_cultural_pillar = heritage_iberian
+                has_cultural_pillar = heritage_indo_aryan
+                has_cultural_pillar = heritage_iranian
+                has_cultural_pillar = heritage_israelite
+                has_cultural_pillar = heritage_latin
+                has_cultural_pillar = heritage_magyar
+                has_cultural_pillar = heritage_mongolic
+                has_cultural_pillar = heritage_north_germanic
+                has_cultural_pillar = heritage_qiangic
+                has_cultural_pillar = heritage_sahelian
+                has_cultural_pillar = heritage_senegambian
+                has_cultural_pillar = heritage_somalian
+                has_cultural_pillar = heritage_south_slavic
+                has_cultural_pillar = heritage_tibetan
+                has_cultural_pillar = heritage_tocharian
+                has_cultural_pillar = heritage_turkic
+                has_cultural_pillar = heritage_ugro_permian
+                has_cultural_pillar = heritage_vlach
+                has_cultural_pillar = heritage_volga_finnic
+                has_cultural_pillar = heritage_west_african
+                ### has_cultural_pillar = heritage_west_germanic
+                has_cultural_pillar = heritage_west_slavic
+                has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_albanian				
+				has_cultural_pillar = heritage_syriac					
+        }
+    }
+
+	unlock_maa = scottish_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+
+
+
+### FRENCH ### 
+
+innovation_advanced_bowmaking_french = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+		OR = {
+			this = culture:french
+			any_parent_culture_or_above = {
+				this = culture:french
+			}
+			this = culture:occitan
+			any_parent_culture_or_above = {
+				this = culture:occitan
+				}
+			}
+		NOR = {
+            has_cultural_pillar = heritage_akan
+            has_cultural_pillar = heritage_ancient_greek
+            has_cultural_pillar = heritage_arabic
+            has_cultural_pillar = heritage_baltic
+            has_cultural_pillar = heritage_balto_finnic
+            has_cultural_pillar = heritage_bantu
+            has_cultural_pillar = heritage_berber
+            has_cultural_pillar = heritage_brythonic
+            has_cultural_pillar = heritage_burman
+            has_cultural_pillar = heritage_byzantine
+            has_cultural_pillar = heritage_central_african
+            has_cultural_pillar = heritage_central_germanic
+            has_cultural_pillar = heritage_chinese
+            has_cultural_pillar = heritage_dravidian
+            has_cultural_pillar = heritage_east_african
+            has_cultural_pillar = heritage_east_slavic
+            has_cultural_pillar = heritage_egyptian
+            ### has_cultural_pillar = heritage_frankish
+            has_cultural_pillar = heritage_goidelic
+            has_cultural_pillar = heritage_gothic
+            has_cultural_pillar = heritage_hunnic
+            has_cultural_pillar = heritage_iberian
+            has_cultural_pillar = heritage_indo_aryan
+            has_cultural_pillar = heritage_iranian
+            has_cultural_pillar = heritage_israelite
+            has_cultural_pillar = heritage_latin
+            has_cultural_pillar = heritage_magyar
+            has_cultural_pillar = heritage_mongolic
+            has_cultural_pillar = heritage_north_germanic
+            has_cultural_pillar = heritage_qiangic
+            has_cultural_pillar = heritage_sahelian
+            has_cultural_pillar = heritage_senegambian
+            has_cultural_pillar = heritage_somalian
+            has_cultural_pillar = heritage_south_slavic
+            has_cultural_pillar = heritage_tibetan
+            has_cultural_pillar = heritage_tocharian
+            has_cultural_pillar = heritage_turkic
+            has_cultural_pillar = heritage_ugro_permian
+            has_cultural_pillar = heritage_vlach
+            has_cultural_pillar = heritage_volga_finnic
+            has_cultural_pillar = heritage_west_african
+            has_cultural_pillar = heritage_west_germanic
+            has_cultural_pillar = heritage_west_slavic
+            has_cultural_pillar = heritage_yoruba	
+			has_cultural_pillar = heritage_albanian				
+			has_cultural_pillar = heritage_syriac				
+			this = culture:frankish            ### Important to leave without parent trigger, because it is parent to french!	
+			this = culture:norman
+			any_parent_culture_or_above = {
+				this = culture:norman
+			}			
+        }						
+    }
+
+	unlock_maa = french_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+
+
+### NORMAN ### 
+
+innovation_advanced_bowmaking_norman = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+		OR = {		
+			this = culture:norman
+			any_parent_culture_or_above = {
+				this = culture:norman
+				}
+			this = culture:breton             
+			any_parent_culture_or_above = {
+			this = culture:breton	
+				}				
+            }
+		NOR = {			
+            has_cultural_pillar = heritage_akan
+            has_cultural_pillar = heritage_ancient_greek
+            has_cultural_pillar = heritage_arabic
+            has_cultural_pillar = heritage_baltic
+            has_cultural_pillar = heritage_balto_finnic
+            has_cultural_pillar = heritage_bantu
+            has_cultural_pillar = heritage_berber
+            ### has_cultural_pillar = heritage_brythonic
+            has_cultural_pillar = heritage_burman
+            has_cultural_pillar = heritage_byzantine
+            has_cultural_pillar = heritage_central_african
+            has_cultural_pillar = heritage_central_germanic
+            has_cultural_pillar = heritage_chinese
+            has_cultural_pillar = heritage_dravidian
+            has_cultural_pillar = heritage_east_african
+            has_cultural_pillar = heritage_east_slavic
+            has_cultural_pillar = heritage_egyptian
+            ### has_cultural_pillar = heritage_frankish
+            has_cultural_pillar = heritage_goidelic
+            has_cultural_pillar = heritage_gothic
+            has_cultural_pillar = heritage_hunnic
+            has_cultural_pillar = heritage_iberian
+            has_cultural_pillar = heritage_indo_aryan
+            has_cultural_pillar = heritage_iranian
+            has_cultural_pillar = heritage_israelite
+            has_cultural_pillar = heritage_latin
+            has_cultural_pillar = heritage_magyar
+            has_cultural_pillar = heritage_mongolic
+            has_cultural_pillar = heritage_north_germanic
+            has_cultural_pillar = heritage_qiangic
+            has_cultural_pillar = heritage_sahelian
+            has_cultural_pillar = heritage_senegambian
+            has_cultural_pillar = heritage_somalian
+            has_cultural_pillar = heritage_south_slavic
+            has_cultural_pillar = heritage_tibetan
+            has_cultural_pillar = heritage_tocharian
+            has_cultural_pillar = heritage_turkic
+            has_cultural_pillar = heritage_ugro_permian
+            has_cultural_pillar = heritage_vlach
+            has_cultural_pillar = heritage_volga_finnic
+            has_cultural_pillar = heritage_west_african
+            has_cultural_pillar = heritage_west_germanic
+            has_cultural_pillar = heritage_west_slavic
+            has_cultural_pillar = heritage_yoruba
+			has_cultural_pillar = heritage_albanian				
+			has_cultural_pillar = heritage_syriac				
+			
+			this = culture:frankish	                ### Important to leave without parent trigger, because it is parent to norman!		
+		
+		} 
+    }
+
+	unlock_maa = norman_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+
+
+### WELSH ### 
+
+innovation_advanced_bowmaking_welsh = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+		OR = {		
+			this = culture:welsh			
+			any_parent_culture_or_above = {
+			this = culture:welsh			
+			}		
+			this = culture:cornish             
+			any_parent_culture_or_above = {
+			this = culture:cornish	
+				}						
+			}
+		NOR = {	
+			has_cultural_pillar = heritage_akan
+			has_cultural_pillar = heritage_ancient_greek
+			has_cultural_pillar = heritage_arabic
+			has_cultural_pillar = heritage_baltic
+			has_cultural_pillar = heritage_balto_finnic
+			has_cultural_pillar = heritage_bantu
+			has_cultural_pillar = heritage_berber
+			### has_cultural_pillar = heritage_brythonic
+			has_cultural_pillar = heritage_burman
+			has_cultural_pillar = heritage_byzantine
+			has_cultural_pillar = heritage_central_african
+			has_cultural_pillar = heritage_central_germanic
+			has_cultural_pillar = heritage_chinese
+			has_cultural_pillar = heritage_dravidian
+			has_cultural_pillar = heritage_east_african
+			has_cultural_pillar = heritage_east_slavic
+			has_cultural_pillar = heritage_egyptian
+			has_cultural_pillar = heritage_frankish
+			has_cultural_pillar = heritage_goidelic
+			has_cultural_pillar = heritage_gothic
+			has_cultural_pillar = heritage_hunnic
+			has_cultural_pillar = heritage_iberian
+			has_cultural_pillar = heritage_indo_aryan
+			has_cultural_pillar = heritage_iranian
+			has_cultural_pillar = heritage_israelite
+			has_cultural_pillar = heritage_latin
+			has_cultural_pillar = heritage_magyar
+			has_cultural_pillar = heritage_mongolic
+			has_cultural_pillar = heritage_north_germanic
+			has_cultural_pillar = heritage_qiangic
+			has_cultural_pillar = heritage_sahelian
+			has_cultural_pillar = heritage_senegambian
+			has_cultural_pillar = heritage_somalian
+			has_cultural_pillar = heritage_south_slavic
+			has_cultural_pillar = heritage_tibetan
+			has_cultural_pillar = heritage_tocharian
+			has_cultural_pillar = heritage_turkic
+			has_cultural_pillar = heritage_ugro_permian
+			has_cultural_pillar = heritage_vlach
+			has_cultural_pillar = heritage_volga_finnic
+			has_cultural_pillar = heritage_west_african
+			has_cultural_pillar = heritage_west_germanic
+			has_cultural_pillar = heritage_west_slavic
+			has_cultural_pillar = heritage_yoruba
+			has_cultural_pillar = heritage_albanian				
+			has_cultural_pillar = heritage_syriac				
+		} 
+	}
+
+	unlock_maa = welsh_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+
+
+### HUNGARIAN ###
+innovation_advanced_bowmaking_hungarian = { 
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @advanced_bowmaking_3 
+	
+	potential = {        
+           OR = {
+			this = culture:hungarian
+			any_parent_culture_or_above = {
+			this = culture:hungarian	
+				}				
+           }
+           NOR = {
+            has_cultural_pillar = heritage_akan
+            has_cultural_pillar = heritage_ancient_greek
+            has_cultural_pillar = heritage_arabic
+            has_cultural_pillar = heritage_baltic
+            has_cultural_pillar = heritage_balto_finnic
+            has_cultural_pillar = heritage_bantu
+            has_cultural_pillar = heritage_berber
+            has_cultural_pillar = heritage_brythonic
+            has_cultural_pillar = heritage_burman
+            has_cultural_pillar = heritage_byzantine
+            has_cultural_pillar = heritage_central_african
+            has_cultural_pillar = heritage_central_germanic
+            has_cultural_pillar = heritage_chinese
+            has_cultural_pillar = heritage_dravidian
+            has_cultural_pillar = heritage_east_african
+            has_cultural_pillar = heritage_east_slavic
+            has_cultural_pillar = heritage_egyptian
+            has_cultural_pillar = heritage_frankish
+            has_cultural_pillar = heritage_goidelic
+            has_cultural_pillar = heritage_gothic
+            has_cultural_pillar = heritage_hunnic
+            has_cultural_pillar = heritage_iberian
+            has_cultural_pillar = heritage_indo_aryan
+            has_cultural_pillar = heritage_iranian
+            has_cultural_pillar = heritage_israelite
+            has_cultural_pillar = heritage_latin
+            ### has_cultural_pillar = heritage_magyar
+            has_cultural_pillar = heritage_mongolic
+            has_cultural_pillar = heritage_north_germanic
+            has_cultural_pillar = heritage_qiangic
+            has_cultural_pillar = heritage_sahelian
+            has_cultural_pillar = heritage_senegambian
+            has_cultural_pillar = heritage_somalian
+            has_cultural_pillar = heritage_south_slavic
+            has_cultural_pillar = heritage_tibetan
+            has_cultural_pillar = heritage_tocharian
+            has_cultural_pillar = heritage_turkic
+            has_cultural_pillar = heritage_ugro_permian
+            has_cultural_pillar = heritage_vlach
+            has_cultural_pillar = heritage_volga_finnic
+            has_cultural_pillar = heritage_west_african
+            has_cultural_pillar = heritage_west_germanic
+            has_cultural_pillar = heritage_west_slavic
+            has_cultural_pillar = heritage_yoruba
+			has_cultural_pillar = heritage_albanian				
+			has_cultural_pillar = heritage_syriac				
+			
+			this = culture:mogyer            ### Important to leave without parent trigger, because it is parent to hungarian!
+		}
+	}	
+
+	unlock_maa = hungarian_crossbowmen
+	unlock_building = workshops_01
+	custom = eligible_accolade_crossbower_attribute
+	
+	flag = innovation_advanced_bowmaking_replacement
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
