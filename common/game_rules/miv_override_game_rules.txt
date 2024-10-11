@@ -1,0 +1,20 @@
+﻿conquerors_inheritance = {
+	
+	categories = {
+		difficulty ai
+	}
+	
+	default = no_conquerors_inheritance # now defaults to no conqueror inheritance instead of primary heir
+
+	default_conquerors_inheritance = {
+
+	}
+	
+	primary_conquerors_inheritance = {
+	
+	}
+	
+	no_conquerors_inheritance = {
+	
+	}
+}

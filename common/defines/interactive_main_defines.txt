@@ -1,0 +1,38 @@
+﻿NPowerfulVassal = {
+	# The number of vassals that are considered 'powerful' depending on the primary title tier (unlanded, baron, count, duke, king, emperor)
+	NUM_PER_TIER = { 0 0 3 4 5 6 } # miv: empires have one extra powerful vassal
+}
+
+NWar = {
+	CAPTURED_VASSAL_WAR_SCORE = 2 # miv: vassals grant 2% war score when captured
+	ATTACKER_TICKING_WAR_SCORE = 0.0275				# Default ticking war score per day for attackers. Can be overwritten by CB. Set to 0 to disable
+	DEFENDER_TICKING_WAR_SCORE = 0.0275				# Default ticking war score per day for defenders. Can be overwritten by CB. Set to 0 to disable
+	DEFENDER_TICKING_WAR_SCORE_DELAY_DAYS = 730		# Default delay in days before applying ticking war score for defenders. Can be overwritten by CB
+	CAPTURED_HEIR_WAR_SCORE = { 30 20 10 }			# War Score in order of succession
+	AI_USE_VASSAL_OF_VASSAL_CLAIMS = yes 			# If this is set to "no", the AI will never push the claims of vassals of vassals
+}
+
+NMercenary = {
+	LEVIES = { 200 400 600 }				# The base numbers of levies for levels of mercenary bands
+}
+
+NHolyOrder = {
+	# In addition to the holding levies, a holy order has levies according to this formula:
+	# NUM_LEVIES_BASE + <num holdings> * NUM_LEVIES_PER_HOLDING
+	NUM_LEVIES_BASE = 200
+	NUM_LEVIES_PER_HOLDING = 100
+}
+
+# occupied garrison size
+NSiege = {
+	RELATIVE_ATTACKER_MEN_STACK_SIZE = 100				# Extra stack size of men to start getting daily morale loss
+}
+
+# TODO
+NCombat = {
+	ADVANTAGE_DAMAGE_SCALING_FACTOR = 5				# How much should the advantage affect damage given
+}
+
+NCharacterOpinion = {
+	OFFENSIVE_WAR_PENALTY_GRACE_PERIOD = 12		# How many months do you need to be at war before you start getting the offensive war opinion penalty? If you've already got the penalty, the grace period is ignored
+}
