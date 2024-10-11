@@ -1,0 +1,466 @@
+﻿name_list_mordvin = {
+
+	cadet_dynasty_names = {
+		{ "dynn_Chumbulatid" }
+		{ "dynn_Purginepazid" }
+		{ "dynn_Varakid" }
+		{ "dynn_Rav" }
+		{ "dynn_Paas" }
+		{ "dynn_Shkai" }
+		{ "dynn_Mastoratia" }
+		{ "dynn_Chipaz" }
+		{ "dynn_Nishkepaz" }
+		{ "dynn_Ange_Patiai" }
+		{ "dynn_Mastoron_Kirdi" }
+		{ "dynn_Shkay" }
+		{ "dynn_Kardaz-Scrko" }
+		{ "dynn_Tushtyan" }
+		{ "dynn_Aidar" }
+		{ "dynn_Borovon" }
+		{ "dynn_Derkul" }
+		{ "dynn_Valo" }
+	}
+
+	dynasty_names = {
+		{ "dynn_Chumbulatid" }
+		{ "dynn_Purginepazid" }
+		{ "dynn_Varakid" }
+		{ "dynn_Rav" }
+		{ "dynn_Paas" }
+		{ "dynn_Shkai" }
+		{ "dynn_Mastoratia" }
+		{ "dynn_Chipaz" }
+		{ "dynn_Nishkepaz" }
+		{ "dynn_Ange_Patiai" }
+		{ "dynn_Mastoron_Kirdi" }
+		{ "dynn_Shkay" }
+		{ "dynn_Kardaz-Scrko" }
+		{ "dynn_Tushtyan" }
+		{ "dynn_Aidar" }
+		{ "dynn_Borovon" }
+		{ "dynn_Derkul" }
+		{ "dynn_Valo" }
+	}
+
+	male_names = {
+		Alyok Andryu Andyamo Artyo Atyamas Azyren Chichayka Chipaz Chumbulat Dergun Deryab Dobrinya Doro Drigo Erziya Inzhay
+		Kardaz Kariton Kezhapa Kezhay Kezhedey Kezhevat Khoddey Kichay Kinyak Kiryo Koma Koshel Kubrat Kvedor Kvilyo
+		Malyaka Malyy Matyo Meltsayka Mikikor Mordvinko Moksha Mosey Murunza Nalka Naruchad Nekhot Nishkepaz Nuyaksha Nuyanza Nuyat
+		Obran Onton Orunza Ovtay Pakstyan Paksyay Paksyut Parush Pinyas Pivtsay Pokshayka Puresh Purysho Putyayka
+		Saksa Setyamka Shindyay Shkay Shoksha Sokhron Surt Syrka Tikshayka Torkan Tul Tunya Tutyra Tylmache Tylze Tyueykezhut Tyushten Tyushtya
+		Uchva Uzhara Varaka Varmanpaz Vasyuk Vechkas Velmayka Vikay Virdyan Viryas Viryay Abrasi Akpars Arman Arn’aš
+                Abdıra Abrança Adırin Agvan Ai-mökö Aisien Aiy-Siene Aiyy-Sien Alaas Alban Aldan Aldïn-caa Aldyn Aleleke Algyr Algys Alin Alip Altin-ariğ Alyapenryn Aman Amyr Anay
+                Anii Anpanis Antyn Anys Apanas Apçakh Aramaan Arbay Archyn Arkaac'ty Arkas Artïk Artysh Arya Arylkhan Atalamy Atch-ytagyn Atyrdakh Ay Ayaal Ayaan Ayantay Ayas Ayastaan Ayatas Aydarkhan Ay-daš Aydas Ay-demir Aydyn Aydys Ayhal Aykhaal Aykhaan
+                Aykhal Aymakh Aynaan Aynan Aysen Aytal Aytas Ayuol Baasa Badeey Badma Badzhei Balıkaar Baltuga Bamba Barakhsan Baroon Barylan Bayañ Bayanay Baybal Baydam Bayğay-ool Belikto Bergen Bert Bete Biebey Bılatıan Biyaman Bootur Borongot Boydoy
+                Brat-ool Buetur Bukdur Buotur Buyan Bylatyan Bytyk Byyang Caakıp Caraahın Ceguer Cekiim Chağyl Chakyl Chanchy-khöö Chash-köök Ches-kartiğa Cheyv-ynkev Chokon Chuonnasuan Čoyğan-ool Culusxan Culuur D'aakyp D'aakypchaan Dabaan Dabııt Dabyl Dabyn Dalan
+                Dalay-ool Dalbar Darkhaan Darkhan Daš-demir Daš-mir Dayan Delegey Delem Delgey Dersu Dobun Dögüör Dokhsun Dolan Dolgan Dolun Doroppuun Doydu Duley Dulus Duluskhaan Dulustaan Duluur D’uluur Duolan Duon Düpsün Durustaan Dygyn Dzeve Echiney Ekter Eleksey
+                Elley Emen Erchim Erchimen Erel Ergis Erilik Erkhaan Erkin Ervko Gida Giv-ynkeev Gokchoa Gyrgol-gyrgyn Igiklav Igney Iken Ikensen Innes Irgen Iriko Kaadyr-ool Kaigal-ool Kamak Kañ-demir Kañ-ool Kara-molot Kartiğa Kaynyn Keli Kençeeri Kencheeri Keremen
+                Keskil Kestekuun Keykumuo Kezhik Khabyrylla Khabyryys Khanbuncha Kharakh Kharyskhaan Khasaul Khasavako Khatan Khertek Khohuun Khomus Khomustaan Khorula Khotoy Khüzhüget Khyrsyn Kidipte Kilish Kintey Kirgieley Kizil-ool Kmol Ködes Koka Kokin Kola
+                Kola-sariğ Köley Koñgar-ool Köptírges Korave Korav'ye Koyon Krile Kuday Kuduk Kukchan Kuk-Da Kunay Kündül Kündümen Kuobakh Kurchekhan Kureyaak Kušaš-ool Kushchta Kuškaš-ool Küsteekh Kustuk Kustuktaan Kuuhuma Kuykey Küzhüget Kÿmÿsh Kÿreñ Kytaanakh
+                Kyzyl-ool Laahar Lants Legentey Lelekay Leletke Lergan Longun Luzgin Lyutya Maadïr-ool Madan Manchaary Mappıay Mappyay Mekheele Memyl Meñgi Mexeele Michil Miise Mikiite Modun Mold'ogor Muklay Munnan Murgun Nachyn Nahaap Natena Neleyko Neriptie N'iuku
+                Numatsku Nuolan Nurgun Nute-nli Nyage Nyurgen Odun Oğoro Okhonoohoy Okokh Okos Öktöm Okuy Öleñ Omak Omoğoy-Baay Omryn Omr-ytagyn Omtoon Önör Öpey-ool Orduk Orguy Örkön Orlan Osi Osor Oyuun Pasley Pergan Pitynyl Ropt-yn Rultk-ynkev Rytgėv Rytkheu Saaba
+                Saaryn Sagol Salchak Salğin Sallaat Sandaman Sargı Sargyn Sarig-ool Saydam Sarakone Serge Sevtya Sherig-ool Sholban Siantoli Šooča Sulus Sulustaan Sürex Sürgen Su-xem Syldys Syral Sy-raykuo Tadar Talban Talygyr Talyman Taman Tarkhay Tasi Taybiir
+                Tay-mir Tchotghtguerele Temekey Tenevil Timir Tolbon Tolluman Tolvin Tavtugin Tonokh Tovariš-tay Tübek Tübey Tubyaku Tukay Turgun Turgun Turkun Tuskul Tuskun Tüskünn Tuygun Tygrynkeev Tygyn Tymyr Tyna-gyrgyn Tyne-nkey Tynga-gyrgyn Tyrtyk Tyulgyu
+                Tyusyulge Uin-ool Umky Uolan Uraan Ursun Uruy Usun Uyanmas Uybaan Uybaanchyk Uygulaan Uygun Vavlya Vesako Vukvutagin Vykvan Vyrgyrgylele Xündüs Xureš-ool Yekenat
+	}
+	female_names = {
+		Anava Anka Ashava Asrava Azra-Va Chechama Chenksa Cherava Cheymarina Chichayka Chindyapa Chindyayka Chinzhay Chitska
+		Elyuva Ganya Inyava Kanyava Kanyuva Kirdyava Kunava Kunyavka Litava Litova Liyava Markva Mastorava Mazava Megurka Mel_shay
+		Nasta Nezayka Noroava Nulzyava Nuyanza Nyal_ka Nyayka Oksya Olday Olota Ordava Oshama Parava Pekshayka
+		Pemka Pokshava Poshayka Potekay Potyava Putyayka Ravzhava Ruzava Sanal_ka Sangasa Sernyava Serzhay Setyamka Seyamka Shonzhava
+		Shukshtoroyka Sinyava Siyamka Slyugan_ka Sochava Styaka Syryava Tatka Tekay Tetyava Tikshayka Toyaksha Tundava Tundya
+		Unzhutka Upurga Utyayka Valdava Valdonya Vergava Verki Vezhav Vidyava Virtyava Yalgava Abakhay Abdakey Adyana Aidota Aiyy-Kuo Alaapıya
+                Aldaana Aldynay Algystaana Altaana Amaana Amır Amyr Anay-kis Anguk Anka-ny Anyuk Araga Archiina Arçın Arzhaana Ayaana Ayga Aygiina Aygylaana Ayiina Aykhaana Aylaana Ayta Aytaliina Badzhei Bakat-vaal Balaağiya Balbaara Barakhsaana Bayaana Belek-maa
+                Borbak-kis Borongot Boroskuobuya Buyana Çabas Çaçakh Çaçan Çapsıkh Çarba Chadzhakh Chakhayakh Chelgiyeene Chemeliine Cheyv-yne Cheyvyne Chibek Choduraa Chokhyray Chonya-na Choygana Chyustyuk Çivey Çömçüüne Çüçün Čudur Dalaana Dalbara Dalbaray
+                Dañ-xayaa Dayaana Doidusa Dolaana Dolguuna Doyduuna Doyduuna Dvebdekieye Dyamaku Dyarikta Edeyne Ekav Evane Fadzya Galgan-nga Gitingev Gitinnevyt Gyronav Hulichan Ilcaana Irkemes Iv-nevyt Izença Izıgas Kara Karachaane Kara-kat Kara-kis Kӧdes Keen
+                Keetikeliir Kekuken Kerecheene Keskileene Keter Keteriine Khaachylaana Khaarchaana Khadako Khadne Kharystaana Khastakh Khatyyna Khertek Khırlas Khısmariy Khıyga Khıyon Khızıçakh Khoni Khoos Khotuuna Khoyru Khozan Khubagan Khuçuray Khuragan Khuruskha
+                Khuskhaçakh Kílín Kiyaara Kӧlede Köbírgen Kök-kis Köölbek Koyon K'pta Kübeye Kümüs Kumuzek Kündüüne Künney Kuobakhaya Kuo-Kuobakhaya Küöregey Küöregeyçeene Kustuktaana Kydaana Kymytval Kyta Kytaliina Kyunnyay Kyuregey Kӧzege Lektyne Litta Lushcha
+                Lushkura Lykhtkk Maappa Maariya Maaryya Maasa Maayystaan Malaanńa Marine Mariy Markha Marpa Matryo Mayra Metírin Michiye Monçıkh Munku Nadyos Naidus Namiina Namiya Nariyaana Nariyanaa Natakh Neko Nesulte N'evde Ninçí Nish'a Nomza N'urguhuna
+                Nurgustaana Nurguyaana Nyurgusun Nyurguyaana Nyurguyana Obdo Ogdo Ogdoochchuya Ogrepen Okko-n Oksin Ökuluune Öleene Omr-yna Oprosin Orine Örke Örtek Oruune Öski Öškü-saar Oyla Oyu-maa Paara Palashka Palatin Parako Parasin Parasko Parçıkh Payakh Payinça
+                Payram Pelen Penr-yna Petushch Pırıs Pora Porança Porço Pozırakh Pukhutsya Purba Pürçük Pychik Qarliğaş Ropt-yna Rultk-ynevyt Rul-tyne Saaskhan Saaskiya Sabin Sahayaana Sainkho Sakhaaya Sakhayaana Samaana Samdar Sanaaya Sandaara Sarapin Sardaana
+                Sardana Sargylaana Sarıada Saryada Saskulaana Savane Sayaana Sayaara Saydiina Sayiina Sayin-khöö Saylyk Saylykmaa Saymiina Saynaara Saysary Sayyna Sedueççuye Sifi Sımalçıkh Sımdakh Singekte Sinma Sırılçakh Söduöre Sulustaana Sunke Suoppuya Sürmes
+                Surnakh Syralyma Sy-raykuo Syvne Taan Taar Tabakh Taçana Talbaana Tanis Taraa Tarashchya Taysa Tchotghtguerele Tebiya Tekki Temene Tiin Tinyl Tomam Torgï Tsambu Tuban Tubyaku Tulluktaana Tulun Tupsunna Tupsuuna Turuya Tuskulaana Tuyaara Tuyaaryma
+                Tuyaaryma-Kuo Tuyara Tuyguuna Tuymaada Tyna-tval Tyne-nny Učastak Ügü Üklin Uleken Umsuura Urana Urne Uruydaana Uygulaana Uyguuna Uynung-maa Uzun-kaday Varuk Viere Vinevyt Vulga Vushchta Vykv-yna Xara-xïs Xayana Xomus Xoptak Xoveŋ-mey Yalyane Yedeyne
+                Yzyrga
+	}
+	dynasty_of_location_prefix = "dynnp_of"
+	#founder_named_dynasties = yes
+
+	
+}
+name_list_merya = {
+
+	cadet_dynasty_names = {
+		{ "dynn_Kotoro" }
+		{ "dynn_Solono" }
+		{ "dynn_Tebsa" }
+		{ "dynn_Veks" }
+		{ "dynn_Vokso" }
+		{ "dynn_Vashu" }
+		{ "dynn_Kernay" }
+		{ "dynn_Sutya" }
+		{ "dynn_Neri" }
+		{ "dynn_Saozer" }
+		{ "dynn_Stenko" }
+		{ "dynn_Sakhta" }
+		{ "dynn_Ryumni" }
+		{ "dynn_Pulok" }
+		{ "dynn_Kichma" }
+		{ "dynn_Shacha" }
+		{ "dynn_Khabal" }
+		{ "dynn_Ingar" }
+		{ "dynn_Yubil" }
+	}
+	
+	dynasty_names = {
+		{ "dynn_Kotoro" }
+		{ "dynn_Solono" }
+		{ "dynn_Tebsa" }
+		{ "dynn_Veks" }
+		{ "dynn_Vokso" }
+		{ "dynn_Vashu" }
+		{ "dynn_Kernay" }
+		{ "dynn_Sutya" }
+		{ "dynn_Neri" }
+		{ "dynn_Saozer" }
+		{ "dynn_Stenko" }
+		{ "dynn_Sakhta" }
+		{ "dynn_Ryumni" }
+		{ "dynn_Pulok" }
+		{ "dynn_Kichma" }
+		{ "dynn_Shacha" }
+		{ "dynn_Khabal" }
+		{ "dynn_Ingar" }
+		{ "dynn_Yubil" }
+	}
+
+	male_names = {
+		Alyok Andryu Andyamo Artyo Atyamas Azyren Chichayka Chipaz Chumbulat Dergun Deryab Dobrinya Doro Drigo Erziya Inzhay
+		Kardaz Kariton Kezhapa Kezhay Kezhedey Kezhevat Khoddey Kichay Kinyak Kiryo Koma Koshel Kubrat Kvedor Kvilyo
+		Malyaka Malyy Matyo Meltsayka Mikikor Mordvinko Moksha Mosey Murunza Nalka Naruchad Nekhot Nishkepaz Nuyaksha Nuyanza Nuyat
+		Obran Onton Orunza Ovtay Pakstyan Paksyay Paksyut Parush Pinyas Pivtsay Pokshayka Puresh Purysho Putyayka
+		Saksa Setyamka Shindyay Shkay Shoksha Sokhron Surt Syrka Tikshayka Torkan Tul Tunya Tutyra Tylmache Tylze Tyueykezhut Tyushten Tyushtya
+		Uchva Uzhara Varaka Varmanpaz Vasyuk Vechkas Velmayka Vikay Virdyan Viryas Viryay Abrasi Akpars Arman Arn’aš
+                Abdıra Abrança Adırin Agvan Ai-mökö Aisien Aiy-Siene Aiyy-Sien Alaas Alban Aldan Aldïn-caa Aldyn Aleleke Algyr Algys Alin Alip Altin-ariğ Alyapenryn Aman Amyr Anay
+                Anii Anpanis Antyn Anys Apanas Apçakh Aramaan Arbay Archyn Arkaac'ty Arkas Artïk Artysh Arya Arylkhan Atalamy Atch-ytagyn Atyrdakh Ay Ayaal Ayaan Ayantay Ayas Ayastaan Ayatas Aydarkhan Ay-daš Aydas Ay-demir Aydyn Aydys Ayhal Aykhaal Aykhaan
+                Aykhal Aymakh Aynaan Aynan Aysen Aytal Aytas Ayuol Baasa Badeey Badma Badzhei Balıkaar Baltuga Bamba Barakhsan Baroon Barylan Bayañ Bayanay Baybal Baydam Bayğay-ool Belikto Bergen Bert Bete Biebey Bılatıan Biyaman Bootur Borongot Boydoy
+                Brat-ool Buetur Bukdur Buotur Buyan Bylatyan Bytyk Byyang Caakıp Caraahın Ceguer Cekiim Chağyl Chakyl Chanchy-khöö Chash-köök Ches-kartiğa Cheyv-ynkev Chokon Chuonnasuan Čoyğan-ool Culusxan Culuur D'aakyp D'aakypchaan Dabaan Dabııt Dabyl Dabyn Dalan
+                Dalay-ool Dalbar Darkhaan Darkhan Daš-demir Daš-mir Dayan Delegey Delem Delgey Dersu Dobun Dögüör Dokhsun Dolan Dolgan Dolun Doroppuun Doydu Duley Dulus Duluskhaan Dulustaan Duluur D’uluur Duolan Duon Düpsün Durustaan Dygyn Dzeve Echiney Ekter Eleksey
+                Elley Emen Erchim Erchimen Erel Ergis Erilik Erkhaan Erkin Ervko Gida Giv-ynkeev Gokchoa Gyrgol-gyrgyn Igiklav Igney Iken Ikensen Innes Irgen Iriko Kaadyr-ool Kaigal-ool Kamak Kañ-demir Kañ-ool Kara-molot Kartiğa Kaynyn Keli Kençeeri Kencheeri Keremen
+                Keskil Kestekuun Keykumuo Kezhik Khabyrylla Khabyryys Khanbuncha Kharakh Kharyskhaan Khasaul Khasavako Khatan Khertek Khohuun Khomus Khomustaan Khorula Khotoy Khüzhüget Khyrsyn Kidipte Kilish Kintey Kirgieley Kizil-ool Kmol Ködes Koka Kokin Kola
+                Kola-sariğ Köley Koñgar-ool Köptírges Korave Korav'ye Koyon Krile Kuday Kuduk Kukchan Kuk-Da Kunay Kündül Kündümen Kuobakh Kurchekhan Kureyaak Kušaš-ool Kushchta Kuškaš-ool Küsteekh Kustuk Kustuktaan Kuuhuma Kuykey Küzhüget Kÿmÿsh Kÿreñ Kytaanakh
+                Kyzyl-ool Laahar Lants Legentey Lelekay Leletke Lergan Longun Luzgin Lyutya Maadïr-ool Madan Manchaary Mappıay Mappyay Mekheele Memyl Meñgi Mexeele Michil Miise Mikiite Modun Mold'ogor Muklay Munnan Murgun Nachyn Nahaap Natena Neleyko Neriptie N'iuku
+                Numatsku Nuolan Nurgun Nute-nli Nyage Nyurgen Odun Oğoro Okhonoohoy Okokh Okos Öktöm Okuy Öleñ Omak Omoğoy-Baay Omryn Omr-ytagyn Omtoon Önör Öpey-ool Orduk Orguy Örkön Orlan Osi Osor Oyuun Pasley Pergan Pitynyl Ropt-yn Rultk-ynkev Rytgėv Rytkheu Saaba
+                Saaryn Sagol Salchak Salğin Sallaat Sandaman Sargı Sargyn Sarig-ool Saydam Sarakone Serge Sevtya Sherig-ool Sholban Siantoli Šooča Sulus Sulustaan Sürex Sürgen Su-xem Syldys Syral Sy-raykuo Tadar Talban Talygyr Talyman Taman Tarkhay Tasi Taybiir
+                Tay-mir Tchotghtguerele Temekey Tenevil Timir Tolbon Tolluman Tolvin Tavtugin Tonokh Tovariš-tay Tübek Tübey Tubyaku Tukay Turgun Turgun Turkun Tuskul Tuskun Tüskünn Tuygun Tygrynkeev Tygyn Tymyr Tyna-gyrgyn Tyne-nkey Tynga-gyrgyn Tyrtyk Tyulgyu
+                Tyusyulge Uin-ool Umky Uolan Uraan Ursun Uruy Usun Uyanmas Uybaan Uybaanchyk Uygulaan Uygun Vavlya Vesako Vukvutagin Vykvan Vyrgyrgylele Xündüs Xureš-ool Yekenat
+	}
+	female_names = {
+		Anava Anka Ashava Asrava Azra-Va Chechama Chenksa Cherava Cheymarina Chichayka Chindyapa Chindyayka Chinzhay Chitska
+		Elyuva Ganya Inyava Kanyava Kanyuva Kirdyava Kunava Kunyavka Litava Litova Liyava Markva Mastorava Mazava Megurka Mel_shay
+		Nasta Nezayka Noroava Nulzyava Nuyanza Nyal_ka Nyayka Oksya Olday Olota Ordava Oshama Parava Pekshayka
+		Pemka Pokshava Poshayka Potekay Potyava Putyayka Ravzhava Ruzava Sanal_ka Sangasa Sernyava Serzhay Setyamka Seyamka Shonzhava
+		Shukshtoroyka Sinyava Siyamka Slyugan_ka Sochava Styaka Syryava Tatka Tekay Tetyava Tikshayka Toyaksha Tundava Tundya
+		Unzhutka Upurga Utyayka Valdava Valdonya Vergava Verki Vezhav Vidyava Virtyava Yalgava Abakhay Abdakey Adyana Aidota Aiyy-Kuo Alaapıya
+                Aldaana Aldynay Algystaana Altaana Amaana Amır Amyr Anay-kis Anguk Anka-ny Anyuk Araga Archiina Arçın Arzhaana Ayaana Ayga Aygiina Aygylaana Ayiina Aykhaana Aylaana Ayta Aytaliina Badzhei Bakat-vaal Balaağiya Balbaara Barakhsaana Bayaana Belek-maa
+                Borbak-kis Borongot Boroskuobuya Buyana Çabas Çaçakh Çaçan Çapsıkh Çarba Chadzhakh Chakhayakh Chelgiyeene Chemeliine Cheyv-yne Cheyvyne Chibek Choduraa Chokhyray Chonya-na Choygana Chyustyuk Çivey Çömçüüne Çüçün Čudur Dalaana Dalbara Dalbaray
+                Dañ-xayaa Dayaana Doidusa Dolaana Dolguuna Doyduuna Doyduuna Dvebdekieye Dyamaku Dyarikta Edeyne Ekav Evane Fadzya Galgan-nga Gitingev Gitinnevyt Gyronav Hulichan Ilcaana Irkemes Iv-nevyt Izença Izıgas Kara Karachaane Kara-kat Kara-kis Kӧdes Keen
+                Keetikeliir Kekuken Kerecheene Keskileene Keter Keteriine Khaachylaana Khaarchaana Khadako Khadne Kharystaana Khastakh Khatyyna Khertek Khırlas Khısmariy Khıyga Khıyon Khızıçakh Khoni Khoos Khotuuna Khoyru Khozan Khubagan Khuçuray Khuragan Khuruskha
+                Khuskhaçakh Kílín Kiyaara Kӧlede Köbírgen Kök-kis Köölbek Koyon K'pta Kübeye Kümüs Kumuzek Kündüüne Künney Kuobakhaya Kuo-Kuobakhaya Küöregey Küöregeyçeene Kustuktaana Kydaana Kymytval Kyta Kytaliina Kyunnyay Kyuregey Kӧzege Lektyne Litta Lushcha
+                Lushkura Lykhtkk Maappa Maariya Maaryya Maasa Maayystaan Malaanńa Marine Mariy Markha Marpa Matryo Mayra Metírin Michiye Monçıkh Munku Nadyos Naidus Namiina Namiya Nariyaana Nariyanaa Natakh Neko Nesulte N'evde Ninçí Nish'a Nomza N'urguhuna
+                Nurgustaana Nurguyaana Nyurgusun Nyurguyaana Nyurguyana Obdo Ogdo Ogdoochchuya Ogrepen Okko-n Oksin Ökuluune Öleene Omr-yna Oprosin Orine Örke Örtek Oruune Öski Öškü-saar Oyla Oyu-maa Paara Palashka Palatin Parako Parasin Parasko Parçıkh Payakh Payinça
+                Payram Pelen Penr-yna Petushch Pırıs Pora Porança Porço Pozırakh Pukhutsya Purba Pürçük Pychik Qarliğaş Ropt-yna Rultk-ynevyt Rul-tyne Saaskhan Saaskiya Sabin Sahayaana Sainkho Sakhaaya Sakhayaana Samaana Samdar Sanaaya Sandaara Sarapin Sardaana
+                Sardana Sargylaana Sarıada Saryada Saskulaana Savane Sayaana Sayaara Saydiina Sayiina Sayin-khöö Saylyk Saylykmaa Saymiina Saynaara Saysary Sayyna Sedueççuye Sifi Sımalçıkh Sımdakh Singekte Sinma Sırılçakh Söduöre Sulustaana Sunke Suoppuya Sürmes
+                Surnakh Syralyma Sy-raykuo Syvne Taan Taar Tabakh Taçana Talbaana Tanis Taraa Tarashchya Taysa Tchotghtguerele Tebiya Tekki Temene Tiin Tinyl Tomam Torgï Tsambu Tuban Tubyaku Tulluktaana Tulun Tupsunna Tupsuuna Turuya Tuskulaana Tuyaara Tuyaaryma
+                Tuyaaryma-Kuo Tuyara Tuyguuna Tuymaada Tyna-tval Tyne-nny Učastak Ügü Üklin Uleken Umsuura Urana Urne Uruydaana Uygulaana Uyguuna Uynung-maa Uzun-kaday Varuk Viere Vinevyt Vulga Vushchta Vykv-yna Xara-xïs Xayana Xomus Xoptak Xoveŋ-mey Yalyane Yedeyne
+                Yzyrga
+	}
+	dynasty_of_location_prefix = "dynnp_of"
+	#founder_named_dynasties = yes
+
+	
+}
+name_list_meshchera = {
+
+	cadet_dynasty_names ={
+		{ "dynn_Okain" }
+		{ "dynn_Tesha" }
+		{ "dynn_Seres" }
+		{ "dynn_Lyush" }
+		{ "dynn_Ilven" }
+		{ "dynn_Sorkor" }
+		{ "dynn_Dubol" }
+		{ "dynn_Lebedi" }
+		{ "dynn_Pra" }
+		{ "dynn_Zadey" }
+		{ "dynn_Perki" }
+		{ "dynn_Solosh" }
+		{ "dynn_Otok" }
+		{ "dynn_Luko" }
+		{ "dynn_Voja" }
+		{ "dynn_Tsnan" }
+		{ "dynn_Senka" }
+		{ "dynn_Olkhi" }
+		{ "dynn_Susha" }
+		{ "dynn_Voronor" }
+		{ "dynn_Uupa" }
+	}
+	
+	dynasty_names = {
+		{ "dynn_Okain" }
+		{ "dynn_Tesha" }
+		{ "dynn_Seres" }
+		{ "dynn_Lyush" }
+		{ "dynn_Ilven" }
+		{ "dynn_Sorkor" }
+		{ "dynn_Dubol" }
+		{ "dynn_Lebedi" }
+		{ "dynn_Pra" }
+		{ "dynn_Zadey" }
+		{ "dynn_Perki" }
+		{ "dynn_Solosh" }
+		{ "dynn_Otok" }
+		{ "dynn_Luko" }
+		{ "dynn_Voja" }
+		{ "dynn_Tsnan" }
+		{ "dynn_Senka" }
+		{ "dynn_Olkhi" }
+		{ "dynn_Susha" }
+		{ "dynn_Voronor" }
+		{ "dynn_Uupa" }
+	}
+	
+
+	male_names = {
+		Alyok Andryu Andyamo Artyo Atyamas Azyren Chichayka Chipaz Chumbulat Dergun Deryab Dobrinya Doro Drigo Erziya Inzhay
+		Kardaz Kariton Kezhapa Kezhay Kezhedey Kezhevat Khoddey Kichay Kinyak Kiryo Koma Koshel Kubrat Kvedor Kvilyo
+		Malyaka Malyy Matyo Meltsayka Mikikor Mordvinko Moksha Mosey Murunza Nalka Naruchad Nekhot Nishkepaz Nuyaksha Nuyat
+		Obran Onton Orunza Ovtay Pakstyan Paksyay Paksyut Parush Pinyas Pivtsay Pokshayka Puresh Purysho Putyayka
+		Saksa Setyamka Shindyay Shkay Shoksha Sokhron Surt Syrka Torkan Tul Tunya Tutyra Tylmache Tylze Tyueykezhut Tyushten Tyushtya
+		Uchva Uzhara Varaka Varmanpaz Vasyuk Vechkas Velmayka Vikay Virdyan Viryas Viryay Abrasi Akpars Arman Arn’aš
+                Abdıra Abrança Adırin Agvan Ai-mökö Aisien Aiy-Siene Aiyy-Sien Alaas Alban Aldan Aldïn-caa Aldyn Aleleke Algyr Algys Alin Alip Altin-ariğ Alyapenryn Aman Amyr Anay
+                Anii Anpanis Antyn Anys Apanas Apçakh Aramaan Arbay Archyn Arkaac'ty Arkas Artïk Artysh Arya Arylkhan Atalamy Atch-ytagyn Atyrdakh Ay Ayaal Ayaan Ayantay Ayas Ayastaan Ayatas Aydarkhan Ay-daš Aydas Ay-demir Aydyn Aydys Ayhal Aykhaal Aykhaan
+                Aykhal Aymakh Aynaan Aynan Aysen Aytal Aytas Ayuol Baasa Badeey Badma Badzhei Balıkaar Baltuga Bamba Barakhsan Baroon Barylan Bayañ Bayanay Baybal Baydam Bayğay-ool Belikto Bergen Bert Bete Biebey Bılatıan Biyaman Bootur Borongot Boydoy
+                Brat-ool Buetur Bukdur Buotur Buyan Bylatyan Bytyk Byyang Caakıp Caraahın Ceguer Cekiim Chağyl Chakyl Chanchy-khöö Chash-köök Ches-kartiğa Cheyv-ynkev Chokon Chuonnasuan Čoyğan-ool Culusxan Culuur D'aakyp D'aakypchaan Dabaan Dabııt Dabyl Dabyn Dalan
+                Dalay-ool Dalbar Darkhaan Darkhan Daš-demir Daš-mir Dayan Delegey Delem Delgey Dersu Dobun Dögüör Dokhsun Dolan Dolgan Dolun Doroppuun Doydu Duley Dulus Duluskhaan Dulustaan Duluur D’uluur Duolan Duon Düpsün Durustaan Dygyn Dzeve Echiney Ekter Eleksey
+                Elley Emen Erchim Erchimen Erel Ergis Erilik Erkhaan Erkin Ervko Gida Giv-ynkeev Gokchoa Gyrgol-gyrgyn Igiklav Igney Iken Ikensen Innes Irgen Iriko Kaadyr-ool Kaigal-ool Kamak Kañ-demir Kañ-ool Kara-molot Kartiğa Kaynyn Keli Kençeeri Kencheeri Keremen
+                Keskil Kestekuun Keykumuo Kezhik Khabyrylla Khabyryys Khanbuncha Kharakh Kharyskhaan Khasaul Khasavako Khatan Khertek Khohuun Khomus Khomustaan Khorula Khotoy Khüzhüget Khyrsyn Kidipte Kilish Kintey Kirgieley Kizil-ool Kmol Ködes Koka Kokin Kola
+                Kola-sariğ Köley Koñgar-ool Köptírges Korave Korav'ye Koyon Krile Kuday Kuduk Kukchan Kuk-Da Kunay Kündül Kündümen Kuobakh Kurchekhan Kureyaak Kušaš-ool Kushchta Kuškaš-ool Küsteekh Kustuk Kustuktaan Kuuhuma Kuykey Küzhüget Kÿmÿsh Kÿreñ Kytaanakh
+                Kyzyl-ool Laahar Lants Legentey Lelekay Leletke Lergan Longun Luzgin Lyutya Maadïr-ool Madan Manchaary Mappıay Mappyay Mekheele Memyl Meñgi Mexeele Michil Miise Mikiite Modun Mold'ogor Muklay Munnan Murgun Nachyn Nahaap Natena Neleyko Neriptie N'iuku
+                Numatsku Nuolan Nurgun Nute-nli Nyage Nyurgen Odun Oğoro Okhonoohoy Okokh Okos Öktöm Okuy Öleñ Omak Omoğoy-Baay Omryn Omr-ytagyn Omtoon Önör Öpey-ool Orduk Orguy Örkön Orlan Osi Osor Oyuun Pasley Pergan Pitynyl Ropt-yn Rultk-ynkev Rytgėv Rytkheu Saaba
+                Saaryn Sagol Salchak Salğin Sallaat Sandaman Sargı Sargyn Sarig-ool Saydam Sarakone Serge Sevtya Sherig-ool Sholban Siantoli Šooča Sulus Sulustaan Sürex Sürgen Su-xem Syldys Syral Sy-raykuo Tadar Talban Talygyr Talyman Taman Tarkhay Tasi Taybiir
+                Tay-mir Tchotghtguerele Temekey Tenevil Timir Tolbon Tolluman Tolvin Tavtugin Tonokh Tovariš-tay Tübek Tübey Tubyaku Tukay Turgun Turgun Turkun Tuskul Tuskun Tüskünn Tuygun Tygrynkeev Tygyn Tymyr Tyna-gyrgyn Tyne-nkey Tynga-gyrgyn Tyrtyk Tyulgyu
+                Tyusyulge Uin-ool Umky Uolan Uraan Ursun Uruy Usun Uyanmas Uybaan Uybaanchyk Uygulaan Uygun Vavlya Vesako Vukvutagin Vykvan Vyrgyrgylele Xündüs Xureš-ool Yekenat
+	}
+	female_names = {
+		Anava Anka Ashava Asrava Azra-Va Chechama Chenksa Cherava Cheymarina Chindyapa Chindyayka Chinzhay Chitska
+		Elyuva Ganya Inyava Kanyava Kanyuva Kirdyava Kunava Kunyavka Litava Litova Liyava Markva Mastorava Mazava Megurka Mel_shay
+		Nasta Nezayka Noroava Nulzyava Nuyanza Nyal_ka Nyayka Oksya Olday Olota Ordava Oshama Parava Pekshayka
+		Pemka Pokshava Poshayka Potekay Potyava Putyayka Ravzhava Ruzava Sanal_ka Sangasa Sernyava Serzhay Setyamka Seyamka Shonzhava
+		Shukshtoroyka Sinyava Siyamka Slyugan_ka Sochava Styaka Syryava Tatka Tekay Tetyava Tikshayka Toyaksha Tundava Tundya
+		Unzhutka Upurga Utyayka Valdava Valdonya Vergava Verki Vezhav Vidyava Virtyava Yalgava Abakhay Abdakey Adyana Aidota Aiyy-Kuo Alaapıya
+                Aldaana Aldynay Algystaana Altaana Amaana Amır Amyr Anay-kis Anguk Anka-ny Anyuk Araga Archiina Arçın Arzhaana Ayaana Ayga Aygiina Aygylaana Ayiina Aykhaana Aylaana Ayta Aytaliina Badzhei Bakat-vaal Balaağiya Balbaara Barakhsaana Bayaana Belek-maa
+                Borbak-kis Borongot Boroskuobuya Buyana Çabas Çaçakh Çaçan Çapsıkh Çarba Chadzhakh Chakhayakh Chelgiyeene Chemeliine Cheyv-yne Cheyvyne Chibek Choduraa Chokhyray Chonya-na Choygana Chyustyuk Çivey Çömçüüne Çüçün Čudur Dalaana Dalbara Dalbaray
+                Dañ-xayaa Dayaana Doidusa Dolaana Dolguuna Doyduuna Doyduuna Dvebdekieye Dyamaku Dyarikta Edeyne Ekav Evane Fadzya Galgan-nga Gitingev Gitinnevyt Gyronav Hulichan Ilcaana Irkemes Iv-nevyt Izença Izıgas Kara Karachaane Kara-kat Kara-kis Kӧdes Keen
+                Keetikeliir Kekuken Kerecheene Keskileene Keter Keteriine Khaachylaana Khaarchaana Khadako Khadne Kharystaana Khastakh Khatyyna Khertek Khırlas Khısmariy Khıyga Khıyon Khızıçakh Khoni Khoos Khotuuna Khoyru Khozan Khubagan Khuçuray Khuragan Khuruskha
+                Khuskhaçakh Kílín Kiyaara Kӧlede Köbírgen Kök-kis Köölbek Koyon K'pta Kübeye Kümüs Kumuzek Kündüüne Künney Kuobakhaya Kuo-Kuobakhaya Küöregey Küöregeyçeene Kustuktaana Kydaana Kymytval Kyta Kytaliina Kyunnyay Kyuregey Kӧzege Lektyne Litta Lushcha
+                Lushkura Lykhtkk Maappa Maariya Maaryya Maasa Maayystaan Malaanńa Marine Mariy Markha Marpa Matryo Mayra Metírin Michiye Monçıkh Munku Nadyos Naidus Namiina Namiya Nariyaana Nariyanaa Natakh Neko Nesulte N'evde Ninçí Nish'a Nomza N'urguhuna
+                Nurgustaana Nurguyaana Nyurgusun Nyurguyaana Nyurguyana Obdo Ogdo Ogdoochchuya Ogrepen Okko-n Oksin Ökuluune Öleene Omr-yna Oprosin Orine Örke Örtek Oruune Öski Öškü-saar Oyla Oyu-maa Paara Palashka Palatin Parako Parasin Parasko Parçıkh Payakh Payinça
+                Payram Pelen Penr-yna Petushch Pırıs Pora Porança Porço Pozırakh Pukhutsya Purba Pürçük Pychik Qarliğaş Ropt-yna Rultk-ynevyt Rul-tyne Saaskhan Saaskiya Sabin Sahayaana Sainkho Sakhaaya Sakhayaana Samaana Samdar Sanaaya Sandaara Sarapin Sardaana
+                Sardana Sargylaana Sarıada Saryada Saskulaana Savane Sayaana Sayaara Saydiina Sayiina Sayin-khöö Saylyk Saylykmaa Saymiina Saynaara Saysary Sayyna Sedueççuye Sifi Sımalçıkh Sımdakh Singekte Sinma Sırılçakh Söduöre Sulustaana Sunke Suoppuya Sürmes
+                Surnakh Syralyma Sy-raykuo Syvne Taan Taar Tabakh Taçana Talbaana Tanis Taraa Tarashchya Taysa Tchotghtguerele Tebiya Tekki Temene Tiin Tinyl Tomam Torgï Tsambu Tuban Tubyaku Tulluktaana Tulun Tupsunna Tupsuuna Turuya Tuskulaana Tuyaara Tuyaaryma
+                Tuyaaryma-Kuo Tuyara Tuyguuna Tuymaada Tyna-tval Tyne-nny Učastak Ügü Üklin Uleken Umsuura Urana Urne Uruydaana Uygulaana Uyguuna Uynung-maa Uzun-kaday Varuk Viere Vinevyt Vulga Vushchta Vykv-yna Xara-xïs Xayana Xomus Xoptak Xoveŋ-mey Yalyane Yedeyne
+                Yzyrga
+	}
+	dynasty_of_location_prefix = "dynnp_of"
+	#founder_named_dynasties = yes
+
+	
+}
+name_list_mari = {
+
+	cadet_dynasty_names = {
+		{ "dynn_Cheremis" }
+		{ "dynn_Cirmes" }
+		{ "dynn_Kokshag" }
+		{ "dynn_Yoshkar" }
+		{ "dynn_Vezlom" }
+		{ "dynn_Sanda" }
+		{ "dynn_Sheska" }
+		{ "dynn_Silik" }
+		{ "dynn_Luns" }
+		{ "dynn_Linta" }
+		{ "dynn_Lopota" }
+		{ "dynn_Redne" }
+		{ "dynn_Keryet" }
+		{ "dynn_Lamna" }
+		{ "dynn_Maza" }
+		{ "dynn_Lujyar" }
+		{ "dynn_Kokchag" }
+		{ "dynn_Mazars" }
+		{ "dynn_Pishta" }
+		{ "dynn_Vongus" }
+		{ "dynn_Kundysh" }
+		{ "dynn_Veltuk" }
+	}
+	
+	dynasty_names = {
+		{ "dynn_Cheremis" }
+		{ "dynn_Cirmes" }
+		{ "dynn_Kokshag" }
+		{ "dynn_Yoshkar" }
+		{ "dynn_Vezlom" }
+		{ "dynn_Sanda" }
+		{ "dynn_Sheska" }
+		{ "dynn_Silik" }
+		{ "dynn_Luns" }
+		{ "dynn_Linta" }
+		{ "dynn_Lopota" }
+		{ "dynn_Redne" }
+		{ "dynn_Keryet" }
+		{ "dynn_Lamna" }
+		{ "dynn_Maza" }
+		{ "dynn_Lujyar" }
+		{ "dynn_Kokchag" }
+		{ "dynn_Mazars" }
+		{ "dynn_Pishta" }
+		{ "dynn_Vongus" }
+		{ "dynn_Kundysh" }
+		{ "dynn_Veltuk" }
+	}
+	
+
+	male_names = {
+		Alyok Aydush Aygobek Ayplat Azyren Chichayka Chotkar Dergun Deryab Echan Elyksan Evdyuk Ilip Izerge Izi Kavri KU_rntnypatyr Kystynchi
+		Laidemyr Lapkas Maska Mikal Miklai Mikypyr Mitryai Nekhot Nishkepaz Nuyat Opanas Osherge Ozanay Pakstyan Pinyas Pokshayka
+		Saksa Shindyay Shemvuy Shkay Shoksha Shumat Sokhron Stapan Surt Torkan Tunya Tylze Tyushten Tyushtya Uchva Uzhara
+		Varaka Varash Varmanpaz VO_dyr Vasyuk Vechkas Velmayka Vikay Viryas Yamshan Yapyk Yolagay YU_kserge Yumpatyr YU_shterge Abrasi Akpars
+                Arman Arn’aš  Abdıra Abrança Adırin Agvan Ai-mökö Aisien Aiy-Siene Aiyy-Sien Alaas Alban Aldan Aldïn-caa Aldyn Aleleke Algyr Algys Alin Alip Altin-ariğ Alyapenryn Aman Amyr Anay
+                Anii Anpanis Antyn Anys Apanas Apçakh Aramaan Arbay Archyn Arkaac'ty Arkas Artïk Artysh Arya Arylkhan Atalamy Atch-ytagyn Atyrdakh Ay Ayaal Ayaan Ayantay Ayas Ayastaan Ayatas Aydarkhan Ay-daš Aydas Ay-demir Aydyn Aydys Ayhal Aykhaal Aykhaan
+                Aykhal Aymakh Aynaan Aynan Aysen Aytal Aytas Ayuol Baasa Badeey Badma Badzhei Balıkaar Baltuga Bamba Barakhsan Baroon Barylan Bayañ Bayanay Baybal Baydam Bayğay-ool Belikto Bergen Bert Bete Biebey Bılatıan Biyaman Bootur Borongot Boydoy
+                Brat-ool Buetur Bukdur Buotur Buyan Bylatyan Bytyk Byyang Caakıp Caraahın Ceguer Cekiim Chağyl Chakyl Chanchy-khöö Chash-köök Ches-kartiğa Cheyv-ynkev Chokon Chuonnasuan Čoyğan-ool Culusxan Culuur D'aakyp D'aakypchaan Dabaan Dabııt Dabyl Dabyn Dalan
+                Dalay-ool Dalbar Darkhaan Darkhan Daš-demir Daš-mir Dayan Delegey Delem Delgey Dersu Dobun Dögüör Dokhsun Dolan Dolgan Dolun Doroppuun Doydu Duley Dulus Duluskhaan Dulustaan Duluur D’uluur Duolan Duon Düpsün Durustaan Dygyn Dzeve Echiney Ekter Eleksey
+                Elley Emen Erchim Erchimen Erel Ergis Erilik Erkhaan Erkin Ervko Gida Giv-ynkeev Gokchoa Gyrgol-gyrgyn Igiklav Igney Iken Ikensen Innes Irgen Iriko Kaadyr-ool Kaigal-ool Kamak Kañ-demir Kañ-ool Kara-molot Kartiğa Kaynyn Keli Kençeeri Kencheeri Keremen
+                Keskil Kestekuun Keykumuo Kezhik Khabyrylla Khabyryys Khanbuncha Kharakh Kharyskhaan Khasaul Khasavako Khatan Khertek Khohuun Khomus Khomustaan Khorula Khotoy Khüzhüget Khyrsyn Kidipte Kilish Kintey Kirgieley Kizil-ool Kmol Ködes Koka Kokin Kola
+                Kola-sariğ Köley Koñgar-ool Köptírges Korave Korav'ye Koyon Krile Kuday Kuduk Kukchan Kuk-Da Kunay Kündül Kündümen Kuobakh Kurchekhan Kureyaak Kušaš-ool Kushchta Kuškaš-ool Küsteekh Kustuk Kustuktaan Kuuhuma Kuykey Küzhüget Kÿmÿsh Kÿreñ Kytaanakh
+                Kyzyl-ool Laahar Lants Legentey Lelekay Leletke Lergan Longun Luzgin Lyutya Maadïr-ool Madan Manchaary Mappıay Mappyay Mekheele Memyl Meñgi Mexeele Michil Miise Mikiite Modun Mold'ogor Muklay Munnan Murgun Nachyn Nahaap Natena Neleyko Neriptie N'iuku
+                Numatsku Nuolan Nurgun Nute-nli Nyage Nyurgen Odun Oğoro Okhonoohoy Okokh Okos Öktöm Okuy Öleñ Omak Omoğoy-Baay Omryn Omr-ytagyn Omtoon Önör Öpey-ool Orduk Orguy Örkön Orlan Osi Osor Oyuun Pasley Pergan Pitynyl Ropt-yn Rultk-ynkev Rytgėv Rytkheu Saaba
+                Saaryn Sagol Salchak Salğin Sallaat Sandaman Sargı Sargyn Sarig-ool Saydam Sarakone Serge Sevtya Sherig-ool Sholban Siantoli Šooča Sulus Sulustaan Sürex Sürgen Su-xem Syldys Syral Sy-raykuo Tadar Talban Talygyr Talyman Taman Tarkhay Tasi Taybiir
+                Tay-mir Tchotghtguerele Temekey Tenevil Timir Tolbon Tolluman Tolvin Tavtugin Tonokh Tovariš-tay Tübek Tübey Tubyaku Tukay Turgun Turgun Turkun Tuskul Tuskun Tüskünn Tuygun Tygrynkeev Tygyn Tymyr Tyna-gyrgyn Tyne-nkey Tynga-gyrgyn Tyrtyk Tyulgyu
+                Tyusyulge Uin-ool Umky Uolan Uraan Ursun Uruy Usun Uyanmas Uybaan Uybaanchyk Uygulaan Uygun Vavlya Vesako Vukvutagin Vykvan Vyrgyrgylele Xündüs Xureš-ool Yekenat 
+	}
+	female_names = {
+		Anava Anka Ashava Astalche Aybi Bedasi Chechama Chenksa Cherava Cheymarina Elika Elyuva Evika Kachyrii Kanyuva Kechevi KugU_dyr Kunava
+		Maira Mastorava Megurka Mel_shay Nezayka Noroava Nulzyava Nuyanza Nyayka Oksya Olyu Orina Oshama Pashache Pekshayka Potyava PO_kla
+		Salika Sangasa Serzhay Shonzhava Shukshtoroyka Shymay Tachana Unzhutka Utyayka Uviy Valdonya Vergava Yalgava YU_ksU_dyr Aga Astalche
+                Atnavi Abakhay Abdakey Adyana Aidota Aiyy-Kuo Alaapıya
+                Aldaana Aldynay Algystaana Altaana Amaana Amır Amyr Anay-kis Anguk Anka-ny Anyuk Araga Archiina Arçın Arzhaana Ayaana Ayga Aygiina Aygylaana Ayiina Aykhaana Aylaana Ayta Aytaliina Badzhei Bakat-vaal Balaağiya Balbaara Barakhsaana Bayaana Belek-maa
+                Borbak-kis Borongot Boroskuobuya Buyana Çabas Çaçakh Çaçan Çapsıkh Çarba Chadzhakh Chakhayakh Chelgiyeene Chemeliine Cheyv-yne Cheyvyne Chibek Choduraa Chokhyray Chonya-na Choygana Chyustyuk Çivey Çömçüüne Çüçün Čudur Dalaana Dalbara Dalbaray
+                Dañ-xayaa Dayaana Doidusa Dolaana Dolguuna Doyduuna Doyduuna Dvebdekieye Dyamaku Dyarikta Edeyne Ekav Evane Fadzya Galgan-nga Gitingev Gitinnevyt Gyronav Hulichan Ilcaana Irkemes Iv-nevyt Izença Izıgas Kara Karachaane Kara-kat Kara-kis Kӧdes Keen
+                Keetikeliir Kekuken Kerecheene Keskileene Keter Keteriine Khaachylaana Khaarchaana Khadako Khadne Kharystaana Khastakh Khatyyna Khertek Khırlas Khısmariy Khıyga Khıyon Khızıçakh Khoni Khoos Khotuuna Khoyru Khozan Khubagan Khuçuray Khuragan Khuruskha
+                Khuskhaçakh Kílín Kiyaara Kӧlede Köbírgen Kök-kis Köölbek Koyon K'pta Kübeye Kümüs Kumuzek Kündüüne Künney Kuobakhaya Kuo-Kuobakhaya Küöregey Küöregeyçeene Kustuktaana Kydaana Kymytval Kyta Kytaliina Kyunnyay Kyuregey Kӧzege Lektyne Litta Lushcha
+                Lushkura Lykhtkk Maappa Maariya Maaryya Maasa Maayystaan Malaanńa Marine Mariy Markha Marpa Matryo Mayra Metírin Michiye Monçıkh Munku Nadyos Naidus Namiina Namiya Nariyaana Nariyanaa Natakh Neko Nesulte N'evde Ninçí Nish'a Nomza N'urguhuna
+                Nurgustaana Nurguyaana Nyurgusun Nyurguyaana Nyurguyana Obdo Ogdo Ogdoochchuya Ogrepen Okko-n Oksin Ökuluune Öleene Omr-yna Oprosin Orine Örke Örtek Oruune Öski Öškü-saar Oyla Oyu-maa Paara Palashka Palatin Parako Parasin Parasko Parçıkh Payakh Payinça
+                Payram Pelen Penr-yna Petushch Pırıs Pora Porança Porço Pozırakh Pukhutsya Purba Pürçük Pychik Qarliğaş Ropt-yna Rultk-ynevyt Rul-tyne Saaskhan Saaskiya Sabin Sahayaana Sainkho Sakhaaya Sakhayaana Samaana Samdar Sanaaya Sandaara Sarapin Sardaana
+                Sardana Sargylaana Sarıada Saryada Saskulaana Savane Sayaana Sayaara Saydiina Sayiina Sayin-khöö Saylyk Saylykmaa Saymiina Saynaara Saysary Sayyna Sedueççuye Sifi Sımalçıkh Sımdakh Singekte Sinma Sırılçakh Söduöre Sulustaana Sunke Suoppuya Sürmes
+                Surnakh Syralyma Sy-raykuo Syvne Taan Taar Tabakh Taçana Talbaana Tanis Taraa Tarashchya Taysa Tchotghtguerele Tebiya Tekki Temene Tiin Tinyl Tomam Torgï Tsambu Tuban Tubyaku Tulluktaana Tulun Tupsunna Tupsuuna Turuya Tuskulaana Tuyaara Tuyaaryma
+                Tuyaaryma-Kuo Tuyara Tuyguuna Tuymaada Tyna-tval Tyne-nny Učastak Ügü Üklin Uleken Umsuura Urana Urne Uruydaana Uygulaana Uyguuna Uynung-maa Uzun-kaday Varuk Viere Vinevyt Vulga Vushchta Vykv-yna Xara-xïs Xayana Xomus Xoptak Xoveŋ-mey Yalyane Yedeyne
+                Yzyrga
+	}
+	dynasty_of_location_prefix = "dynnp_of"
+	#founder_named_dynasties = yes
+
+	
+}
+name_list_muroma = {
+
+	cadet_dynasty_names = {
+		{ "dynn_Okain" }
+		{ "dynn_Tesha" }
+		{ "dynn_Seres" }
+		{ "dynn_Lyush" }
+		{ "dynn_Ilven" }
+		{ "dynn_Sorkor" }
+		{ "dynn_Dubol" }
+		{ "dynn_Lebedi" }
+		{ "dynn_Pra" }
+		{ "dynn_Zadey" }
+		{ "dynn_Perki" }
+		{ "dynn_Solosh" }
+		{ "dynn_Otok" }
+		{ "dynn_Luko" }
+		{ "dynn_Voja" }
+		{ "dynn_Tsnan" }
+		{ "dynn_Senka" }
+		{ "dynn_Olkhi" }
+		{ "dynn_Susha" }
+		{ "dynn_Voronor" }
+		{ "dynn_Uupa" }
+	}
+	
+	dynasty_names = {
+		{ "dynn_Okain" }
+		{ "dynn_Tesha" }
+		{ "dynn_Seres" }
+		{ "dynn_Lyush" }
+		{ "dynn_Ilven" }
+		{ "dynn_Sorkor" }
+		{ "dynn_Dubol" }
+		{ "dynn_Lebedi" }
+		{ "dynn_Pra" }
+		{ "dynn_Zadey" }
+		{ "dynn_Perki" }
+		{ "dynn_Solosh" }
+		{ "dynn_Otok" }
+		{ "dynn_Luko" }
+		{ "dynn_Voja" }
+		{ "dynn_Tsnan" }
+		{ "dynn_Senka" }
+		{ "dynn_Olkhi" }
+		{ "dynn_Susha" }
+		{ "dynn_Voronor" }
+		{ "dynn_Uupa" }
+	}
+	
+
+	male_names = {
+		Alyok Aydush Aygobek Ayplat Azyren Chichayka Chotkar Dergun Deryab Echan Elyksan Evdyuk Ilip Izerge Izi Kavri KU_rntnypatyr Kystynchi
+		Laidemyr Lapkas Maska Mikal Miklai Mikypyr Mitryai Nekhot Nishkepaz Nuyat Opanas Osherge Ozanay Pakstyan Pinyas Pokshayka
+		Saksa Shindyay Shemvuy Shkay Shoksha Shumat Sokhron Stapan Surt Torkan Tunya Tylze Tyushten Tyushtya Uchva Uzhara
+		Varaka Varash Varmanpaz VO_dyr Vasyuk Vechkas Velmayka Vikay Viryas Yamshan Yapyk Yolagay YU_kserge Yumpatyr YU_shterge Abrasi Akpars
+                Arman Arn’aš Abdıra Abrança Adırin Agvan Ai-mökö Aisien Aiy-Siene Aiyy-Sien Alaas Alban Aldan Aldïn-caa Aldyn Aleleke Algyr Algys Alin Alip Altin-ariğ Alyapenryn Aman Amyr Anay
+                Anii Anpanis Antyn Anys Apanas Apçakh Aramaan Arbay Archyn Arkaac'ty Arkas Artïk Artysh Arya Arylkhan Atalamy Atch-ytagyn Atyrdakh Ay Ayaal Ayaan Ayantay Ayas Ayastaan Ayatas Aydarkhan Ay-daš Aydas Ay-demir Aydyn Aydys Ayhal Aykhaal Aykhaan
+                Aykhal Aymakh Aynaan Aynan Aysen Aytal Aytas Ayuol Baasa Badeey Badma Badzhei Balıkaar Baltuga Bamba Barakhsan Baroon Barylan Bayañ Bayanay Baybal Baydam Bayğay-ool Belikto Bergen Bert Bete Biebey Bılatıan Biyaman Bootur Borongot Boydoy
+                Brat-ool Buetur Bukdur Buotur Buyan Bylatyan Bytyk Byyang Caakıp Caraahın Ceguer Cekiim Chağyl Chakyl Chanchy-khöö Chash-köök Ches-kartiğa Cheyv-ynkev Chokon Chuonnasuan Čoyğan-ool Culusxan Culuur D'aakyp D'aakypchaan Dabaan Dabııt Dabyl Dabyn Dalan
+                Dalay-ool Dalbar Darkhaan Darkhan Daš-demir Daš-mir Dayan Delegey Delem Delgey Dersu Dobun Dögüör Dokhsun Dolan Dolgan Dolun Doroppuun Doydu Duley Dulus Duluskhaan Dulustaan Duluur D’uluur Duolan Duon Düpsün Durustaan Dygyn Dzeve Echiney Ekter Eleksey
+                Elley Emen Erchim Erchimen Erel Ergis Erilik Erkhaan Erkin Ervko Gida Giv-ynkeev Gokchoa Gyrgol-gyrgyn Igiklav Igney Iken Ikensen Innes Irgen Iriko Kaadyr-ool Kaigal-ool Kamak Kañ-demir Kañ-ool Kara-molot Kartiğa Kaynyn Keli Kençeeri Kencheeri Keremen
+                Keskil Kestekuun Keykumuo Kezhik Khabyrylla Khabyryys Khanbuncha Kharakh Kharyskhaan Khasaul Khasavako Khatan Khertek Khohuun Khomus Khomustaan Khorula Khotoy Khüzhüget Khyrsyn Kidipte Kilish Kintey Kirgieley Kizil-ool Kmol Ködes Koka Kokin Kola
+                Kola-sariğ Köley Koñgar-ool Köptírges Korave Korav'ye Koyon Krile Kuday Kuduk Kukchan Kuk-Da Kunay Kündül Kündümen Kuobakh Kurchekhan Kureyaak Kušaš-ool Kushchta Kuškaš-ool Küsteekh Kustuk Kustuktaan Kuuhuma Kuykey Küzhüget Kÿmÿsh Kÿreñ Kytaanakh
+                Kyzyl-ool Laahar Lants Legentey Lelekay Leletke Lergan Longun Luzgin Lyutya Maadïr-ool Madan Manchaary Mappıay Mappyay Mekheele Memyl Meñgi Mexeele Michil Miise Mikiite Modun Mold'ogor Muklay Munnan Murgun Nachyn Nahaap Natena Neleyko Neriptie N'iuku
+                Numatsku Nuolan Nurgun Nute-nli Nyage Nyurgen Odun Oğoro Okhonoohoy Okokh Okos Öktöm Okuy Öleñ Omak Omoğoy-Baay Omryn Omr-ytagyn Omtoon Önör Öpey-ool Orduk Orguy Örkön Orlan Osi Osor Oyuun Pasley Pergan Pitynyl Ropt-yn Rultk-ynkev Rytgėv Rytkheu Saaba
+                Saaryn Sagol Salchak Salğin Sallaat Sandaman Sargı Sargyn Sarig-ool Saydam Sarakone Serge Sevtya Sherig-ool Sholban Siantoli Šooča Sulus Sulustaan Sürex Sürgen Su-xem Syldys Syral Sy-raykuo Tadar Talban Talygyr Talyman Taman Tarkhay Tasi Taybiir
+                Tay-mir Tchotghtguerele Temekey Tenevil Timir Tolbon Tolluman Tolvin Tavtugin Tonokh Tovariš-tay Tübek Tübey Tubyaku Tukay Turgun Turgun Turkun Tuskul Tuskun Tüskünn Tuygun Tygrynkeev Tygyn Tymyr Tyna-gyrgyn Tyne-nkey Tynga-gyrgyn Tyrtyk Tyulgyu
+                Tyusyulge Uin-ool Umky Uolan Uraan Ursun Uruy Usun Uyanmas Uybaan Uybaanchyk Uygulaan Uygun Vavlya Vesako Vukvutagin Vykvan Vyrgyrgylele Xündüs Xureš-ool Yekenat
+	}
+	female_names = {
+		Anava Anka Ashava Astalche Aybi Bedasi Chechama Chenksa Cherava Cheymarina Elika Elyuva Evika Kachyrii Kanyuva Kechevi KugU_dyr Kunava
+		Maira Mastorava Megurka Mel_shay Nezayka Noroava Nulzyava Nuyanza Nyayka Oksya Olyu Orina Oshama Pashache Pekshayka Potyava PO_kla
+		Salika Sangasa Serzhay Shonzhava Shukshtoroyka Shymay Tachana Unzhutka Utyayka Uviy Valdonya Vergava Yalgava YU_ksU_dyr Abakhay Abdakey Adyana Aidota Aiyy-Kuo Alaapıya
+                Aldaana Aldynay Algystaana Altaana Amaana Amır Amyr Anay-kis Anguk Anka-ny Anyuk Araga Archiina Arçın Arzhaana Ayaana Ayga Aygiina Aygylaana Ayiina Aykhaana Aylaana Ayta Aytaliina Badzhei Bakat-vaal Balaağiya Balbaara Barakhsaana Bayaana Belek-maa
+                Borbak-kis Borongot Boroskuobuya Buyana Çabas Çaçakh Çaçan Çapsıkh Çarba Chadzhakh Chakhayakh Chelgiyeene Chemeliine Cheyv-yne Cheyvyne Chibek Choduraa Chokhyray Chonya-na Choygana Chyustyuk Çivey Çömçüüne Çüçün Čudur Dalaana Dalbara Dalbaray
+                Dañ-xayaa Dayaana Doidusa Dolaana Dolguuna Doyduuna Doyduuna Dvebdekieye Dyamaku Dyarikta Edeyne Ekav Evane Fadzya Galgan-nga Gitingev Gitinnevyt Gyronav Hulichan Ilcaana Irkemes Iv-nevyt Izença Izıgas Kara Karachaane Kara-kat Kara-kis Kӧdes Keen
+                Keetikeliir Kekuken Kerecheene Keskileene Keter Keteriine Khaachylaana Khaarchaana Khadako Khadne Kharystaana Khastakh Khatyyna Khertek Khırlas Khısmariy Khıyga Khıyon Khızıçakh Khoni Khoos Khotuuna Khoyru Khozan Khubagan Khuçuray Khuragan Khuruskha
+                Khuskhaçakh Kílín Kiyaara Kӧlede Köbírgen Kök-kis Köölbek Koyon K'pta Kübeye Kümüs Kumuzek Kündüüne Künney Kuobakhaya Kuo-Kuobakhaya Küöregey Küöregeyçeene Kustuktaana Kydaana Kymytval Kyta Kytaliina Kyunnyay Kyuregey Kӧzege Lektyne Litta Lushcha
+                Lushkura Lykhtkk Maappa Maariya Maaryya Maasa Maayystaan Malaanńa Marine Mariy Markha Marpa Matryo Mayra Metírin Michiye Monçıkh Munku Nadyos Naidus Namiina Namiya Nariyaana Nariyanaa Natakh Neko Nesulte N'evde Ninçí Nish'a Nomza N'urguhuna
+                Nurgustaana Nurguyaana Nyurgusun Nyurguyaana Nyurguyana Obdo Ogdo Ogdoochchuya Ogrepen Okko-n Oksin Ökuluune Öleene Omr-yna Oprosin Orine Örke Örtek Oruune Öski Öškü-saar Oyla Oyu-maa Paara Palashka Palatin Parako Parasin Parasko Parçıkh Payakh Payinça
+                Payram Pelen Penr-yna Petushch Pırıs Pora Porança Porço Pozırakh Pukhutsya Purba Pürçük Pychik Qarliğaş Ropt-yna Rultk-ynevyt Rul-tyne Saaskhan Saaskiya Sabin Sahayaana Sainkho Sakhaaya Sakhayaana Samaana Samdar Sanaaya Sandaara Sarapin Sardaana
+                Sardana Sargylaana Sarıada Saryada Saskulaana Savane Sayaana Sayaara Saydiina Sayiina Sayin-khöö Saylyk Saylykmaa Saymiina Saynaara Saysary Sayyna Sedueççuye Sifi Sımalçıkh Sımdakh Singekte Sinma Sırılçakh Söduöre Sulustaana Sunke Suoppuya Sürmes
+                Surnakh Syralyma Sy-raykuo Syvne Taan Taar Tabakh Taçana Talbaana Tanis Taraa Tarashchya Taysa Tchotghtguerele Tebiya Tekki Temene Tiin Tinyl Tomam Torgï Tsambu Tuban Tubyaku Tulluktaana Tulun Tupsunna Tupsuuna Turuya Tuskulaana Tuyaara Tuyaaryma
+                Tuyaaryma-Kuo Tuyara Tuyguuna Tuymaada Tyna-tval Tyne-nny Učastak Ügü Üklin Uleken Umsuura Urana Urne Uruydaana Uygulaana Uyguuna Uynung-maa Uzun-kaday Varuk Viere Vinevyt Vulga Vushchta Vykv-yna Xara-xïs Xayana Xomus Xoptak Xoveŋ-mey Yalyane Yedeyne
+                Yzyrga
+	}
+	dynasty_of_location_prefix = "dynnp_of"
+	#founder_named_dynasties = yes
+
+	
+}
