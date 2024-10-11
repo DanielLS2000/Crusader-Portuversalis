@@ -1,0 +1,3420 @@
+﻿esr_ai_honor = {
+
+	#Positive
+	if = {
+		limit = { has_trait = just}
+		add = {
+			value = dominant_positive_ai_value
+			desc = "trait_just"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = honest}
+		add = {
+			value = high_positive_ai_value
+			desc = "trait_honest"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = harald_tanglehairs_reminder_modifier}
+		add = {
+			value = high_positive_ai_value
+			desc = "harald_tanglehairs_reminder_modifier"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = chakravarti}
+		add = {
+			value = 40
+			desc = "trait_chakravarti"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = compassionate}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_compassionate"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = trusting}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_trusting"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = stubborn}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_stubborn"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = harald_tanglehairs_vow_modifier}
+		add = {
+			value = medium_positive_ai_value
+			desc = "harald_tanglehairs_vow_modifier"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = harald_tanglehairs_vow_broken_modifier}
+		add = {
+			value = medium_positive_ai_value
+			desc = "harald_tanglehairs_vow_broken_modifier"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = gallant}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_gallant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = chaste}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_chaste"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = generous}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_generous"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = humble}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_humble"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = forgiving}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_forgiving"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = greatest_of_khans}
+		add = {
+			value = 20
+			desc = "trait_greatest_of_khans"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = curious}
+		add = {
+			value = 15
+			desc = "trait_curious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = pensive}
+		add = {
+			value = 15
+			desc = "trait_pensive"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = bossy}
+		add = {
+			value = 15
+			desc = "trait_bossy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = flagellant}
+		add = {
+			value = 10
+			desc = "trait_flagellant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = contrite}
+		add = {
+			value = 10
+			desc = "trait_contrite"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = astrology_hard_work}
+		add = {
+			value = 10
+			desc = "astrology_hard_work"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = astrology_new_beginnings}
+		add = {
+			value = 10
+			desc = "astrology_new_beginnings"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = content}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_content"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = order_member}
+		add = {
+			value = 5
+			desc = "trait_order_member"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+
+	#Negative
+	if = {
+		limit = { has_trait = arbitrary}
+		add = {
+			value = dominant_negative_ai_value
+			desc = "trait_arbitrary"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = sadistic}
+		add = {
+			value = very_high_negative_ai_value
+			desc = "trait_sadistic"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = deceitful}
+		add = {
+			value = high_negative_ai_value
+			desc = "trait_deceitful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = callous}
+		add = {
+			value = medium_negative_ai_value
+			desc = "trait_callous"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = torturer}
+		add = {
+			value = -30
+			desc = "trait_torturer"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = avaricious}
+		add = {
+			value = -20
+			desc = "trait_avaricious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = schemer}
+		add = {
+			value = -20
+			desc = "trait_schemer"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {culture = { has_cultural_tradition = tradition_quarrelsome }}
+		add = {
+			value = -20
+			desc = "[culture_tradition|E] - [Localize('tradition_quarrelsome_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = arrogant}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_arrogant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = ambitious}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_ambitious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = paranoid}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_paranoid"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = fickle}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_fickle"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = adventurer}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_adventurer"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = rowdy}
+		add = {
+			value = -15
+			desc = "trait_rowdy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = charming}
+		add = {
+			value = -15
+			desc = "trait_charming"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = seducer}
+		add = {
+			value = -10
+			desc = "trait_seducer"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = rakish}
+		add = {
+			value = -10
+			desc = "trait_rakish"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lunatic_1}
+		add = {
+			value = -10
+			desc = "trait_lunatic_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lunatic_genetic}
+		add = {
+			value = -10
+			desc = "trait_lunatic_genetic"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {
+			has_trait = eunuch
+			culture = {
+				has_cultural_parameter = eunuch_trait_bonuses
+			}
+		}
+		add = {
+			value = -10
+			desc = "trait_eunuch"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = bastard}
+		add = {
+			value = -10
+			desc = "trait_bastard"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = cannibal}
+		add = {
+			value = -10
+			desc = "trait_cannibal"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = astrology_betrayal}
+		add = {
+			value = -10
+			desc = "astrology_betrayal"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lustful}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_lustful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = greedy}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_greedy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = vengeful}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_vengeful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = legitimized_bastard}
+		add = {
+			value = -5
+			desc = "trait_legitimized_bastard"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+
+	#AI value ranges from 100 to -100
+	max = 100
+	min = -100
+
+}
+
+esr_ai_compassion = {
+	#Positive
+	if = {
+		limit = { has_trait = compassionate}
+		add = {
+			value = dominant_positive_ai_value
+			desc = "trait_compassionate"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = generous}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_generous"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = gregarious}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_gregarious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = forgiving}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_forgiving"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = curious}
+		add = {
+			value = 25
+			desc = "trait_curious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {culture = { has_cultural_tradition = tradition_pacifism }}
+		add = {
+			value = 25
+			desc = "[culture_tradition|E] - [Localize('tradition_pacifism_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = humble}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_humble"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = charming}
+		add = {
+			value = 15
+			desc = "trait_charming"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = trusting}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_trusting"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = honest}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_honest"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = improvident}
+		add = {
+			value = 10
+			desc = "trait_improvident"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = confider}
+		add = {
+			value = 10
+			desc = "trait_confider"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = contrite}
+		add = {
+			value = 10
+			desc = "trait_contrite"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = astrology_new_friends}
+		add = {
+			value = 10
+			desc = "astrology_new_friends"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	} 
+	#Negative
+	if = {
+		limit = { has_trait = callous}
+		add = {
+			value = dominant_negative_ai_value
+			desc = "trait_callous"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = sadistic}
+		add = {
+			value = dominant_negative_ai_value
+			desc = "trait_sadistic"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = avaricious}
+		add = {
+			value = -30
+			desc = "trait_avaricious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = greedy}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_greedy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = arrogant}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_arrogant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = wrathful}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_wrathful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = vengeful}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_vengeful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = rowdy}
+		add = {
+			value = -15
+			desc = "trait_rowdy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lazy}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_lazy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = deceitful}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_deceitful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = arbitrary}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_arbitrary"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = cynical}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_cynical"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = paranoid}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_paranoid"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = witch}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_witch"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = irritable}
+		add = {
+			value = -10
+			desc = "trait_irritable"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = profligate}
+		add = {
+			value = -10
+			desc = "trait_profligate"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = cannibal}
+		add = {
+			value = -10
+			desc = "trait_cannibal"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+    #AI value ranges from 100 to -100
+	max = 100
+	min = -100	
+}
+
+esr_ai_sociability = {
+	#Positive
+	if = {
+		limit = { has_trait = gregarious}
+		add = {
+			value = dominant_positive_ai_value
+			desc = "trait_gregarious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = reveler_1}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_reveler_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = reveler_2}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_reveler_2"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = reveler_3}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_reveler_3"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lustful}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_lustful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = trusting}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_trusting"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = compassionate}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_compassionate"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = {
+				has_dynasty_perk = ep1_culture_legacy_1
+			}	
+		}
+		add = {
+			value = medium_positive_ai_value
+			desc = "[dynasty_perk|E] - [Localize('ep1_culture_legacy_1_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = charming}
+		add = {
+			value = 25
+			desc = "trait_charming"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = diplomat}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_diplomat"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = family_first}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_family_first"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = gallant}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_gallant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = seducer}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_seducer"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = arrogant}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_arrogant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = honest}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_honest"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = brave}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_brave"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = ambitious}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_ambitious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = rakish}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_rakish"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = confider}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_confider"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = poet}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_poet"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = rowdy}
+		add = {
+			value = 15
+			desc = "trait_rowdy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = curious}
+		add = {
+			value = 15
+			desc = "trait_curious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = generous}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_generous"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	#Negative
+	if = {
+		limit = { has_trait = shy}
+		add = {
+			value = dominant_negative_ai_value
+			desc = "trait_shy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = paranoid}
+		add = {
+			value = medium_negative_ai_value
+			desc = "trait_paranoid"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = pensive}
+		add = {
+			value = medium_negative_ai_value
+			desc = "trait_pensive"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = reclusive}
+		add = {
+			value = medium_negative_ai_value
+			desc = "trait_reclusive"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = depressed_1}
+		add = {
+			value = medium_negative_ai_value
+			desc = "trait_depressed_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = celibate}
+		add = {
+			value = medium_negative_ai_value
+			desc = "trait_celibate"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = chaste}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_chaste"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = craven}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_craven"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = disfigured}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_disfigured"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lisping}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_lisping"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = stuttering}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_stuttering"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lazy}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_lazy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = content}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_content"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = callous}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_callous"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = devoted}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_devoted"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+    #AI value ranges from 100 to -100
+	max = 100
+	min = -100	
+}
+
+esr_ai_rationality = {
+	#Positive
+	if = {
+		limit = { has_trait = intellect_good_3}
+		add = {
+			value = dominant_positive_ai_value
+			desc = "trait_intellect_good_3"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = calm}
+		add = {
+			value = very_high_positive_ai_value
+			desc = "trait_calm"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = intellect_good_2}
+		add = {
+			value = very_high_positive_ai_value
+			desc = "trait_intellect_good_2"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = intellect_good_1}
+		add = {
+			value = high_positive_ai_value
+			desc = "trait_intellect_good_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = shrewd}
+		add = {
+			value = high_positive_ai_value
+			desc = "trait_shrewd"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = patient}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_patient"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = cynical}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_cynical"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = scholar}
+		add = {
+			value = 30
+			desc = "trait_scholar"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = physician_3}
+		add = {
+			value = 30
+			desc = "trait_physician_3"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = strategist}
+		add = {
+			value = 30
+			desc = "trait_strategist"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = pensive}
+		add = {
+			value = 25
+			desc = "trait_pensive"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = diligent}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_diligent"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = just}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_just"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = overseer}
+		add = {
+			value = 20
+			desc = "trait_overseer"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = administrator}
+		add = {
+			value = 20
+			desc = "trait_administrator"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = physician_2}
+		add = {
+			value = 20
+			desc = "trait_physician_2"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = charming}
+		add = {
+			value = 15
+			desc = "trait_charming"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = bossy}
+		add = {
+			value = 15
+			desc = "trait_bossy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = deceitful}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_deceitful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = craven}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_craven"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = callous}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_callous"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = forgiving}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_forgiving"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = witch}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_witch"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = architect}
+		add = {
+			value = 10
+			desc = "trait_architect"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = theologian}
+		add = {
+			value = 10
+			desc = "trait_theologian"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = physician_1}
+		add = {
+			value = 10
+			desc = "trait_physician_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lifestyle_herbalist}
+		add = {
+			value = 10
+			desc = "trait_lifestyle_herbalist"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lifestyle_gardener}
+		add = {
+			value = 10
+			desc = "trait_lifestyle_gardener"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = journaller}
+		add = {
+			value = 10
+			desc = "trait_journaller"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+
+	#Negative
+	if = {
+		limit = { has_trait = lunatic_1}
+		add = {
+			value = -200
+			desc = "trait_lunatic_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lunatic_genetic}
+		add = {
+			value = -200
+			desc = "trait_lunatic_genetic"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lunatic_genetic}
+		add = {
+			value = -200
+			desc = "trait_lunatic_genetic"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = intellect_bad_3}
+		add = {
+			value = dominant_negative_ai_value
+			desc = "trait_intellect_bad_3"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = intellect_bad_1}
+		add = {
+			value = high_negative_ai_value
+			desc = "trait_intellect_bad_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = dull}
+		add = {
+			value = high_negative_ai_value
+			desc = "trait_dull"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = inbred}
+		add = {
+			value = -50
+			desc = "trait_inbred"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = berserker}
+		add = {
+			value = medium_negative_ai_value
+			desc = "trait_berserker"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = wrathful}
+		add = {
+			value = medium_negative_ai_value
+			desc = "trait_wrathful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = impatient}
+		add = {
+			value = medium_negative_ai_value
+			desc = "trait_impatient"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = possessed_1}
+		add = {
+			value = -30
+			desc = "trait_possessed_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = possessed_genetic}
+		add = {
+			value = -30
+			desc = "trait_possessed_genetic"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = cannibal}
+		add = {
+			value = -20
+			desc = "trait_cannibal"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = arrogant}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_arrogant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = brave}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_brave"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = arbitrary}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_arbitrary"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = zealous}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_zealous"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = paranoid}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_paranoid"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = trusting}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_trusting"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = fickle}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_fickle"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = harald_tanglehairs_vow_modifier}
+		add = {
+			value = low_negative_ai_value
+			desc = "harald_tanglehairs_vow_modifier"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = harald_tanglehairs_reminder_modifier}
+		add = {
+			value = low_negative_ai_value
+			desc = "harald_tanglehairs_reminder_modifier"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = harald_tanglehairs_vow_broken_modifier}
+		add = {
+			value = low_negative_ai_value
+			desc = "harald_tanglehairs_vow_broken_modifier"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = avaricious}
+		add = {
+			value = -20
+			desc = "trait_avaricious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = irritable}
+		add = {
+			value = -20
+			desc = "trait_irritable"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = rowdy}
+		add = {
+			value = -15
+			desc = "trait_rowdy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = stubborn}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_stubborn"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = vengeful}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_vengeful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = mystic_1}
+		add = {
+			value = -10
+			desc = "trait_mystic_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = mystic_2}
+		add = {
+			value = -10
+			desc = "trait_mystic_2"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = mystic_3}
+		add = {
+			value = -10
+			desc = "trait_mystic_3"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = drunkard}
+		add = {
+			value = -10
+			desc = "trait_drunkard"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = astrology_betrayal}
+		add = {
+			value = -10
+			desc = "astrology_betrayal"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+
+	#AI value ranges from 100 to -100
+	max = 100
+	min = -100
+}
+
+esr_ai_liveliness = {
+	#Positive
+	if = {
+		limit = { has_trait = diligent}
+		add = {
+			value = very_high_positive_ai_value
+			desc = "trait_diligent"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = ambitious}
+		add = {
+			value = very_high_positive_ai_value
+			desc = "trait_ambitious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = shieldmaiden}
+		add = {
+			value = high_positive_ai_value
+			desc = "trait_shieldmaiden"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = greatest_of_khans}
+		add = {
+			value = 40
+			desc = "trait_greatest_of_khans"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = {
+				has_dynasty_perk = fp1_adventure_legacy_1
+			}	
+		}
+		add = {
+			value = medium_positive_ai_value
+			desc = "[dynasty_perk|E] - [Localize('fp1_adventure_legacy_1_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = brave}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_brave"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = zealous}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_zealous"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = adventurer}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_adventurer"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = rowdy}
+		add = {
+			value = 25
+			desc = "trait_rowdy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = athletic}
+		add = {
+			value = 25
+			desc = "trait_athletic"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = diplomat}
+		add = {
+			value = 20
+			desc = "trait_diplomat"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = family_first}
+		add = {
+			value = 20
+			desc = "trait_family_first"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = avaricious}
+		add = {
+			value = 20
+			desc = "trait_avaricious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = whole_of_body}
+		add = {
+			value = 20
+			desc = "trait_whole_of_body"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = august}
+		add = {
+			value = 20
+			desc = "trait_august"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = physique_good_2}
+		add = {
+			value = 20
+			desc = "trait_physique_good_2"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = physique_good_3}
+		add = {
+			value = 20
+			desc = "trait_physique_good_3"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = strong}
+		add = {
+			value = 20
+			desc = "trait_strong"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = berserker}
+		add = {
+			value = 20
+			desc = "trait_berserker"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = chakravarti}
+		add = {
+			value = 20
+			desc = "trait_chakravarti"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = warfare_motivated_instructor_modifier}
+		add = {
+			value = 20
+			desc = "warfare_motivated_instructor_modifier"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = curious}
+		add = {
+			value = 15
+			desc = "trait_curious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = pensive}
+		add = {
+			value = 15
+			desc = "trait_pensive"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = bastard}
+		add = {
+			value = 15
+			desc = "trait_bastard"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = legitimized_bastard}
+		add = {
+			value = 15
+			desc = "trait_legitimized_bastard"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = child_of_concubine_male}
+		add = {
+			value = 15
+			desc = "trait_child_of_concubine_male"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = child_of_concubine_female}
+		add = {
+			value = 15
+			desc = "trait_child_of_concubine_female"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = bastard_founder}
+		add = {
+			value = 15
+			desc = "trait_bastard_founder"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lustful}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_lustful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = chaste}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_chaste"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = temperate}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_temperate"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = wrathful}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_wrathful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = impatient}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_impatient"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = arrogant}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_arrogant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = vengeful}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_vengeful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = administrator}
+		add = {
+			value = 10
+			desc = "trait_administrator"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = irritable}
+		add = {
+			value = 10
+			desc = "trait_irritable"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = physique_good_1}
+		add = {
+			value = 10
+			desc = "trait_physique_good_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = varangian}
+		add = {
+			value = 10
+			desc = "trait_varangian"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = disputed_heritage}
+		add = {
+			value = 10
+			desc = "trait_disputed_heritage"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = viking}
+		add = {
+			value = 10
+			desc = "trait_viking_fallback"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = architect}
+		add = {
+			value = 5
+			desc = "trait_architect"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	#Negative
+	if = {
+		limit = { has_trait = incapable}
+		add = {
+			value = -100
+			desc = "trait_incapable"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = bubonic_plague}
+		add = {
+			value = -75
+			desc = "trait_bubonic_plague"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = smallpox}
+		add = {
+			value = -75
+			desc = "trait_smallpox"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = inbred}
+		add = {
+			value = -75
+			desc = "trait_inbred"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lazy}
+		add = {
+			value = high_negative_ai_value
+			desc = "trait_lazy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = pneumonic}
+		add = {
+			value = -50
+			desc = "trait_pneumonic"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = consumption}
+		add = {
+			value = -50
+			desc = "trait_consumption"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = typhus}
+		add = {
+			value = -50
+			desc = "trait_typhus"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = wounded_3}
+		add = {
+			value = -40
+			desc = "trait_wounded_3"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = content}
+		add = {
+			value = medium_negative_ai_value
+			desc = "trait_content"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = wounded_2}
+		add = {
+			value = -30
+			desc = "trait_wounded_2"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = physique_bad_3}
+		add = {
+			value = -30
+			desc = "trait_physique_bad_3"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = infirm}
+		add = {
+			value = -30
+			desc = "trait_infirm"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = sickly}
+		add = {
+			value = -30
+			desc = "trait_sickly"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = ill}
+		add = {
+			value = -25
+			desc = "trait_ill"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = cancer}
+		add = {
+			value = -25
+			desc = "trait_cancer"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = craven}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_craven"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = cynical}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_cynical"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = wounded_1}
+		add = {
+			value = -20
+			desc = "trait_wounded_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = eunuch}
+		add = {
+			value = -20
+			desc = "trait_eunuch"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = physique_bad_2}
+		add = {
+			value = -20
+			desc = "trait_physique_bad_2"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = weak}
+		add = {
+			value = -20
+			desc = "trait_weak"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = spindly}
+		add = {
+			value = -20
+			desc = "trait_spindly"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = drunkard}
+		add = {
+			value = -15
+			desc = "trait_drunkard"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = hashishiyah}
+		add = {
+			value = -15
+			desc = "trait_hashishiyah"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = pregnant}
+		add = {
+			value = -15
+			desc = "trait_pregnant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = depressed_1}
+		add = {
+			value = -15
+			desc = "trait_depressed_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = depressed_genetic}
+		add = {
+			value = -15
+			desc = "trait_depressed_genetic"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = great_pox}
+		add = {
+			value = -15
+			desc = "trait_great_pox"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = leper}
+		add = {
+			value = -15
+			desc = "trait_leper"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = gout_ridden}
+		add = {
+			value = -15
+			desc = "trait_gout_ridden"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = wheezing}
+		add = {
+			value = -15
+			desc = "trait_wheezing"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = bleeder}
+		add = {
+			value = -15
+			desc = "trait_bleeder"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = gluttonous}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_gluttonous"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = calm}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_calm"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = patient}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_patient"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = humble}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_humble"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = forgiving}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_forgiving"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = rakish}
+		add = {
+			value = -10
+			desc = "trait_rakish"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = reclusive}
+		add = {
+			value = -10
+			desc = "trait_reclusive"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = inappetetic}
+		add = {
+			value = -10
+			desc = "trait_inappetetic"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = one_eyed}
+		add = {
+			value = -10
+			desc = "trait_one_eyed"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = one_legged}
+		add = {
+			value = -10
+			desc = "trait_one_legged"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = physique_bad_1}
+		add = {
+			value = -10
+			desc = "trait_physique_bad_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = impotent}
+		add = {
+			value = -10
+			desc = "trait_impotent"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = comfort_eater}
+		add = {
+			value = -5
+			desc = "trait_comfort_eater"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+    #AI value ranges from 100 to -100
+	max = 100
+	min = -100
+
+}
+
+esr_ai_boldness = {
+	#Positive
+	if = {
+		limit = { has_trait = brave}
+		add = {
+			value = dominant_positive_ai_value
+			desc = "trait_brave"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = ambitious}
+		add = {
+			value = high_positive_ai_value
+			desc = "trait_ambitious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = shieldmaiden}
+		add = {
+			value = high_positive_ai_value
+			desc = "trait_shieldmaiden"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = combat_move_taunt_modifier}
+		add = {
+			value = high_positive_ai_value
+			desc = "combat_move_taunt_modifier"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {culture = { has_cultural_tradition = tradition_life_is_just_a_joke }}
+		add = {
+			value = high_positive_ai_value
+			desc = "[culture_tradition|E] - [Localize('tradition_life_is_just_a_joke_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lunatic_1}
+		add = {
+			value = 50
+			desc = "trait_lunatic_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lunatic_genetic}
+		add = {
+			value = 50
+			desc = "trait_lunatic_genetic"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = gallant}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_gallant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = diligent}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_diligent"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = wrathful}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_wrathful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = arrogant}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_arrogant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = berserker}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_berserker"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = {
+				has_dynasty_perk = fp1_adventure_legacy_1
+			}	
+		}
+		add = {
+			value = medium_positive_ai_value
+			desc = "[dynasty_perk|E] - [Localize('fp1_adventure_legacy_1_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = {
+				has_dynasty_perk = fp1_pillage_legacy_1
+			}	
+		}
+		add = {
+			value = medium_positive_ai_value
+			desc = "[dynasty_perk|E] - [Localize('fp1_pillage_legacy_1_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = rowdy}
+		add = {
+			value = 25
+			desc = "trait_rowdy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = curious}
+		add = {
+			value = 25
+			desc = "trait_curious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = bossy}
+		add = {
+			value = 25
+			desc = "trait_bossy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {culture = { has_cultural_tradition = tradition_hird }}
+		add = {
+			value = 25
+			desc = "[culture_tradition|E] - [Localize('tradition_hird_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {culture = { has_cultural_tradition = tradition_warrior_culture }}
+		add = {
+			value = 25
+			desc = "[culture_tradition|E] - [Localize('tradition_warrior_culture_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = impatient}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_impatient"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = gregarious}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_gregarious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = fickle}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_fickle"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = poet}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_poet"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = adventurer}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_adventurer"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = possessed_1}
+		add = {
+			value = 25
+			desc = "trait_possessed_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = possessed_genetic}
+		add = {
+			value = 25
+			desc = "trait_possessed_genetic"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = torturer}
+		add = {
+			value = 20
+			desc = "trait_torturer"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = chakravarti}
+		add = {
+			value = 20
+			desc = "trait_chakravarti"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = greatest_of_khans}
+		add = {
+			value = 20
+			desc = "trait_greatest_of_khans"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = honest}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_honest"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = arbitrary}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_arbitrary"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = witch}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_witch"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = irritable}
+		add = {
+			value = 10
+			desc = "trait_irritable"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = varangian}
+		add = {
+			value = 10
+			desc = "trait_varangian"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = viking}
+		add = {
+			value = 10
+			desc = "trait_viking_fallback"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = astrology_great_battle}
+		add = {
+			value = 10
+			desc = "astrology_great_battle"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = flagellant}
+		add = {
+			value = 5
+			desc = "trait_flagellant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = athletic}
+		add = {
+			value = 5
+			desc = "trait_athletic"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	#Negative
+	if = {
+		limit = { has_trait = craven}
+		add = {
+			value = dominant_negative_ai_value
+			desc = "trait_craven"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = spouse_martial_cowed_vassal_modifier}
+		add = {
+			value = -75
+			desc = "spouse_martial_cowed_vassal_modifier"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = content}
+		add = {
+			value = medium_negative_ai_value
+			desc = "trait_content"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {culture = { has_cultural_tradition = tradition_pacifism }}
+		add = {
+			value = -25
+			desc = "[culture_tradition|E] - [Localize('tradition_pacifism_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {culture = { has_cultural_tradition = tradition_modest }}
+		add = {
+			value = -25
+			desc = "[culture_tradition|E] - [Localize('tradition_modest_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lazy}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_lazy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = calm}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_calm"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = patient}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_patient"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = shy}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_shy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = pensive}
+		add = {
+			value = -15
+			desc = "trait_pensive"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = deceitful}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_deceitful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = reclusive}
+		add = {
+			value = -10
+			desc = "trait_reclusive"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+    #AI value ranges from 100 to -100
+	max = 100
+	min = -100
+}
+
+esr_ai_zeal = {
+	#Positive
+	if = {
+		limit = { has_trait = zealous}
+		add = {
+			value = dominant_positive_ai_value
+			desc = "trait_zealous"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = saoshyant}
+		add = {
+			value = 100
+			desc = "trait_saoshyant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = savior}
+		add = {
+			value = 100
+			desc = "trait_savior"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = saint}
+		add = {
+			value = 50
+			desc = "trait_saint"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = chakravarti}
+		add = {
+			value = 50
+			desc = "trait_chakravarti"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = celibate}
+		add = {
+			value = 30
+			desc = "trait_celibate"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = flagellant}
+		add = {
+			value = 25
+			desc = "trait_flagellant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = crusader_king}
+		add = {
+			value = 25
+			desc = "trait_crusader_king"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {culture = { has_cultural_tradition = tradition_fervent_temple_builders }}
+		add = {
+			value = 25
+			desc = "[culture_tradition|E] - [Localize('tradition_fervent_temple_builders_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {culture = { has_cultural_tradition = tradition_faith_bound }}
+		add = {
+			value = 25
+			desc = "[culture_tradition|E] - [Localize('tradition_faith_bound_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {culture = { has_cultural_tradition = tradition_by_the_sword }}
+		add = {
+			value = 25
+			desc = "[culture_tradition|E] - [Localize('tradition_by_the_sword_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {culture = { has_cultural_tradition = tradition_zealous_people }}
+		add = {
+			value = 25
+			desc = "[culture_tradition|E] - [Localize('tradition_zealous_people_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {culture = { has_cultural_pillar = ethos_stoic }}
+		add = {
+			value = low_positive_ai_value
+			desc = "[culture_pillar|E] - [Localize('ethos_stoic_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {culture = { has_cultural_pillar = ethos_spiritual }}
+		add = {
+			value = low_positive_ai_value
+			desc = "[culture_pillar|E] - [Localize('ethos_spiritual_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = theologian}
+		add = {
+			value = 20
+			desc = "trait_theologian"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = heresiarch}
+		add = {
+			value = 20
+			desc = "trait_heresiarch"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = paragon}
+		add = {
+			value = 20
+			desc = "trait_paragon"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = chaste}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_chaste"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = ambitious}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_ambitious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = just}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_just"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = contrite}
+		add = {
+			value = 10
+			desc = "trait_contrite"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = pilgrim}
+		add = {
+			value = 10
+			desc = "trait_pilgrim"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = faith_warrior}
+		add = {
+			value = 10
+			desc = "trait_faith_warrior"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = order_member}
+		add = {
+			value = 10
+			desc = "trait_order_member"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = consecrated_blood}
+		add = {
+			value = 10
+			desc = "trait_consecrated_blood"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = astrology_great_battle}
+		add = {
+			value = 10
+			desc = "astrology_great_battle"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}   
+	#Negative
+	if = {
+		limit = { has_trait = cynical}
+		add = {
+			value = dominant_negative_ai_value
+			desc = "trait_cynical"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = deviant}
+		add = {
+			value = -25
+			desc = "trait_deviant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = mystic_3}
+		add = {
+			value = -20
+			desc = "trait_mystic_3"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lustful}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_lustful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = shy}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_shy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = content}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_content"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = arbitrary}
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_arbitrary"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = mystic_2}
+		add = {
+			value = -10
+			desc = "trait_mystic_2"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = rakish}
+		add = {
+			value = -10
+			desc = "trait_rakish"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = astrology_new_beginnings}
+		add = {
+			value = -10
+			desc = "astrology_new_beginnings"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	} 
+    #AI value ranges from 100 to -100
+	max = 100
+	min = -100
+}
+
+esr_ai_vengefulness = {
+	#Positive
+	if = {
+		limit = { has_trait = vengeful }
+		add = {
+			value = dominant_positive_ai_value
+			desc = "trait_vengeful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = stubborn }
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_stubborn"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = wrathful }
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_wrathful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = paranoid }
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_paranoid"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {culture = { has_cultural_pillar = ethos_stoic }}
+		add = {
+			value = low_positive_ai_value
+			desc = "[culture_pillar|E] - [Localize('ethos_stoic_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = possessed_1 }
+		add = {
+			value = 25
+			desc = "trait_possessed_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = possessed_genetic }
+		add = {
+			value = 25
+			desc = "trait_possessed_genetic"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = torturer }
+		add = {
+			value = 20
+			desc = "trait_torturer"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = rowdy }
+		add = {
+			value = 15
+			desc = "trait_rowdy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = charming }
+		add = {
+			value = 15
+			desc = "trait_charming"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = bossy }
+		add = {
+			value = 15
+			desc = "trait_bossy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = diligent }
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_diligent"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = patient }
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_patient"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = just }
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_just"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = irritable }
+		add = {
+			value = 10
+			desc = "trait_irritable"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	#Negative
+	if = {
+		limit = { has_trait = forgiving }
+		add = {
+			value = dominant_negative_ai_value
+			desc = "trait_forgiving"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = trusting }
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_trusting"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = fickle }
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_fickle"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = curious }
+		add = {
+			value = -15
+			desc = "trait_curious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = temperate }
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_temperate"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lazy }
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_lazy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = calm }
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_calm"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = impatient }
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_impatient"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = shy }
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_shy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = content }
+		add = {
+			value = very_low_negative_ai_value
+			desc = "trait_content"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = hashishiyah }
+		add = {
+			value = -10
+			desc = "trait_hashishiyah"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = contrite }
+		add = {
+			value = -10
+			desc = "trait_contrite"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = astrology_new_friends}
+		add = {
+			value = -10
+			desc = "astrology_new_friends"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+    #AI value ranges from 100 to -100
+	max = 100
+	min = -100
+}
+
+esr_ai_greed = {
+	#Positive
+	if = {
+		limit = { has_trait = greedy}
+		add = {
+			value = dominant_positive_ai_value
+			desc = "trait_greedy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = ambitious}
+		add = {
+			value = very_high_positive_ai_value
+			desc = "trait_ambitious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = gluttonous}
+		add = {
+			value = medium_positive_ai_value
+			desc = "trait_gluttonous"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = {
+				has_dynasty_perk = fp1_pillage_legacy_1
+			}	
+		}
+		add = {
+			value = medium_positive_ai_value
+			desc = "[dynasty_perk|E] - [Localize('fp1_pillage_legacy_1_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = avaricious}
+		add = {
+			value = 30
+			desc = "trait_avaricious"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = reveler_1}
+		add = {
+			value = 25
+			desc = "trait_reveler_1"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = reveler_2}
+		add = {
+			value = 25
+			desc = "trait_reveler_2"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = reveler_3}
+		add = {
+			value = 25
+			desc = "trait_reveler_3"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = charming}
+		add = {
+			value = 25
+			desc = "trait_charming"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = bossy}
+		add = {
+			value = 25
+			desc = "trait_bossy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lustful}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_lustful"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = arrogant}
+		add = {
+			value = low_positive_ai_value
+			desc = "trait_arrogant"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = lazy}
+		add = {
+			value = very_low_positive_ai_value
+			desc = "trait_lazy"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = rakish}
+		add = {
+			value = 10
+			desc = "trait_rakish"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = profligate}
+		add = {
+			value = 10
+			desc = "trait_profligate"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_character_modifier = astrology_hard_work}
+		add = {
+			value = 10
+			desc = "astrology_hard_work"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = comfort_eater}
+		add = {
+			value = 5
+			desc = "trait_comfort_eater"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	
+	#Negative
+	if = {
+		limit = { has_trait = generous}
+		add = {
+			value = dominant_negative_ai_value
+			desc = "trait_generous"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = humble}
+		add = {
+			value = high_negative_ai_value
+			desc = "trait_humble"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = content}
+		add = {
+			value = high_negative_ai_value
+			desc = "trait_content"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = temperate}
+		add = {
+			value = medium_negative_ai_value
+			desc = "trait_temperate"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {culture = { has_cultural_tradition = tradition_charitable }}
+		add = {
+			value = -25
+			desc = "[culture_tradition|E] - [Localize('tradition_charitable_name')]"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = chaste}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_chaste"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = compassionate}
+		add = {
+			value = low_negative_ai_value
+			desc = "trait_compassionate"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = pensive}
+		add = {
+			value = -15
+			desc = "trait_pensive"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = improvident}
+		add = {
+			value = -10
+			desc = "trait_improvident"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = {
+			has_trait = eunuch
+			culture = {
+				has_cultural_parameter = eunuch_trait_bonuses
+			}
+		}
+		add = {
+			value = -10
+			desc = "trait_eunuch"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = order_member}
+		add = {
+			value = -10
+			desc = "trait_order_member"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+	if = {
+		limit = { has_trait = inappetetic}
+		add = {
+			value = -5
+			desc = "trait_inappetetic"
+			format = "ESR_BREAKDOWN_FORMAT"
+		}
+	}
+
+    #AI value ranges from 100 to -100
+	max = 100
+	min = -100
+}
+
