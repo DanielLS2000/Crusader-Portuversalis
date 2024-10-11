@@ -1,7 +1,0 @@
-﻿l_french:
-calltowar_opinion:0 "M'a appelé à une guerre offensive"
-rule_call_to_war_activated:0 "Malus de guerre offensive"
-setting_disabled_extra_cost:0 "Désactivé"
-setting_disabled_extra_cost_desc:0 "Aucun changement par rapport au Vanilla."
-setting_enabled_extra_cost:1 "Activé"
-setting_enabled_extra_cost_desc:0 "Appeler des alliés à des guerres offensives coûtera beaucoup plus de prestige, ainsi que de la légitimité. Les alliés appelés à la guerre recevront un modificateur d'opinion négatif à votre égard."
