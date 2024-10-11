@@ -1,0 +1,18 @@
+﻿l_french:
+ COA_DESIGNER_CATEGORY_10_ps_ordinaries:0 "Pièces & Partitions"
+ COA_DESIGNER_CATEGORY_20_ps_lions:0 "Bestiaire - Lion"
+ COA_DESIGNER_CATEGORY_30_ps_eagles:0 "Bestiaire - Aigle"
+ COA_DESIGNER_CATEGORY_40_ps_bestiary:0 "Bestiaire - Autre"
+ COA_DESIGNER_CATEGORY_50_ps_crosses:0 "Meubles - Croix"
+ COA_DESIGNER_CATEGORY_60_ps_charges:0 "Meubles - Autre"
+ COA_DESIGNER_CATEGORY_70_ps_sm_charges:0 "Meubles - Petits"
+ COA_DESIGNER_CATEGORY_80_ps_special:0 "Spécifique - Cadres, Masques & Partitions" 
+ COA_DESIGNER_CATEGORY_81_ps_special_eagle_lion:0 "Spécifique - Aigles & Lions" 
+ COA_DESIGNER_CATEGORY_82_ps_special_other:0 "Spécifique - Divers"
+ COA_DESIGNER_CATEGORY_83_ps_special_designs:0 "Autres constructions & Fourrures"  
+ COA_DESIGNER_CATEGORY_90_ps_mena_ords:0 "ANMO - Pièces & Partitions"  # Orient & Monde arabe plus juste mais bon c'est un peu long
+ COA_DESIGNER_CATEGORY_91_ps_mena_charges:0 "ANMO - Meubles"
+ PS_COA_DESIGNER_DELETE_INSTANCE_FROM_SELECTION:0 "Clic pour ENLEVER"
+ PS_COA_DESIGNER_EMBLEM_INSTANCE_SELECTION_TT:0 "#I Clic pour sélectionner\nMaj-clic pour activer-désactiver les sélections\nClic droit pour retirer#!" 
+ PS_COA_DESIGNER_EMBLEM_INSTANCES_PANEL_HEADER:0 "Teinture"    
+ PS_COA_DESIGNER_BACKGROUND_PATTERN_HEADER:0 "Couleur du champ"   
