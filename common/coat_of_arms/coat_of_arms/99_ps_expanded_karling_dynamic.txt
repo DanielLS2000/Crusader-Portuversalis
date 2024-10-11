@@ -1,0 +1,1463 @@
+e_roman_empire_karling={ #Roman Empire
+	pattern="pattern_solid.dds"
+	color1=red
+	color2=white
+	color3=red
+	colored_emblem={
+		color1=yellow
+		texture="ps_charge_oriflamme.dds"
+		instance={
+			position={ 0.500000 0.320000 }
+			scale={ 0.600000 0.600000 }
+			depth=4.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=red
+		texture="ps_small_charge_roundel.dds"
+		instance={
+			position={ 0.440000 0.410000 }
+			scale={ 0.290000 0.290000 }
+			depth=1.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=yellow
+		color2=yellow_mid
+		color3=red
+		texture="ps_charge_aquila.dds"
+		instance={
+			position={ 0.500000 0.540000 }
+			scale={ 0.910000 0.910000 }
+			depth=2.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		texture="ps_charge_laurel_wreath.dds"
+		instance={
+			position={ 0.500000 0.580000 }
+			depth=3.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=yellow
+		texture="ps_small_charge_cross_lothar.dds"
+		instance={
+			position={ 0.440000 0.410000 }
+			scale={ 0.250000 0.250000 }
+		}
+
+	}
+
+}
+
+e_france_karling={
+	pattern="pattern_solid.dds"
+	color1=red
+	color2=white
+	color3=black
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		color3=black
+		texture="ps_charge_fleur_de_lis_florence.dds"
+		instance={
+			position={ 0.500000 0.690000 }
+			scale={ 0.500000 0.500000 }
+		}
+
+		instance={
+			position={ 0.690000 0.260000 }
+			scale={ 0.500000 0.500000 }
+			depth=1.010000
+		}
+
+		instance={
+			position={ 0.310000 0.260000 }
+			scale={ 0.500000 0.500000 }
+			depth=2.010000
+		}
+
+	}
+
+}
+
+
+k_italy_karling={ #Kingdom of Italy
+	pattern="pattern_solid.dds"
+	color1=white
+	color2=white
+	color3=black
+	colored_emblem={
+		color1=blue
+		color2=yellow
+		color3=green
+		texture="ps_iron_crown.dds"
+		instance={
+			position={ 0.500000 0.470000 }
+			scale={ 0.800000 0.800000 }
+		}
+
+	}
+
+	colored_emblem={
+		color1=red
+		color2=yellow_light
+		color3=blue
+		texture="ps_ord_bordure_dim.dds"
+		instance={
+			depth=1.010000
+		}
+
+	}
+
+}
+
+k_east_francia_karling={ #East Francia
+	pattern="pattern_solid.dds"
+	color1=yellow
+	color2=black
+	colored_emblem={
+		color1=black
+		color2=black
+		color3=yellow
+		texture="ps_eagle.dds"
+	}
+
+}
+
+
+e_hre_karling={ #Holy Roman Empire
+	pattern="pattern_solid.dds"
+	color1=yellow
+	color2=yellow
+	color3=black
+	colored_emblem={
+		color1=yellow
+		texture="ps_small_charge_escutcheon.dds"
+		instance={
+			position={ 0.500000 0.450000 }
+			scale={ 0.460000 0.460000 }
+			depth=6.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=black
+		color2=black
+		color3=white
+		texture="ps_eagle.dds"
+		instance={
+			depth=7.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=red
+		texture="ps_small_charge_escutcheon.dds"
+		instance={
+			position={ 0.500000 0.450000 }
+			scale={ 0.430000 0.430000 }
+			depth=5.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=yellow
+		texture="ps_small_charge_cross_lothar.dds"
+		instance={
+			position={ 0.500000 0.420000 }
+			scale={ 0.330000 0.330000 }
+			depth=4.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=yellow
+		texture="ps_small_charge_roundel.dds"
+		instance={
+			position={ 0.560000 0.360000 }
+			scale={ 0.080000 0.080000 }
+		}
+
+		instance={
+			position={ 0.440000 0.360000 }
+			scale={ 0.080000 0.080000 }
+			depth=1.010000
+		}
+
+		instance={
+			position={ 0.440000 0.480000 }
+			scale={ 0.080000 0.080000 }
+			depth=2.010000
+		}
+
+		instance={
+			position={ 0.560000 0.480000 }
+			scale={ 0.080000 0.080000 }
+			depth=3.010000
+		}
+
+	}
+
+}
+
+d_bavaria_karling={ #Duchy of Bavaria
+	pattern="pattern_solid.dds"
+	color1=yellow
+	color2=white
+	color3=blue
+	colored_emblem={
+		color1=black
+		texture="ps_ord_pale_lozenges_four.dds"
+		instance={
+			position={ 0.960000 0.500000 }
+		}
+
+		instance={
+			position={ 0.040000 0.500000 }
+			depth=1.010000
+		}
+
+		instance={
+			position={ 0.730000 0.500000 }
+			depth=2.010000
+		}
+
+		instance={
+			position={ 0.270000 0.500000 }
+			depth=3.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=black
+		color2=white
+		color3=black
+		texture="ps_ord_pale_lozenges_four.dds"
+		instance={
+			depth=4.010000
+		}
+
+	}
+
+}
+
+k_bavaria_karling={ #Bavaria Kingdom
+	pattern="pattern__solid_designer.dds"
+	color1=black
+	color2=black
+	color3=blue
+	colored_emblem={
+		color1=yellow
+		color2=red
+		color3=red
+		texture="ps_bestiary_panther_cr.dds"
+	}
+
+}
+
+k_lotharingia_karling={ #Lothargenia
+	pattern="pattern_solid.dds"
+	color1=yellow
+	color2=white
+	color3=black
+	colored_emblem={
+		color1=blue
+		texture="ps_small_charge_roundel.dds"
+		instance={
+			position={ 0.310000 0.590000 }
+			scale={ 0.220000 0.220000 }
+		}
+
+		instance={
+			position={ 0.690000 0.590000 }
+			scale={ 0.220000 0.220000 }
+			depth=1.010000
+		}
+
+		instance={
+			position={ 0.310000 0.250000 }
+			scale={ 0.220000 0.220000 }
+			depth=2.010000
+		}
+
+		instance={
+			position={ 0.690000 0.250000 }
+			scale={ 0.220000 0.220000 }
+			depth=3.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=red
+		color2=white
+		color3=black
+		texture="ps_small_charge_cross_lothar.dds"
+		instance={
+			position={ 0.500000 0.430000 }
+			depth=4.010000
+		}
+
+	}
+
+}
+
+k_france_karling={ #West Francia
+	pattern="pattern_solid.dds"
+	color1=red
+	color2=yellow
+	color3=red
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		color3=yellow
+		texture="ps_small_charge_bee.dds"
+		instance={
+			position={ 0.935000 1.018000 }
+			scale={ 0.270000 0.270000 }
+		}
+
+		instance={
+			position={ 0.645000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=1.010000
+		}
+
+		instance={
+			position={ 0.355000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=2.010000
+		}
+
+		instance={
+			position={ 0.065000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=3.010000
+		}
+
+		instance={
+			position={ 0.781000 0.850000 }
+			scale={ 0.270000 0.270000 }
+			depth=4.010000
+		}
+
+		instance={
+			position={ 0.500000 0.850000 }
+			scale={ 0.270000 0.270000 }
+			depth=5.010000
+		}
+
+		instance={
+			position={ 0.219000 0.850000 }
+			scale={ 0.270000 0.270000 }
+			depth=6.010000
+		}
+
+		instance={
+			position={ 0.935000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=7.010000
+		}
+
+		instance={
+			position={ 0.645000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=8.010000
+		}
+
+		instance={
+			position={ 0.355000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=9.010000
+		}
+
+		instance={
+			position={ 0.065000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=10.010000
+		}
+
+		instance={
+			position={ 0.781000 0.514000 }
+			scale={ 0.270000 0.270000 }
+			depth=11.010000
+		}
+
+		instance={
+			position={ 0.500000 0.514000 }
+			scale={ 0.270000 0.270000 }
+			depth=12.010000
+		}
+
+		instance={
+			position={ 0.219000 0.514000 }
+			scale={ 0.270000 0.270000 }
+			depth=13.010000
+		}
+
+		instance={
+			position={ 0.935000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=14.010000
+		}
+
+		instance={
+			position={ 0.645000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=15.010000
+		}
+
+		instance={
+			position={ 0.355000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=16.010000
+		}
+
+		instance={
+			position={ 0.065000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=17.010000
+		}
+
+		instance={
+			position={ 0.781000 0.178000 }
+			scale={ 0.270000 0.270000 }
+			depth=18.010000
+		}
+
+		instance={
+			position={ 0.500000 0.178000 }
+			scale={ 0.270000 0.270000 }
+			depth=19.010000
+		}
+
+		instance={
+			position={ 0.219000 0.178000 }
+			scale={ 0.270000 0.270000 }
+			depth=20.010000
+		}
+
+		instance={
+			position={ 0.922000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=21.010000
+		}
+
+		instance={
+			position={ 0.640000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=22.010000
+		}
+
+		instance={
+			position={ 0.360000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=23.010000
+		}
+
+		instance={
+			position={ 0.078000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=24.010000
+		}
+
+	}
+
+}
+
+d_anjou_karling={ #Anjou
+	pattern="pattern_solid.dds"
+	color1=red
+	color2=white
+	color3=black
+	colored_emblem={
+		color1=blue
+		texture="ps_ord_label_3.dds"
+	}
+
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		color3=yellow
+		texture="ps_small_charge_bee.dds"
+		instance={
+			position={ 0.935000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=1.010000
+		}
+
+		instance={
+			position={ 0.645000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=2.010000
+		}
+
+		instance={
+			position={ 0.355000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=3.010000
+		}
+
+		instance={
+			position={ 0.065000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=4.010000
+		}
+
+		instance={
+			position={ 0.781000 0.850000 }
+			scale={ 0.270000 0.270000 }
+			depth=5.010000
+		}
+
+		instance={
+			position={ 0.500000 0.850000 }
+			scale={ 0.270000 0.270000 }
+			depth=6.010000
+		}
+
+		instance={
+			position={ 0.219000 0.850000 }
+			scale={ 0.270000 0.270000 }
+			depth=7.010000
+		}
+
+		instance={
+			position={ 0.935000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=8.010000
+		}
+
+		instance={
+			position={ 0.645000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=9.010000
+		}
+
+		instance={
+			position={ 0.355000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=10.010000
+		}
+
+		instance={
+			position={ 0.065000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=11.010000
+		}
+
+		instance={
+			position={ 0.781000 0.514000 }
+			scale={ 0.270000 0.270000 }
+			depth=12.010000
+		}
+
+		instance={
+			position={ 0.500000 0.514000 }
+			scale={ 0.270000 0.270000 }
+			depth=13.010000
+		}
+
+		instance={
+			position={ 0.219000 0.514000 }
+			scale={ 0.270000 0.270000 }
+			depth=14.010000
+		}
+
+		instance={
+			position={ 0.935000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=15.010000
+		}
+
+		instance={
+			position={ 0.645000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=16.010000
+		}
+
+		instance={
+			position={ 0.355000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=17.010000
+		}
+
+		instance={
+			position={ 0.065000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=18.010000
+		}
+
+		instance={
+			position={ 0.781000 0.178000 }
+			scale={ 0.270000 0.270000 }
+			depth=19.010000
+		}
+
+		instance={
+			position={ 0.500000 0.178000 }
+			scale={ 0.270000 0.270000 }
+			depth=20.010000
+		}
+
+		instance={
+			position={ 0.219000 0.178000 }
+			scale={ 0.270000 0.270000 }
+			depth=21.010000
+		}
+
+		instance={
+			position={ 0.922000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=22.010000
+		}
+
+		instance={
+			position={ 0.640000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=23.010000
+		}
+
+		instance={
+			position={ 0.360000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=24.010000
+		}
+
+		instance={
+			position={ 0.078000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=25.010000
+		}
+
+	}
+
+}
+
+d_bourbon_karling={ #Bourbon
+	pattern="pattern_solid.dds"
+	color1=red
+	color2=yellow
+	color3=green
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		color2=yellow
+		texture="ps_small_charge_bee.dds"
+		instance={
+			position={ 0.935000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=1.010000
+		}
+
+		instance={
+			position={ 0.645000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=2.010000
+		}
+
+		instance={
+			position={ 0.355000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=3.010000
+		}
+
+		instance={
+			position={ 0.065000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=4.010000
+		}
+
+		instance={
+			position={ 0.781000 0.850000 }
+			scale={ 0.270000 0.270000 }
+			depth=5.010000
+		}
+
+		instance={
+			position={ 0.500000 0.850000 }
+			scale={ 0.270000 0.270000 }
+			depth=6.010000
+		}
+
+		instance={
+			position={ 0.219000 0.850000 }
+			scale={ 0.270000 0.270000 }
+			depth=7.010000
+		}
+
+		instance={
+			position={ 0.935000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=8.010000
+		}
+
+		instance={
+			position={ 0.645000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=9.010000
+		}
+
+		instance={
+			position={ 0.355000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=10.010000
+		}
+
+		instance={
+			position={ 0.065000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=11.010000
+		}
+
+		instance={
+			position={ 0.781000 0.514000 }
+			scale={ 0.270000 0.270000 }
+			depth=12.010000
+		}
+
+		instance={
+			position={ 0.500000 0.514000 }
+			scale={ 0.270000 0.270000 }
+			depth=13.010000
+		}
+
+		instance={
+			position={ 0.219000 0.514000 }
+			scale={ 0.270000 0.270000 }
+			depth=14.010000
+		}
+
+		instance={
+			position={ 0.935000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=15.010000
+		}
+
+		instance={
+			position={ 0.645000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=16.010000
+		}
+
+		instance={
+			position={ 0.355000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=17.010000
+		}
+
+		instance={
+			position={ 0.065000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=18.010000
+		}
+
+		instance={
+			position={ 0.781000 0.178000 }
+			scale={ 0.270000 0.270000 }
+			depth=19.010000
+		}
+
+		instance={
+			position={ 0.500000 0.178000 }
+			scale={ 0.270000 0.270000 }
+			depth=20.010000
+		}
+
+		instance={
+			position={ 0.219000 0.178000 }
+			scale={ 0.270000 0.270000 }
+			depth=21.010000
+		}
+
+		instance={
+			position={ 0.922000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=22.010000
+		}
+
+		instance={
+			position={ 0.640000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=23.010000
+		}
+
+		instance={
+			position={ 0.360000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=24.010000
+		}
+
+		instance={
+			position={ 0.078000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=25.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=blue
+		texture="ps_ord_bend.dds"
+	}
+
+}
+
+d_berry_karling={ #Berry
+	pattern="pattern_solid.dds"
+	color1=red
+	color2=yellow
+	color3=green
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		color2=yellow
+		texture="ps_small_charge_bee.dds"
+		instance={
+			position={ 0.935000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=1.010000
+		}
+
+		instance={
+			position={ 0.645000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=2.010000
+		}
+
+		instance={
+			position={ 0.355000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=3.010000
+		}
+
+		instance={
+			position={ 0.065000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=4.010000
+		}
+
+		instance={
+			position={ 0.781000 0.850000 }
+			scale={ 0.270000 0.270000 }
+			depth=5.010000
+		}
+
+		instance={
+			position={ 0.500000 0.850000 }
+			scale={ 0.270000 0.270000 }
+			depth=6.010000
+		}
+
+		instance={
+			position={ 0.219000 0.850000 }
+			scale={ 0.270000 0.270000 }
+			depth=7.010000
+		}
+
+		instance={
+			position={ 0.935000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=8.010000
+		}
+
+		instance={
+			position={ 0.645000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=9.010000
+		}
+
+		instance={
+			position={ 0.355000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=10.010000
+		}
+
+		instance={
+			position={ 0.065000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=11.010000
+		}
+
+		instance={
+			position={ 0.781000 0.514000 }
+			scale={ 0.270000 0.270000 }
+			depth=12.010000
+		}
+
+		instance={
+			position={ 0.500000 0.514000 }
+			scale={ 0.270000 0.270000 }
+			depth=13.010000
+		}
+
+		instance={
+			position={ 0.219000 0.514000 }
+			scale={ 0.270000 0.270000 }
+			depth=14.010000
+		}
+
+		instance={
+			position={ 0.935000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=15.010000
+		}
+
+		instance={
+			position={ 0.645000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=16.010000
+		}
+
+		instance={
+			position={ 0.355000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=17.010000
+		}
+
+		instance={
+			position={ 0.065000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=18.010000
+		}
+
+		instance={
+			position={ 0.781000 0.178000 }
+			scale={ 0.270000 0.270000 }
+			depth=19.010000
+		}
+
+		instance={
+			position={ 0.500000 0.178000 }
+			scale={ 0.270000 0.270000 }
+			depth=20.010000
+		}
+
+		instance={
+			position={ 0.219000 0.178000 }
+			scale={ 0.270000 0.270000 }
+			depth=21.010000
+		}
+
+		instance={
+			position={ 0.922000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=22.010000
+		}
+
+		instance={
+			position={ 0.640000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=23.010000
+		}
+
+		instance={
+			position={ 0.360000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=24.010000
+		}
+
+		instance={
+			position={ 0.078000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=25.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=blue
+		texture="ps_ord_bordure_engrailed.dds"
+	}
+
+}
+
+d_valois_karling={ #Valois
+	pattern="pattern_solid.dds"
+	color1=red
+	color2=yellow
+	color3=green
+	colored_emblem={
+		color1=blue
+		color2=red
+		color3=white
+		texture="ps_ord_bordure_dim.dds"
+		instance={
+			depth=6.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		color2=yellow
+		texture="ps_small_charge_bee.dds"
+		instance={
+			position={ 0.500000 0.720000 }
+			scale={ 0.280000 0.280000 }
+		}
+
+		instance={
+			position={ 0.620000 0.480000 }
+			scale={ 0.280000 0.280000 }
+			depth=1.010000
+		}
+
+		instance={
+			position={ 0.380000 0.480000 }
+			scale={ 0.280000 0.280000 }
+			depth=2.010000
+		}
+
+		instance={
+			position={ 0.710000 0.240000 }
+			scale={ 0.280000 0.280000 }
+			depth=3.010000
+		}
+
+		instance={
+			position={ 0.290000 0.240000 }
+			scale={ 0.280000 0.280000 }
+			depth=4.010000
+		}
+
+		instance={
+			position={ 0.500000 0.240000 }
+			scale={ 0.280000 0.280000 }
+			depth=5.010000
+		}
+
+	}
+
+}
+
+c_langres_karling={ #Langres
+	pattern="pattern_solid.dds"
+	color1=red
+	color2=white
+	color3=red
+	colored_emblem={
+		color1=yellow
+		texture="ps_ord_cross_thin.dds"
+	}
+
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		color2=yellow
+		texture="ps_small_charge_bee.dds"
+		instance={
+			position={ 0.635000 0.805000 }
+			scale={ 0.170000 0.170000 }
+			depth=1.010000
+		}
+
+		instance={
+			position={ 0.725000 0.715000 }
+			scale={ 0.170000 0.170000 }
+			depth=2.010000
+		}
+
+		instance={
+			position={ 0.635000 0.600000 }
+			scale={ 0.170000 0.170000 }
+			depth=3.010000
+		}
+
+		instance={
+			position={ 0.805000 0.600000 }
+			scale={ 0.170000 0.170000 }
+			depth=4.010000
+		}
+
+		instance={
+			position={ 0.365000 0.805000 }
+			scale={ 0.170000 0.170000 }
+			depth=5.010000
+		}
+
+		instance={
+			position={ 0.275000 0.715000 }
+			scale={ 0.170000 0.170000 }
+			depth=6.010000
+		}
+
+		instance={
+			position={ 0.365000 0.600000 }
+			scale={ 0.170000 0.170000 }
+			depth=7.010000
+		}
+
+		instance={
+			position={ 0.195000 0.600000 }
+			scale={ 0.170000 0.170000 }
+			depth=8.010000
+		}
+
+		instance={
+			position={ 0.635000 0.300000 }
+			scale={ 0.170000 0.170000 }
+			depth=9.010000
+		}
+
+		instance={
+			position={ 0.825000 0.300000 }
+			scale={ 0.170000 0.170000 }
+			depth=10.010000
+		}
+
+		instance={
+			position={ 0.730000 0.200000 }
+			scale={ 0.170000 0.170000 }
+			depth=11.010000
+		}
+
+		instance={
+			position={ 0.635000 0.100000 }
+			scale={ 0.170000 0.170000 }
+			depth=12.010000
+		}
+
+		instance={
+			position={ 0.825000 0.100000 }
+			scale={ 0.170000 0.170000 }
+			depth=13.010000
+		}
+
+		instance={
+			position={ 0.365000 0.300000 }
+			scale={ 0.170000 0.170000 }
+			depth=14.010000
+		}
+
+		instance={
+			position={ 0.175000 0.300000 }
+			scale={ 0.170000 0.170000 }
+			depth=15.010000
+		}
+
+		instance={
+			position={ 0.270000 0.200000 }
+			scale={ 0.170000 0.170000 }
+			depth=16.010000
+		}
+
+		instance={
+			position={ 0.365000 0.100000 }
+			scale={ 0.170000 0.170000 }
+			depth=17.010000
+		}
+
+		instance={
+			position={ 0.175000 0.100000 }
+			scale={ 0.170000 0.170000 }
+			depth=18.010000
+		}
+
+	}
+
+}
+c_reims_karling={ #Reims
+	pattern="pattern_solid.dds"
+	color1=red
+	color2=white
+	color3=red
+	colored_emblem={
+		color1=white
+		texture="ps_ord_saltire.dds"
+	}
+
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		color2=yellow
+		texture="ps_small_charge_bee.dds"
+		instance={
+			position={ 0.935000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=1.010000
+		}
+
+		instance={
+			position={ 0.645000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=2.010000
+		}
+
+		instance={
+			position={ 0.355000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=3.010000
+		}
+
+		instance={
+			position={ 0.065000 1.018000 }
+			scale={ 0.270000 0.270000 }
+			depth=4.010000
+		}
+
+		instance={
+			position={ 0.781000 0.850000 }
+			scale={ 0.270000 0.270000 }
+			depth=5.010000
+		}
+
+		instance={
+			position={ 0.500000 0.850000 }
+			scale={ 0.270000 0.270000 }
+			depth=6.010000
+		}
+
+		instance={
+			position={ 0.219000 0.850000 }
+			scale={ 0.270000 0.270000 }
+			depth=7.010000
+		}
+
+		instance={
+			position={ 0.935000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=8.010000
+		}
+
+		instance={
+			position={ 0.645000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=9.010000
+		}
+
+		instance={
+			position={ 0.355000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=10.010000
+		}
+
+		instance={
+			position={ 0.065000 0.682000 }
+			scale={ 0.270000 0.270000 }
+			depth=11.010000
+		}
+
+		instance={
+			position={ 0.781000 0.514000 }
+			scale={ 0.270000 0.270000 }
+			depth=12.010000
+		}
+
+		instance={
+			position={ 0.500000 0.514000 }
+			scale={ 0.270000 0.270000 }
+			depth=13.010000
+		}
+
+		instance={
+			position={ 0.219000 0.514000 }
+			scale={ 0.270000 0.270000 }
+			depth=14.010000
+		}
+
+		instance={
+			position={ 0.935000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=15.010000
+		}
+
+		instance={
+			position={ 0.645000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=16.010000
+		}
+
+		instance={
+			position={ 0.355000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=17.010000
+		}
+
+		instance={
+			position={ 0.065000 0.346000 }
+			scale={ 0.270000 0.270000 }
+			depth=18.010000
+		}
+
+		instance={
+			position={ 0.781000 0.178000 }
+			scale={ 0.270000 0.270000 }
+			depth=19.010000
+		}
+
+		instance={
+			position={ 0.500000 0.178000 }
+			scale={ 0.270000 0.270000 }
+			depth=20.010000
+		}
+
+		instance={
+			position={ 0.219000 0.178000 }
+			scale={ 0.270000 0.270000 }
+			depth=21.010000
+		}
+
+		instance={
+			position={ 0.922000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=22.010000
+		}
+
+		instance={
+			position={ 0.640000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=23.010000
+		}
+
+		instance={
+			position={ 0.360000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=24.010000
+		}
+
+		instance={
+			position={ 0.078000 0.010000 }
+			scale={ 0.270000 0.270000 }
+			depth=25.010000
+		}
+
+	}
+
+}
+c_ile_de_france_karling={ #Isle De France
+	pattern="pattern_solid.dds"
+	color1=red
+	color2=white
+	color3=red
+	colored_emblem={
+		color1=yellow
+		color2=white
+		color3=black
+		texture="ps_small_charge_oriflamme_sun.dds"
+		instance={
+			position={ 0.500000 0.430000 }
+			scale={ 0.800000 0.800000 }
+			depth=1.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=green
+		color2=yellow
+		color3=blue
+		texture="ps_ord_bordure_cinquefoils.dds"
+	}
+
+}
+d_burgundy_karling={ #Burgundy
+	pattern="pattern__solid_designer.dds"
+	color1=red
+	color2=white
+	color3=blue
+	colored_emblem={
+		color1=yellow
+		color2=white
+		color3=black
+		texture="ps_ord_pale_lozenges_three.dds"
+		instance={
+			position={ 0.500000 0.490000 }
+			scale={ 0.780000 0.780000 }
+			depth=1.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=purple
+		color2=yellow
+		texture="ps_ord_bordure_compony_dim.dds"
+	}
+
+}
+d_champagne_karling={ #Champagne
+	pattern="pattern_solid.dds"
+	color1=red
+	color2=white
+	colored_emblem={
+		color1=white
+		color2=yellow
+		texture="ps_ord_bend_potenty.dds"
+	}
+
+}
+
+d_orleans_karling={
+	pattern="pattern__solid_designer.dds"
+	color1=red
+	color2=white
+	color3=red
+	colored_emblem={
+		color1=yellow
+		texture="ps_ord_bars_two_thin.dds"
+	}
+
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		color3=yellow
+		texture="ps_small_charge_bee.dds"
+		instance={
+			position={ 0.630000 0.450000 }
+			scale={ 0.300000 0.300000 }
+			depth=1.010000
+		}
+
+		instance={
+			position={ 0.370000 0.450000 }
+			scale={ 0.310000 0.310000 }
+			depth=2.010000
+		}
+
+		instance={
+			position={ 0.760000 0.130000 }
+			scale={ 0.290000 0.290000 }
+			depth=3.010000
+		}
+
+		instance={
+			position={ 0.240000 0.130000 }
+			scale={ 0.290000 0.290000 }
+			depth=4.010000
+		}
+
+		instance={
+			position={ 0.500000 0.800000 }
+			scale={ 0.310000 0.310000 }
+			depth=5.010000
+		}
+
+		instance={
+			position={ 0.500000 0.130000 }
+			scale={ 0.290000 0.290000 }
+			depth=6.010000
+		}
+
+	}
+
+}
+

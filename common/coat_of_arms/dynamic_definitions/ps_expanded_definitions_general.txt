@@ -1,0 +1,133 @@
+﻿k_danelaw = {
+	item = {
+		trigger = {
+			holder.faith.religion = religion:christianity_religion
+		}
+		coat_of_arms = k_danelaw_christian
+	}
+}
+k_daneland = {
+	item = {
+		trigger = {
+			holder.faith.religion = religion:christianity_religion
+		}
+		coat_of_arms = k_danelaw_christian
+	}
+}	
+
+e_north_sea = {
+	item = {
+		trigger = {
+			holder.faith.religion = religion:germanic_religion
+		}
+		coat_of_arms = e_north_sea
+	}
+	item = {
+		trigger = {
+			holder = { 
+			 title:k_england.holder
+			 NOT = {
+				faith.religion = religion:germanic_religion
+			 }	
+		 }
+		}
+		coat_of_arms = e_north_sea_england_wessex
+	}
+	item = {
+		trigger = {
+			holder = {
+			title:k_denmark.holder
+			NOT = {
+			  faith.religion = religion:germanic_religion
+			 }
+            }			 
+		}
+		coat_of_arms = e_north_sea_danish
+	}
+	item = {
+		trigger = {
+			holder = {
+			title:k_norway.holder
+			NOT = {
+			  faith.religion = religion:germanic_religion
+			 }	
+			}
+			 
+		}
+		coat_of_arms = e_north_sea_norway
+	}
+	item = {
+		trigger = {
+			holder = {
+			title:k_england.holder
+			 NOT = {
+			  faith.religion = religion:germanic_religion
+			 }	
+			coa_switch_to_norman_trigger = yes
+			
+		}
+		coat_of_arms = e_north_sea_england_normandy
+	 }
+	}
+	item = {
+		trigger = {
+			OR = {
+				AND = {
+					holder = {
+					title:k_england.holder
+					NOT = {
+			           faith.religion = religion:germanic_religion
+			         }	
+					} 
+					exists = global_var:danelaw_became_england
+				}
+				holder = {
+				title:k_daneland.holder
+				NOT = {
+			        faith.religion = religion:germanic_religion
+			      }	
+			    }
+			}
+		}
+		coat_of_arms = e_north_sea_danelaw
+	}
+}
+
+e_roman_empire = {
+	item = {
+		trigger = {
+			holder.dynasty = dynasty:25061
+			holder.faith.religion = religion:christianity_religion
+		}
+		coat_of_arms = e_roman_empire_karling
+	}
+	item = {
+		trigger = {
+			holder.faith.religion = religion:christianity_religion
+			has_variable = variable_restored_hre
+		}
+		coat_of_arms = e_hre_roman
+	}
+	item = {
+		trigger = {
+			holder.faith.religion = religion:christianity_religion
+			has_variable = variable_restored_byz_ps
+		}
+		coat_of_arms = e_roman_empire_byz
+	}
+	item = {
+		trigger = {
+			holder.faith.religion = religion:christianity_religion
+			has_variable = variable_restored_italy
+		}
+		coat_of_arms = e_roman_empire_italian
+	}
+	item = {
+		trigger = {
+			NOT = { 
+			 holder.faith.religion = religion:christianity_religion
+			  }
+		}
+		coat_of_arms = e_roman_empire_hellenic
+	}
+}

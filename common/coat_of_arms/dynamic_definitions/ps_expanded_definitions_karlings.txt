@@ -1,0 +1,71 @@
+﻿k_lotharingia = {
+	item = {
+		trigger = {
+			holder.dynasty = dynasty:25061 
+			}
+		coat_of_arms = k_lotharingia_karling
+	}
+}
+e_france = {
+	item = {
+		trigger = {
+			holder.dynasty = dynasty:25061 
+		 }
+		coat_of_arms = e_france_karling 
+	}
+}
+
+k_italy = {
+	item = {
+		trigger = {
+			holder.dynasty = dynasty:25061 
+		 }
+		coat_of_arms = k_italy_karling
+	}
+}
+
+k_east_francia = {
+	item = {
+		trigger = {
+			holder.dynasty = dynasty:25061 
+		 }
+		coat_of_arms = k_east_francia_karling
+	}
+}
+
+e_hre = {
+	item = {
+		trigger = {
+			holder.dynasty = dynasty:25061 
+		 }
+		coat_of_arms = e_hre_karling
+	}
+}
+
+d_bavaria = {
+	item = {
+		trigger = {
+			holder.dynasty = dynasty:25061 
+		 }
+		coat_of_arms = d_bavaria_karling
+	}
+}
+
+k_bavaria_karling = {
+	item = {
+		trigger = {
+			holder.dynasty = dynasty:25061 
+		 }
+		coat_of_arms = k_bavaria_karling
+	}
+}
+
+k_france = {
+	item = {
+		trigger = {
+			holder.dynasty = dynasty:25061 
+		 }
+		coat_of_arms = k_france_karling
+	}
+}
+
