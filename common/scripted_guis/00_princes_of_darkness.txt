@@ -1,0 +1,3 @@
+﻿incompatible_building_clean_gui = {}
+can_construct_tribal_holding = {}
+
