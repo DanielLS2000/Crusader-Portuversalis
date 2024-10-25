@@ -1,1 +1,0 @@
-﻿max_desired_laamps_value = 30
