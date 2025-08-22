@@ -1,0 +1,19 @@
+﻿l_german:
+ action_can_assign_guardian_combined_group_description:2 "Ihr könnt Kindern, die zu Euren [Concept('close_family', 'Engen Verwandten')|E] oder [Concept('extended_family', 'Weiteren Verwandten')|E] gehören, [guardians|E] zuweisen.$action_can_assign_guardian_HELP$"
+ action_can_assign_guardian_combined_unimportant:1 "$action_can_assign_guardian_unimportant$"
+ action_can_assign_guardian_unimportant:2 "@warning_icon!#X Ihr solltet Euch auf die Unterweisung Eurer ältesten Kinder konzentrieren"
+ action_can_assign_guardian_HELP:0 "\n\n#help Kindern können Vormunde zugewiesen werden, die ihre [skills|E] und anderes Wissen auf die Kinder übertragen. Ein Vormund mit einer guten [education_trait|E] wird diese auf Kinder übertragen, und [vassals|E], die Euer Kind unterweisen, haben eine bessere [opinion|E] von Euch. Wenn Ihr mehr Kontrolle wollt, könnt Ihr das Kind auch selbst unterweisen.#!"
+
+ action_close_family_can_marry_combined_group_name:0 "Familienmitglieder können heiraten"
+ action_close_family_can_marry_combined_group_description:2 "Mehrere Eurer [Concept('close_family', 'Engen Verwandten')|E] oder [Concept('extended_family', 'Weiteren Verwandten')|E] sind heiratsfähig.\n\n#help Wenn Ihr [marriages|E] für sie arrangiert, würde dies Eurer [dynasty|E] nutzen. Vielleicht könnte es sogar zu neuen [alliances|E] führen.#!"
+
+ action_can_pay_ransom:0 "[recipient.GetShortUINameNoTooltip] ist eingekerkert"
+ action_can_pay_ransom_label:0 "$action_can_pay_ransom$"
+ action_can_pay_ransom_desc:0 "Euer [actor.Custom2('RelationToMe', recipient)] [recipient.GetShortUIName] ist [Concept('prison', 'eingekerkert')|E] und Ihr könnt die Zahlung eines Lösegelds anbieten.\n\n#help [recipient.Custom('DE_PRO_PER_S_3P_N')|U] könnte im Kerker [Concept('illness', 'krank')|E] werden, anderweitig zu Schaden kommen oder sogar [Concept('character_death', 'sterben')|E].#!"
+ action_can_pay_ransom_click:0 "#I Klicken, um ein Lösegeld anzubieten#!"
+ action_can_pay_ransom_combined_group_name:0 "Familienmitglieder sind eingekerkert"
+ action_can_pay_ransom_combined_group_label:0 "$action_can_pay_ransom_combined_group_name$"
+ action_can_pay_ransom_combined_group_description:0 "Mehrere Eurer Familienmitglieder sind [Concept('prison', 'eingekerkert')|E] und Ihr könnt die Zahlung eines Lösegelds anbieten.\n\n#help Sie könnten im Kerker [Concept('illness', 'krank')|E] werden, anderweitig zu Schaden kommen oder sogar [Concept('character_death', 'sterben')|E].#!"
+ action_can_pay_ransom_combined_label:0 "[recipient.GetRelationToString( GetPlayer )], [recipient.GetShortUINameNoTooltip]"
+ action_can_pay_ransom_unimportant:0 "@warning_icon!#X Eure eigenen Kinder sind Euch am teuersten"
+ action_can_pay_ransom_combined_unimportant:0 "$action_can_pay_ransom_unimportant$"

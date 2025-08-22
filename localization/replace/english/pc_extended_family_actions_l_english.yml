@@ -1,0 +1,19 @@
+﻿l_english:
+ action_can_assign_guardian_combined_group_description:2 "You can designate [guardians|E] for children belonging to your [close_family|E] and [extended_family|E].$action_can_assign_guardian_HELP$"
+ action_can_assign_guardian_combined_unimportant:1 "$action_can_assign_guardian_unimportant$"
+ action_can_assign_guardian_unimportant:2 "@warning_icon!#X You should focus on educating your oldest children"
+ action_can_assign_guardian_HELP:0 "\n\n#help Children can be assigned a Guardian, who will transfer their [skills|E] and other knowledge to the child. A Guardian with a good [education_trait|E] will transfer it to the child, while letting a [vassal|E] educate your child will raise their [opinion|E] of you. If you want more control, you can educate the child yourself.#!"
+
+ action_close_family_can_marry_combined_group_name:0 "Family members can get married"
+ action_close_family_can_marry_combined_group_description:2 "Several of your [close_family|E] or [extended_family|E] members are eligible to be wed.\n\n#help Arranging [marriages|E] for them would benefit your [dynasty|E] and could let you form new [alliances|E].#!"
+
+ action_can_pay_ransom:0 "[recipient.GetShortUINameNoTooltip] is imprisoned"
+ action_can_pay_ransom_label:0 "$action_can_pay_ransom$"
+ action_can_pay_ransom_desc:0 "Your [actor.Custom2('RelationToMe', recipient)] [recipient.GetShortUIName] is in [prison|E], and you can offer to pay the ransom.\n\n#help While in prison [recipient.GetSheHe] could get [Concept('illness', 'ill')|E], otherwise come to harm, or even [Concept('character_death', 'die')|E].#!"
+ action_can_pay_ransom_click:0 "#I Click to make an offer#!"
+ action_can_pay_ransom_combined_group_name:0 "Family members are imprisoned"
+ action_can_pay_ransom_combined_group_label:0 "$action_can_pay_ransom_combined_group_name$"
+ action_can_pay_ransom_combined_group_description:0 "Several of your family members are in [prison|E], and you can offer to pay the ransom.\n\n#help While in prison they could get [Concept('illness', 'ill')|E], otherwise come to harm, or even [Concept('character_death', 'die')|E].#!"
+ action_can_pay_ransom_combined_label:0 "[recipient.GetRelationToString( GetPlayer )], [recipient.GetShortUINameNoTooltip]"
+ action_can_pay_ransom_unimportant:0 "@warning_icon!#X Your own children are dearest to you"
+ action_can_pay_ransom_combined_unimportant:0 "$action_can_pay_ransom_unimportant$"
