@@ -1,8 +1,0 @@
-﻿HRT_edict_diplomatic_corps_opinion = {
-	years = 5
-}
-
-HRT_dismantled_hre_opinion = {
-	opinion = -25
-	years = 10
-}

@@ -1,4 +1,4 @@
-version="0.1"
+version="0.2"
 picture="thumbnail.png"
 tags={
 	"Balance"
@@ -7,5 +7,5 @@ tags={
 	"Gameplay"
 }
 name="Crusader Portuversalis"
-supported_version="1.14.*"
+supported_version="1.16.*"
 remote_file_id="3346900423"

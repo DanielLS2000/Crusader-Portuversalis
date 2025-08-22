@@ -1,7 +1,0 @@
-﻿holy_site_jerusalem = {
-	background = { #Jerusalem
-		reference = "gfx/interface/illustrations/event_scenes/ep2_holysite_jerusalem.dds"
-		environment = "environment_jerusalem"
-		ambience = "event:/DLC/EP2/SFX/Events/Backgrounds/evn_background_jerusalem"
-	}
-}

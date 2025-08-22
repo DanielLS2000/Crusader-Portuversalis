@@ -1,7 +1,0 @@
-﻿l_spanish:
-calltowar_opinion:0 "Me llamó a una guerra ofensiva"
-rule_call_to_war_activated:0 "Malus de guerra ofensiva"
-setting_disabled_extra_cost:0 "Desactivado"
-setting_disabled_extra_cost_desc:0 "Sin cambios respecto al juego base."
-setting_enabled_extra_cost:1 "Activado"
-setting_enabled_extra_cost_desc:0 "Llamar a los aliados a guerras ofensivas costará mucho más prestigio, así como costará legitimidad. Los aliados llamados a la guerra recibirán un modificador de opinión negativo hacia ti."

@@ -1,5 +1,0 @@
-﻿HRT_nibelungen_valkyr_helmet = {
-	icon = "artifact_crown.dds"
-	pedestal = "tall_pillow"
-	asset = valkyrie_helmet_artifact_entity
-}

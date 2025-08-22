@@ -1,3 +1,0 @@
-﻿counterfactuals_false_emperor_opinion = {
-	decaying = no
-}

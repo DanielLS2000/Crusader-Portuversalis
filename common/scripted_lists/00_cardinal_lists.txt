@@ -1,7 +1,0 @@
-﻿living_cardinal = {
-	base = living_character
-	conditions = {
-		faith = faith:catholic
-		faith = faith:waldensian #haha
-	}
-}

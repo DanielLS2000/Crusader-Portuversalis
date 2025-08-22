@@ -1,5 +1,0 @@
-﻿
-
-RICE_not_tribal_government_req = {
-	global = RICE_not_tribal_government_req
-}

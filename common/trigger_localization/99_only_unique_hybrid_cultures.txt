@@ -1,3 +1,0 @@
-﻿only_unique_hybrid_cultures = {
-	global_not = ONLY_UNIQUE_HYBRID_CULTURES_ERROR
-}

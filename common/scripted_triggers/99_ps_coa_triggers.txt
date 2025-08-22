@@ -1,6 +1,0 @@
-﻿# CoA trigger tests
-
-coa_switch_to_karling_trigger = {
-     title:k_france.holder.dynasty = dynasty:25061
-}
-

@@ -1,7 +1,0 @@
-﻿l_english:
- calltowar_opinion:0 "Called me to an Offensive War"
- rule_call_to_war_activated:0 "Offensive War Malus"
- setting_disabled_extra_cost:0 "Disabled"
- setting_disabled_extra_cost_desc:0 "No changes to Vanilla."
- setting_enabled_extra_cost:1 "Enabled"
- setting_enabled_extra_cost_desc:0 "Calling allies to Offensive Wars will cost much more Prestige, as well as cost Legitimacy. Allies called to war will receive a negative Opinion modifer towards you."

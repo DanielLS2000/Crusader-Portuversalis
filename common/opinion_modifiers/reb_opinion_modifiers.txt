@@ -1,4 +1,0 @@
-﻿reb_distance_opinion = {
-	opinion = 0
-	decaying = no
-}
