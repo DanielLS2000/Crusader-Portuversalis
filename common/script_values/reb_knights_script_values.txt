@@ -1,0 +1,7 @@
+﻿# Base Knight Effectiveness Value
+@normal_knight_effectiveness_mult_base = 0.01
+@high_knight_effectiveness_mult_base = 0.02
+
+# Scaling Increase Knight Effectiveness
+@normal_knight_effectiveness_mult_addition_per_tier = 0.075 #0.01
+@high_knight_effectiveness_mult_addition_per_tier = 0.0125 #0.02
