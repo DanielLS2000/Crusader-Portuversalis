@@ -1,0 +1,409 @@
+﻿##GUI jank
+
+# Edict Era Values
+HRT_era_value = {
+	value = 0
+	culture = {
+		if = {
+			limit = {
+				has_cultural_era_or_later = culture_era_late_medieval
+			}
+			add = 4
+		}
+		else_if = {
+			limit = {
+				has_cultural_era_or_later = culture_era_high_medieval
+			}
+			add = 3
+		}
+		else_if = {
+			limit = {
+				has_cultural_era_or_later = culture_era_early_medieval
+			}
+			add = 2
+		}
+	}
+}
+
+HRT_is_emperor_value = { #TODO make into sgui
+	value = 0
+	if = {
+		limit = { HRT_is_emperor_trigger = yes }
+		add = 1
+	}
+}
+
+##Manages Display of HRT Button in Realm View #Moved to scripted guis
+#HRT_is_involved_value = {
+#	value = 0
+#	if = {
+#		limit = { HRT_is_involved_trigger = yes }
+#		add = 1
+#	}
+#	if = {
+#		limit = {
+#			title:c_aachen = {
+#				has_variable = HRT_dismantled
+#			}
+#		}
+#		multiply = 0
+#	}
+#}
+
+#Close HRT Window
+#RT_window_close_value = {
+#	value = 0
+#	if = {
+#		limit = {
+#			title:c_aachen = {
+#				has_variable = HRT_close_window_temp_var
+#			}
+#		}
+#		add = 1
+#	}
+#
+
+#Prestige Value because I don't know how to GUI scope
+HRT_prestige_value = {
+	value = prestige
+}
+
+# Edicts #TODO make sgui
+HRT_edict_legal_unification_value = {
+	value = 0
+	if = {
+		limit = {
+			title:c_aachen = {
+				has_variable = HRT_edict_legal_unification_var
+			}
+		}
+		add = 1
+	}
+}
+HRT_edict_chivalric_excellence_value = {
+	value = 0
+	if = {
+		limit = {
+			title:c_aachen = {
+				has_variable = HRT_edict_chivalric_excellence_var
+			}
+		}
+		add = 1
+	}
+}
+HRT_edict_diplomatic_corps_value = {
+	value = 0
+	if = {
+		limit = {
+			title:c_aachen = {
+				has_variable = HRT_edict_diplomatic_corps_var
+			}
+		}
+		add = 1
+	}
+}
+HRT_edict_consular_taxation_value = {
+	value = 0
+	if = {
+		limit = {
+			title:c_aachen = {
+				has_variable = HRT_edict_consular_taxation_var
+			}
+		}
+		add = 1
+	}
+}
+HRT_edict_levy_conscription_value = {
+	value = 0
+	if = {
+		limit = {
+			title:c_aachen = {
+				has_variable = HRT_edict_levy_conscription_var
+			}
+		}
+		add = 1
+	}
+}
+HRT_edict_urban_rights_value = {
+	value = 0
+	if = {
+		limit = {
+			title:c_aachen = {
+				has_variable = HRT_edict_urban_rights_var
+			}
+		}
+		add = 1
+	}
+}
+HRT_edict_border_defense_value = {
+	value = 0
+	if = {
+		limit = {
+			title:c_aachen = {
+				has_variable = HRT_edict_border_defense_var
+			}
+		}
+		add = 1
+	}
+}
+HRT_edict_scholastic_advancement_value = {
+	value = 0
+	if = {
+		limit = {
+			title:c_aachen = {
+				has_variable = HRT_edict_scholastic_advancement_var
+			}
+		}
+		add = 1
+	}
+}
+HRT_edict_imperial_works_value = {
+	value = 0
+	if = {
+		limit = {
+			title:c_aachen = {
+				has_variable = HRT_edict_imperial_works_var
+			}
+		}
+		add = 1
+	}
+}
+HRT_edict_ecclesiastical_patronage_value = {
+	value = 0
+	if = {
+		limit = {
+			title:c_aachen = {
+				has_variable = HRT_edict_ecclesiastical_patronage_var
+			}
+		}
+		add = 1
+	}
+}
+#Proclaim Directive
+HRT_edict_proclaim_directive_value = {
+	value = 0
+	if = {
+		limit = {
+			has_variable = HRT_edict_proclaim_directive
+		}
+		add = 1
+	}
+}
+
+#2.2 Unity
+HRT_is_formed_value = {
+	value = 0
+	if = {
+		limit = {
+			exists = title:e_hre.holder
+		}
+		add = 1
+	}
+}
+
+HRT_stammesherzogtuemer_innovation = {
+	value = 0
+	if = {
+		limit = {
+			culture = { has_innovation = innovation_stem_duchies }
+		}
+		add = 1
+	}
+}
+
+HRT_promote_unity_cd = {
+	value = 0
+	if = {
+		limit = {
+			has_variable = HRT_promote_unity_cd
+		}
+		add = 1
+	}
+}
+
+HRT_1_2_value = {
+	value = 0
+	title:c_aachen.var:HRT_emperor = {
+		if = {
+			limit = {
+				exists = var:HRT_core_culture_1
+				exists = var:HRT_core_culture_2
+			}
+			var:HRT_core_culture_1 = {
+				add = "cultural_acceptance(prev.var:HRT_core_culture_2)"
+			}
+		}
+	}
+}
+HRT_1_3_value = {
+	value = 0
+	title:c_aachen.var:HRT_emperor = {
+		if = {
+			limit = {
+				exists = var:HRT_core_culture_1
+				exists = var:HRT_core_culture_3
+			}
+			var:HRT_core_culture_1 = {
+				add = "cultural_acceptance(prev.var:HRT_core_culture_3)"
+			}
+		}
+	}
+}
+HRT_1_4_value = {
+	value = 0
+	title:c_aachen.var:HRT_emperor = {
+		if = {
+			limit = {
+				exists = var:HRT_core_culture_1
+				exists = var:HRT_core_culture_4
+			}
+			var:HRT_core_culture_1 = {
+				add = "cultural_acceptance(prev.var:HRT_core_culture_4)"
+			}
+		}
+	}
+}
+HRT_1_5_value = {
+	value = 0
+	title:c_aachen.var:HRT_emperor = {
+		if = {
+			limit = {
+				exists = var:HRT_core_culture_1
+				exists = var:HRT_core_culture_5
+			}
+			var:HRT_core_culture_1 = {
+				add = "cultural_acceptance(prev.var:HRT_core_culture_5)"
+			}
+		}
+	}
+}
+HRT_2_3_value = {
+	value = 0
+	title:c_aachen.var:HRT_emperor = {
+		if = {
+			limit = {
+				exists = var:HRT_core_culture_2
+				exists = var:HRT_core_culture_3
+			}
+			var:HRT_core_culture_2 = {
+				add = "cultural_acceptance(prev.var:HRT_core_culture_3)"
+			}
+		}
+	}
+}
+HRT_2_4_value = {
+	value = 0
+	title:c_aachen.var:HRT_emperor = {
+		if = {
+			limit = {
+				exists = var:HRT_core_culture_2
+				exists = var:HRT_core_culture_4
+			}
+			var:HRT_core_culture_2 = {
+				add = "cultural_acceptance(prev.var:HRT_core_culture_4)"
+			}
+		}
+	}
+}
+HRT_2_5_value = {
+	value = 0
+	title:c_aachen.var:HRT_emperor = {
+		if = {
+			limit = {
+				exists = var:HRT_core_culture_2
+				exists = var:HRT_core_culture_5
+			}
+			var:HRT_core_culture_2 = {
+				add = "cultural_acceptance(prev.var:HRT_core_culture_5)"
+			}
+		}
+	}
+}
+HRT_3_4_value = {
+	value = 0
+	title:c_aachen.var:HRT_emperor = {
+		if = {
+			limit = {
+				exists = var:HRT_core_culture_3
+				exists = var:HRT_core_culture_4
+			}
+			var:HRT_core_culture_3 = {
+				add = "cultural_acceptance(prev.var:HRT_core_culture_4)"
+			}
+		}
+	}
+}
+HRT_3_5_value = {
+	value = 0
+	title:c_aachen.var:HRT_emperor = {
+		if = {
+			limit = {
+				exists = var:HRT_core_culture_3
+				exists = var:HRT_core_culture_5
+			}
+			var:HRT_core_culture_3 = {
+				add = "cultural_acceptance(prev.var:HRT_core_culture_5)"
+			}
+		}
+	}
+}
+HRT_4_5_value = {
+	value = 0
+	title:c_aachen.var:HRT_emperor = {
+		if = {
+			limit = {
+				exists = var:HRT_core_culture_4
+				exists = var:HRT_core_culture_5
+			}
+			var:HRT_core_culture_4 = {
+				add = "cultural_acceptance(prev.var:HRT_core_culture_5)"
+			}
+		}
+	}
+}
+
+HRT_2_weight = {
+	value = 0
+	title:c_aachen.var:HRT_emperor.var:HRT_core_culture_2 ?= {
+		add = HRT_core_culture_count_weight_share_p
+	}
+}
+HRT_3_weight = {
+	value = 0
+	title:c_aachen.var:HRT_emperor.var:HRT_core_culture_3 ?= {
+		add = HRT_core_culture_count_weight_share_p
+	}
+}
+HRT_4_weight = {
+	value = 0
+	title:c_aachen.var:HRT_emperor.var:HRT_core_culture_4 ?= {
+		add = HRT_core_culture_count_weight_share_p
+	}
+}
+HRT_5_weight = {
+	value = 0
+	title:c_aachen.var:HRT_emperor.var:HRT_core_culture_5 ?= {
+		add = HRT_core_culture_count_weight_share_p
+	}
+}
+
+# 2.3 Hoftag
+HRT_summon_hoftag_value = {
+	value = 0
+	if = {
+		limit = { exists = title:c_aachen.var:HRT_emperor.var:HRT_convening_hoftag }
+		add = 1
+	}
+}
+
+# 2.5 Reichsstadt
+HRT_reichsstaedte_value = {
+	value = 0
+	if = {
+		limit = { 
+			exists = title:c_aachen.var:HRT_emperor.var:HRT_reichsstaedte_count
+			title:c_aachen.var:HRT_emperor.var:HRT_reichsstaedte_count >= 7
+		}
+		add = 1
+	}
+}

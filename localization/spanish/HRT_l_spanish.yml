@@ -1,0 +1,745 @@
+﻿l_spanish:
+ # Combined localization:
+ ##########################
+ # Traits                 #
+ # Decisions              #
+ # Modifiers              #
+ # Wars                   #
+ # Character Interactions #
+ # Important Actions      #
+ # Game Rules             #
+ # Game Concepts          #
+ # Artifacts              #
+ # Clothes                #
+ # Nibelungen Activity    #
+ # Italienzug Activity    #
+ # Events                 #
+ ##########################
+ 
+ ##########
+ # Traits #
+ ##########
+ 
+ trait_HRT_emperor_name: "Crowned"
+ trait_HRT_emperor_pope: "Crowned by [ROOT.Char.MakeScope.Var('COR_coronator').Char.GetTitledFirstNameNoTooltip]"
+ trait_HRT_emperor_desc: "This character has been recognized and formally crowned as the rightful ruler of the Roman Empire."
+ trait_HRT_emperor_pope_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] has been recognized and formally crowned by [ROOT.Char.MakeScope.Var('COR_coronator').Char.GetTitledFirstName] as the rightful ruler of the Roman Empire."
+ trait_HRT_emperor_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] has been recognized and formally crowned as the rightful ruler of the Roman Empire."
+
+ trait_HRT_decline_succession: "Declines Succession"
+ trait_HRT_decline_succession_desc: "This character refuses a possible succession to the Roman Empire."
+ trait_HRT_decline_succession_character_desc: "[ROOT.GetCharacter.GetTitledFirstNameNoTooltip] won't accept a possible succession to the Roman Empire."
+ #trait_HRT_decline_succession_tooltip:0 "Declines succession to the Roman Empire."
+ 
+ #############
+ # Decisions #
+ #############
+ 
+ HRT_prepare_unification_war_decision: "Prepare for Unification War"
+ HRT_prepare_unification_war_decision_desc: "Diplomacy and peaceful negotiations have failed! Use your [HRT_imperial_authority|E] to sound the horns of war, rally knights and muster levies to prepare for a war to unify the Roman Empire."
+ HRT_unification_army: "Imperial Army"
+ HRT_prepare_unification_war_decision_confirm: "Render unto Caesar the things that are Caesar's."
+ HRT_prepare_unification_war_decision_tooltip: "Prepare for a Unification War"
+ HRT_unification_decision_authority_req: "You have at least #V 20#! [HRT_imperial_authority|E]"
+ 
+ HRT_decline_succession_decision: "Decline Succession"
+ HRT_decline_succession_decision_desc: "This decision grants your character a trait that makes them unavailable for succession to the Roman Empire."
+ HRT_decline_succession_decision_confirm: "Just leave me at peace!"
+ HRT_decline_succession_decision_tooltip: "Decline succession to the Roman Empire"
+ HRT_accept_succession_decision: "Accept Succession"
+ HRT_accept_succession_decision_desc: "This decision makes your character lose the trait that makes them unavailable for succession to the Roman Empire."
+ HRT_accept_succession_decision_confirm: "I am worthy!"
+ HRT_accept_succession_decision_tooltip: "Stop declining succession to the Roman Empire"
+ 
+ HRT_nibelungen_start_decision: "Listen to a Legend"
+ HRT_nibelungen_start_decision_desc: "A poet speaks of a legend which stirs the curiosity of my courtiers. Perhaps it's time to listen closely, for such stories might hold more than mere words."
+ HRT_nibelungen_start_decision_effect: "Summon your court poet to recite the Nibelungenlied\n\n#emphasis Historical Context:#! The Nibelungenlied is an epic poem written around 1200 in Middle High German. The Nibelungenlied is based on an oral tradition of Germanic heroic legend that has some of its origin in historic events and individuals of the 5th and 6th centuries. Scandinavian parallels to the German poem are found especially in the heroic lays of the Poetic Edda and in the Völsunga saga."
+ HRT_nibelungen_start_decision_confirm: "Summon the poet!"
+ HRT_nibelungen_start_decision_tooltip: "A legend stirs the curiosity of my courtiers"
+ HRT_nibelungen_edicts_issued: "Your [dynasty|E] issued at least #V 10#! [HRT_imperial_edicts|E]. Currently: #V [GetPlayer.GetDynasty.MakeScope.Var('HRT_edicts_issued').GetValue]#!"
+ 
+ #############
+ # Modifiers #
+ #############
+ 
+ HRT_preparing_for_unification_war: "Preparing for a Unification War"
+ 
+ ########
+ # Wars #
+ ########
+ 
+ HRT_unification_cb: "Imperial Unification"
+ HRT_UNIFICATION_NAME: "Seize All Imperial Provinces"
+ HRT_UNIFICATION_WAR_NAME: "$ORDER$ [ATTACKER.GetPrimaryTitle.GetPrefix]-[DEFENDER.GetPrimaryTitle.GetAdjective] Unification War"
+ HRT_UNIFICATION_WAR_NAME_BASE: "[ATTACKER.GetPrimaryTitle.GetAdjective][DEFENDER.GetPrimaryTitle.GetName]"
+ HRT_UNIFICATION_SPECIFIC_NAME: "Consolidate Imperial Territory" # of [TITLE.GetNameNoTier]
+ HRT_UNIFICATION_WAR_SPECIFIC_NAME: "$ORDER$ [ATTACKER.GetPrimaryTitle.GetPrefix]-[DEFENDER.GetPrimaryTitle.GetAdjective] Unification War"
+ HRT_UNIFICATION_WAR_SPECIFIC_NAME_BASE: "[ATTACKER.GetPrimaryTitle.GetAdjective][DEFENDER.GetPrimaryTitle.GetName]"
+ HRT_unification_war_authority_req: "You need at least #V [EmptyScope.ScriptValue('HRT_unification_authority_value')|0]#! [HRT_imperial_authority|E] or took the decision to prepare for a Unification War"
+ 
+ HRT_on_war_won.toast.t: "Gained Imperial Authority"
+ HRT_on_war_won.toast: "Your victory increased your [HRT_imperial_authority|E]!\nNone shall doubt your holy reign."
+ HRT_on_war_lost.toast.t: "Lost Imperial Authority"
+ HRT_on_war_lost.toast: "Your defeat diminished your [HRT_imperial_authority|E]!\nYour heavenly mandate is crumbling."
+ 
+ ##########################
+ # Character Interactions #
+ # by Rylock              #
+ ##########################
+ 
+ demand_imperial_subjugation_interaction:0 "Demand Imperial Subjugation"
+ demand_imperial_subjugation_interaction_desc:0 "[actor.GetPrimaryTitle.GetNameNoTierNoTooltip] is mighty enough that a restoration of the Roman Empire of old is within our grasp. [recipient.GetShortUIName|U] must turn over the [recipient.GetPrimaryTitle.GetNameNoTooltip] to my control and take [recipient.GetHerHis] place as my vassal or I will have every right to claim the title by force."
+ DEMAND_IMPERIAL_SUBJUGATION_NOTIFICATION:0 "The [actor.GetPrimaryTitle.GetNameNoTooltip] is well on its way to receiving a blessing from His Holiness to restore the Roman Empire of old. If you turn over the [recipient.GetPrimaryTitle.GetNameNoTooltip] to me and take your place as my vassal, you will earn a high place in the order of things to come. I hope you see the sense in this."
+ imperial_subjugation_accept_tt:0 "The [recipient.GetPrimaryTitle.GetName] will be granted to [actor.GetShortUIName|U] and [recipient.GetSheHe] will become [actor.GetShortUINamePossessive] vassal"
+ negotiate_hre_alliance_effect_tooltip:0 "[recipient.GetShortUIName|U] and [actor.GetShortUIName|U] enter a mutual [alliance|E]"
+ DEMAND_IMPERIAL_SUBJUGATION_TRUCE_NAME:0 "Conceded after [SCOPE.sC('actor').GetUINameNotMe|U] demanded subjugation"
+ friend_imperial_subjugation:0 "[CHARACTER.GetShortUIName|U] and [TARGET_CHARACTER.GetShortUIName] bonded after striking a deal regarding imperial authority."
+ rival_demanded_title:0 "[TARGET_CHARACTER.GetShortUIName|U] demanded that [CHARACTER.GetShortUIName] surrender [CHARACTER.GetHerHis] title."
+ rival_demanded_title_corresponding:0 "[CHARACTER.GetShortUIName|U] demanded that [TARGET_CHARACTER.GetShortUIName] surrender [TARGET_CHARACTER.GetHerHis] title."
+ demanded_my_title_hre_opinion:0 "Demanded My Title"
+ demanded_my_subjugation_opinion:0 "Demanded My Subjugation"
+ working_together_hre_opinion:0 "Working Together"
+ former_liege_convinced_opinion:0 "Former Liege Assuaged Concerns"
+ 
+ offer_vassalization_interaction_aibehavior_recipient_child_tt:1 "I am just a child: $VALUE|=+0$"
+ offer_vassalization_interaction_aibehavior_realmsize_tt:1 "Difference in Realm Size: $VALUE|=+0$ #weak (max +20)#!"
+ 
+ HRT_demand_fealty_interaction_authority_req: "You need at least #V [EmptyScope.ScriptValue('HRT_demand_fealty_interaction_authority_value')|0]#! [HRT_imperial_authority|E]"
+ HRT_demand_fealty_interaction_authority_req_tt: "You need at least #V [EmptyScope.ScriptValue('HRT_demand_fealty_interaction_authority_value')|0]#! [HRT_imperial_authority|E]"
+ HRT_demand_fealty_authority_tt: "[HRT_imperial_authority|E]: #P +[EmptyScope.ScriptValue('HRT_authority_progressbar_value')|0]#!"
+ 
+ ####################
+ #Important Actions #
+ ####################
+ 
+ action_max_authority_reached_label: "@empire_icon! Maximum [HRT_imperial_authority] reached"
+ action_max_authority_reached: "@empire_icon! Maximum [HRT_imperial_authority] reached"
+ action_max_authority_reached_desc: "Consider enacting an [HRT_imperial_edict|E] or proclaiming an [HRT_imperial_directive|E]."
+ action_max_authority_reached_click: "#I Click to open Realm View and open Holy Roman Triumph window from there#!"
+ 
+ action_centralization_reduction_imminent_label: "@bad_icon! Decentralization imminent"
+ action_centralization_reduction_imminent: "@bad_icon! Decentralization imminent"
+ action_centralization_reduction_imminent_desc: "You will lose one [HRT_centralization_level|E] in #V [EmptyScope.ScriptValue('HRT_centralization_reduction_months_left')|0]#! months.\n\n#help Assign a [councillor|E] to perform the #V $HRT_chancellor_task_centralization_efforts$#! task to prevent reduction to a lower [HRT_centralization_level]."
+ action_centralization_reduction_imminent_click: "#I Click to open Council View#!"
+
+ ##############
+ # Game Rules #
+ ##############
+ 
+ rule_HRT_authority_gains: "HRT: Imperial Authority Gain"
+ setting_HRT_authority_default: "Default"
+ setting_HRT_authority_default_desc: "Gain Imperial Authority at the default rate."
+ setting_HRT_authority_one_and_a_half: "1.5x"
+ setting_HRT_authority_one_and_a_half_desc: "Gain Imperial Authority at 1.5x rate."
+ setting_HRT_authority_twice: "2x"
+ setting_HRT_authority_twice_desc: "Gain Imperial Authority at 2x rate."
+ 
+ ##################
+ # Game Concepts ##
+ ##################
+ 
+ game_concept_HRT_imperial_authority: "Imperial Authority"
+ game_concept_HRT_imperial_authority_desc: "Imperial Authority represents the amount of control the Emperor exerts over his [vassals|E] and is an extension to his [legitimacy|E]. Authority is needed to perform various actions, such as issuing [HRT_imperial_edicts|E] and proclaiming [HRT_imperial_directives|E] within the Roman Empire. The rate at which you gain or lose Imperial Authority is displayed as [HRT_imperial_authority_change|E] on the dynamic coat of arms in the Imperial Succession window, which is accessed by pressing the Reichskrone that appears above the Realm icon (F2) after opening it."
+ 
+ game_concept_HRT_imperial_authority_change: "Monthly Authority Change"
+ game_concept_HRT_imperial_authority_change_desc: "The rate at which you gain or lose [HRT_imperial_authority|E]. Capped at +5 and -5 per month before [HRT_imperial_edict|E] effects. In addition to the factors displayed in the tooltip, you gain Imperial Authority by winning [wars|E] depending on the opponent's military strength and lose a portion by losing wars respectively."
+ 
+ game_concept_HRT_imperial_territory: "Imperial Territory"
+ game_concept_HRT_imperial_territory_desc: "The Imperial Core Territories include the [kingdoms|E] of #V East Francia/Germany#!, #V Bavaria#!, #V Lotharingia#! and #V Frisia#!."
+ 
+ game_concept_HRT_imperial_edict: "Imperial Edict"
+ game_concept_HRT_imperial_edicts: "Imperial Edicts"
+ game_concept_HRT_imperial_edict_desc: "Imperial Edicts are temporary decrees issued by the Emperor to swiftly address specific challenges or seize strategic opportunities within the Roman Empire. Each Edict, crafted with [HRT_imperial_authority|E], can provide immediate benefits ranging from military enhancements to economic boosts."
+ 
+ game_concept_HRT_imperial_directive: "Imperial Directive"
+ game_concept_HRT_imperial_directives: "Imperial Directives"
+ game_concept_HRT_imperial_directive_desc: "The Proclamation of Imperial Directives echo the historic practices of Holy Roman Emperors like Otto the Great and Frederick Barbarossa, who exercised their authority to issue decisive commands addressing the realm's critical issues. These directives could range from military mobilizations, as seen in Otto I's campaigns to expand and secure the Empire's boundaries, to significant legal and administrative reforms, akin to those undertaken by Frederick I to consolidate imperial power and streamline governance. Such proclamations were pivotal in shaping the Empire's political, military, and cultural landscape, reflecting the Emperor's ability to direct the course of history with a single, authoritative decree."
+ 
+ #game_concept_HRT_imperial_resolution: "Imperial Resolution"
+ #game_concept_HRT_imperial_resolutions: "Imperial Resolutions"
+ #game_concept_HRT_imperial_resolution_desc: "Imperial Resolutions reflect the decisive actions of historical Holy Roman Emperors, embodying their strategic judgment and leadership in critical moments. Such resolutions, liek the crucial domestic policies enacted by rulers like Frederick II, were instrumental in navigating the complex interplay of political, religious, and social dynamics of the Empire. These resolutions represent the Emperor's capacity to shape the Empire's destiny, balancing the diverse interests of its territories and peoples. Each resolution is a testament to the Emperor's acumen in steering the course of the Empire through the annals of history."
+ 
+ game_concept_HRT_real_emperor_score: "Current Emperor Score"
+ game_concept_HRT_real_emperor_score_desc: "The Emperor Score below is a prospective estimation of the score this character inherits upon the death of their father, the Emperor."
+ 
+ game_concept_HRT_constrained_reach: "Constrained Reach"
+ game_concept_HRT_constrained_reach_desc: "The Emperor currently holds limited influence beyond his domain. Central authority is yet to be fully established or recognized across the broader realm. Restore the Holy Roman Empire to remove this malus."
+ 
+ game_concept_HRT_vassal_count: "Vassal Count"
+ game_concept_HRT_vassal_count_desc: "[duke|E] and [king|E] [vassals|E] contribute to this score."
+ 
+ game_concept_HRT_uncrowned: "Uncrowned"
+ game_concept_HRT_uncrowned_desc: "The Emperor has yet to commence the [Glossary('Italienzug','game_concept_HRT_italienzug_desc')] and get formally crowned and legitimized by the Pope."
+ 
+ game_concept_HRT_italienzug: "Italienzug"
+ game_concept_HRT_italienzug_desc: "An Italienzug (also known as #italic Romfahrt#! or #italic Romzug#!, Latin #italic expeditio italica#!) was the expedition undertaken by an elected [Glossary('King of the Romans','game_concept_HRT_king_of_the_romans_desc')] to be crowned Holy Roman emperor in the City of Rome."
+ 
+ game_concept_HRT_king_of_the_romans: "King of the Romans"
+ game_concept_HRT_king_of_the_romans_desc: "King of the Romans (Latin: #italic Rex Romanorum#!; German: #italic König der Römer#!) was the title used by the king of Germany following his election by the princes ([electors|E]) from the reign of Henry II (1002–1024) onward.\nThe title originally referred to any German king between his election and royal coronation in Germany until he was crowned Holy Roman Emperor by the Pope. The title was also used to designate the successor to the throne elected during the lifetime of a sitting Emperor."
+ 
+ game_concept_HRT_princely_elective: "$princely_elective_succession_law$"
+ game_concept_HRT_princely_elective_desc: "$princely_elective_succession_law_effects$"
+ 
+ game_concept_HRT_investiture_controversy: "Investiture Controversy"
+ game_concept_HRT_investiture_controversy_desc: "The Investiture Controversy or Investiture Contest (German: Investiturstreit) was a conflict between the Church and the state in medieval Europe over the ability to choose and install bishops (investiture) and abbots of monasteries and the pope himself. A series of popes in the 11th and 12th centuries undercut the power of the Holy Roman Emperor and other European monarchies, and the controversy led to nearly 50 years of conflict."
+ 
+ game_concept_HRT_stammesherzogtum: "Stammesherzogtum"
+ game_concept_HRT_stammesherzogtuemer: "Stammesherzogtümer"
+ game_concept_HRT_stammesherzogtum_desc: "They refer to the stem duchies in early medieval Germany, which were large territorial units ruled by dukes and based on ancient tribal divisions.\nThese duchies, historically including Saxony, Bavaria, Swabia, Franconia, and Lorraine, were significant political entities in the 9th and 10th centuries, playing crucial roles in the formation of the Holy Roman Empire. They were characterized by a degree of autonomy and were often led by powerful local families who maintained their own armies and governance structures.\nOver the centuries, the few Stammesherzogtümer from the time of Otto I evolved into a confusing array of various secular and ecclesiastical dominions, which were held together solely by their loyalty to the Emperor and belief in his holy mission, but were otherwise independent."
+ 
+ game_concept_HRT_cohesion: "Cohesion"
+ game_concept_HRT_unity: "Unity"
+ game_concept_HRT_cohesion_desc: "Cohesion, or Unity, refers to the delicate balance among the [Glossary('Stammesherzogtümer','game_concept_HRT_stammesherzogtum_desc')]. Despite their cultural and political differences, these duchies were bound together by mutual loyalty to the Emperor and a shared belief in his divine mission. This cohesion was essential for maintaining stability and asserting collective strength against external threats, requiring a ruler of exceptional skill to navigate the complexities of their alliances and rivalries.\n\n#help The five largest and most influential cultures in the Holy Roman Empire form the current bulk of the Stammesherzogtümer.\n\nThe [HRT_unity] between the German tribes affects your [HRT_imperial_authority_change|E]. Use [HRT_imperial_authority|E] to promote [cultural_acceptance|E] and steer the destiny of the Holy Roman Empire.#!"
+ 
+ game_concept_HRT_hoftag: "Hoftag"
+ game_concept_HRT_hoftag_desc: "A Hoftag (pl. Hoftage) was the name given to an informal and irregular assembly convened by the [Glossary('King of the Romans','game_concept_HRT_king_of_the_romans_desc')], the Holy Roman Emperor or one of the Princes ([electors|E]) of the Empire.\n\nHistorically, a distinction between the counsel given by the princes and their legal consent to a decision was difficult to make. However, it was from their obligation to advise, that the right soon emerged for the princes to be consulted on important matters concerning the empire, such as the declaration of an imperial military campaign."
+ 
+ game_concept_HRT_reichsstadt: "Reichsstadt"
+ game_concept_HRT_reichsstaedte: "Reichsstädte"
+ game_concept_HRT_imperial_city: "Imperial City"
+ game_concept_HRT_imperial_cities: "Imperial Cities"
+ game_concept_HRT_reichsstadt_desc: "In the Holy Roman Empire, the collective term #bold free and imperial cities#! (German: #italic Freie und Reichsstädte#!), briefly worded #bold free imperial city#! (#italic Freie Reichsstadt#!, Latin: #italic urbs imperialis libera#!), was used to denote a self-ruling city that had a certain amount of autonomy and was represented during a [Glossary('Hoftag','game_concept_HRT_hoftag_desc')].\n\nAn Imperial City held the status of [Glossary('Reichsunmittelbarkeit','game_concept_HRT_imperial_immediacy_desc')], and was subordinate only to the Holy Roman Emperor, as opposed to a territorial city or town (#italic Landstadt#!) which was subordinate to a territorial prince – be it an ecclesiastical lord (prince-bishop, prince-abbot) or a secular prince ([duke|E] (#italic Herzog#!), margrave, [count|E] (#italic Graf#!), etc.).\n\n#help Requires the $innovation_HRT_imperial_charter$ [innovation|E] (High Medieval Era)#!"
+ 
+ game_concept_HRT_imperial_immediacy: "Imperial Immediacy"
+ game_concept_HRT_imperial_immediacy_desc: "In the Holy Roman Empire, #bold imperial immediacy#! (German: #italic Reichsunmittelbarkeit#! or #italic Reichsfreiheit#!) was the status of an individual or a territory which was defined as 'immediate' (#italic unmittelbar#!) to Emperor and Empire (#italic Kaiser und Reich#!) and not to any other intermediate authorities, while one that did not possess that status was defined as 'mediate' (#italic mittelbar#!)."
+ 
+ game_concept_HRT_centralization: "Centralization"
+ game_concept_HRT_centralization_desc: "Throughout its history, the Holy Roman Empire was a battleground of power between the Emperor and his vassals. While emperors sought to expand their [HRT_imperial_authority|E] and centralize control, the nobility often resisted, favoring a decentralized system that protected their privileges and autonomy. The balance of power shifted with every reign, creating a constant struggle over rights, obligations, and imperial influence.\n\nThe value ranges from 0 and 200, and over time will settle at its Baseline value. It's monthly change is capped at +3 and -2. The Baseline is affected by things like [HRT_cohesion|E], while the progress depends on how much is spent on #V Centralization Efforts#!.\n\nA portion of Centralization is lost upon [succession|E]."
+ 
+ game_concept_HRT_centralization_level: "Centralization Level"
+ game_concept_HRT_centralization_levels: "Centralization Levels"
+ game_concept_HRT_centralization_level_desc: "$game_concept_HRT_centralization_level$ is the current state of [HRT_centralization|E]. Active level changes as Centralization increases or decreases, and each level increases the effectiveness of [HRT_imperial_edicts|E]."
+ 
+ game_concept_HRT_centralization_baseline: "Centralization Baseline"
+ game_concept_HRT_baseline: "Baseline"
+ game_concept_HRT_centralization_baseline_desc: "[HRT_centralization|E] has a Baseline which it will decay towards if exceeded, or or grow towards if it falls below."
+ 
+ game_concept_HRT_centralization_development: "$game_concept_development$"
+ game_concept_HRT_centralization_development_desc: "In the context of [HRT_centralization], this measures both the [development|E] of the Emperor's residence and the difference between this [development] and the average [development] of all direct [vassal|E] [capitals|E]."
+ 
+ game_concept_HRT_absent_sovereign: "Absent Sovereign"
+ game_concept_HRT_absent_sovereign_desc: "The itinerant regime (#italic [Glossary('Reisekönigtum','game_concept_HRT_reisekoenigtum_desc')]#!) was the usual form of royal or imperial government in the Holy Roman Empire from the Frankish period and up to late medieval times. Emperors failing to commence a [GetActivityType('activity_tour').GetName] diminish control over rebellious nobles and regional princes, risk losing influence and face reduced loyalty from [vassals|E].\n\n#help Obtain the #V $itinerant_liege_modifier$#! [character_modifier|E] after a successful [GetActivityType('activity_tour').GetName] to remove this malus. Having a high [HRT_centralization_level|E] reduces the negative impact.#!"
+ 
+ game_concept_HRT_reisekoenigtum: "Reisekönigtum"
+ game_concept_HRT_itinerant_court: "Itinerant Court"
+ game_concept_HRT_reisekoenigtum_desc: "An Itinerant Court was a migratory form of government shared in European kingdoms during the Early Middle Ages. It was an alternative to having a capital city, a permanent political center governed by a kingdom. The itinerant court system of ruling a country is strongly associated with German history, where the emergence of a capital city took an unusually long time. The Holy Roman Emperors constantly traveled, with their family and court, through the empire.\n\nThe Holy Roman Empire did not have a capital city. The emperors owned their varying dynastic lands, including castles, but could not limit themselves to these if they wanted to keep control of their large empire, including its often-rebellious regional princes. Therefore, the emperor and other princes ruled by constantly changing their residences. The Merovingian kings of the Frankish Empire already practiced this system, and the subsequent Carolingian dynasty adopted both the custom and its associated palaces (#italic Kaiserpfalz#!).\n\n#help Hold a [GetActivityType('activity_tour').GetName] or obtain the #V $itinerant_liege_modifier$#! [character_modifier|E] after a successful Tour to receive this bonus.#!"
+ 
+ ############
+ # Glossary #
+ ############
+ 
+ #############
+ # Artifacts #
+ #############
+ HRT_nibelungen_valkyr_helmet_name: "Valkyr Helmet"
+ HRT_nibelungen_valkyr_helmet_description: "This famed helmet, adorned with intricate engravings, is said to have been worn by none other than Brünhilde, the formidable queen from the epic Nibelungenlied."
+ 
+ ###########
+ # Clothes #
+ ###########
+ #Unused, since there is no barbershop selection for these rare items
+ #PORTRAIT_MODIFIER_custom_headgear_HRT_valkyrie_helmet_male: "Brunhilde"
+ #PORTRAIT_MODIFIER_custom_headgear_HRT_valkyrie_helmet_female: "$PORTRAIT_MODIFIER_custom_headgear_HRT_valkyrie_helmet_male$"
+ 
+ #######################
+ # Nibelungen Activity #
+ #######################
+ 
+ HRT_nibelungen_activity_search: "Quest for Nibelungen Treasure"
+ HRT_nibelungen_activity_search_desc: "Within the storied tapestry of the Holy Roman Empire's legends, the quest for the Nibelungen treasure holds a place of intrigue and mystery. Said to be lost in the depths of the Rhine, this legendary hoard is not just a testament to the wealth and power of bygone eras but also a symbol of the enduring allure of ancient myths. Embarking on the search for this treasure is to follow in the footsteps of heroes and to seek a connection with the epic saga of the Nibelungenlied, where the lines between history and legend beautifully blur."
+ HRT_nibelungen_activity_search_selection_tooltip: "Search along the Rhine, passing through the lands of the Holy Roman Empire, to find the fabled Nibelungen treasure\n\nAnticipated Rewards:\n$EFFECT_LIST_BULLET$[gold_i|E] [gold|E]\n$EFFECT_LIST_BULLET$[prestige_i|E] [prestige|E]\n$EFFECT_LIST_BULLET$[dynasty_prestige_i|E] [dynasty_prestige|E]\n$EFFECT_LIST_BULLET$[artifacts|E]\n$EFFECT_LIST_BULLET$A mythical treasure"
+ HRT_nibelungen_activity_search_month_requirement: "The current month is between August and October"
+  
+ HRT_nibelungen_activity_search_host_desc: "$BULLET_WITH_TAB$Chance to gain [gold_i|E][gold|E], [prestige_i|E][prestige|E], and [artifacts|E]"
+ HRT_nibelungen_activity_search_guest_desc: "$BULLET_WITH_TAB$Gain random amounts of [gold_i|E][gold|E] and [prestige_i|E][prestige|E]"
+ 
+ TRAVEL_NAME_FOR_HRT_nibelungen_activity_search: "[Character.GetFirstNamePossessiveNoTooltip] $HRT_nibelungen_activity_search$"
+ 
+ NOT_HRT_nibelungen_activity_barony_searched: "You have already searched here"
+ NOT_HRT_nibelungen_activity_rhine_barony: "Province must be bordering Upper Rhine"
+ HRT_nibelungen_activity_search_province_desc: "Search along the Rhine for the fabled treasure\n#N Your quest will attract the attention of other treasure hunters.#!\n#emphasis Historical Context:#! A lifeline for the realms it touched, the Rhine is integral to the prosperity and power struggles of medieval Europe, both as a vital trade route and a natural boundary. Its banks are dotted with castles, monasteries, and burgeoning towns, reflecting the river's importance in politics, economy, and culture. The Rhine's significance was not just economic but also strategic, as control over it meant dominance over one of Europe's key trade arteries. The river also served as a cultural and linguistic boundary, influencing the development of distinct regional identities."
+ 
+ HRT_nibelungen_find_treasure_intent_header: "Find Treasure:"
+ HRT_nibelungen_find_treasure_intent: "Find Treasure"
+ HRT_nibelungen_find_treasure_intent_desc: "Guided by tales as old as time, you are determined to find the fabled Nibelungen treasure, long whispered to be concealed somewhere along the winding path of the Rhine River."
+ 
+ activity_window_character_treasure_hunter: "Treasure Hunter\n[Character.GetShortUINameNoTooltip|U]"
+ 
+ HRT_nibelungen_search_phase: "Treasure Hunt"
+ HRT_nibelungen_search_phase_desc: "Set forth to unravel the mysteries of the Rhine in search of the legendary Nibelungen treasure."
+
+ HRT_nibelungen_activity_search_destination_selection: ""
+ HRT_nibelungen_activity_search_guest_help_text: "$HRT_nibelungen_activity_search$"
+ HRT_nibelungen_activity_search_predicted_cost: "The cost of the search depends on the [activity_options|E] you select."
+ HRT_nibelungen_activity_search_conclusion_desc: "As the search along the Rhine concludes, and the whispers of ancient tales slowly fade into the river's flow, our spirits are lifted with a sense of accomplishment and wonder."
+ 
+ HRT_nibelungen_search_completed_log_title: "Finished the Search"
+ HRT_nibelungen_search_completed_log: "[CHARACTER.GetShortUIName|U] finished the Search for Nibelungen Treasure"
+ 
+ #######################
+ # Italienzug Activity #
+ #######################
+ 
+ activity_HRT_italienzug: "Italienzug"
+ activity_HRT_italienzug_desc: "In the long-standing tradition of the Holy Roman Empire, the Italienzug represents a journey of both spiritual and political significance. When a new Emperor is chosen to lead the realm, it is not merely by the will of the princes and the nobility, but by divine right, confirmed by the highest authority in Christendom: the Pope."
+ activity_HRT_italienzug_selection_tooltip: "Travel the ancient roads, passing through lands rich in history and culture, to reach the eternal city and attend the coronation ceremony\n\nAnticipated Rewards:\n$EFFECT_LIST_BULLET$[piety_i|E] [piety|E]\n$EFFECT_LIST_BULLET$[prestige_i|E] [prestige|E]\n$EFFECT_LIST_BULLET$[dynasty_prestige_i|E] [dynasty_prestige|E]"
+  
+ activity_HRT_italienzug_host_desc: "$BULLET_WITH_TAB$Gain random amounts of [piety_i|E][piety|E], [prestige_i|E][prestige|E], and [dynasty_prestige_i|E][dynasty_prestige|E]"
+ activity_HRT_italienzug_guest_desc: "$BULLET_WITH_TAB$Gain random amounts of [piety_i|E][piety|E] and [prestige_i|E][prestige|E]"
+ 
+ TRAVEL_NAME_FOR_activity_HRT_italienzug: "[Character.GetFirstNamePossessiveNoTooltip] $activity_HRT_italienzug$"
+
+ activity_HRT_italienzug_destination_selection: ""
+ activity_HRT_italienzug_guest_help_text: "$activity_HRT_italienzug$"
+ activity_HRT_italienzug_predicted_cost: "The cost of the Italienzug depends on the [activity_options|E] you select."
+ activity_HRT_italienzug_conclusion_desc: "As the final moments of the Coronation Ceremony draw to a close and the echoes of our historic journey begin to settle, we look ahead with renewed purpose and hope. May this time-honored tradition serve as a testament to our commitment and unity, forging a stronger bond for the empire's future."
+
+ HRT_italienzug_expedition_type: "Expedition"
+ HRT_italienzug_expedition_type_small: "Small Expedition"
+ HRT_italienzug_expedition_type_small_desc: "$EFFECT_LIST_BULLET$ You bring skilled knights, close family and perhaps trusted advisors\n$EFFECT_LIST_BULLET$ Gain [piety_i|E] #V [GetPlayer.MakeScope.ScriptValue('minor_piety_gain')]#!\n$EFFECT_LIST_BULLET$ Gain [prestige_i|E] #V [GetPlayer.MakeScope.ScriptValue('minor_prestige_gain')]#!\n$EFFECT_LIST_BULLET$ Gain a miniscule amount of [dynasty_prestige_i|E] [dynasty_prestige|E]\n\n#weak The journey ahead is unpredictable and demands caution. While ambition drives us, prudence must guide our steps.#!"
+ HRT_italienzug_expedition_type_normal: "Modest Expedition"
+ HRT_italienzug_expedition_type_normal_desc: "$EFFECT_LIST_BULLET$ You also bring along aides, specialists & interested associates\n$EFFECT_LIST_BULLET$ Gain [piety_i|E] #V [GetPlayer.MakeScope.ScriptValue('minor_piety_gain')]#!\n$EFFECT_LIST_BULLET$ Gain [prestige_i|E] #V [GetPlayer.MakeScope.ScriptValue('minor_prestige_gain')]#!\n$EFFECT_LIST_BULLET$ Gain a small amount of [dynasty_prestige_i|E] [dynasty_prestige|E]\n\n#weak An expedition of this magnitude requires a show of commitment, both in spirit and in numbers. Every hand counts.#!"
+
+ HRT_italienzug_expedition_type_grand: "Grand Expedition"
+ HRT_italienzug_expedition_type_grand_desc: "$EFFECT_LIST_BULLET$ Every available [character|E] at [court|E] joins you\n$EFFECT_LIST_BULLET$ Gain [piety_i|E] #V [GetPlayer.MakeScope.ScriptValue('medium_piety_gain')]#!\n$EFFECT_LIST_BULLET$ Gain [prestige_i|E] #V [GetPlayer.MakeScope.ScriptValue('major_prestige_gain')]#!\n$EFFECT_LIST_BULLET$ Gain a medium amount of [dynasty_prestige_i|E] [dynasty_prestige|E]\n\n#weak To venture forth in grandeur is to make a statement to the world. Our empire's prestige shall be known to all.#!"
+ 
+ activity_window_character_retainer: "Retainer\n[Character.GetShortUINameNoTooltip|U]"
+
+ HRT_submission_intent_header: "Submission:"
+ HRT_submission_intent: "Submission"
+ HRT_submission_intent_desc: "Your attendance signifies a humble acknowledgment of the spiritual authority. Gain more [piety_i|E] [piety|E]. Lose extra [stress_loss_i|E][stress|E] if you are [GetTrait('humble').GetName( GetNullCharacter )] or [GetTrait('zealous').GetName( GetNullCharacter )]."
+ HRT_glory_intent_header: "Display of Might:"
+ HRT_glory_intent: "Display of Might"
+ HRT_glory_intent_desc: "Your presence is a testament to your power and grandeur for all to behold. Gain more [prestige_i|E] [prestige|E]. Lose extra [stress_loss_i|E][stress|E] if you are [GetTrait('arrogant').GetName( GetNullCharacter )] or [GetTrait('ambitious').GetName( GetNullCharacter )]."
+ HRT_witness_intent_header: "Witness:"
+ HRT_witness_intent: "Witness"
+ HRT_witness_intent_desc: "Being a part of this historic moment, you bear witness to the dawn of a new reign."
+
+ HRT_italienzug_completed_log_title: "Completed the Italienzug"
+ HRT_italienzug_completed_log: "[CHARACTER.GetShortUIName|U] completed the Italienzug"
+
+ # Memories
+ HRT_italienzug_host_memory: "peformed an [owner.GetHerHis] [GetActivityType('activity_HRT_italienzug').GetName]"
+ HRT_italienzug_host_memory_first_perspective: "I peformed an [GetActivityType('activity_HRT_italienzug').GetName]"
+ HRT_italienzug_host_memory_second_perspective: "you peformed an [GetActivityType('activity_HRT_italienzug').GetName]"
+ HRT_italienzug_host_memory_third_perspective: "[owner.GetName] peformed an [GetActivityType('activity_HRT_italienzug').GetName]"
+ HRT_italienzug_guest_memory: "joined [host.GetTitledFirstName] to perform an [GetActivityType('activity_HRT_italienzug').GetName]"
+ HRT_italienzug_guest_memory_first_perspective: "I joined [host.GetTitledFirstName] to perform an [GetActivityType('activity_HRT_italienzug').GetName]"
+ HRT_italienzug_guest_memory_second_perspective: "you joined [host.GetTitledFirstName] to perform an [GetActivityType('activity_HRT_italienzug').GetName]"
+ HRT_italienzug_guest_memory_third_perspective: "[owner.GetName] joined [host.GetTitledFirstName] to perform an [GetActivityType('activity_HRT_italienzug').GetName]"
+
+ HRT_italienzug_result_gained_piety: "Gained [piety_i|E][piety|E]"
+ HRT_italienzug_result_gained_prestige: "Gained [prestige_i|E][prestige|E]"
+ HRT_italienzug_result_gained_dynasty_prestige: "Gained [dynasty_prestige_i][dynasty_prestige|E]"
+ 
+ ##########
+ # Events #
+ ##########
+ 
+ HRT.0001.t: "Holy Roman Triumph"
+ HRT.0001.desc: "In the latter half of the 9th century, Western Europe finds itself in a period of significant transition and fragmentation. The once mighty Carolingian Empire, established by Charlemagne, has been divided, and its unity is a relic of the past.\n\nYou reign as the King of Italy and are crowned #V Imperator Augustus#! of the Carolingian Empire, a title that bestows upon you the grandeur and responsibilities once held by the rulers of ancient Rome. The scope of your [HRT_imperial_authority|E], however, is primarily confined to Italy, with only nominal control extending beyond the borders of your demense. The fragmentation of the Carolingian Empire following the death of Charlemange and the divisions among his heirs has led to political and military challenges, as the once-unified empire crumbles into competing factions, further complicating your ability to exert widespread imperial control.\n\nYou face the daunting task of asserting your authority. Your efforts to strengthen imperial control will be met with resistance and the ever-present challenge of balancing the ambitions of local rulers with the broader goals of the Empire.\n\nThe Carolingian Empire stands at a crossroads, its future uncertain as it navigates the tides of change and the shifting allegiances of its constituent territories."
+ HRT.0001.a: "Render unto Caesar the things that are Caesar's."
+ 
+ HRT.0002.desc: "You are #V Romanorum Imperator Augustus#! of the the Holy Roman Empire. Your reign is defined by the need to consolidate [HRT_imperial_authority|E] amidst a complex web of feudal relations. Your control over the Empire's vast territories is challenged by assertive dukes and princes, each wielding considerable power in their own right.\nThe [HRT_investiture_controversy|E] looms large over your reign, pitting the ambitions of the Papacy against the prerogatives of your Imperial Crown.\n\nYour ability to maneuver through these tumultuous times will determine whether the Holy Roman Empire emerges strengthened or falls prey to the forces of division and external pressures."
+ 
+ HRT.0003.desc: "You are #V Romanorum Imperator Augustus#! Frederick I Barbarossa, reigning over the Holy Roman Empire. Your rule is characterized by a determined effort to reinforce [HRT_imperial_authority|E] across the Empire's vast and varied territories. After restoring stability in Germany, you must shift your focus to Italy, where it is imperative to assert imperial rights over the wealthy and influential northern city-states, aiming to revive the glory of the ancient empire.\n\nThe obstacles you face are significant. The Lombard League, a formidable alliance of Italian cities, stands resolutely against your attempts to impose imperial control. Tensions with the Papacy add another layer of complexity, as you strive to maintain the delicate balance between spiritual leadership and imperial sovereignty."
+ 
+ HRT.0011.t: "Unification of Legacy"
+ HRT.0011.desc: "Despite the heavenly mandate, there are still those who believe they can evade the grasp of my imperial authority. This cannot be tolerated any longer! With the law and legitimacy on my side, I hereby order the insubordinate to my rightful rule to kneel before my supremacy. Those failing to follow my command must be subdued by force, lest the very foundations of the Roman Empire weaken."
+ HRT.0011.a: "Let them see the errors in their ways!"
+ HRT.0011.a.tt: "You now have unrestricted access to the Consolidate Imperial Territory Casus Belli for 10 years"
+
+ HRT.9001.t: "The Dissolution of the Empire"
+ HRT.9001.desc: "As I stand in my private chambers, gazing out over the sprawling expanse of the Roman Empire, a sense of profound weight settles upon my shoulders. The Roman Empire, revived by Charlemange and a symbol of unity under the Imperial Crown, now faces unprecedented challenges. Fragmentation, the rise of powerful principalities, and the shifting sands of politics have eroded the foundations of this once-great realm.\n\nThe incessant conflicts with the Papacy and the relentless struggle for control within the Empire have led me to a monumental decision.\n\nIn my heart, I know the time has come for a drastic change — a decision that will alter the course of history. The dissolution of the Roman Empire, as radical as it may seem, appears to be the only path forward. This act is not one of defeat but of pragmatism; the need for a new political order."
+ HRT.9001.a: "Let this be a new beginning..."
+ HRT.9001.a.tt.a: "You dismantle the Roman Empire"
+ HRT.9001.a.tt.b: "[de_jure|E] [rulers|E] in the Roman Empire will lose #N 25#! opinion of you for #V 10#! years"
+ HRT.9001.b: "No, the Empire shall not fall by my hand."
+ 
+ HRT.9002.t: "The End of an Era"
+ HRT.9002.desc: "A messenger arrives in your court with a sealed scroll bearing the imperial seal. As you break the wax and unfurl the parchment, the words written in a meticulous hand convey a message that shakes the very foundations of your realm. Emperor [emperor.GetFirstName] has declared the dissolution of the Roman Empire.\n\nThis news is met with a mixture of disbelief and realization. The Roman Empire, the heart of Christendom and a symbol of unified authority, is to be no more. The Emperor speaks of the insurmountable challenges - the fragmentation of power, and the continuous strife with the Papacy.\n\nThe decision, unprecedented in its scope, marks the end of an era. The Roman Empire that stood as a testament to the legacy of Charlemagne is to be dismantled. This act, radical in every sense, signifies a turning point in the history of our lands."
+ HRT.9002.a: "A new order emerges..."
+ 
+ HRT.9003.t: "The Fall of an Emperor"
+ HRT.9003.desc: "Your rule as the Roman Emperor, once unassailable, has come to an abrupt end. The established order, fed up with discontent and rival ambitions, has been upended, leaving you bereft of your title, authority and ultimately, the imperial throne itself.\n\nNow, as you ponder your next steps, you are faced with the stark reality of a future without the crown. The legacy of your reign is left to the judgment of history. The loss of the throne is not merely a personal defeat but a pivotal moment in the annals of the Empire, signaling a shift in the balance of power and the fragile nature of imperial authority.\n\nIn the solitude of your diminished station, you reflect on the lessons of power, the vicissitudes of fortune, and the inexorable march of time that spares no ruler, however mighty. The future is uncertain, and the path ahead is uncharted, but the story of your life and reign is far from over."
+ HRT.9003.a: "The end of an era, the beginning of a new chapter..."
+
+ HRT.9005.desc.a: "In the wake of Emperor [HRTdeceasedemperor.GetFirstNameNicknamed]'s passing, a void was left at the very heart of Christendom. Throughout the lands of the Roman Empire, whispers of [title_recipient.GetFirstNameNicknamed]'s ascending prowess have not gone unheard. With profound reverence the herald proclaims that they have chosen [title_recipient.GetHerHim] to bear the weighty mantle of Emperor."
+ HRT.9005.desc.b: "Throughout the lands of the Roman Empire, whispers of [title_recipient.GetFirstNameNicknamed]'s ascending prowess have not gone unheard. With profound reverence the herald proclaims that they have chosen [title_recipient.GetHerHim] to bear the weighty mantle of Emperor."
+ 
+ #####################
+ # Italienzug Events #
+ #####################
+ 
+ HRT.1001.t: "The New Emperor"
+ HRT.1001.desc.a: "In the wake of Emperor [HRTdeceasedemperor.GetFirstNameNicknamed]'s passing, a void was left at the very heart of Christendom. Throughout the lands of the Roman Empire, whispers of my ascending prowess have not gone unheard. With profound reverence the herald proclaims that they have chosen me to bear the weighty mantle of Emperor. Such an honor, however, comes with its sacred traditions. It is now incumbent upon me to undertake the time-honored [Glossary('Italienzug','game_concept_HRT_italienzug_desc')], a journey to the heart of Rome, where the Pope himself awaits to crown me in a grand coronation ceremony at the very steps of St. Peter's Basilica."
+ HRT.1001.desc.b: "Throughout the lands of the Roman Empire, whispers of my ascending prowess have not gone unheard. With profound reverence the herald proclaims that they have chosen me to bear the weighty mantle of Emperor. Such an honor, however, comes with its sacred traditions. It is now incumbent upon me to undertake the time-honored [Glossary('Italienzug','game_concept_HRT_italienzug_desc')], a journey to the heart of Rome, where the Pope himself awaits to crown me in a grand coronation ceremony at the very steps of St. Peter's Basilica."
+ HRT.1001.a: "Let's not waste time."
+ HRT.1001.a.tooltip: "Start preparing for your Coronation Ceremony"
+ HRT.1001.b: "Muster the expeditionary forces!"
+ HRT.1001.b.tooltip: "Raise your army and march to [HRT_hoflocation.GetName] to get crowned"
+ HRT.1001.c: "Maybe this is not the right time..."
+ 
+ HRT.1102.t: "Advent in [location.GetName]"
+ HRT.1102.desc: "The expedition has arrived in [location.GetName] and it is now my divine right to receive the Imperial Crown before God.\nA spectacle of unparalleled magnitude unfolds as I am beginning to lead the vast assembly through town, the vibrant pageantry capturing the essence of celebration. The [Glossary('Italienzug','game_concept_HRT_italienzug_desc')] nears its destination."
+ HRT.1102.a: "Lead the march to the church!"
+ HRT.1102.b: "This is not the right time."
+ 
+ HRT.1103.a: "I am finally and truly Emperor."
+ 
+ #####################
+ # Nibelungen Events #
+ #####################
+ 
+ HRT_nibelungen.0001.t: "A Legend Retold"
+ HRT_nibelungen.0001.desc: "Within the hallowed halls of my grand palace, the court poet stands before me, ready to recount the epic saga of the #V Nibelungenlied#!. With a clear voice that carries the weight of history, [poet.GetFirstName] begins the tale:\n\nIn times of yore, a knight of unparalleled valor emerged from the mists of legend. #V Siegfried#!, son of King Siegmund, came to Worms, drawn by tales of the Burgundian court's splendor. His deeds, bold and mighty, soon became the court's fervent whispers. Among them, his victory over the fearsome dragon and the claim to the Nibelungs' treasure, a hoard unmeasured, which he bathed in, gaining skin impenetrable, save for one untouched spot. The King, intrigued by such tales, welcomed this paragon to his realm."
+ HRT_nibelungen.0001.a: "Such commendable bravery!"
+ HRT_nibelungen.0001.b: "Unchecked ambition can lead to unforeseen consequences."
+ HRT_nibelungen.0001.tt: "The tale continues"
+ 
+ HRT_nibelungen.0002.t: "The Deed for a Queen"
+ HRT_nibelungen.0002.desc: "In the heart of the Empire, Siegfried's gaze fell upon fair #V Kriemhild#!, the flower of Burgundy. Her beauty unmatched, her virtue steadfast. Enraptured, Siegfried vowed to win her heart. But the path to love is fraught with trials; only through valor and unwavering spirit could he hope to claim her hand.\n\nYet, love's path led to unexpected roads. #V Gunther#!, King of Burgundy, sought the hand of #V Brunhild#!, a queen of formidable might, whose heart could only be won through trials of strength. Siegfried, in loyalty to Gunther and in quest for his own love, donned the Tarnkappe, a cloak of invisibility and strength, and aided Gunther in this impossible feat. Brunhild, deceived, became Gunther's bride, but the seeds of betrayal were sown."
+ HRT_nibelungen.0002.a: "Deception is a path I avoid."
+ HRT_nibelungen.0002.b: "The pursuit of power often requires cunning."
+ 
+ HRT_nibelungen.0003.t: "Betrayal and Tragedy"
+ HRT_nibelungen.0003.desc: "As whispers of deceit spread, Brunhild's heart grew heavy with doubt and scorn. The bond of kings and knights, once unbreakable, now trembled under the weight of hidden truths. #V Hagen#!, Gunther's vassal, driven by loyalty and dark designs, plotted Siegfried's fall. In a grim hunt, betrayal struck; Siegfried fell, not by beast or enemy, but by the hand of kinship turned cold.\n\nMourning turned to fury as Kriemhild's heart cried out for justice. The gleaming halls of Worms grew dim with the shadow of revenge. Kriemhild, in her sorrow, found new purpose. With the Nibelungen treasure, she sought allies, wielding gold and grief as her weapons. A storm brewed over the realm, as Kriemhild's resolve hardened; the quest for vengeance would shake the very foundations of the Empire."
+ HRT_nibelungen.0003.a: "I shall reserve judgment."
+ HRT_nibelungen.0003.b: "Revenge is a dish best served cold."
+ 
+ HRT_nibelungen.0004.t: "The Echoes of the Past"
+ HRT_nibelungen.0004.desc: "In her quest for vengeance, Kriemhild married Etzel, the mighty king of the Huns, and lured her foes to their doom. A great feast turned to slaughter, and the rivers ran red with the blood of the fallen. Yet, in her triumph, Kriemhild found no peace, only more bloodshed.\n\nAnd so, the tale of the Nibelungenlied reaches us, not just as a story of heroes and villains, but as a reflection on the human condition. It is said the Nibelungen treasure, cause of so much strife, lies hidden in the depths of the Rhine, awaiting one worthy to claim it."
+ HRT_nibelungen.0004.a: "We shall uncover this legendary hoard."
+ HRT_nibelungen.0004.b: "The true wealth lies in the lessons of the tale."
+ HRT_nibelungen.0004.tt: "You now have access to the $HRT_nibelungen_activity_search$ [activity|E]"
+ 
+ HRT_nibelungen.0011.t: "On the Banks of the Rhine"
+ HRT_nibelungen.0011.desc: "Upon arriving at the majestic Rhine near [location.GetName], the search party, under my imperial command, surveys the vast expanse of this ancient waterway, contemplating the best approach to uncover the hidden Nibelungen treasure. The air is filled with an anticipatory hush, as if the river itself awaits our decision. The water's gentle murmur seems to whisper secrets of ages past, of heroes and treasures lost in its depths. Around us, the landscape tells a story of time immemorial, with each castle, each vine-clad hill holding its own silent tales. I am pondering what course we should strike."
+ HRT_nibelungen.0011.a: "Board draft boats and embark."
+ HRT_nibelungen.0011.a.tt: "Navigate the Rhine's depths and explore its numerous hidden inlets, where the treasure could be concealed away from prying eyes"
+ HRT_nibelungen.0011.a.tt2: "#V #P #bold HIGH#!#! chance of success and #N #bold HIGH#!#! chance of accident#!"
+ HRT_nibelungen.0011.b: "Search along the banks."
+ HRT_nibelungen.0011.b.tt: "Meticulously scour the banks of the Rhine, investigating caves, old ruins, and riverbeds exposed during low tide, for any signs of the legendary hoard's burial"
+ HRT_nibelungen.0011.b.tt2: "#V #M #bold MEDIUM#!#! chance of success and #M #bold MEDIUM#!#! chance of accident#!"
+ HRT_nibelungen.0011.c: "Explore the Vineyard-Cloaked Hills."
+ HRT_nibelungen.0011.c.tt: "Explore the vineyard-laden hills that flank the Rhine, particularly those with ancient roots and ruins entwined among their vines"
+ HRT_nibelungen.0011.c.tt2: "#V #N #bold LOW#!#! chance of success and #P #bold LOW#!#! chance of accident#!"
+ 
+ HRT_nibelungen.0021.t: "Result"
+ HRT_nibelungen.0021.desc.a: "As we navigated the Rhine's depths and explored its hidden inlets, promising clues tantalized our senses, leading us deeper into the river's secrets. However, with each revelation, our hopes were dashed as the trail grew cold, and the whispers of the treasure faded into mere echoes of the past. Disheartened but undeterred, we returned empty-handed, resolved to pursue other avenues in our quest for the legendary Nibelungen treasure."
+ HRT_nibelungen.0021.desc.b: "The journey along the Rhine's depths proved treacherous, as the draft boats encountered swift currents and submerged obstacles that tested our resolve and resourcefulness. Despite our best efforts, the relentless forces of nature conspired against us, forcing us to retreat with nothing to show for our efforts but bruises and battered spirits. Yet, as we regrouped and licked our wounds, the flame of determination burned brighter, urging us onward in our search for the elusive treasure."
+ HRT_nibelungen.0021.desc.c: "Enthralled by tales spun from the lips of locals, we ventured forth to investigate rumored spots of hidden treasure along the Rhine's banks. Yet, as we delved deeper into the myths and legends, reality clashed with fantasy, revealing that the whispers of wealth were naught but echoes of imagination. Disappointed but undeterred, we returned to the drawing board, recognizing that the path to the Nibelungen treasure would be paved with more than mere fables."
+ HRT_nibelungen.0021.desc.d: "With the passage of time as our relentless adversary, we pressed on in our search along the Rhine's storied banks, our hearts heavy with the burden of unfulfilled expectations. Yet, as the sun dipped below the horizon and the shadows lengthened, we were forced to concede defeat, our quest for the Nibelungen treasure stymied by the inexorable march of time. Reluctantly, we turned our boats homeward, vowing to return with renewed vigor and unwavering determination."
+ HRT_nibelungen.0021.a: "Disappointing."
+ 
+ HRT_nibelungen.0022.desc.a: "Amidst the tranquil waters of the Rhine, an unforeseen collision between two of our draft boats sent shockwaves through our expedition, resulting in minor damage and injuries among our crew. As we frantically worked to mend the broken pieces and tend to the wounded, the realization dawned upon us that our quest for the Nibelungen treasure would be fraught with unexpected challenges and setbacks."
+ HRT_nibelungen.0022.desc.b: "The serenity of our journey along the Rhine was shattered by the sudden onslaught of river rapids, which tested the mettle of our draft boats and crew. In the chaos that ensued, one of our boats briefly capsized, resulting in minor injuries and a setback in our search for the elusive treasure. Yet, as we regrouped and rallied our spirits, we resolved to set out again another time, undeterred by the trials that lay ahead."
+ HRT_nibelungen.0022.desc.c: "A critical piece of equipment malfunctioned during our expedition along the Rhine, resulting in a minor accident that left us scrambling to repair the damage and salvage what remained of our hopes for the Nibelungen treasure. Despite the setback, we refused to be deterred, determined to overcome adversity and emerge victorious in our quest for the legendary artifact."
+ HRT_nibelungen.0022.a: "Unbelievable!"
+ 
+ HRT_nibelungen.0023.desc.a: "Amidst the tranquil beauty of the Rhine's hidden inlets, our expedition stumbled upon a rare find: an ancient relic of historical significance, concealed within the river's depths. As we unearthed the artifact, its weathered surface hinted at a storied past, promising to fetch a modest sum of gold upon our return to civilization. Though not the legendary Nibelungen treasure we sought, the discovery kindled a spark of hope within us, fueling our determination to continue our quest with renewed vigor."
+ HRT_nibelungen.0023.desc.b: "Deep within the labyrinthine caverns that lined the Rhine's banks, our expedition unearthed a hidden cache of valuable trinkets and artifacts, long forgotten by the passage of time. As we marveled at the treasures laid bare before us, we recognized the potential for profit and prestige that lay within our grasp. With our coffers enriched and our spirits buoyed, we set our sights on further exploration, eager to uncover the secrets that lay hidden beneath the river's surface."
+ HRT_nibelungen.0023.desc.c: "In a stroke of serendipity, a chance encounter with a local fisherman led us to the discovery of a cryptic map detailing the location of a lesser-known treasure hidden along the Rhine's banks. As we studied the faded parchment, its ancient markings whispered of untold riches and hidden dangers, beckoning us to embark on a new adventure. With the map as our guide, we set forth with renewed purpose, determined to unlock the secrets that lay hidden within the river's embrace."
+ HRT_nibelungen.0023.desc.d: "Beneath the shimmering surface of the Rhine, a hidden pool awaited our discovery, its waters teeming with ethereal treasures left behind by mystical beings of ages past. As we gazed upon the otherworldly bounty laid before us, we marveled at the beauty and wonder of the artifacts that beckoned from the depths below. Though not the fabled Nibelungen treasure we sought, the encounter left an indelible mark upon our expedition, filling our hearts with awe and wonder at the mysteries of the river's depths."
+ HRT_nibelungen.0023.a: "Marvellous!"
+ 
+ HRT_nibelungen.0024.t: "Triumph of Legends"
+ HRT_nibelungen.0024.desc: "As the sun dips below the horizon, casting a golden glow upon the vineyard-cloaked hills that flank the majestic Rhine, our search for the fabled Nibelungen treasure reached its climax. Hidden from the prying eyes of the world, we uncovered a relic of untold power and significance: the Valkyr Helmet, worn by the legendary warrior queen Brünhilde herself.\n\nAs the helmet gleamed in the fading light, its ancient runes and intricate engravings whispered tales of valor and sacrifice, echoing the triumphs and tragedies of the Nibelungen saga. With each passing moment, the lessons learned on our journey paralleled those of the heroes of old: the bonds of loyalty tested, the fires of ambition kindled, and the price of hubris paid in blood.\n\nYet, amidst the echoes of the past, a new chapter unfolds. For in the discovery of the Valkyr Helmet, we found not only a relic of historical significance but a symbol of unity and strength for the Holy Roman Empire. As we gaze upon the helm, we are reminded that true greatness lies not in the wealth of kingdoms or the spoils of conquest, but in the courage to face adversity and the wisdom to learn from the lessons of history.\n\nWith the Valkyr Helmet in our possession, we embark on the journey back to the heart of the empire, our spirits buoyed by the knowledge that we had uncovered a treasure that would forever shape the course of history. And as we cross the threshold into a new era, we carry with us the lessons learned on our quest: the power of perseverance, the importance of loyalty, and the enduring legacy of the Nibelungen saga."
+ HRT_nibelungen.0024.a: "Behold, Triumph is ours!"
+ 
+ HRT_nibelungen.0031.desc.a: "Despite our meticulous efforts to scour the banks of the Rhine for any sign of the legendary hoard's burial, our search yielded naught but disappointment. Every cave, every ruin, every riverbed exposed during low tide proved devoid of the treasure we sought, leaving us with naught but the echoes of our own footsteps and the whispers of the river's secrets. Undeterred by this setback, we resolved to redouble our efforts, knowing that the path to the Nibelungen treasure would be fraught with challenges and false promises."
+ HRT_nibelungen.0031.desc.b: "As we combed the banks of the Rhine with painstaking care, nature herself seemed to conspire against us, obscuring the clues we sought with cunning and guile. Each cave, each ruin, each riverbed exposed during low tide held the promise of discovery, only to reveal the cruel trickery of the elements. Yet, as we weathered nature's deception, our resolve remained unshaken, for we knew that perseverance was the key to unlocking the secrets of the legendary hoard."
+ HRT_nibelungen.0031.desc.c: "Amidst the ancient ruins and caverns that lined the banks of the Rhine, shadows danced and whispers echoed, teasing us with the promise of untold riches. Yet, as we delved deeper into the heart of darkness, the elusive treasure remained just out of reach, mocking our efforts with its elusive nature. Disheartened but undeterred, we pressed onward, knowing that the path to the Nibelungen treasure was fraught with uncertainty and peril."
+ HRT_nibelungen.0031.desc.d: "Despite our best efforts to unravel the mysteries hidden along the banks of the Rhine, the treasure we sought remained shrouded in shadow and mystery. Every cave we explored, every ruin we unearthed, held the promise of discovery, yet each yielded only empty promises and false hope. Though our search proved fruitless, we refused to be discouraged, knowing that the true worth of our quest lay not in the treasure we sought, but in the journey itself."
+ 
+ HRT_nibelungen.0032.desc.a: "As we meticulously combed the banks of the Rhine for any sign of the legendary hoard's burial, unforeseen hazards lurked around every corner, threatening to derail our expedition at every turn. A sudden slip, a treacherous rock, and a minor accident left us nursing bruises and scratches, a stark reminder of the dangers that lurked within the shadows. Yet, as we tended to our wounds and regrouped, our determination remained unshaken, for we knew that adversity was but a small price to pay in the pursuit of greatness."
+ HRT_nibelungen.0032.desc.b: "The tranquility of our search along the banks of the Rhine was shattered by the fury of nature herself, as a sudden storm lashed out with ferocity, casting us into chaos and confusion. Amidst the tempest's fury, a minor accident left us reeling, our progress halted as we struggled to regain our footing. Yet, as the storm subsided and the skies cleared, we emerged stronger and more determined than ever, ready to face whatever challenges lay ahead in our quest for the Nibelungen treasure."
+ HRT_nibelungen.0032.desc.c: "Navigating the treacherous terrain along the banks of the Rhine proved to be a test of skill and perseverance, as hidden pitfalls and unseen obstacles threatened to ensnare us at every step. A minor accident served as a stark reminder of the dangers that lurked within the shadows, forcing us to proceed with caution as we continued our search for the elusive treasure. Yet, as we pressed onward, undeterred by the challenges that lay ahead, we remained steadfast in our determination to uncover the secrets of the legendary hoard."
+ HRT_nibelungen.0032.desc.d: "In our relentless pursuit of the legendary Nibelungen treasure along the banks of the Rhine, adversity reared its head in the form of a minor accident that left us momentarily shaken. Yet, as we rallied our spirits and tended to the wounded, we refused to let this setback deter us from our noble quest. For we knew that true greatness lay not in avoiding adversity, but in overcoming it with courage and determination. And so, with renewed resolve, we pressed onward, eager to face whatever challenges the river's banks had in store for us."
+ 
+ HRT_nibelungen.0033.desc.a: "Amidst the ancient ruins and forgotten caves that lined the banks of the Rhine, our diligent search yielded a modest discovery: a cache of hidden relics, their value obscured by the passage of time. Though not the legendary Nibelungen treasure we sought, these tokens held a quiet allure, promising a modest sum of gold upon our return to civilization. With our spirits buoyed by this unexpected find, we pressed onward, knowing that even the smallest treasures could hold great significance in our quest for greatness."
+ HRT_nibelungen.0033.desc.b: "As we combed the banks of the Rhine with meticulous care, our efforts were rewarded with a fortuitous discovery: a collection of artifacts and trinkets, their origins shrouded in mystery. Though not the fabled Nibelungen treasure we sought, these humble tokens held the promise of profit and prestige, offering a welcome boon to our expedition's coffers. With our spirits lifted by this unexpected windfall, we continued our search with renewed vigor, eager to uncover the secrets that lay hidden along the river's edge."
+ HRT_nibelungen.0033.desc.c: "Beneath the shadowed boughs of ancient trees and amidst the crumbling ruins that lined the banks of the Rhine, our diligent search revealed an unexpected bounty: a trove of treasures, hidden away from prying eyes. Though not the legendary Nibelungen treasure we sought, these humble offerings held a quiet charm, promising a modest reward upon our return to civilization. With our hearts lightened by this unexpected boon, we pressed onward, knowing that even the smallest discoveries could hold great significance in our quest for glory."
+ HRT_nibelungen.0033.desc.d: "In the quiet solitude of the Rhine's hidden inlets and forgotten alcoves, our expedition stumbled upon a trove of hidden gems: small, yet exquisite tokens of a bygone era. Though not the fabled Nibelungen treasure we sought, these precious jewels held a quiet allure, promising a modest sum of gold upon our return to civilization. With our spirits lifted by this unexpected discovery, we continued our search with renewed determination, knowing that even the smallest treasures could hold great significance in our quest for greatness."
+ 
+ HRT_nibelungen.0041.desc.a: "As we traversed the vineyard-laden hills that hugged the Rhine's banks, our search for the elusive Nibelungen treasure proved fruitless. Despite the beauty and tranquility of the surroundings, the hills remained silent, revealing no trace of the legendary hoard's burial. Disappointed yet undeterred, we continued our exploration, knowing that the path to greatness often winds through valleys of disappointment and uncertainty."
+ HRT_nibelungen.0041.desc.b: "In the shadowed depths of the vineyard-cloaked hills, our expedition's search for the fabled Nibelungen treasure led us to naught but dead ends and false leads. Though the ancient roots and ruins entwined among the vines whispered tales of untold riches, their secrets remained elusive, shrouded in mystery and obscurity. Undeterred by this setback, we pressed onward, our resolve unshaken by the silent vigil of the hills."
+ HRT_nibelungen.0041.desc.c: "Amidst the timeless beauty of the vineyard-cloaked hills, our quest for the legendary Nibelungen treasure echoed with the footsteps of those who had come before us. Yet, despite our diligent search, the hills revealed no trace of the fabled hoard, their secrets guarded by the passage of time. Though disappointed by this turn of events, we remained undaunted in our pursuit, knowing that the path to greatness often winds through valleys of uncertainty and doubt."
+ HRT_nibelungen.0041.desc.d: "Beneath the verdant canopy of the vineyard-cloaked hills, our expedition's search for the Nibelungen treasure was thwarted by the tangled vines and hidden pitfalls that lurked within. Despite our best efforts to unravel the mysteries that lay hidden among the foliage, the treasure we sought remained tantalizingly out of reach. Undeterred by this setback, we pressed onward, determined to uncover the secrets that lay hidden within the hills' tangled embrace."
+ 
+ HRT_nibelungen.0042.desc.a: "As we explored the vineyard-laden hills that flanked the Rhine, our progress was hindered by hidden hazards and treacherous terrain. A sudden stumble, a twisted ankle, and a minor accident served as a stark reminder of the dangers that lurked within the shadows. Yet, as we tended to the wounded and regrouped, our resolve remained unshaken, for we knew that adversity was but a small price to pay in the pursuit of greatness."
+ HRT_nibelungen.0042.desc.b: "In the midst of our exploration of the vineyard-cloaked hills, our expedition was ensnared by the relentless grip of the tangled vines that wound their way through the landscape. A minor accident left us momentarily incapacitated, our progress halted by the vines' tenacious embrace. Yet, as we struggled to free ourselves from their clutches, our determination remained unbroken, for we knew that only by overcoming adversity could we hope to achieve our noble goal."
+ HRT_nibelungen.0042.desc.c: "Navigating the treacherous terrain of the vineyard-laden hills proved to be a test of skill and resilience, as hidden obstacles and unseen pitfalls threatened to ensnare us at every turn. A minor accident served as a stark reminder of the dangers that lurked within the landscape, forcing us to proceed with caution as we continued our search for the elusive treasure. Yet, as we pressed onward, undeterred by the challenges that lay ahead, we remained steadfast in our determination to uncover the secrets of the legendary hoard."
+ HRT_nibelungen.0042.desc.d: "As we delved deeper into the shadows of the vineyard-cloaked hills, our expedition was caught off guard by an unexpected hazard that lay hidden beneath the foliage. A minor accident left us momentarily stunned, our progress halted by the unforeseen obstacle. Yet, as we regrouped and rallied our spirits, we refused to let this setback deter us from our noble quest. For we knew that true greatness lay not in avoiding adversity, but in overcoming it with courage and determination. And so, with renewed resolve, we pressed onward, eager to face whatever challenges the hills had in store for us."
+ 
+ HRT_nibelungen.0043.desc.a: "Amidst the vineyard-cloaked hills that flanked the Rhine, our diligent search was rewarded with a modest discovery: a forgotten cache of treasures, hidden away from prying eyes. Though not the legendary Nibelungen treasure we sought, these humble offerings held a quiet allure, promising a modest sum of gold upon our return to civilization. With our spirits buoyed by this unexpected find, we continued our search with renewed determination, knowing that even the smallest treasures could hold great significance in our quest for greatness."
+ HRT_nibelungen.0043.desc.b: "In the heart of the vineyard-laden hills, our expedition stumbled upon a trove of hidden treasures, nestled amidst the ancient roots and ruins that dotted the landscape. Though not the fabled Nibelungen treasure we sought, these humble tokens held the promise of profit and prestige, offering a welcome boon to our expedition's coffers. With our spirits lifted by this unexpected windfall, we continued our search with renewed vigor, eager to uncover the secrets that lay hidden within the hills' verdant embrace."
+ HRT_nibelungen.0043.desc.c: "As we combed the vineyard-cloaked hills for any sign of the legendary hoard's burial, our efforts were rewarded with a fortuitous discovery: a collection of ancient relics, their value obscured by the passage of time. Though not the fabled Nibelungen treasure we sought, these humble artifacts held a quiet charm, promising a modest reward upon our return to civilization. With our hearts lightened by this unexpected boon, we pressed onward, knowing that even the smallest discoveries could hold great significance in our quest for greatness."
+ HRT_nibelungen.0043.desc.d: "Beneath the shadowed boughs of ancient trees and amidst the crumbling ruins that lined the vineyard-cloaked hills, our diligent search unearthed a trove of hidden gems: small, yet exquisite tokens of a bygone era. Though not the legendary Nibelungen treasure we sought, these precious jewels held a quiet allure, promising a modest sum of gold upon our return to civilization. With our spirits lifted by this unexpected discovery, we continued our search with renewed determination, knowing that even the smallest treasures could hold great significance in our quest for greatness."
+ 
+ ################
+ # Unity Events #
+ ################
+ 
+ HRT.2001.t: "Promote Unity Between the Tribes"
+ HRT.2001.desc: "As the realm faces both internal strife and external threats, I recognize the importance of fostering unity among the diverse tribes that comprise #V [emperor.GetPrimaryTitle.GetNameNoTooltip]#!. The lands of the empire are rich with a tapestry of cultures, traditions, and languages. Yet, these very differences have often sown discord and division.\n\nIn a grand assembly at the imperial court, I have gathered representatives of the [HRT_stammesherzogtuemer|E]. [GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetName], [GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetName], [GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetName], [GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture.GetName], and [GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture.GetName] banners flutter side by side, a rare and powerful symbol of the potential for unity.\n\nBefore the gathered assembly, I address the need for a cohesive and harmonious realm, where every tribe can coexist in mutual respect and shared prosperity. To achieve this noble goal, several strategies are presented, each aimed at strengthening the bonds between these proud and storied peoples."
+ HRT.2001.a: "Organize cultural festivals."
+ HRT.2001.a.tt: "Organizing cultural festivals and events that celebrate the traditions and heritage of different tribes can promote cross-cultural interaction and appreciation. Sponsor grand festivities that showcase the rich cultural diversity within the empire, encouraging unity and solidarity among its subjects."
+ HRT.2001.b: "Encourage marriage alliances."
+ HRT.2001.b.tt: "Encouraging marriage alliances between noble families from different tribes can promote cultural exchange and understanding. Arrange marriages between members of your tribe and influential families from different regions, fostering personal connections and loyalty to the imperial authority."
+ HRT.2001.c: "Implement new feudal contracts."
+ HRT.2001.c.tt: "Implementing feudal contracts that emphasize cultural tolerance and cooperation can help strengthen the bonds between the tribes. These contracts could include clauses that promote the preservation and respect of each tribe's customs, languages, and traditions within the empire."
+ HRT.2001.d: "Facilitate trade and commerce."
+ HRT.2001.d.tt: "Facilitating trade and commerce between regions can lead to increased cultural exchange and integration. Invest in infrastructure projects such as roads and bridges to improve connectivity between tribes, fostering economic interdependence and cultural interaction."
+ 
+ HRT.2011.t: "Unity: Cultural Festivals"
+ HRT.2011.desc: "I have resolved to promote unity through the joyous celebration of each tribe's unique cultural heritage. By organizing grand festivals, I aim to foster mutual respect and admiration among the tribes, creating a vibrant tapestry of shared traditions and communal harmony.\n\nAs the imperial herald prepares to announce my imperial decree, the hall buzzes with anticipation. Representatives from each tribe await the specifics, knowing that such celebrations could bring about a new era of understanding and camaraderie. I have three distinct paths in mind, to ensure these cultural festivals serve as a beacon of unity:"
+ HRT.2011.a: " Tribal competitions."
+ HRT.2011.a.tt: "Organize friendly competitions and games that bring together participants from different tribes.\n\nThis option increases the [cultural_acceptance|E] between each [HRT_stammesherzogtum|E] by #V 1%#! (10% total)\n"
+ HRT.2011.b: " Annual celebrations."
+ HRT.2011.b.tt: "Establish annual celebrations that rotate between different tribal regions, ensuring each tribe has a chance to host and share its culture.\n\nThis option increases the [cultural_acceptance|E] between each [HRT_stammesherzogtum|E] by #V 2%#! (20% total)\n"
+ HRT.2011.c: " Cultural heritage sites."
+ HRT.2011.c.tt: "Establish and maintain cultural heritage sites and monuments that celebrate the contributions and history of all tribes within the empire.\n\nThis option increases the [cultural_acceptance|E] between each [HRT_stammesherzogtum|E] by #V 3%#! (30% total)\n"
+ HRT_cultural_acceptance_festival: "Cultural Festivals"
+ HRT_unity_festival: "Hosting Cultural Festivals"
+ 
+ HRT.2012.t: "Unity: Marriage Alliances"
+ HRT.2012.desc: "Understanding that familial bonds can be the strongest ties of all, I have decided to promote unity within [emperor.GetPrimaryTitle.GetNameNoTooltip] through strategic marriage alliances. By intertwining the noble families of various tribes with our own, I might be able to create a network of kinship that fosters a deeper sense of belonging to the empire.\nIn the grand hall of the imperial court, filled with the nobility of the realm, I step forward to address the assembly. The faces of [GetPlayer.MakeScope.Var('HRT_core_culture_1').Culture.GetName], [GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetName], [GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetName], [GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture.GetName], and [GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture.GetName] lords and ladies reflect a mixture of curiosity and anticipation.\nNow, which [HRT_stammesherzogtum|E] shall receive this honor?"
+ HRT.2012.a: "[GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetName]"
+ HRT.2012.a.tt: "This option increases your [cultural_acceptance|E] with the [GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetName] [HRT_stammesherzogtum|E] by #V 10%#!\n"
+ HRT.2012.b: "[GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetName]"
+ HRT.2012.b.tt: "This option increases your [cultural_acceptance|E] with the [GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetName] [HRT_stammesherzogtum|E] by #V 10%#!\n"
+ HRT.2012.c: "[GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture.GetName]"
+ HRT.2012.c.tt: "This option increases your [cultural_acceptance|E] with the [GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture.GetName] [HRT_stammesherzogtum|E] by #V 10%#!\n"
+ HRT.2012.d: "[GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture.GetName]"
+ HRT.2012.d.tt: "This option increases your [cultural_acceptance|E] with the [GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture.GetName] [HRT_stammesherzogtum|E] by #V 10%#!\n"
+ HRT_cultural_acceptance_marriage: "Marriage Alliances"
+ HRT_unity_marriage: "Arranging Political Marriages"
+ 
+ HRT.2013.t: "Unity: Feudal Contracts"
+ HRT.2013.desc: "Recognizing the importance of a cohesive and harmonious realm, I have turned my attention to the foundational agreements that govern the relationships between the crown and its vassals. By revising local charters to promote mutual respect and cultural tolerance, I promise to create a more integrated and cooperative empire.\nIn the ornate chambers of the imperial court, representatives from the various tribes of [emperor.GetPrimaryTitle.GetNameNoTooltip] gather. I step forward, my voice carrying the weight of authority and vision.\n\nWhere should the bureauratic apparatus begin?"
+ HRT.2013.a: "[GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetName]"
+ HRT.2013.a.tt: "This option increases your [cultural_acceptance|E] with the [GetPlayer.MakeScope.Var('HRT_core_culture_2').Culture.GetName] [HRT_stammesherzogtum|E] by #V 5%#!\n"
+ HRT.2013.b: "[GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetName]"
+ HRT.2013.b.tt: "This option increases your [cultural_acceptance|E] with the [GetPlayer.MakeScope.Var('HRT_core_culture_3').Culture.GetName] [HRT_stammesherzogtum|E] by #V 10%#!\n"
+ HRT.2013.c: "[GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture.GetName]"
+ HRT.2013.c.tt: "This option increases your [cultural_acceptance|E] with the [GetPlayer.MakeScope.Var('HRT_core_culture_4').Culture.GetName] [HRT_stammesherzogtum|E] by #V 15%#!\n"
+ HRT.2013.d: "[GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture.GetName]"
+ HRT.2013.d.tt: "This option increases your [cultural_acceptance|E] with the [GetPlayer.MakeScope.Var('HRT_core_culture_5').Culture.GetName] [HRT_stammesherzogtum|E] by #V 15%#!\n"
+ HRT_cultural_acceptance_contracts: "Feudal Contracts"
+ HRT_unity_contracts: "Revising Feudal Contracts"
+ 
+ HRT.2014.t: "Unity: Trade and Commerce"
+ HRT.2014.desc: "I understand that trade and commerce are the lifeblood of [emperor.GetPrimaryTitle.GetNameNoTooltip], essential for fostering prosperity and unity among its diverse tribes. By enhancing trade networks and encouraging economic interdependence, a web of connections that bind the empire together through mutual benefit and shared wealth can be created.\n\nIn the grand hall of the imperial palace, merchants, nobles, and representatives from various regions gather to hear the my vision. I speak of a future where goods, ideas, and cultures flow freely across the empire, enriching all who participate.\n\nBy what investment shall this immeasurable profit return?"
+ HRT.2014.a: "Local market days."
+ HRT.2014.a.tt: "Establish regular market days where merchants from different tribes can trade goods and share cultural practices.\n\nThis option increases the [cultural_acceptance|E] between each [HRT_stammesherzogtum|E] by #V 1%#! (10% total)\n"
+ HRT.2014.b: "Infrastructure improvements."
+ HRT.2014.b.tt: "Invest in infrastructure projects such as roads and bridges that connect tribal regions, enhancing trade routes.\n\nThis option increases the [cultural_acceptance|E] between each [HRT_stammesherzogtum|E] by #V 2%#! (20% total)\n"
+ HRT.2014.c: "Imperial trade networks."
+ HRT.2014.c.tt: "Develop extensive trade networks that link all major regions of the empire, promoting economic interdependence.\n\nThis option increases the [cultural_acceptance|E] between each [HRT_stammesherzogtum|E] by #V 3%#! (30% total)\n"
+ HRT_cultural_acceptance_trade: "Facilitated Trade"
+ HRT_unity_trade: "Facilitating Trade"
+
+ HRT.20_authority.tt: "You spend #N 20 [HRT_imperial_authority|E]#!"
+ HRT.30_authority.tt: "You spend #N 30 [HRT_imperial_authority|E]#!"
+ HRT.40_authority.tt: "You spend #N 40 [HRT_imperial_authority|E]#!"
+ 
+ ####################
+ # Hoftag Activity #
+ ####################
+ HRT_activity_hoftag: "Hoftag"
+ HRT_activity_hoftag_desc: "A great and holy empire produces distinguished nobles. I should seek their counsel to assure their loyalty and secure their pledge to my cause."
+ HRT_activity_hoftag_selection_tooltip: "Summon the Prince-Electors!"
+ HRT_activity_hoftag_destination_selection: ""
+ TRAVEL_NAME_FOR_HRT_activity_hoftag: "[Character.GetFirstNamePossessiveNoTooltip] $HRT_activity_hoftag$"  
+ HRT_activity_hoftag_host_desc: "$BULLET_WITH_TAB$Assemble the empire's nobles and gain their legal consent for your agenda"
+ HRT_activity_hoftag_guest_desc: "$BULLET_WITH_TAB$Adhere to your feudal obligation and participate in the decision-making at the royal assembly"
+ HRT_activity_hoftag_guest_help_text: "$HRT_activity_hoftag$"
+ HRT_hoftag_type: "Assembly"
+ HRT_hoftag_type_default: "Curia Regis"
+ HRT_hoftag_type_default_desc: "A ceremonial reception in order to clarify the nature of this convent."
+ 
+ HRT_activity_invite_rule_prince_electors: "Prince-Electors"
+ HRT_activity_invite_rule_nobles: "Nobles"
+ 
+ NOT_HRT_activity_hoftag_req: "You need to prepare the Hoftag's agenda first"
+ HRT_activity_hoftag_province_desc: "Convene a Hoftag in this #italic Kaiserpfalz#!; a palace that serves as a temporary seat of power in an itinerant kingship.\n" 
+ 
+ HRT_hoftag_parlamentum_phase: "Parlamentum"
+ HRT_hoftag_parlamentum_phase_desc: "Deliberate, debate, negotiate, resolve, ..."
+
+ HRT_activity_hoftag_conclusion_desc: "Having deliberated on matters of state, governance, and the empire's future, the Prince-Electors leave the imperial court, each returning to their respective territories. Their departures mark the end of a vital gathering, where the unity and sovereignty of the empire had been reaffirmed through dialogue and compromise. The empire, though vast and diverse, remained interconnected through their continued cooperation and mutual commitment to its enduring legacy."
+ 
+ HRT_hoftag_yay_title: "[first.GetShortUINameNoTooltip|U] #P Votes in Favor of the Resolution#!"
+ HRT_hoftag_nay_title: "[first.GetShortUINameNoTooltip|U] #N Opposes the Resolution#!"
+ 
+ HRT_gather_support_intent_header: "Gather Support:"
+ HRT_gather_support_intent: "Gather Support"
+ HRT_gather_support_intent_desc: "Seek support in an upcoming military campaign."
+ HRT_press_claim_intent_header: "Press Claim:"
+ HRT_press_claim_intent: "Press Claim"
+ HRT_press_claim_intent_desc: "Seek support in pressing a claim you hold on a vassal's title."
+ HRT_convert_intent_header: "Conversion:"
+ HRT_convert_intent: "Conversion"
+ HRT_convert_intent_desc: "Force unity through homogenity."
+ HRT_judgment_intent_header: "Pass Judgement:"
+ HRT_judgment_intent: "Pass Judgement"
+ HRT_judgment_intent_desc: "Hold trial over a criminal vassal."
+ HRT_attendance_duty_intent_header: "Court Attendance Duty:"
+ HRT_attendance_duty_intent: "Court Attendance Duty"
+ HRT_attendance_duty_intent_desc: "Uphold the feudal obligations and appear in person."
+ 
+ HRT_hoftag_gather_support_mod: "Promised Support"
+ 
+ HRT_hoftag.0001.t: "Hoftag: Agenda"
+ HRT_hoftag.0001.desc: "I withdraw to my chambers, preparing for the Hoftag to commence. The future of the empire depends on the agenda I set, and I carefully review each matter that will come before the assembly. The realm stands at a critical juncture, and I must ensure that the princes are focused on securing our stability, prosperity, and unity.\n\nAs I finalize the order of discussions, I consider one point that has been a thorn in my side for a long time."
+ HRT_hoftag.0001.a: "Seek support for a military campaign."
+ HRT_hoftag.0001.b: "There's a county that should be rightfully mine."
+ HRT_hoftag.0001.c: "We cannot tolerate the infidel any longer."
+ HRT_hoftag.0001.d: "Bolster the cultural unity of the empire."
+ HRT_hoftag.0001.e: "Bring judgement to the criminals."
+ 
+ HRT_hoftag.0002.desc: "As I study the map, the threat on our borders becomes undeniable. The time for decisive action has come. I must seek military support at the Hoftag — the empire's future depends on it. The risks are great, but without the backing of the princes, we stand vulnerable.\n\nI will present our cause with unwavering conviction, knowing that the security of the realm and the future of our people hinge on their support. As I prepare for the Hoftag, I am resolved: we must unite in strength, or risk everything."
+ HRT_hoftag.0002.a: "Let it be known."
+ 
+ HRT_hoftag.0003.desc: "As I stand before the council chamber, the map of the empire spread out before me, my eyes settle on the contested county that rightfully belongs under my rule. The time has come to press my claim. This Hoftag will be the moment to seek the support of the princes, to secure what is mine by right.\n\nI know the path ahead is fraught with challenges, but the strength of the empire lies in its unity. Without the backing of the lords, my claim may falter. I must present my case with clarity and resolve, showing them that this is not just a personal matter, but one that affects the balance of power within the realm.\n\nAs I prepare to convene the Hoftag, I am determined. The time has come to rally the princes, to secure their support, and to bring this county into the fold of my domain. Together, we will ensure that the empire remains strong and just. Now, this county has sparked my interest..."
+ HRT_hoftag.0003.a: "The [claim_1.GetName] is rightfully mine."
+ HRT_hoftag.0003.b: "The [claim_2.GetName] shall prosper under my rule."
+ HRT_hoftag.0003.c: "The [claim_3.GetName] belongs to me!"
+ HRT_hoftag.0003.d: "The [claim_4.GetName]'s ruler is not rightful."
+ 
+ HRT_hoftag.0004.desc: "As I gaze out over the lands of the empire, my thoughts turn to those that remain lost in the shadows of heathen belief. The Hoftag will be my opportunity to seek the support of the princes for this holy mission.\n\nI know that this is not just a matter of religion but of unity within the realm. A conversion will strengthen the empire's foundations, ensuring that we stand united under one faith. But I cannot do this alone; I need the backing of the lords to make this a reality.\n\nAs I prepare for the Hoftag, I am resolute. I will present my case with the conviction that this is the right path for the empire. The time has come to rally the princes, to secure their support, and to bring the true faith to every corner of our land. Now, where to direct this holy mission..."
+ HRT_hoftag.0004.a: "[vassal_1.GetFullName] must see the wisdom here."
+ HRT_hoftag.0004.b: "[vassal_2.GetFullName] needs to convert to the true faith."
+ HRT_hoftag.0004.c: "The [county_1.GetName] is a refuge for heathens."
+ HRT_hoftag.0004.d: "The heathens of the [county_2.GetName] must see the errors in their ways."
+ 
+ HRT_hoftag.0005.desc: "As I reflect on the diverse cultures within the empire, my attention turns to a county that remains distinct, its traditions at odds with the heart of our realm. The time has come to bring this land closer to the core of our cultural identity. The Hoftag offers the perfect moment to seek the support of the princes for this vital task.\n\nI understand that this is more than just a matter of tradition — it’s about unity and the strength of the empire. Aligning this county with our shared culture will solidify the bonds that hold our realm together. But to achieve this, I need the backing of the lords, their commitment to this cause.\n\nAs I prepare to convene the Hoftag, I am determined. I will present my vision with the belief that cultural unity is essential for the empire’s future. The time has come to rally the princes, to gain their support, and to ensure that our empire stands united in both faith and culture."
+ HRT_hoftag.0005.a: "The [county_1.GetName] must learn our ways."
+ HRT_hoftag.0005.b: "[county_2.GetName] dialect is outlandish."
+ HRT_hoftag.0005.c: "The populace of the [county_3.GetName] is stranger to us."
+ HRT_hoftag.0005.d: "The fashion of the [county_4.GetName] is scandalous."
+ 
+ HRT_hoftag.0006.desc: "As I contemplate the state of the realm, my thoughts turn to a vassal who has brazenly defied the laws of the empire. Justice must be served, and the time has come to act. The Hoftag will be my opportunity to seek the support of the princes in bringing this criminal to justice.\n\nThis is not just about one man’s transgressions; it’s about maintaining the order and authority that uphold our empire. To let this crime go unpunished would weaken the very foundations of our rule. But I cannot do this alone — I need the lords to stand with me in enforcing the law.\n\nAs I prepare for the Hoftag, I am resolute. I will present the case with unwavering determination, knowing that justice must prevail. The time has come to rally the princes, to secure their support, and to demonstrate that no one is above the laws of the empire."
+ HRT_hoftag.0006.a: "[vassal_1.GetFullName] must be brought to justice."
+ HRT_hoftag.0006.b: "[vassal_2.GetFullName] actions require redemption."
+ HRT_hoftag.0006.c: "We cannot allow [vassal_3.GetFullName] to roam freely."
+ HRT_hoftag.0006.d: "[vassal_4.GetFullName]'s escapades have gone far enough."
+ 
+ HRT_hoftag.parlamentum.t: "Parlamentum"
+ HRT_hoftag.parlamentum.gather_support.desc_host: "A procession of carriages and retinues begins to fill the grand courtyard. The Hoftag has commenced, and one by one, the princes of the realm arrive to pay their respects and take their places in the assembly. As I watch from the balcony, the banners of their houses flutter in the breeze, each a symbol of the power and prestige they wield within their territories, and each representing a potential ally in the campaign that looms on the horizon.\nThe guards, clad in gleaming armor, guide the princes to the great hall where the Hoftag will be held, their movements precise and purposeful, knowing the gravity of what is to come.\nOnce inside the hall, the princes take their seats according to rank and custom, their eyes occasionally meeting mine.\nThe time has come to secure the alliances that will lead us to victory, to steer the course of the empire toward its destiny, and to gather the strength needed to conquer the challenges that lie ahead."
+ HRT_hoftag.parlamentum.press_claim.desc_host: "A procession of carriages and retinues begins to fill the grand courtyard. The Hoftag has commenced, and one by one, the princes of the realm arrive, ready to pay their respects and assume their places in the assembly. From my vantage point on the balcony, I observe the banners of their houses fluttering in the breeze, each a symbol of the authority they command within their domains — and each a potential force in the pursuit of my personal claim on [emperor.MakeScope.Var('HRT_hoftag_claim').GetName].\nI have summoned these princes not only to discuss the matters of the realm but also to garner their support for my rightful claim over [emperor.MakeScope.Var('HRT_hoftag_claim').GetName]. The guards, clad in their resplendent armor, escort the princes to the great hall where the Hoftag will unfold, their steps measured, aware of the delicate power play at hand.\nOnce inside the hall, the princes take their seats in accordance with rank and tradition, their eyes occasionally meeting mine.\nWith a subtle gesture, I signal the herald to announce the start of the Hoftag. The moment has arrived to press my claim, to rally the support necessary to secure [emperor.MakeScope.Var('HRT_hoftag_claim').GetName], and to demonstrate that the might of the empire can bend to the will of its Kaiser when his right is at stake."
+ HRT_hoftag.parlamentum.convert_faith.desc_host: "A procession of carriages and retinues begins to fill the grand courtyard. The Hoftag has commenced, and one by one, the princes of the realm arrive, prepared to pay their respects and take their places in the assembly. From my vantage point on the balcony, I observe the banners of their houses fluttering in the breeze, each a symbol of the influence they wield within their lands — and each representing a potential ally in my mission to bring the light of the true faith to the wayward [emperor.MakeScope.Var('HRT_hoftag_faith_target').GetFullName].\nI have summoned these princes not only to address the affairs of the realm but also to enlist their support in converting the heathen within the empire to the true faith. The guards, clad in their shining armor, guide the princes to the great hall where the Hoftag will unfold, their movements steady, fully aware of the spiritual significance of this gathering.\nOnce inside the hall, the princes take their seats according to rank and custom, their eyes occasionally meeting mine.\nWith a deliberate gesture, I signal the herald to announce the beginning of the Hoftag."
+ HRT_hoftag.parlamentum.convert_faith_county.desc_host: "A procession of carriages and retinues begins to fill the grand courtyard. The Hoftag has commenced, and one by one, the princes of the realm arrive, prepared to pay their respects and take their places in the assembly. From my vantage point on the balcony, I observe the banners of their houses fluttering in the breeze, each a symbol of the influence they wield within their lands — and each representing a potential ally in my mission to bring the light of the true faith to the wayward [emperor.MakeScope.Var('HRT_hoftag_faith_target_county').Title.GetName].\nThe guards, clad in their shining armor, guide the princes to the great hall where the Hoftag will unfold, their movements steady, fully aware of the spiritual significance of this gathering.\nOnce inside the hall, the princes take their seats according to rank and custom, their eyes occasionally meeting mine. With a deliberate gesture, I signal the herald to announce the beginning of the Hoftag."
+ HRT_hoftag.parlamentum.convert_culture.desc_host: "A procession of carriages and retinues begins to fill the grand courtyard. The Hoftag has commenced, and one by one, the princes of the realm arrive, prepared to pay their respects and take their places in the assembly. From my vantage point on the balcony, I observe the banners of their houses fluttering in the breeze, each a symbol of the distinct cultures they represent within their lands — and each a potential ally in my mission to unify the empire under a single, cohesive culture.\nThe issue at hand is not merely one of power or territory but of identity itself. I have summoned these princes not only to address the affairs of the realm but also to gain their support in converting the culture of [emperor.MakeScope.Var('HRT_hoftag_culture_target').Title.GetName] to align more closely with the heart of our traditions. The guards, clad in their shining armor, guide the princes to the great hall where the Hoftag will unfold, their movements deliberate, aware of the delicate cultural shift at stake.\nOnce inside the hall, the princes take their seats according to rank and custom, their eyes occasionally meeting mine. They understand that today’s decisions could influence the cultural landscape of the realm for generations.\nWith a measured gesture, I signal the herald to announce the beginning of the Hoftag. Now begins the time to deliberate, to persuade, and to advocate for the cultural conversion of [emperor.MakeScope.Var('HRT_hoftag_culture_target').Title.GetName]. The moment has arrived to seek the support necessary to bring this region in line with the empire's core identity, to strengthen the unity of our people, and to ensure that the empire’s cultural foundation remains strong and enduring."
+ HRT_hoftag.parlamentum.judgment.desc_host: "A procession of carriages and retinues begins to fill the grand courtyard. The Hoftag has commenced, and one by one, the princes of the realm arrive, prepared to pay their respects and take their places in the assembly. From my vantage point on the balcony, I observe the banners of their houses fluttering in the breeze, each a symbol of the authority they command within their lands — and each a potential witness to the justice that will be served today.\nThe purpose of this gathering is clear to all: the time has come to bring judgment upon [emperor.MakeScope.Var('HRT_hoftag_judgment_target').GetFullName], who has defied the laws of the realm. The guards, clad in their gleaming armor, guide the princes to the great hall where the Hoftag will unfold, their movements precise, knowing the gravity of the proceedings that await.\nOnce inside the hall, the princes take their seats according to rank and custom, their eyes occasionally meeting mine.\nWith a firm gesture, I signal the herald to announce the beginning of the Hoftag. Now begins the time to present the charges, to weigh the evidence, and to pass judgment on [emperor.MakeScope.Var('HRT_hoftag_judgment_target').GetFullName]. The moment has arrived to enforce the law, to ensure that order is maintained, and to demonstrate that no one, is above the justice of the empire."
+ HRT_hoftag.0011.a: "Let the votum commence!"
+ 
+ HRT_hoftag.parlamentum.gather_support.desc_guest: "A procession of carriages and retinues fills the grand courtyard as I arrive at the Hoftag, alongside the other princes of the realm. From my seat, I observe the Kaiser watching from the balcony, his eyes tracking the banners that flutter in the breeze — symbols of the power we each command within our territories.\nThe purpose of this assembly is clear to all of us: the empire stands on the brink of a decisive military campaign, and the Kaiser seeks our support to ensure its success. The guards, their armor gleaming, guide us into the great hall where the Hoftag will be held. There is a shared understanding of the gravity of what lies ahead.\nAs we take our seats according to rank and custom, my gaze occasionally meets those of my peers. We are each weighing the risks and rewards of committing to this impending war. The decisions made today will shape not only the fate of the realm but our futures as well.\nWhen the Kaiser signals for the herald to announce the beginning of the Hoftag, the hall falls into a reverent silence. The herald’s voice rings out, calling forth the first matter of the day. Now is the time for judgment, negotiation, and the rallying of the empire’s might. We must consider carefully how we will align ourselves, knowing that the alliances formed today will steer the course of the empire toward its destiny."
+ HRT_hoftag.parlamentum.press_claim.desc_guest: "A procession of carriages and retinues fills the grand courtyard as I join the other princes in attending the Hoftag. From the moment I arrived, it was clear that this assembly would be different — the Kaiser has summoned us not only to discuss the realm’s affairs but to press his personal claim over [emperor.MakeScope.Var('HRT_hoftag_claim').GetName]. From my seat, I observe the Kaiser watching from the balcony, his gaze fixed on the banners that flutter in the breeze, each representing the authority we wield within our domains.\nThe guards, resplendent in their armor, guide us to the great hall, their steps measured, aware of the delicate power play at hand.\nAs we take our seats, I can sense the curiosity and calculation in the eyes of my peers. We are here to observe, to judge, and to decide how this will influence the balance of power. Today’s decisions will set a precedent for the future.\nThe Kaiser’s subtle gesture signals the herald to announce the start of the Hoftag. Now is the time to hear the arguments, to consider the justice of the Kaiser’s cause, and to decide whether we will support him in his claim on [emperor.MakeScope.Var('HRT_hoftag_claim').GetName]."
+ HRT_hoftag.parlamentum.convert_faith.desc_guest: "A procession of carriages and retinues fills the grand courtyard as I arrive with the other princes to attend the Hoftag. From my seat, I watch as the Kaiser observes from the balcony, his gaze sweeping over the banners that flutter in the breeze, each a symbol of the influence we hold within our lands.\nThe purpose of this gathering is clear: the Kaiser seeks our support to convert [emperor.MakeScope.Var('HRT_hoftag_faith_target').GetFullName] to the true faith. The guards, clad in shining armor, guide us into the great hall, their movements deliberate, knowing the spiritual significance of what is to come.\nAs we take our seats according to rank and custom, my gaze occasionally meets those of my peers. We have come not just to witness a political maneuver but to contemplate a matter of faith.\nWith a deliberate gesture, the Kaiser signals the herald to announce the beginning of the Hoftag. The hall falls into a reverent silence as the herald’s voice rings out, introducing the first matter of the day. Now is the time to reason, to weigh the spiritual implications, and to decide whether we will aid the Kaiser in spreading the Church’s influence. The fate of souls, as well as the unity of the empire, may rest on the decisions we make today."
+ HRT_hoftag.parlamentum.convert_faith_county.desc_guest: "A procession of carriages and retinues fills the grand courtyard as I arrive with the other princes to attend the Hoftag. From my seat, I watch as the Kaiser observes from the balcony, his gaze sweeping over the banners that flutter in the breeze, each a symbol of the influence we hold within our lands.\nThe purpose of this gathering is clear: the Kaiser seeks our support to convert [emperor.MakeScope.Var('HRT_hoftag_faith_target_county').Title.GetName] to the true faith. The guards, clad in shining armor, guide us into the great hall, their movements deliberate, knowing the spiritual significance of what is to come.\nAs we take our seats according to rank and custom, my gaze occasionally meets those of my peers. We have come not just to witness a political maneuver but to contemplate a matter of faith.\nWith a deliberate gesture, the Kaiser signals the herald to announce the beginning of the Hoftag. The hall falls into a reverent silence as the herald’s voice rings out, introducing the first matter of the day. Now is the time to reason, to weigh the spiritual implications, and to decide whether we will aid the Kaiser in spreading the Church’s influence. The fate of souls, as well as the unity of the empire, may rest on the decisions we make today."
+ HRT_hoftag.parlamentum.convert_culture.desc_guest: "A procession of carriages and retinues fills the grand courtyard as I join the other princes in attending the Hoftag. From my seat, I observe the Kaiser on the balcony, his eyes tracking the banners that flutter in the breeze, each representing the distinct cultures we bring from our lands.\nThe Kaiser has summoned us to gain our support in converting the culture of [emperor.MakeScope.Var('HRT_hoftag_culture_target').GetName], to unify it more closely with the traditions at the heart of our realm. The guards, clad in their gleaming armor, guide us to the great hall, their steps deliberate, aware of the delicate cultural shift that is at stake.\nToday’s decisions could influence the cultural landscape of the realm for generations, and we must weigh the merits and consequences carefully.\nWith a measured gesture, the Kaiser signals the herald to announce the beginning of the Hoftag. Now is the time to deliberate, to discuss the future of our shared identity, and to decide whether we will support the cultural conversion of [emperor.MakeScope.Var('HRT_hoftag_culture_target').GetName]. The unity and strength of the empire may well depend on the choices we make today."
+ HRT_hoftag.parlamentum.judgment.desc_guest: "A procession of carriages and retinues fills the grand courtyard as I arrive at the Hoftag, joining the other princes of the realm. From my seat, I watch as the Kaiser stands on the balcony, his gaze fixed on the banners that flutter in the breeze, each representing the authority we wield within our lands.\nThe purpose of this Hoftag is clear: [emperor.MakeScope.Var('HRT_hoftag_judgment_target').GetFullName] has defied the laws of the realm and is to be judged. We have been summoned not only to discuss the empire’s future but also to bear witness to the administration of justice. The guards, their armor gleaming, guide us into the great hall, their movements precise, knowing the gravity of the proceedings that await.\nAs we take our seats according to rank and custom, I can sense the curiosity in the eyes of my peers. We are here not just to participate in the political life of the empire but to see how justice is dispensed and to understand the consequences of defying the crown.\nWith a firm gesture, the Kaiser signals the herald to announce the beginning of the Hoftag. Now is the time to present the charges, to weigh the evidence, and to witness the judgment that will be passed. The law must be enforced, order maintained, and it must be demonstrated that no one, not even [emperor.MakeScope.Var('HRT_hoftag_judgment_target').GetFullName], is above the justice of the empire."
+ 
+ HRT_hoftag.conclusion.t: "Conclusion"
+ HRT_hoftag.conclusion.desc_score: "With #V [emperor.MakeScope.Var('HRT_hoftag_score_yay').GetValue|0]#! supporters and #V [emperor.MakeScope.Var('HRT_hoftag_score_nay').GetValue|0]#! princes opposing the vote, the total score of #V [emperor.MakeScope.Var('HRT_hoftag_score').GetValue|0]#! results in a pass of the resolution.\n\n"
+ HRT_hoftag.conclusion.gather_support.desc_host: "The Hoftag concludes with a resounding show of unity. One by one, the princes rise in support of the military campaign, pledging their troops, resources, and loyalty to the cause. The hall echoes with declarations of allegiance, and my heart swells with the knowledge that the empire stands united. The alliances forged today will lead the realm to a decisive victory, and the future is set on a course toward greatness."
+ HRT_hoftag.conclusion.press_claim.desc_host: "The Hoftag ends with the princes voicing their support for my rightful claim. The strength of their backing is undeniable, and the contested county is secured under my rule. With the might of the empire behind me, the balance of power shifts decisively in my favor."
+ HRT_hoftag.conclusion.convert_faith.desc_host: "The Hoftag reaches its conclusion with the princes offering their unanimous support for my mission to spread the true faith. Their commitment to the conversion of the wayward is unwavering. My resolve is bolstered by the solidarity of my vassals, knowing that the light of the true faith will soon shine brightly across the entire empire."
+ HRT_hoftag.conclusion.convert_culture.desc_host: "The Hoftag draws to a close with the princes expressing their full support for the cultural integration. The hall resonates with agreement as the gathered lords recognize the importance of a unified cultural identity within the empire. With their backing, I set in motion the plans to align the county’s culture with the core traditions of the realm, ensuring the long-term unity and strength of the empire."
+ HRT_hoftag.conclusion.judgment.desc_host: "The Hoftag concludes with a unanimous decision to uphold justice. The evidence against [emperor.MakeScope.Var('HRT_hoftag_judgment_target').GetFullName] is irrefutable. Order is restored within the realm. My authority is reinforced, and the princes leave the hall with a renewed respect for the law and the commitment to maintain the stability of the empire."
+
+ HRT_hoftag.conclusion.gather_support.desc_guest: "The Hoftag concludes with a resounding show of unity. One by one, the princes rise in support of the military campaign, pledging troops, resources, and loyalty to the cause. The hall echoes with declarations of allegiance. The alliances forged today will lead the realm to a decisive victory, and the future is set on a course toward greatness."
+ HRT_hoftag.conclusion.press_claim.desc_guest: "The Hoftag ends with the princes voicing their support for [emperor.GetTitledFirstName]'s claim. The strength of the backing is undeniable, and the contested county is secured under [emperor.GetHerHis] rule. With the might of the empire behind [emperor.GetHerHim], the balance of power shifts decisively in [emperor.GetHerHis] favor."
+ HRT_hoftag.conclusion.convert_faith.desc_guest: "The Hoftag reaches its conclusion with the princes offering their unanimous support for [emperor.GetTitledFirstName]'s mission to spread the true faith. The commitment to the conversion of the wayward is unwavering."
+ HRT_hoftag.conclusion.convert_culture.desc_guest: "The Hoftag draws to a close with the princes expressing their full support for the cultural integration. The hall resonates with agreement as the gathered lords recognize the importance of a unified cultural identity within the empire. With the backing, [emperor.GetTitledFirstName] set in motion the plans to align the county’s culture with the core traditions of the realm, ensuring the long-term unity and strength of the empire."
+ HRT_hoftag.conclusion.judgment.desc_guest: "The Hoftag concludes with a unanimous decision to uphold justice. The evidence against [emperor.MakeScope.Var('HRT_hoftag_judgment_target').GetFullName] is irrefutable. Order is restored within the realm. [emperor.GetTitledFirstName]'s authority is reinforced, and we leave the hall with a renewed respect for the law and the commitment to maintain the stability of the empire."
+ 
+ HRT_hoftag.failure.t: "Votum Failed"
+ HRT_hoftag.failure.desc_host: "With #V [emperor.MakeScope.Var('HRT_hoftag_score_yay').GetValue|0]#! supporters and #V [emperor.MakeScope.Var('HRT_hoftag_score_nay').GetValue|0]#! princes opposing the vote, the total score of #V [emperor.MakeScope.Var('HRT_hoftag_score').GetValue|0]#! results in a failure of the resolution.\n\nThe Hoftag concludes with a heavy air of disappointment. Despite my best efforts, the princes remain divided, their support splintered and insufficient to advance the cause. The lack of consensus leaves my plans in disarray, and the great hall, once filled with anticipation, now echoes with murmurs of dissent. The opportunity to unify the empire under a common purpose slips away, and the challenges that lie ahead seem more daunting than ever."
+
+ HRT_hoftag.failure.desc_guest: "The Hoftag draws to a close with a sense of disillusionment among the gathered princes. The votum has failed, and the [emperor.GetTitleAsNameNoTooltip]'s proposals did not receive the necessary support to move forward. We leave the hall with a growing sense of unease, aware that this course of action may lead to further instability within the realm. The divisions within the assembly have only deepened, and the future of the empire feels uncertain and fraught with peril."
+ 
+ # 2.5 Reichsstadt
+ #Innovation
+ innovation_HRT_imperial_charter: "Imperial Charter"
+ innovation_HRT_imperial_charter_desc: "The issuance of Imperial Charters grants certain cities direct vassalage under the Emperor, elevating them to [HRT_imperial_cities|E]. These charters guarantee their political autonomy, the right to self-governance, and exemption from feudal obligations to local lords, making them key centers of commerce and power within the Empire."
+ innovation_HRT_imperial_charter_custom_desc: "Allows the promotion of [counties|E] to [HRT_imperial_cities|E], putting them under [HRT_imperial_immediacy|E]. This increases the Emperor's [HRT_imperial_authority_change|E] and grants bonuses to the [county]."
+ 
+ #Character Interaction
+ HRT_grant_imperial_city_status_interaction: "Grant Imperial City Status"
+ HRT_grant_imperial_city_status_desc: "Promote [recipient.GetCapitalLocation.GetTitle.GetNameNoTierNoTooltip] to a [Glossary('Reichsstadt','game_concept_HRT_reichsstadt_desc')] and appoint [recipient.GetShortUINameNoTooltip] as its governor, granting [recipient.GetHerHim] autonomy and direct vassalage under you"
+ HRT_grant_imperial_city_status_interaction_authority_req: "You need #V [EmptyScope.ScriptValue('HRT_maximum_authority_value')|0]#! [HRT_imperial_authority|E]"
+ HRT_county_must_have_culture_tt: "[CHARACTER.GetPrimaryTitle.GetNameNoTooltip] must be of a [culture|E] that has the $innovation_HRT_imperial_charter$ innovation."
+ NOT_HRT_too_many_republics_tt: "You already have 7 Free Imperial Cities"
+ HRT_is_elector_prince_tt: "[CHARACTER.GetNameNoTooltip] is an Elector-Prince!"
+ HRT_grant_imperial_city_status_interaction_notification: "Granted Imperial City Status"
+ 
+ #Modifiers
+ HRT_reichsstadt_1: "Imperial City (Level 1)"
+ HRT_reichsstadt_2: "Imperial City (Level 2)"
+ HRT_reichsstadt_3: "Imperial City (Level 3)"
+ 
+ #Flavorization (by Uber - KoH)
+ free_imperial_city_government:"Free Imperial City"
+ free_imperial_city_government_adjective:0 "Imperial City"
+ free_imperial_city_government_realm:0 "Free Imperial City"
+ free_imperial_city_government_desc:0 "This is a Free Imperial City that has been granted special rights and privileges by the Emperor himself!"
+ baron_free_city_republic_male:0 "$baron_republic_male$"
+ baron_free_city_republic_female:0 "$baron_republic_female$"
+ barony_free_city_republic:0 "Free City"
+ count_free_city_republic_male:0 "$count_republic_male$"
+ count_free_city_republic_female:0 "$count_republic_female$"
+ county_free_city_republic:0 "Free City"
+ duke_free_city_republic_male:0 "$duke_republic_male$"
+ duke_free_city_republic_female:0 "$duke_republic_female$"
+ duchy_free_city_republic:0 "Free City"
+ king_free_city_republic_male:0 "$king_republic_male$"
+ king_free_city_republic_female:0 "$king_republic_female$"
+ kingdom_free_city_republic:0 "Free City"
+ emperor_free_city_republic_male:0 "$emperor_republic_male$"
+ emperor_free_city_republic_female:0 "$emperor_republic_female$"
+ empire_free_city_republic:0 "Free City"
+ 
+ KoH_FreeCity.1.t: "The Imperial Cities...."
+ KoH_FreeCity.1.d: "Dire news! It seems that [FreeCityAttacker.GetFirstName] of [FreeCityAttacker.GetPrimaryTitle.GetName] has attacked the [FreeCityDefender.GetPrimaryTitle.GetName]! As [ROOT.Char.GetTitleAsNameNoTooltip], it is my duty to protect them. An ultimatum is in order, though if my troops are occupied and I may not come to their aid, Imperial Authority would surely suffer."
+ KoH_FreeCity.1.a: "Send a delegate with demands!"
+ KoH_FreeCity.1.b: "It is not possible at the moment."
+
+ KoH_FreeCity.2.t: "The Imperial Cities...."
+ KoH_FreeCity.2.d: "My campaign against the [FreeCityDefender.GetPrimaryTitle.GetName] is in danger, as an Imperial envoy demands I cease my war. [HRE.GetTitledFirstName] of [HRE.GetPrimaryTitle.GetName] claims I violate the Imperial Law, and if I do not follow his advice, he shall declare war on the side of my enemy!"
+ KoH_FreeCity.2.b: "I have no choice but to kneel."
+ KoH_FreeCity.2.a: "He has no authority over me."
+ KoH_FreeCity.2.a.tt: "[HRE.GetTitledFirstName] of [HRE.GetPrimaryTitle.GetName] will join the War on the side of the [FreeCityDefender.GetPrimaryTitle.GetName]."
+ KoH_FreeCity.2.a.toast: "Free City Conflict Resolved"
+ KoH_FreeCity.2.a.toast_custom_tooltip: "[FreeCityAttacker.GetTitledFirstName] backed down, and ended the war"
+ failedtoprotectfreecity: "Failed to Protect Free City"
+ 
+ HRT_in_romanorum_regem_electus: "in Romanorum regem electus"
+ HRT_in_romanorum_regem_electus_desc: "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] has been elected King of the Romans and is expected to ascend to emperorship."
+ 
+ # 3.1 centralization
+ #Modifiers
+ HRT_centralization_0_mod: "Centralization: $HRT_centralization_0$"
+ HRT_centralization_1_mod: "Centralization: $HRT_centralization_1$"
+ HRT_centralization_2_mod: "Centralization: $HRT_centralization_2$"
+ HRT_centralization_3_mod: "Centralization: $HRT_centralization_3$"
+ HRT_centralization_4_mod: "Centralization: $HRT_centralization_4$"
+ 
+ #Council Tasks
+ #chancellor
+ HRT_chancellor_task_centralization_efforts: "Centralization Efforts"
+ HRT_steward_task_centralization_efforts: "$HRT_chancellor_task_centralization_efforts$"
+ 
+ HRT_task_centralization_efforts_effect_desc: "Converts #V [GetPlayer.MakeScope.ScriptValue('HRT_centralization_effort_value')|0]%#! of monthly [HRT_imperial_authority|E] gain to [HRT_centralization|E] progress\nPrevents reduction to a lower [HRT_centralization_level|E]\n\n#help Set the conversion rate in the Holy Roman Triumph window#!"
+ HRT_task_centralization_efforts_effect_desc_bureaucrats_bonus: "\n$TAB$[GetDynastyPerk('erudition_legacy_5').GetName]: #P +10%#!"
+ 
+ HRT_centralization_maxed_out: "[HRT_centralization|E] is already at maximum!"
+ HRT_centralization_already_performing: "Already centralizing!"
+ 
+ #Notifications
+ HRT_on_centralization_level_lost.toast.t: "Decentralized"
+ HRT_on_centralization_level_lost.toast: "Your have lost a [HRT_centralization_level|E]!\nAnother step back toward the familiar chaos."
+ HRT_on_centralization_level_gained.toast.t: "Centralized"
+ HRT_on_centralization_level_gained.toast: "Your have gained a [HRT_centralization_level|E]!\nThe Empire draws closer to unity."

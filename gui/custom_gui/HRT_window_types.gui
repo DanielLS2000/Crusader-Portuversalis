@@ -1,0 +1,763 @@
+types HRT_stuff {
+type HRT_window_special_character = widget { #For showing the Imperator and Expectatus
+    allow_outside = yes
+    size = {150 213}
+    block "icon" {
+		icon = {
+			texture = "gfx/interface/icons/HRT_laurel_wreath.dds"
+			size = { 180 180 }
+			position = { -17 25 }
+			alpha = 0.6
+		}
+	}
+    icon = {
+        parentanchor = hcenter|top
+        texture = "gfx/interface/HRT/papacy_nameplate_large_bg.dds"
+        position = {-12 -10} #don't fucking change
+        text_single = {
+            block "text" {}
+            parentanchor = hcenter|vcenter
+            default_format = "#light_background"
+            using = Font_Type_Flavor
+            block "fontsize" { fontsize = 24 }
+            position = {0 -4}
+        }
+    }
+    block "portrait" {portrait_head = {parentanchor = hcenter|vcenter position = {0 5} }}
+    text_single = {
+        parentanchor = bottom|hcenter
+        position = {-10 -20}
+        text = "HRT_WINDOW_NAME"
+		fontsize = 18
+    }
+}
+
+type HRT_window_candidatus_griditem = widget{ # Contains all the information of a single entry in the candidati grid
+    size = {299 210} 
+    datacontext = "[Scope.GetCharacter]"
+    HRT_window_candidati = {}
+    HRT_window_imperator_score = {}
+}
+
+type HRT_window_candidati = widget { # Lists character's name and portrait
+    allow_outside = yes
+    size = {150 150}
+    vbox = {
+        margin_top = -0
+        icon = {
+            texture = "gfx/interface/HRT/papacy_nameplate_small_bg.dds"
+            text_single = {
+                block "text" {text = HRT_CANDIDATUS }
+                parentanchor = hcenter|vcenter
+                default_format = "#light_background"
+                using = Font_Type_Flavor
+                fontsize = 22
+                position = {0 -4}
+            }
+        }
+        portrait_head = {}
+        text_single = {
+            text = "HRT_WINDOW_NAME"
+        }
+    }
+}
+
+type HRT_no_candidatus = widget {
+    allow_outside = yes
+    size = {150 213}
+
+    icon = {
+        parentanchor = hcenter|top
+        texture = "gfx/interface/HRT/papacy_nameplate_small_bg.dds"
+        text_single = {
+			text = HRT_CANDIDATUS_MISSING
+            parentanchor = hcenter|vcenter
+            default_format = "#light_background"
+            using = Font_Type_Flavor
+            fontsize = 22
+            position = {0 -4}
+        }
+    }
+}
+
+type HRT_no_special_character = widget { #when there is no imperator or expectatus
+    allow_outside = yes
+    size = {150 213}
+	
+    icon = {
+        parentanchor = hcenter|top
+        texture = "gfx/interface/HRT/papacy_nameplate_large_bg.dds"
+        position = {-12 -10}
+        text_single = {
+            block "text" {}
+            parentanchor = hcenter|vcenter
+            default_format = "#light_background"
+            using = Font_Type_Flavor
+            block "fontsize" { fontsize = 26 }
+            position = {0 -4}
+        }
+    }
+}
+
+type HRT_window_imperator_score = widget { # Show score for the upcoming election (Bishop-to-cardinal or cardinal-to-pope)
+visible = "[Not(GetScriptedGui('HRT_formed_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+	size = {100 100}
+    parentanchor = hcenter|vcenter
+    position = { 40 15 }
+    icon = {
+        texture = "gfx/interface/HRT/ImperatorScore.png"
+        position = {30 -15}
+    }
+    text_single = {
+        position = { 64 70 }
+        block "score" {text = "[GuiScope.SetRoot(Character.MakeScope).ScriptValue('HRT_imperator_score')|0]"}
+        fontsize = 25
+    }
+    tooltipwidget = {HRT_imperator_score_breakdown_tooltip = {}}
+}
+
+types HRT_button_authority_types {
+	type HRT_button_authority = button {
+		size = { 90 160 }
+		position = { 880 780 }
+		block "effect_name"
+		{
+			effectname = "NoHighlight"
+		}
+	
+		state = {
+			name = _mouse_hierarchy_enter
+			on_start = "[PdxGuiWidget.FindChild('authority_hover').TriggerAnimation('show')]"
+		}
+		state = {
+			name = _mouse_hierarchy_leave
+			on_start = "[PdxGuiWidget.FindChild('authority_hover').TriggerAnimation('hide')]"
+		}
+	
+		widget = {
+			name = "authority_value"
+			position = { 0 -75 }
+
+			text_label_center = {
+				visible = "[And(LessThan_CFixedPoint( GetPlayer.MakeScope.ScriptValue('HRT_authority_progressbar_value'), '(CFixedPoint)100' ), GreaterThanOrEqualTo_CFixedPoint( GetPlayer.MakeScope.ScriptValue('HRT_authority_progressbar_value'), '(CFixedPoint)10' ))]"
+				position = { 3 63 }
+				text = "[GetPlayer.MakeScope.ScriptValue('HRT_authority_progressbar_value')|L]"
+				fontsize = 36
+				using = Font_Size_Big
+				default_format = "#high"
+			}
+			
+			text_label_center = {
+				visible = "[LessThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_authority_progressbar_value'),'(CFixedPoint)10')]"
+				position = { 11 63 }
+				text = "[GetPlayer.MakeScope.ScriptValue('HRT_authority_progressbar_value')|L]"
+				fontsize = 36
+				using = Font_Size_Big
+				default_format = "#high"
+			}
+
+		}
+		widget = {
+			name = "authority_hover"
+			alpha = 0
+			
+			state = {
+				name = "show"
+				alpha = 1
+			}
+			
+			state = {
+				name = "hide"
+				alpha = 0
+			}
+			
+			text_label_center = {
+				visible = "[EqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('HRT_authority_progressbar_value'),'(CFixedPoint)100')]"
+				position = { 19 63 }
+				text = "[GetPlayer.MakeScope.ScriptValue('HRT_authority_progressbar_value')|0]"
+				fontsize = 36
+				using = Font_Size_Big
+				default_format = "#high"
+			}
+		}
+	}
+	
+}
+
+#Edict Button
+type HRT_button_edict = button_normal
+    {
+		size = { 78 60 }
+		using = tooltip_nw
+	}
+
+type HRT_button_edict_framed = button_normal
+    {
+		size = { 78 60 }
+		using = tooltip_nw
+
+		gfxtype = togglepushbuttongfx
+        effectname = "NoHighlight"
+	}
+
+	# 3.1 centralization
+type HRT_centralization_bar = button_standard
+	{
+	state = {
+		name = _mouse_hierarchy_enter
+		on_start = "[PdxGuiWidget.FindChild('centralization_text_hover').TriggerAnimation('show')]"
+	}
+	state = {
+		name = _mouse_hierarchy_leave
+		on_start = "[PdxGuiWidget.FindChild('centralization_text_hover').TriggerAnimation('hide')]"
+	}
+	block "enabled"
+	{
+	enabled = yes
+	}
+	hbox = {
+		block "arrow"
+		{
+		widget = {
+			icon = {
+				size = { 30 40 }
+				position = { -15 -60 }
+				texture = "gfx/interface/window_dynasty_house/small_arrow.dds"
+				alpha = 1
+				text_single = {
+					parentanchor = center
+					position = { 0 -10 }
+					block "raw_text"
+					{
+					raw_text = 0
+					}
+					align = center
+				}
+			}
+		}
+		}
+		icon = {
+			block "max_width"
+			{
+				max_width = 195
+			}
+			max_height = 40
+			block "texture"
+			{
+			texture = "gfx/interface/progressbars/house_unity/antagonistic.dds"
+			}
+			modify_texture = { #Non-adoption dark
+				block "modify_texture_visibility"
+				{
+				visible = no
+				}
+				texture = "gfx/interface/buttons/button_standard_overlay.dds"
+				blend_mode = multiply
+				spriteType = corneredTiled
+				alpha = 0.75
+			}
+
+			spriteborder = { 6 6 }
+			spriteType = Corneredtiled
+			text_single = {
+				block "text_visibility"
+				{
+				visible = "[LessThan_CFixedPoint( GetPlayer.MakeScope.ScriptValue('HRT_authority_progressbar_value'), '(CFixedPoint)100' )]"
+				}
+				parentanchor = hcenter|vcenter
+				block "text"
+				{
+				text = "HRT_centralization_0"
+				}
+				using = Font_Size_Medium
+				align = nobaseline
+				background = {
+					using = Background_Area_Dark
+					margin = { 10 0 }
+				}
+			}
+			widget = {
+				name = "centralization_text_hover"
+				alpha = 0
+				
+				state = {
+					name = "show"
+					alpha = 1
+				}
+				
+				state = {
+					name = "hide"
+					alpha = 0
+				}
+				
+				text_single = {
+					block "text_hover_visibility"
+					{
+					visible = yes
+					}
+					parentanchor = hcenter|vcenter
+					widgetanchor = hcenter|vcenter
+					block "text_hover"
+					{
+					text = "HRT_centralization_0"
+					}
+					using = Font_Size_Medium
+					align = nobaseline
+					position = { 98 20 }
+					background = {
+						using = Background_Area_Dark
+						margin = { 10 0 }
+					}
+				}
+			}
+			animation_attention_bar = {
+				block "active_visibility"
+				{
+				visible = no
+				}
+			}
+			### Horizontal Wipe Animation Left
+			icon = {
+				block "wipe_left_animation"
+				{
+				visible = no
+				}
+				size = { 100% 90% }
+				parentanchor = vcenter
+				texture = "gfx/interface/colors/white.dds"
+				alpha = 0
+
+				modify_texture = {
+					name = "horizontal_wipe"
+					texture = "gfx/interface/progressbars/progressbar_center_glow_white_decrease.dds"
+					blend_mode = alphamultiply
+				}
+
+				state = {
+					name = a
+					next = b
+					trigger_on_create = yes
+					duration = 0
+					alpha = 0
+
+					modify_texture = {
+						name = "horizontal_wipe"
+						translate_uv = { -0.5 0 }
+					}
+				}
+
+				state = {
+					name = b
+					next = c
+					duration = 1
+					alpha = 1
+					on_finish = "[PdxGuiTriggerAllAnimations('grandeur_bar_glow')]"
+
+					modify_texture = {
+						name = "horizontal_wipe"
+						translate_uv = { 1 0 }
+					}
+				}
+
+				state = {
+					name = c
+					next = a
+					duration = 0.5
+					alpha = 0
+					delay = 1.5
+				}
+			}
+
+			### Horizontal Wipe Animation Left (Red)
+			icon = {
+				block "wipe_left_animation_red"
+				{
+				visible = no
+				}
+				size = { 100% 90% }
+				parentanchor = vcenter
+				texture = "gfx/interface/colors/red.dds"
+				alpha = 0
+
+				modify_texture = {
+					name = "horizontal_wipe"
+					texture = "gfx/interface/progressbars/progressbar_center_glow_white_decrease.dds"
+					blend_mode = alphamultiply
+				}
+
+				state = {
+					name = a
+					next = b
+					trigger_on_create = yes
+					duration = 0
+					alpha = 0
+
+					modify_texture = {
+						name = "horizontal_wipe"
+						translate_uv = { -0.5 0 }
+					}
+				}
+
+				state = {
+					name = b
+					next = c
+					duration = 1
+					alpha = 1
+					on_finish = "[PdxGuiTriggerAllAnimations('grandeur_bar_glow')]"
+
+					modify_texture = {
+						name = "horizontal_wipe"
+						translate_uv = { 1 0 }
+					}
+				}
+
+				state = {
+					name = c
+					next = a
+					duration = 0.5
+					alpha = 0
+					delay = 1.5
+				}
+			}
+
+			### Horizontal Wipe Animation Right
+			icon = {
+				block "wipe_right_animation"
+				{
+				visible = no
+				}
+				size = { 100% 90% }
+				parentanchor = vcenter
+				texture = "gfx/interface/colors/white.dds"
+				alpha = 0
+
+				modify_texture = {
+					name = "horizontal_wipe"
+					texture = "gfx/interface/progressbars/progressbar_center_glow_white_increase.dds"
+					blend_mode = alphamultiply
+				}
+
+				state = {
+					name = a
+					next = b
+					trigger_on_create = yes
+					duration = 0
+					alpha = 0
+
+					modify_texture = {
+						name = "horizontal_wipe"
+						translate_uv = { 0.5 0 }
+					}
+				}
+
+				state = {
+					name = b
+					next = c
+					duration = 1
+					alpha = 1
+					on_finish = "[PdxGuiTriggerAllAnimations('grandeur_bar_glow')]"
+
+					modify_texture = {
+						name = "horizontal_wipe"
+						translate_uv = { -1 0 }
+					}
+				}
+
+				state = {
+					name = c
+					next = a
+					duration = 0.5
+					alpha = 0
+					delay = 1.5
+				}
+			}
+
+			### Horizontal Wipe Animation Right (Red)
+			icon = {
+				block "wipe_right_animation_red"
+				{
+				visible = no
+				}
+				size = { 100% 90% }
+				parentanchor = vcenter
+				texture = "gfx/interface/colors/red.dds"
+				alpha = 0
+
+				modify_texture = {
+					name = "horizontal_wipe"
+					texture = "gfx/interface/progressbars/progressbar_center_glow_white_increase.dds"
+					blend_mode = alphamultiply
+				}
+
+				state = {
+					name = a
+					next = b
+					trigger_on_create = yes
+					duration = 0
+					alpha = 0
+
+					modify_texture = {
+						name = "horizontal_wipe"
+						translate_uv = { 0.5 0 }
+					}
+				}
+
+				state = {
+					name = b
+					next = c
+					duration = 1
+					alpha = 1
+					on_finish = "[PdxGuiTriggerAllAnimations('grandeur_bar_glow')]"
+
+					modify_texture = {
+						name = "horizontal_wipe"
+						translate_uv = { -1 0 }
+					}
+				}
+
+				state = {
+					name = c
+					next = a
+					duration = 0.5
+					alpha = 0
+					delay = 1.5
+				}
+			}
+		}
+	}
+}
+
+type HRT_centralization_stage_0_tooltip = object_tooltip_pop_out {
+	alwaystransparent = no
+	blockoverride "header_additions" { }
+	blockoverride "title_text" {
+		margin = { 0 8 }
+		text = "HRT_centralization_0"
+		default_format = "#T"
+	}
+	blockoverride "main_description" {
+		textbox = {
+			name = "main_description"
+			layoutpolicy_horizontal = expanding
+			max_width = 400
+			margin_top = 5
+			margin_bottom = 15
+			using = DefaultTooltipText
+			multiline = yes
+			text = "HRT_centralization_0_desc"
+			fonttintcolor = "[TooltipInfo.GetTintColor]"
+			alwaystransparent = no
+		}
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			spacing = 3
+			margin_bottom = 10
+			text_label_left  = {
+				layoutpolicy_horizontal = expanding
+				margin_left = 16
+				text = "HRT_centralization_EFFECTS_TITLE"
+			}
+			text_multi = {
+				layoutpolicy_horizontal = expanding
+				max_width = 400
+				autoresize = yes
+				text = "HRT_centralization_0_effects"
+			}
+		}
+	}
+	blockoverride "concept_link" {
+		text = "[HRT_centralization_level|E]"
+	}
+}
+
+type HRT_centralization_stage_1_tooltip = object_tooltip_pop_out {
+	alwaystransparent = no
+	blockoverride "header_additions" { }
+	blockoverride "title_text" {
+		margin = { 0 8 }
+		text = "HRT_centralization_1"
+		default_format = "#T"
+	}
+	blockoverride "main_description" {
+		textbox = {
+			name = "main_description"
+			layoutpolicy_horizontal = expanding
+			max_width = 400
+			margin_top = 5
+			margin_bottom = 15
+			using = DefaultTooltipText
+			multiline = yes
+			text = "HRT_centralization_1_desc"
+			fonttintcolor = "[TooltipInfo.GetTintColor]"
+			alwaystransparent = no
+		}
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			spacing = 3
+			margin_bottom = 10
+			text_label_left  = {
+				layoutpolicy_horizontal = expanding
+				margin_left = 16
+				text = "HRT_centralization_EFFECTS_TITLE"
+			}
+			text_multi = {
+				layoutpolicy_horizontal = expanding
+				max_width = 400
+				autoresize = yes
+				text = "HRT_centralization_1_effects"
+			}
+		}
+	}
+	blockoverride "concept_link" {
+		text = "[HRT_centralization_level|E]"
+	}
+}
+type HRT_centralization_stage_2_tooltip = object_tooltip_pop_out {
+	alwaystransparent = no
+	blockoverride "header_additions" { }
+	blockoverride "title_text" {
+		margin = { 0 8 }
+		text = "HRT_centralization_2"
+		default_format = "#T"
+	}
+	blockoverride "main_description" {
+		textbox = {
+			name = "main_description"
+			layoutpolicy_horizontal = expanding
+			max_width = 400
+			margin_top = 5
+			margin_bottom = 15
+			using = DefaultTooltipText
+			multiline = yes
+			text = "HRT_centralization_2_desc"
+			fonttintcolor = "[TooltipInfo.GetTintColor]"
+			alwaystransparent = no
+		}
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			spacing = 3
+			margin_bottom = 10
+			text_label_left  = {
+				layoutpolicy_horizontal = expanding
+				margin_left = 16
+				text = "HRT_centralization_EFFECTS_TITLE"
+			}
+			text_multi = {
+				layoutpolicy_horizontal = expanding
+				max_width = 400
+				autoresize = yes
+				text = "HRT_centralization_2_effects"
+			}
+		}
+	}
+	blockoverride "concept_link" {
+		text = "[HRT_centralization_level|E]"
+	}
+}
+type HRT_centralization_stage_3_tooltip = object_tooltip_pop_out {
+	alwaystransparent = no
+	blockoverride "header_additions" { }
+	blockoverride "title_text" {
+		margin = { 0 8 }
+		text = "HRT_centralization_3"
+		default_format = "#T"
+	}
+	blockoverride "main_description" {
+		textbox = {
+			name = "main_description"
+			layoutpolicy_horizontal = expanding
+			max_width = 400
+			margin_top = 5
+			margin_bottom = 15
+			using = DefaultTooltipText
+			multiline = yes
+			text = "HRT_centralization_3_desc"
+			fonttintcolor = "[TooltipInfo.GetTintColor]"
+			alwaystransparent = no
+		}
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			spacing = 3
+			margin_bottom = 10
+			text_label_left  = {
+				layoutpolicy_horizontal = expanding
+				margin_left = 16
+				text = "HRT_centralization_EFFECTS_TITLE"
+			}
+			text_multi = {
+				layoutpolicy_horizontal = expanding
+				max_width = 400
+				autoresize = yes
+				text = "HRT_centralization_3_effects"
+			}
+		}
+	}
+	blockoverride "concept_link" {
+		text = "[HRT_centralization_level|E]"
+	}
+}
+type HRT_centralization_stage_4_tooltip = object_tooltip_pop_out {
+	alwaystransparent = no
+	blockoverride "header_additions" { }
+	blockoverride "title_text" {
+		margin = { 0 8 }
+		text = "HRT_centralization_4"
+		default_format = "#T"
+	}
+	blockoverride "main_description" {
+		textbox = {
+			name = "main_description"
+			layoutpolicy_horizontal = expanding
+			max_width = 400
+			margin_top = 5
+			margin_bottom = 15
+			using = DefaultTooltipText
+			multiline = yes
+			text = "HRT_centralization_4_desc"
+			fonttintcolor = "[TooltipInfo.GetTintColor]"
+			alwaystransparent = no
+		}
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			spacing = 3
+			margin_bottom = 10
+			text_label_left  = {
+				layoutpolicy_horizontal = expanding
+				margin_left = 16
+				text = "HRT_centralization_EFFECTS_TITLE"
+			}
+			text_multi = {
+				layoutpolicy_horizontal = expanding
+				max_width = 400
+				autoresize = yes
+				text = "HRT_centralization_4_effects"
+			}
+		}
+	}
+	blockoverride "concept_link" {
+		text = "[HRT_centralization_level|E]"
+	}
+}
+
+type HRT_progressbar_transparent = progressbar {
+	min = 0
+	max = 100
+	value = 35
+	size = { 50 20 }
+
+	progresstexture = "gfx/interface/progressbars/progress_transparent.dds"
+	noprogresstexture = "gfx/interface/progressbars/progress_transparent.dds"
+
+	spriteType = Corneredtiled
+	spriteborder = { 6 6 }
+
+	icon = {
+		name = "overlay"
+		texture = "gfx/interface/progressbars/progress_transparent.dds"
+		spriteType = Corneredstretched
+		spriteborder = { 2 2 }
+		size = { 100% 100% }
+	}
+}
+
+}

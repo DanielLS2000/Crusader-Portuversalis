@@ -1,0 +1,2 @@
+﻿l_english:
+ ep3_governor_yearly.3060.desc_temple: "\n\nIn [emperor.GetCurrentLocation.GetTitle.GetNameNoTierPossessive] supreme [emperor.GetFaith.HouseOfWorship], amidst dignitaries and prelates, a new [emperor.GetTitleAsNameNoTooltip] is proclaimed."

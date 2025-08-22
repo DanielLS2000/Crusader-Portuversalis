@@ -1,0 +1,34 @@
+﻿HRT_nibelungen_valkyr_helmet_template = {
+	can_equip = {
+		always = yes
+	}
+
+	can_benefit = {
+		is_christian_trigger = yes
+		OR = {
+			culture = { has_cultural_pillar = heritage_frankish }
+			culture = { has_cultural_pillar = heritage_north_germanic }
+			culture = { has_cultural_pillar = heritage_central_germanic }
+			culture = { has_cultural_pillar = heritage_west_germanic }
+			culture = { has_cultural_pillar = heritage_west_slavic }
+		}
+	}
+
+	can_reforge = {
+		is_christian_trigger = yes
+		OR = {
+			culture = { has_cultural_pillar = heritage_frankish }
+			culture = { has_cultural_pillar = heritage_north_germanic }
+			culture = { has_cultural_pillar = heritage_central_germanic }
+			culture = { has_cultural_pillar = heritage_west_germanic }
+			culture = { has_cultural_pillar = heritage_west_slavic }
+		}
+	}
+
+	fallback = {
+		prowess_no_portrait = 4
+		attraction_opinion = 5
+	}
+
+	unique = yes
+}

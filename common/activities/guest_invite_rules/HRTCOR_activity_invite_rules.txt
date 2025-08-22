@@ -1,0 +1,34 @@
+﻿# Officiant
+COR_activity_invite_rule_officiant = {
+	effect = {
+		root.var:COR_coronator ?= {
+			add_to_list = characters
+		}
+	}
+}
+
+# 2.3 Hoftag
+HRT_activity_invite_rule_prince_electors = {
+	effect = {
+		title:e_hre = {
+			every_elector = {
+				add_to_list = characters
+			}
+		}
+	}
+}
+
+HRT_activity_invite_rule_nobles = {
+	effect = {
+		title:e_hre = {
+			holder = {
+				every_vassal_or_below = {
+					limit = {
+						highest_held_title_tier >= tier_duchy
+					}
+					add_to_list = characters
+				}
+			}
+		}
+	}
+}

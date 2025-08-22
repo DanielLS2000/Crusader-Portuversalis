@@ -1,0 +1,8 @@
+﻿#by Uber (KOH)
+l_spanish:
+ King_of_the_germans_mod: "[candidate.GetSheHe|U] is the King of The Romans: $VALUE|=+0$"
+ King_of_the_germans_court_position: "King of the Romans"
+ King_of_the_germans_court_position_desc: "The King of the Romans is the position held by the heir-designate to the Holy Roman Empire, appointed by the current Emperor and confirmed via election by the Prince-Electors. The title brings with it all the privileges of the the rank of King within the realm along with its associated royal duties. This position is the most prestigious office a person can hold within the Empire, as it symbolizes to all that its holder is the most likely inheritor of the imperial throne."
+ King_of_the_germans_employer_custom_effect_description: "$BULLET$Designated [heir|E] to the #V Holy Roman Empire#!#!"
+ king_of_the_germans: "King"
+ k_king_of_the_germans: "the Romans"

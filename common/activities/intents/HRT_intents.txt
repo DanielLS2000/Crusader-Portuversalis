@@ -1,0 +1,225 @@
+﻿# Italienzug
+HRT_submission_intent = {
+	icon = HRT_submission_intent
+
+	auto_complete = yes
+
+	is_shown = {
+		
+	}
+
+	on_invalidated = {
+		trigger_event = activity_system.0090
+	}
+
+	ai_will_do = {
+		value = 1
+		add = emperor_piety_bonus
+		if = {
+			limit = {
+				has_trait = zealous
+				has_trait = humble
+			}
+			add = 200
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = content
+					has_trait = compassionate
+				}
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = sadistic
+					has_trait = vengeful
+					has_trait = wrathful
+				}
+			}
+			subtract = 200
+		}
+	}
+
+	scripted_animation = {
+		animation = personality_zealous
+	}
+}
+
+HRT_glory_intent = {
+	icon = HRT_glory_intent
+
+	auto_complete = yes
+
+	is_shown = {
+
+	}
+
+	on_invalidated = {
+		trigger_event = activity_system.0090
+	}
+
+	ai_will_do = {
+		value = 1
+		add = emperor_prestige_bonus
+		if = {
+			limit = {
+				OR = {
+					has_trait = ambitious
+					has_trait = arrogant
+				}
+			}
+			add = 500
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = shy
+					has_trait = humble
+					has_trait = reclusive
+				}
+			}
+			subtract = 200
+		}
+	}
+
+	scripted_animation = {
+		animation = personality_bold
+	}
+}
+
+# Nibelungen
+HRT_nibelungen_find_treasure_intent = {
+	icon = HRT_nibelungen_find_treasure_intent
+
+	auto_complete = yes
+
+	is_shown = {
+
+	}
+
+	on_invalidated = {
+		trigger_event = activity_system.0090
+	}
+
+	ai_will_do = {
+		value = 100
+	}
+
+	scripted_animation = {
+		animation = lantern
+	}
+}
+
+# Hoftag
+HRT_gather_support_intent = {
+	icon = recruit_knights_intent
+
+	is_shown = {
+		has_character_flag = HRT_hoftag_gather_support
+	}
+
+	on_invalidated = {
+		trigger_event = activity_system.0090
+	}
+
+	ai_will_do = {
+		value = 250
+	}
+
+	scripted_animation = {
+		animation = marshal
+	}
+}
+
+HRT_press_claim_intent = {
+	icon = intent_gain_renown
+
+	is_shown = {
+		has_character_flag = HRT_hoftag_press_claim
+	}
+
+	on_invalidated = {
+		trigger_event = activity_system.0090
+	}
+
+	ai_will_do = {
+		value = 250
+	}
+
+	scripted_animation = {
+		animation = chancellor
+	}
+}
+
+HRT_convert_intent = {
+	icon = HRT_submission_intent
+
+	is_shown = {
+		OR = {
+			has_character_flag = HRT_hoftag_convert_faith
+			has_character_flag = HRT_hoftag_convert_culture
+		}
+	}
+
+	on_invalidated = {
+		trigger_event = activity_system.0090
+	}
+
+	ai_will_do = {
+		value = 250
+	}
+
+	scripted_animation = {
+		animation = disapproval
+	}
+}
+
+HRT_judgment_intent = {
+	icon = justice_intent
+
+	is_shown = {
+		has_character_flag = HRT_hoftag_judgment
+	}
+
+	on_invalidated = {
+		trigger_event = activity_system.0090
+	}
+
+	ai_will_do = {
+		value = 250
+	}
+
+	scripted_animation = {
+		animation = personality_honorable
+	}
+}
+
+HRT_attendance_duty_intent = {
+	icon = intent_impress
+
+	is_shown = {
+
+	}
+
+	on_invalidated = {
+		trigger_event = activity_system.0090
+	}
+
+	ai_will_do = {
+		value = 1
+		if = {
+			limit = { this = title:e_hre.holder }
+			multiply = 0
+		}
+		else = {
+			add = 250
+		}
+	}
+
+	scripted_animation = {
+		animation = idle
+	}
+}

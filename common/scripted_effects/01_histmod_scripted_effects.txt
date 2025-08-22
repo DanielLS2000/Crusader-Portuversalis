@@ -1,0 +1,121 @@
+﻿#by Rylock
+takes_same_tier_titles_then_vassalizes = {
+	hidden_effect = {
+		$TARGET$ = {
+			every_held_title = {
+				limit = { tier = $SUBJUGATOR$.highest_held_title_tier }
+				add_to_list = titles_to_give
+				every_in_de_facto_hierarchy = {
+					limit = {
+						exists = holder
+						holder = {
+							NOT = { is_in_list = vassals_to_reassign }
+						}
+					}
+					holder = {
+						add_to_list = vassals_to_reassign
+						if = {
+							limit = {
+								is_vassal_of = $TARGET$
+								NOT = { is_in_list = vassals_to_convince }
+							}
+							add_to_list = vassals_to_convince
+						}
+					}
+				}
+			}
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = title_change_realm
+				add_claim_on_loss = yes
+			}
+			every_in_list = {
+				list = titles_to_give
+				change_title_holder = {
+					holder = $SUBJUGATOR$
+					change = scope:title_change_realm
+					take_baronies = no
+				}
+			}
+			every_in_list = {
+				list = vassals_to_reassign
+				change_liege = {
+					liege = $SUBJUGATOR$
+					change = scope:title_change_realm
+				}
+			}
+			change_liege = {
+				liege = $SUBJUGATOR$
+				change = scope:title_change_realm
+			}
+			resolve_title_and_vassal_change = scope:title_change_realm
+			cancel_truce_both_ways = $SUBJUGATOR$
+		}
+	}
+	$SUBJUGATOR$ = {
+		add_truce_both_ways = {
+			character = $TARGET$
+			days = 7300
+			name = DEMAND_IMPERIAL_SUBJUGATION_TRUCE_NAME
+		}
+		if = {
+			limit = {
+				NOT = { is_allied_to = $TARGET$ }
+			}
+			custom_tooltip = negotiate_hre_alliance_effect_tooltip
+			create_alliance = {
+				target = $TARGET$
+				allied_through_owner = $SUBJUGATOR$
+				allied_through_target = $TARGET$
+			}
+		}
+		progress_towards_friend_effect = {
+			CHARACTER = $TARGET$
+			OPINION = 50
+			REASON = friend_imperial_subjugation
+		}
+		reverse_add_opinion = {
+			target = $TARGET$
+			modifier = working_together_hre_opinion
+		}
+		hidden_effect = {
+			add_opinion = {
+				target = $TARGET$
+				modifier = working_together_hre_opinion
+			}
+		}
+	}
+	every_in_list = {
+		list = vassals_to_convince
+		limit = {
+			highest_held_title_tier >= tier_county
+			NOR = {
+				this = $TARGET$
+				has_relation_rival = $SUBJUGATOR$
+				has_relation_rival = $TARGET$
+			}
+			OR = {
+				opinion = { target = $TARGET$ value >= 20 }
+				opinion = { target = $SUBJUGATOR$ value >= 20 }
+				has_relation_friend = $TARGET$
+				has_relation_friend = $SUBJUGATOR$
+				is_allied_to = $TARGET$
+				is_allied_to = $SUBJUGATOR$
+			}
+		}
+		add_opinion = {
+			target = $SUBJUGATOR$
+			modifier = former_liege_convinced_opinion
+		}
+		if = {
+			limit = {
+				NOT = { has_truce = $SUBJUGATOR$ }
+			}
+			add_truce_both_ways = {
+				character = $SUBJUGATOR$
+				days = 1825
+				name = DEMAND_IMPERIAL_SUBJUGATION_TRUCE_NAME
+			}
+		}
+	}
+}

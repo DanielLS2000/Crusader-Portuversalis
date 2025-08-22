@@ -1,0 +1,155 @@
+﻿HRT_prepare_unification_war_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/fp2_decision_struggle_opening.dds"
+	}
+	ai_check_interval = 6
+
+	cooldown = { years = 20 }
+
+	is_shown = {
+		HRT_is_emperor_trigger = yes
+		NOT = { exists = title:e_hre.holder }
+	}
+
+	is_valid = {
+		is_at_war = no
+		has_trait = HRT_emperor
+		custom_tooltip = {
+			text = HRT_unification_decision_authority_req
+			var:HRT_authority >= 20
+		}
+		trigger_if = {
+			limit = { is_ai = no }
+			prestige_level >= medium_prestige_level
+		}
+		trigger_else = {
+			OR = {
+				sub_realm_size >= 25
+				ai_boldness >= medium_positive_ai_value
+			}
+		}
+	}
+
+	effect = {
+		add_character_modifier = {
+			modifier = HRT_preparing_for_unification_war
+			years = 10
+		}
+		spawn_army = {
+			levies = 290
+			men_at_arms = {
+				type = pikemen_unit
+				stacks = 1
+			}
+			men_at_arms = {
+				type = armored_footmen
+				stacks = 1
+			}
+			men_at_arms = {
+				type = mangonel
+				stacks = 1
+			}
+			location = capital_province
+			inheritable = no
+			name = HRT_unification_army
+		}
+		trigger_event = HRT.0011
+	}
+
+	ai_potential = {
+		always = yes
+	}
+}
+
+HRT_decline_succession_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ai = no
+		NOR = { 
+			exists = title:e_hre.holder
+			has_trait = HRT_decline_succession
+			title:c_aachen = { has_variable = HRT_dismantled }
+		}
+		HRT_is_eligible_candidatus = yes
+	}
+
+	is_valid = {
+		NOT = { has_trait = HRT_decline_succession }
+	}
+
+	effect = {
+		add_trait = HRT_decline_succession
+	}
+
+	ai_potential = {
+		always = no
+	}
+}
+
+HRT_accept_succession_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ai = no
+		has_trait = HRT_decline_succession
+	}
+
+	is_valid = {
+		has_trait = HRT_decline_succession
+	}
+
+	effect = {
+		remove_trait = HRT_decline_succession
+	}
+
+	ai_potential = {
+		always = no
+	}
+}
+
+# Nibelungen
+HRT_nibelungen_start_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
+	}
+	ai_check_interval = 0
+
+	cooldown = { months = 5 }
+
+	is_shown = {
+		is_ai = no
+		HRT_is_emperor_trigger = yes
+		NOR = {
+			has_character_flag = HRT_nibelungen_searching
+			title:c_aachen = { has_variable = HRT_nibelungen_helmet_found }
+		}
+	}
+
+	is_valid = {
+		culture = { has_cultural_era_or_later = culture_era_late_medieval }
+		employs_court_position = court_poet_court_position
+		custom_tooltip = {
+			text = HRT_nibelungen_edicts_issued
+			dynasty = {
+				has_variable = HRT_edicts_issued
+				var:HRT_edicts_issued >= 10
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = HRT_nibelungen_start_decision_effect
+		trigger_event = HRT_nibelungen.0001
+	}
+
+	ai_potential = {
+		always = no
+	}
+}

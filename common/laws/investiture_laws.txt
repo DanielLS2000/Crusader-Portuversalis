@@ -1,0 +1,86 @@
+﻿#TCT Compat
+@investiture_cooldown_years = 10
+
+investiture_early = { 
+	default = papal_investiture_early
+	cumulative = no
+	flag = investiture_law
+	
+	papal_investiture_early = {
+		flag = papal_enacted
+
+		can_keep = {
+			always = no
+		}
+
+		can_pass = {
+			always = no
+		}
+
+		pass_cost = {
+		}
+	} 
+	free_investiture_early = {
+		flag = free_enacted
+
+		can_keep = {
+			always = no
+		}
+
+		can_pass = {
+			always = no
+		}
+		
+		pass_cost = {
+		}
+		
+		on_pass = {
+		}
+ 
+		ai_will_do = {
+			value = 0
+		}
+	}
+}
+ 
+investiture_late = { 
+	default = papal_investiture_late
+	cumulative = no
+	flag = investiture_law
+	
+	papal_investiture_late = {
+		flag = papal_enacted
+
+		can_keep = {
+			always = no
+		}
+
+		can_pass = {
+			always = no
+		}
+
+		pass_cost = {
+		}
+	}
+	free_investiture_late = {
+		flag = free_enacted
+	
+		can_keep = {
+			always = no
+		}
+
+		can_pass = {
+			always = no
+		}
+		
+		pass_cost = {
+		}
+		
+		on_pass = {
+		}
+
+		ai_will_do = {
+			value = 0
+		}
+	}
+}

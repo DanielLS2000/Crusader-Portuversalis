@@ -1,0 +1,42 @@
+﻿#By Uber (KOH)
+#Revoking the Co-Emperorship
+#Meant to be harsh so incentivize rivalries and coups.
+
+King_of_the_germans_gained_court_position_effect = {
+	scope:employee = {
+		create_story = HRT_King_of_the_germans_story
+	}	
+}
+
+King_of_the_germans_revoked_court_position_effect = {
+	scope:employee = {
+		add_opinion = {
+			modifier = revoked_title
+			target = scope:liege
+			opinion = -100
+			years = 20
+		}
+		add_pressed_claim = scope:liege.primary_title
+		if = {
+			limit = {
+				has_nickname = HRT_in_romanorum_regem_electus
+			}
+			remove_nickname = yes
+		}
+	}
+	scope:liege = {
+		add_tyranny = 50
+	}
+}
+
+King_of_the_germans_invalidated_court_position_effect = {
+	scope:employee = {
+		add_pressed_claim = scope:liege.primary_title
+		if = {
+			limit = {
+				has_nickname = HRT_in_romanorum_regem_electus
+			}
+			remove_nickname = yes
+		}
+	}
+}

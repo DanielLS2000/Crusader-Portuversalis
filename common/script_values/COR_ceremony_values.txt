@@ -1,0 +1,21 @@
+﻿COR_base_ceremony_cost = {
+	# Base cost
+	value = 25
+	if = {
+		limit = {
+			highest_held_title_tier = tier_empire
+		}
+		multiply = 2
+	}
+}
+
+COR_uncrowned_scale_value = {
+	value = 0
+	add = var:COR_years_reigned
+}
+
+COR_skip_activity_cost = {
+	value = COR_base_ceremony_cost
+	add = major_gold_value
+	multiply = activity_cost_scale_by_era
+}

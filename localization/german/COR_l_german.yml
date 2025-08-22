@@ -1,0 +1,550 @@
+﻿l_german:
+ #Traits
+ trait_COR_crowned_by_priest_name: "Von einem Priester gekrönt"
+ trait_COR_crowned_by_priest_desc: "Dieser Charakter wurde von einem niederen Würdenträger gekrönt.\nEine formelle Krönung gilt vielen als grundlegender Schritt zur Legitimierung eines jeden rechtmäßigen christlichen Herrschers."
+ trait_COR_crowned_by_priest_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] wurde von einem niederen Würdenträger gekrönt.\nEine formelle Krönung gilt vielen als grundlegender Schritt zur Legitimierung eines jeden rechtmäßigen christlichen [ROOT.Char.GetTitleAsNameNoTooltip]."
+
+ trait_COR_crowned_by_bishop_name: "Von einem Bischof gekrönt"
+ trait_COR_crowned_by_bishop_with_name: "Von [ROOT.Char.MakeScope.Var('COR_coronator').Char.GetTitledFirstNameNoTooltip] gekrönt"
+ trait_COR_crowned_by_bishop_desc: "Dieser Charakter wurde von einem Bischof gesalbt.\nEine formelle Krönung gilt vielen als grundlegender Schritt zur Legitimierung eines jeden rechtmäßigen christlichen Herrschers."
+ trait_COR_crowned_by_bishop_with_name_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] wurde von [ROOT.Char.MakeScope.Var('COR_coronator').Char.GetTitledFirstNameNoTooltip] gesalbt.\nEine formelle Krönung gilt vielen als grundlegender Schritt zur Legitimierung eines jeden rechtmäßigen christlichen [ROOT.Char.GetTitleAsNameNoTooltip]."
+ trait_COR_crowned_by_bishop_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] wurde von einem Bischof gesalbt.\nEine formelle Krönung gilt vielen als grundlegender Schritt zur Legitimierung eines jeden rechtmäßigen christlichen [ROOT.Char.GetTitleAsNameNoTooltip]."
+
+ trait_COR_crowned_by_pope_name: "Vom Papst gekrönt"
+ trait_COR_crowned_by_pope_with_name: "Von [ROOT.Char.MakeScope.Var('COR_coronator').Char.GetTitledFirstNameNoTooltip] gekrönt"
+ trait_COR_crowned_by_pope_desc: "Dieser Charakter wurde vom Stellvertreter Christi persönlich gesalbt.\nDies ist ein unwiderlegbarer Beweis für sein gottgegebenes Recht zu Herrschen."
+ trait_COR_crowned_by_pope_with_name_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] wurde vom Stellvertreter Christi, [ROOT.Char.MakeScope.Var('COR_coronator').Char.GetTitledFirstNameNoTooltip], persönlich gesalbt.\nDies ist ein unwiderlegbarer Beweis für [ROOT.GetCharacter.Custom('DE_PRO_POS_S_3P')] gottgegebenes Recht zu Herrschen."
+ trait_COR_crowned_by_pope_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] wurde vom Stellvertreter Christi persönlich gesalbt.\nDies ist ein unwiderlegbarer Beweis für [ROOT.GetCharacter.Custom('DE_PRO_POS_S_3P')] gottgegebenes Recht zu Herrschen."
+
+ trait_COR_crowned_by_myself: "Selbstgekrönt"
+ trait_COR_crowned_by_myself_desc: "Gegen alle christlichen Traditionen hat dieser Charakter den Papst verschmäht und hat sich die Krone selbst auf sein Haupt gesetzt. Eine solch gotteslästerliche Tat ist ein sicheres Zeichen für einen vom Machtwahn verdorbenen Geist."
+ trait_COR_crowned_by_myself_character_desc: "Gegen alle christlichen Traditionen hat [ROOT.GetCharacter.GetFirstNameNoTooltip] den Papst verschmäht hat sich die Krone selbst auf sein Haupt gesetzt. Eine solch gotteslästerliche Tat ist ein sicheres Zeichen für einen vom Machtwahn verdorbenen Geist."
+
+ #Decisions
+ COR_prepare_coronation_ceremony_decision: "Eine Krönungszeremonie organisieren"
+ COR_prepare_coronation_ceremony_decision_desc: "Als katholischer Herrscher ist es für Euch unerlässlich, von einem angesehenen Mitglied des Kirchenklerus gekrönt zu werden, um Euer gottgegebenes Herrschaftsrecht zu legitimieren. Um die Vorbereitungen für Eure Krönungszeremonie zu beginnen, solltet Ihr nach einem Priester suchen, der bereit ist, Euch zu krönen."
+ COR_prepare_coronation_ceremony_decision_confirm: "Mit der Suche beginnen"
+ COR_prepare_coronation_ceremony_decision_tooltip: "Findet einen Priester, der bereit ist, Euch zu krönen"
+ COR_war_defender: "Ihr seid nicht Verteidiger in einem Krieg"
+ COR_maxed_uncrowned_tooltip: "Ungekrönt nach #V 30#! Jahren Herrschaft"
+ COR_begin_coronation_tooltip: "Beginnt mit den Vorbereitungen für Eure Krönungszeremonie"
+ COR_preparing_coronation_tooltip: "Ihr bereitet bereits eine Krönung vor"
+ COR_court_chaplain_tooltip: "Ihr beschäftigt einen [court_chaplain|E]"
+ COR_coronation_request_cooldown_tooltip: "Ihr habt kürzlich versucht, eine Krönung zu organisieren. Ihr könnt die Vorbereitungen in [GetGameTimeDifferenceForDiffDays(GetPlayer.MakeScope.VarRemaining('COR_coronation_request_cooldown'))] wieder aufnehmen"
+ COR_excommunicated_free_investiture_tooltip: "Ihr habt [free_investiture|E]"
+
+ ##############
+ # Game Rules #
+ ##############
+
+ rule_COR_crowns: "COR: Kronen"
+ setting_COR_crowns_taketh: "Modifiziert"
+ setting_COR_crowns_taketh_desc: "Ungekrönte Herrscher tragen ihre Kronen nicht und erhalten zunehmende Meinungsmali."
+ setting_COR_crowns_giveth: "Vanilla"
+ setting_COR_crowns_giveth_desc: "Ungekrönte Herrscher tragen ihre Kronen und erhalten keine zunehmenden Meinungsmali."
+
+ #3.1: Interface Toast
+ COR_uncrowned_legitimacy_effect.toast: "Euer Versäumnis, Euch krönen zu lassen, hat Euch [legitimacy] gekostet."
+
+ #Modifiers
+ COR_uncrowned_modifier: "Ungekrönt"
+ COR_uncrowned_modifier_desc: "Ein katholischer Herrscher, der nicht offiziell von einem Mitglied der Kirche gekrönt wurde, wird von seinen Vasallen nie vollständig als legitim anerkannt werden.\nJe mehr Jahre er vor seiner Salbung verstreichen lässt, desto wahrscheinlicher werden seine Vasallen die Gültigkeit seines göttlichen Herrschaftsrechts anzweifeln."
+ COR_MODIFIER_DEFINITION_VALUE_PER_UNCROWNED_YEAR: " \t#weak Jährliche Zunahme#!"
+
+ COR_ceremony_gracious_host_modifier: "$gwedding_gracious_host_modifier$"
+ COR_ceremony_gracious_host_modifier_desc: "Dieser Charakter hat eine erfolgreiche [GetActivityType( 'COR_activity_coronation_ceremony' ).GetName] ausgerichtet."
+
+ COR_ceremony_magnificent_host_modifier: "$gwedding_magnificent_host_modifier$"
+ COR_ceremony_magnificent_host_modifier_desc: "Dieser Charakter hat eine prachtvolle [GetActivityType( 'COR_activity_coronation_ceremony' ).GetName] ausgerichtet."
+
+ COR_crowned_in_barn: "In einer Scheune gekrönt"
+ COR_crowned_in_barn_desc: "Dieser Herrscher erhielt seine Krone in Abgeschiedenheit, ohne große Feierlichkeiten. Während dies ein klares Zeichen für mangelnden Reichtum und Einfluss ist, könnten einige Mitglieder der Kirche es auch als Zeichen der Demut betrachten."
+
+ COR_crowned_in_war: "Krönung auf dem Schlachtfeld"
+ COR_crowned_in_war_desc: "Nach endlosem Zögern musste dieser Herrscher schließlich in aller Eile und zum ungünstigsten Zeitpunkt, mitten im Krieg, gekrönt werden."
+
+ COR_extravagant_coronation: "Extravagante Krönung"
+ COR_extravagant_coronation_desc: "Dieser Charakter hat eine extravagante [GetActivityType( 'COR_activity_coronation_ceremony' ).GetName] ausgerichtet."
+
+ COR_peasants_connections_county_modifier: "Verbindungen zu den Bauern"
+ COR_peasants_connections_county_modifier_desc: "Der Lehnsherr dieser Grafschaft wird vom Volk geliebt, weil er einigen Gemeinen erlaubte, an einer Krönungszeremonie teilzunehmen."
+ COR_enforced_security_modifier: "Verstärkte Sicherheit"
+ COR_enforced_security_modifier_desc: "Dieser Charakter hat erfolgreich die Sicherheit bei einer Krönungszeremonie durchgesetzt, die von Eindringlingen gestürmt wurde."
+ COR_peasants_overrun_modifier: "Von Bauern überrannt"
+ COR_peasants_overrun_modifier_desc: "Dieser Charakter hat es versäumt, die Sicherheit bei einer von Eindringlingen überrannten Krönungszeremonie zu gewährleisten"
+ COR_parade_mayhem_modifier: "Krönungschaos"
+ COR_parade_mayhem_modifier_desc: "Dieser Charakter hatte viel Spaß daran, bei einer Krönungszeremonie Chaos zu stiften."
+ COR_improved_trade: "Blühender Handel"
+ COR_improved_trade_desc: "Diese Provinz erlebt einen Aufschwung des lokalen Handels nach dem Abschluss einer kürzlichen Festlichkeit."
+
+ #Opinion Modifiers
+ COR_opinion_requested_papal_investiture: "Fordert päpstliche Investitur"
+ COR_opinion_requested_papal_land: "Fordert päpstliches Land"
+ COR_opinion_requested_independence: "Fordert Unabhängigkeit"
+ COR_opinion_requested_artifact: "Fordert heilige Reliquie"
+
+ COR_ceremony_good_option_opinion: "Beeindruckt von Investitionen in die Krönungszeremonie"
+ COR_ceremony_balanced_option_opinion: "Angemessene Ausgaben für die Krönungszeremonie"
+ COR_hosted_ceremony_opinion: "Lehnsherr hielt große Krönungszeremonie"
+
+ COR_every_courtly_vassal: "Jeder $courtly_vassal$"
+
+ #Events
+COR_officiant_invalidated.toast.t: "Offiziant ungültig"
+ COR_officiant_invalidated.toast: "[COR_coronator.GetTitledFirstName] hat [COR_coronator.Custom('DE_PRO_POS_S_3P')]en Status verloren und kann die Krönung nicht mehr durchführen."
+
+ COR_ceremony.0001.t: "Die Krönung eines [ROOT.Char.GetTitleAsNameNoTooltip]s"
+ COR_ceremony.0001.desc: "Die Zeit ist endlich gekommen, offiziell als [ROOT.Char.GetTitleAsNameNoTooltip] von [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip] anerkannt zu werden. Um dies zu erreichen, benötige ich die Unterstützung der katholischen Kirche, aber einflussreiche Mitglieder zu überzeugen wird weder einfach noch billig sein. Um mit den Vorbereitungen zu beginnen, sollte ich einen Priester finden, der bereit ist, mich zu krönen."
+ COR_ceremony.0001.a: "Niemand außer [COR_antipope.GetTitledFirstName] soll mir die Krone aufsetzen!"
+ COR_ceremony.0001.a.tt: "Schreibt einen Brief an den Gegenpapst und bittet ihn, Euch zum [COR_ruler.GetTitleAsNameNoTooltip] von [COR_ruler.GetPrimaryTitle.GetNameNoTierNoTooltip] zu krönen.\n#N Indem Ihr Euch von einem Gegenpapst krönen lasst, missachtet Ihr nicht nur die Heiligkeit der päpstlichen Autorität, sondern stellt auch offen das göttliche Mandat des Heiligen Stuhls in Frage.#!"
+ COR_ceremony.0001.b: "Nur [COR_pope.GetTitledFirstName] ist würdig, mich zu krönen!"
+ COR_ceremony.0001.b.tt: "Schreibt einen Brief an den Papst und bittet ihn, Euch zum [COR_ruler.GetTitleAsNameNoTooltip] von [COR_ruler.GetPrimaryTitle.GetNameNoTierNoTooltip] zu krönen."
+ COR_ceremony.0001.c: "[COR_bishop.GetTitledFirstName] soll die Zeremonie durchführen!"
+ COR_ceremony.0001.c.tt: "Schreibt einen Brief an einen einflussreichen und mächtigen Bischof in Eurem Reich und bittet ihn, Euch zum [COR_ruler.GetTitleAsNameNoTooltip] von [COR_ruler.GetPrimaryTitle.GetNameNoTierNoTooltip] zu krönen."
+ COR_ceremony.0001.c.offended_the_pope: "#N Indem Ihr nicht direkt die Legitimation vom Heiligen Stuhl sucht, wird Eure Krönung den Papst beleidigen.#!"
+ COR_ceremony.0001.d: "[COR_priest.GetTitledFirstName] wird genügen."
+ COR_ceremony.0001.d.tt: "Schreibt einen Brief an einen niederen Bischof und bittet ihn, Euch zum [COR_ruler.GetTitleAsNameNoTooltip] von [COR_ruler.GetPrimaryTitle.GetNameNoTierNoTooltip] zu krönen. Obwohl dies eine weniger prestigeträchtige Wahl ist als andere, wird es zumindest Eure Vasallen besänftigen und weniger wahrscheinlich Euer Reich in den Bankrott treiben. #V #italic Diese Option überspringt die Aktivität.#!#!"
+ COR_ceremony.0001.d.offended_everyone: "#N Indem Ihr nicht direkt die Legitimation vom Heiligen Stuhl sucht und einen niederen Würdenträger für die Zeremonie wählt, wird Eure Krönung den Papst und mächtige Bischöfe in Eurem Reich beleidigen.#!"
+ COR_ceremony.0001.d.offended_powerful_theocrats: "Indem Ihr nicht direkt die Legitimation vom Heiligen Stuhl sucht und einen niederen Würdenträger für die Zeremonie wählt, wird Eure Krönung mächtige Bischöfe in Eurem Reich beleidigen.#!"
+ COR_ceremony.0001.e: "Vielleicht ist jetzt nicht der richtige Zeitpunkt..."
+ COR_ceremony.0001.e.tt: "Die Krönungszeremonie wird abgesagt."
+
+ COR_ceremony.0003.t: "Tod meines Offizianten"
+ COR_ceremony.0003.desc: "[COR_deceased.GetTitledFirstName] ist gestorben: nun, da [COR_deceased.GetSheHe] nicht mehr ist, muss ich einen anderen Priester finden, der mich zum [ROOT.Char.GetTitleAsNameNoTooltip] salbt."
+ COR_ceremony.0003.a: "Wie bedauerlich."
+
+ COR_ceremony.0101.t: "[COR_ruler.Custom2('AppropriateGreetingPositive', ROOT.Char)]"
+ COR_ceremony.0101.desc: "Als souveräner [COR_ruler.GetTitleAsNameNoTooltip] von [COR_ruler.GetPrimaryTitle.GetNameNoTier] ersuche ich höflich um Eure geschätzte Anwesenheit, um meine Krönung zu vollziehen und somit meine Herrschaft mit göttlicher Gunst zu weihen. Welche Gegenleistung kann ich für diesen gnädigen Akt anbieten?"
+ COR_ceremony.0101.a: "Wenig bis nichts."
+ COR_ceremony.0101.a.nothing: "Ihr verlangt nichts"
+ COR_ceremony.0101.a.small_donation: "Ihr bittet um eine kleine Spende"
+ COR_ceremony.0101.b: "Eine angemessene Gabe."
+ COR_ceremony.0101.b.donation: "Ihr bittet um eine Spende"
+ COR_ceremony.0101.b.donation_pope: "Ihr bittet um eine Spende an den Papst"
+ COR_ceremony.0101.b.send_child_to_monastery: "Ihr bittet darum, dass ein Kind die Gelübde ablegt"
+ COR_ceremony.0101.b.send_child_to_holy_order: "Ihr bittet darum, dass ein Kind einem Kriegerorden beitritt"
+ COR_ceremony.0101.b.host_feast: "Ihr bittet darum, dass ein Fest abgehalten wird"
+ COR_ceremony.0101.b.give_county: "Ihr fordert eine Grafschaft"
+ COR_ceremony.0101.b.gift_artifact: "Ihr fordert eine Reliquie"
+
+ COR_ceremony.0102.desc: "Ich fühle mich geehrt, Eure Krönung zu vollziehen. Ich erwarte gespannt Eure Anweisungen bezüglich Datum und Art der Zeremonie, um mich besser auf diese heilige Pflicht vorbereiten zu können."
+ COR_ceremony.0102.a: "Wunderbar."
+ COR_ceremony.0102.a.tt: "Ihr erhaltet Zugang zur Krönungszeremonie-Aktivität"
+
+ COR_ceremony.0103.desc: "Ich fühle mich geehrt, Eure Krönung zu vollziehen, vorausgesetzt, Ihr spendet einen kleinen Betrag an die Heilige Mutter Kirche als Zeichen Eurer Hingabe."
+ COR_ceremony.0103.a: "Sehr wohl."
+
+ COR_ceremony.0104.t: "[ROOT.Char.Custom2('AppropriateGreeting', ROOT.Char)]"
+ COR_ceremony.0104.desc: "Ich werde gerne Euer gottgegebenes Recht zu herrschen anerkennen, sobald Ihr der Kirche das Gebührende spendet."
+ COR_ceremony.0104.a: "Sehr wohl."
+ COR_ceremony.0104.a.tt: "Indem Ihr die Forderung erfüllt, erhaltet Ihr Zugang zur Krönungszeremonie-Aktivität"
+ COR_ceremony.0104.b: "Ich habe keine Mittel übrig."
+
+ COR_ceremony.0106.desc: "Ich fühle mich geehrt, Eure Krönung zu vollziehen, vorausgesetzt, Ihr zeigt Eure Hingabe, indem Ihr der Heiligen Mutter Kirche erlaubt, eines Eurer Kinder in das gesegnete Leben klösterlicher Abgeschiedenheit einzuweihen."
+ COR_ceremony.0106.a: "[COR_childofruler1.GetFirstName] soll die Gelübde ablegen."
+ COR_ceremony.0106.b: "Kein Kind von mir wird sein Leben in einem Kloster verschwenden!"
+
+ COR_ceremony.0107.desc: "Ich fühle mich geehrt, Eure Krönung zu vollziehen, vorausgesetzt, Ihr zeigt Eure Hingabe, indem Ihr einem Eurer Söhne erlaubt, seinen Teil im heiligen Krieg gegen die Ungläubigen zu leisten, indem er einem unserer Kriegerorden beitritt."
+ COR_ceremony.0107.a: "Sehr wohl."
+ COR_ceremony.0107.b: "Ich werde das Leben meines Sohnes nicht für eine Krone riskieren."
+
+ COR_ceremony.0110.desc: "Ich fühle mich geehrt, Eure Krönung zu vollziehen, vorausgesetzt, Ihr zeigt Eure Hingabe, indem Ihr die heilige Reliquie [COR_relic.GetName] an die Kirche zurückgebt."
+ COR_ceremony.0110.a: "Sehr wohl."
+ COR_ceremony.0110.b: "[COR_relic.GetName] gehört mir!"
+
+ COR_ceremony.0201.t: "Salbung eines Monarchen: Krönungsanfrage"
+ COR_ceremony.0201.desc.a: "Inmitten meiner frommen Pflichten wurde eine Bitte von großer Bedeutung vor den Thron des heiligen Petrus gebracht, überbracht von den ehrwürdigen Händen eines Kardinals, der eine weite Reise auf sich genommen hat, um diese sakrale Bitte zu überbringen. Beim Entfalten der Schriftrolle bemerke ich das Siegel von [COR_ruler.GetTitledFirstName]:\n„[COR_ruler.Custom2('GreetingToForeignRulerPositive', ROOT.Char)]\n[COR_ruler.Custom2('AppropriateSupplimentaryGreeting', ROOT.Char)] Als [COR_ruler.GetTitleAsNameNoTooltip] von [COR_ruler.GetPrimaryTitle.GetNameNoTier] bitte ich höflich um Eure geschätzte Anwesenheit, um meine Krönung zu vollziehen und damit meine Herrschaft im Einklang mit unseren heiligen Traditionen und dem göttlichen Willen zu heiligen. Was kann ich im Gegenzug für diesen großen Dienst anbieten?\nGezeichnet, [COR_ruler.GetFullName]“\nDer Abgesandte wartet auf meine Antwort; was soll ich im Gegenzug für diesen großen Dienst verlangen?"
+ COR_ceremony.0201.desc.b: "Inmitten meiner frommen Pflichten wurde eine Bitte von großer Bedeutung vor den Thron des heiligen Petrus gebracht, überbracht von den ehrwürdigen Händen eines Kardinals, der eine weite Reise auf sich genommen hat, um diese sakrale Bitte zu überbringen. Beim Entfalten der Schriftrolle bemerke ich das Siegel von [COR_ruler.GetTitledFirstName]:\n„[COR_ruler.Custom2('GreetingToForeignRulerPositive', ROOT.Char)]\n[COR_ruler.Custom2('AppropriateSupplimentaryGreeting', ROOT.Char)] Als [COR_ruler.GetTitleAsNameNoTooltip] von [COR_ruler.GetPrimaryTitle.GetNameNoTier] lade ich Euch respektvoll ein, die Zeremonie meiner Krönung durchzuführen und so meine Führung zu segnen. Welche Entschädigung könntet Ihr für diese edle Tat wünschen?\nGezeichnet, [COR_ruler.GetFullName]“\nDer Abgesandte wartet auf meine Antwort; was soll ich im Gegenzug für diesen großen Dienst verlangen?"
+ COR_ceremony.0201.desc.c: "Inmitten meiner frommen Pflichten wurde eine Bitte von großer Bedeutung vor den Thron des heiligen Petrus gebracht, überbracht von den ehrwürdigen Händen eines Kardinals, der eine weite Reise auf sich genommen hat, um diese sakrale Bitte zu überbringen. Beim Entfalten der Schriftrolle bemerke ich das Siegel von [COR_ruler.GetTitledFirstName]:\n„[COR_ruler.Custom2('GreetingToForeignRulerPositive', ROOT.Char)]\n[COR_ruler.Custom2('AppropriateSupplimentaryGreeting', ROOT.Char)] Als Träger des Titels [COR_ruler.GetTitleAsNameNoTooltip] von [COR_ruler.GetPrimaryTitle.GetNameNoTier] ersuche ich Eure erhabene Anwesenheit, um die feierlichen Riten meiner Krönung in Einklang mit dem himmlischen Willen zu leiten. Aus Dankbarkeit, was soll ich Euch im Gegenzug gewähren?\nGezeichnet, [COR_ruler.GetFullName]“\nDer Abgesandte wartet auf meine Antwort; was soll ich im Gegenzug für diesen großen Dienst verlangen?"
+ COR_ceremony.0201.desc.d: "Inmitten meiner frommen Pflichten wurde eine Bitte von großer Bedeutung vor den Thron des heiligen Petrus gebracht, überbracht von den ehrwürdigen Händen eines Kardinals, der eine weite Reise auf sich genommen hat, um diese sakrale Bitte zu überbringen. Beim Entfalten der Schriftrolle bemerke ich das Siegel von [COR_ruler.GetTitledFirstName]:\n„[COR_ruler.Custom2('GreetingToForeignRulerPositive', ROOT.Char)]\n[COR_ruler.Custom2('AppropriateSupplimentaryGreeting', ROOT.Char)] Als souveräner [COR_ruler.GetTitleAsNameNoTooltip] von [COR_ruler.GetPrimaryTitle.GetNameNoTier] bitte ich höflich um Eure geschätzte Anwesenheit, um meine Krönung zu vollziehen und damit meine Herrschaft mit göttlicher Gunst zu weihen. Welche Gegenleistung kann ich für diese gnädige Tat erbringen?\nGezeichnet, [COR_ruler.GetFullName]“\nDer Abgesandte wartet auf meine Antwort; was soll ich im Gegenzug für diesen großen Dienst verlangen?"
+ COR_ceremony.0201.desc.e: "Inmitten meiner frommen Pflichten wurde eine Bitte von großer Bedeutung vor den Thron des heiligen Petrus gebracht, überbracht von den ehrwürdigen Händen eines Kardinals, der eine weite Reise auf sich genommen hat, um diese sakrale Bitte zu überbringen. Beim Entfalten der Schriftrolle bemerke ich das Siegel von [COR_ruler.GetTitledFirstName]:\n„[COR_ruler.Custom2('GreetingToForeignRulerPositive', ROOT.Char)]\n[COR_ruler.Custom2('AppropriateSupplimentaryGreeting', ROOT.Char)] Als Träger des Mantels des [COR_ruler.GetTitleAsNameNoTooltip]s von [COR_ruler.GetPrimaryTitle.GetNameNoTier] ersuche ich um Eure edle Anwesenheit, um meine Thronbesteigung zu salben, im Einklang mit unseren geschätzten Traditionen und dem himmlischen Mandat. Was würdet Ihr im Gegenzug für diesen edlen Dienst verlangen?\nGezeichnet, [COR_ruler.GetFullName]“\nDer Abgesandte wartet auf meine Antwort; was soll ich im Gegenzug für diesen großen Dienst verlangen?"
+ COR_ceremony.0201.desc.f: "Inmitten meiner frommen Pflichten wurde eine Bitte von großer Bedeutung vor den Thron des heiligen Petrus gebracht, überbracht von den ehrwürdigen Händen eines Kardinals, der eine weite Reise auf sich genommen hat, um diese sakrale Bitte zu überbringen. Beim Entfalten der Schriftrolle bemerke ich das Siegel von [COR_ruler.GetTitledFirstName]:\n„[COR_ruler.Custom2('GreetingToForeignRulerPositive', ROOT.Char)]\n[COR_ruler.Custom2('AppropriateSupplimentaryGreeting', ROOT.Char)] Als Träger des Titels [COR_ruler.GetTitleAsNameNoTooltip] von [COR_ruler.GetPrimaryTitle.GetNameNoTier] übermittle ich eine herzliche Einladung an Euch, meiner Krönung vorzustehen und damit meine Regentschaft mit dem himmlischen Mandat zu weihen. Welche Entschädigung ersucht Ihr für diese geschätzte Gunst?\nGezeichnet, [COR_ruler.GetFullName]“\nDer Abgesandte wartet auf meine Antwort; was soll ich im Gegenzug für diesen großen Dienst verlangen?"
+ COR_ceremony.0201.a: "Eine Spende an den Heiligen Stuhl."
+ COR_ceremony.0201.b: "Der Souverän des Kirchenstaates darf nicht in Vasallität gehalten werden."
+ COR_ceremony.0201.b.tt: "Ihr fordert Unabhängigkeit der Kirche"
+ COR_ceremony.0201.c: "Nur der Stellvertreter Christi hält die Befugnis zur Investitur."
+ COR_ceremony.0201.c.tt: "Ihr fordert päpstliche Investitur"
+ COR_ceremony.0201.d: "Ich befehle [COR_childofruler1.GetFirstName], die Gelübde abzulegen!"
+ COR_ceremony.0201.e: "[COR_childofruler2.GetFirstName] soll einem Kriegerorden beitreten, um gegen die Heiden zu kämpfen."
+ COR_ceremony.0201.f: "Die heilige Reliquie [COR_relic.GetName] soll zur Kirche zurückkehren."
+ #COR_ceremony.0201.d.donate_lands: "You demand the donation of Papal lands"
+
+ COR_ceremony.0202.desc: "Ich werde gerne Euer gottgegebenes Recht zu herrschen legitimieren, sobald Ihr anerkennt, dass die Kirche kein Diener eines Königs oder Kaisers ist, sondern stattdessen über das Seelenheil aller Christen wacht, ungeachtet ihres Standes."
+ COR_ceremony.0202.a: "Lasst uns also gleichgestellt sein."
+ COR_ceremony.0202.b: "Papst oder Herzog, Ihr seid immer noch mein Vasall."
+
+ COR_ceremony.0203.desc: "Ich werde gerne Euer gottgegebenes Recht zu herrschen anerkennen, sobald Ihr offiziell verkündet, dass es nicht die Angelegenheit des [COR_ruler.GetTitleAsNameNoTooltip]s ist, Mitglieder des Klerus zu ernennen."
+ COR_ceremony.0203.a: "Sehr wohl."
+ COR_ceremony.0203.b: "Nicht in meinem Reich."
+
+ ## Activity
+ COR_activity_coronation_ceremony: "Krönungszeremonie"
+ COR_activity_coronation_ceremony_desc: "Als katholischer [ruler|E] ist es für mich unerlässlich, von einem angesehenen Mitglied des Kirchenklerus gekrönt zu werden, um mein gottgegebenes Herrschaftsrecht zu legitimieren."
+ COR_activity_coronation_ceremony_selection_tooltip: "Eine Krönungszeremonie organisieren\n\nErwartete Belohnungen:\n$EFFECT_LIST_BULLET$[piety_i|E] [piety|E]\n$EFFECT_LIST_BULLET$[prestige_i|E] [prestige|E]\n$EFFECT_LIST_BULLET$[dynasty_prestige_i|E] [dynasty_prestige|E]"
+ COR_activity_coronation_ceremony_destination_selection: ""
+ TRAVEL_NAME_FOR_COR_activity_coronation_ceremony: "[Character.GetFirstNamePossessiveNoTooltip] $COR_activity_coronation_ceremony$"
+ COR_activity_coronation_ceremony_host_desc: "$BULLET_WITH_TAB$Erhaltet zufällige Mengen an [piety_i|E][piety|E], [prestige_i|E][prestige|E] und [dynasty_prestige_i|E][dynasty_prestige|E]"
+ COR_activity_coronation_ceremony_guest_desc: "$BULLET_WITH_TAB$Erhaltet zufällige Mengen an [piety_i|E][piety|E] und [prestige_i|E][prestige|E]"
+ COR_activity_coronation_ceremony_guest_help_text: "$COR_activity_coronation_ceremony$"
+
+ COR_activity_coronation_ceremony_hof: "Krönungszeremonie"
+ COR_activity_coronation_ceremony_hof_desc: "Als katholischer [ruler|E] ist es für mich unerlässlich, von einem angesehenen Mitglied des Kirchenklerus gekrönt zu werden, um mein gottgegebenes Herrschaftsrecht zu legitimieren."
+ COR_activity_coronation_ceremony_hof_selection_tooltip: "Eine Krönungszeremonie organisieren\n\nErwartete Belohnungen:\n$EFFECT_LIST_BULLET$[piety_i|E] [piety|E]\n$EFFECT_LIST_BULLET$[prestige_i|E] [prestige|E]\n$EFFECT_LIST_BULLET$[dynasty_prestige_i|E] [dynasty_prestige|E]"
+ COR_activity_coronation_ceremony_hof_destination_selection: ""
+ TRAVEL_NAME_FOR_COR_activity_coronation_ceremony_hof: "[Character.GetFirstNamePossessiveNoTooltip] $COR_activity_coronation_ceremony$"
+ COR_activity_coronation_ceremony_hof_host_desc: "$BULLET_WITH_TAB$Erhaltet zufällige Mengen an [piety_i|E][piety|E], [prestige_i|E][prestige|E] und [dynasty_prestige_i|E][dynasty_prestige|E]"
+ COR_activity_coronation_ceremony_hof_guest_desc: "$BULLET_WITH_TAB$Erhaltet zufällige Mengen an [piety_i|E][piety|E] und [prestige_i|E][prestige|E]"
+ COR_activity_coronation_ceremony_hof_guest_help_text: "$COR_activity_coronation_ceremony$"
+
+ COR_ceremony_refund_tt: "Ihr habt eine Rückerstattung für die abgesagte [GetActivityType('COR_activity_coronation_ceremony').GetName] von [gold_i][THIS.Var('COR_ceremony_gold_recoup_value').GetValue|V0] erhalten"
+
+ COR_coronator: "Offiziant"
+ COR_coronator_for_host: "$COR_coronator$"
+ COR_coronator_desc_for_host: "Eine [GetActivityType( 'COR_activity_coronation_ceremony' ).GetName] markiert den Aufstieg eines [Concept.('ruler', 'Herrschers')|E] auf seinen Thron. Der Offiziant, oder Koronator, ist zentral für die Zeremonie und verleiht dem Monarchen Legitimität und göttliche Gunst. Ohne einen anerkannten Offiziant kann die Krönung nicht durchgeführt werden.\n\nDer Offiziant ist stets bei der Zeremonie anwesend und wird typischerweise geehrt oder mit Geschenken bedacht als Zeichen der Dankbarkeit des neu gekrönten Monarchen.\n"
+ COR_coronator_desc: "Eine [GetActivityType( 'COR_activity_coronation_ceremony' ).GetName] markiert den Aufstieg eines [Concept.('ruler', 'Herrschers')|E] auf seinen Thron. Der Offiziant, oder Koronator, ist zentral für die Zeremonie und verleiht dem Monarchen Legitimität und göttliche Gunst. Ohne einen anerkannten Offiziant kann die Krönung nicht durchgeführt werden.\n\nDer Offiziant ist stets bei der Zeremonie anwesend und wird typischerweise geehrt oder mit Geschenken bedacht als Zeichen der Dankbarkeit des neu gekrönten Monarchen.\n"
+ COR_activity_invite_rule_officiant: "Offiziant"
+ COR_ACTIVITY_GUEST_CORONATOR: "Ich bin der Offiziant: $VALUE|=+0$"
+ COR_ACTIVITY_GUEST_PRIVATE: "Private Zeremonie: $VALUE|=+0$"
+ COR_ACTIVITY_GUEST_HEATHEN: "[ROOT.Char.GetSheHe|U] hat einen anderen [faith|E]: $VALUE|=+0$"
+ activity_window_character_officiant_traveling: "$COR_coronator$\n[Character.GetShortUINameNoTooltip|U]\n[traveling|E] in [Character.GetCurrentLocation.GetName]\n ~[Character.GetTravelPlan.GetData.GetNextDestination.GetEstimatedArrivalDate.GetStringLong|V]"
+
+ COR_activity_coronation_ceremony_province_desc: "Ihr haltet eine Krönungszeremonie in [ROOT.Province.GetName] ab\n"
+ COR_activity_coronation_ceremony_province_rome_desc: "#P +++ Die Ewige Stadt#!\nDurchdrungen von Jahrtausenden der Geschichte steht diese antike Hauptstadt als Leuchtfeuer des Glaubens und der Macht. Einst das Herz eines riesigen Reiches, dient sie nun als spirituelles Epizentrum der Christenheit. Ihre geschichtsträchtigen Straßen und großen Basiliken zeugen von unzähligen Krönungen und heiligen Zeremonien. Für einen designierten Kaiser des Heiligen Römischen Reiches ist Rom nicht nur ein Reiseziel, sondern ein Beweis für seine göttliche Vorsehung. Hier gekrönt zu werden, bedeutet, von Gott, dem Papst und der gesamten Christenheit anerkannt zu werden.\n"
+ COR_activity_coronation_ceremony_province_aachen_desc: "#P +++ Die von Karl dem Großen auserwählte Stadt#!\nAachen, Wiege mittelalterlicher Überlieferungen, ist geprägt vom Erbe Karls des Großen, des Vaters Europas. Die alte Kurstadt mit ihrem prächtigen Dom war Krönungsort deutscher Könige und hallt noch immer wider von den Schritten der Kaiser. Aachen ist nicht nur eine Stadt, sondern ein Symbol der karolingischen Hochblüte, in der die Verschmelzung von Glauben, Kultur und kaiserlicher Macht die Geschichte geprägt hat.\n"
+ COR_activity_coronation_ceremony_province_reims_desc: "#P +++ Die Wiege der französischen Monarchie#!\nEingehüllt in die Weinberge der Champagne steht Reims als Wächter des französischen Königtums. Seine majestätische Kathedrale war die Bühne für die Salbung französischer Könige und webt einen nahtlosen Wandteppich von Monarchie und göttlichem Willen. Für einen Monarchen bedeutet die Krönung in Reims, durch die Heiligkeit der Sainte Ampoule und das fortdauernde Vermächtnis Chlodwigs gesegnet zu sein.\n"
+ COR_activity_coronation_ceremony_province_london_desc: "#P +++ Das Kronjuwel Englands#!\nDie Westminster Abbey ist seit der Krönung Wilhelms des Eroberers im Jahr 1066 Zeuge der Krönungen britischer Monarchen. Als Verkörperung göttlicher und königlicher Souveränität ist die Abtei ein heiliger Ort, an dem Geschichte und Tradition aufeinander treffen. Jede Krönung fügt dem reichen Erbe der Nation unter den wachsamen Blicken der Heiligen und früheren Herrscher eine neue Facette hinzu.\n"
+ COR_activity_coronation_ceremony_province_cathedral_desc: "#P ++ Bedeutendes religiöses Bauwerk#!\nDiese Stadt, die auf eine jahrhundertelange Geschichte zurückblickt, ist mit ihrer ikonischen Kathedrale ein Bollwerk des Glaubens und der königlichen Tradition. Sie war Schauplatz zahlreicher Krönungen, wobei jede Kathedrale Zeuge der heiligen Vereinigung von göttlicher und weltlicher Macht war. Für einen designierten Herrscher ist die Krönung an diesem Ort nicht nur ein Akt der Inthronisierung, sondern ein heiliger Ritus, mit dem er unter den wachsamen Augen Gottes und der kirchlichen Autorität sein gottgegebenes Recht und die Verbundenheit mit der Christenheit bekräftigt.\n"
+ COR_activity_coronation_ceremony_province_holy_site_desc: "#P + Heilige Stätte#!\nEingebettet in eine lange Tradition, hallt dieser verehrte Ort von der Hingabe und den Pilgerfahrten seiner Besucher wider. Er ist ein heiliger Leuchtturm des katholischen Glaubens, an dem die Spuren von Heiligen und Gläubigen zusammenlaufen und von der Gegenwart Gottes zeugen. Hier gesalbt zu werden bedeutet, in dem Wandteppich der spirituellen Stammlinie eingewoben zu werden, anerkannt unter dem Blick Gottes und dem kollektiven Zeugnis der Christenheit.\n"
+ COR_activity_coronation_ceremony_province_officiant_desc: "Dies ist die Pfarrei Eures Offiziants.\n"
+ #COR_activity_coronation_ceremony_province_capital_desc: "This is your capital."
+
+ ### PULSE ACTIONS
+ COR_excellent_food_title: "[first.GetShortUINameNoTooltip|U] begeistert von der Menge an [root_scope.Custom('GetExpensiveDessert')|U]"
+ COR_dynasty_blessing_title: "[first.GetShortUINameNoTooltip|U] Überbrachte die Ehrerbietung des Hauses [first.GetDynasty.GetBaseNameNoTooltip]"
+ COR_royal_gift_title: "[first.GetShortUINameNoTooltip|U] Überreichte [second.GetShortUINameNoTooltip|U] ein königliches Geschenk"
+ COR_contact_network_title: "Kontaktnetzwerk von [first.GetShortUINameNoTooltip|U] erweitert"
+ COR_admired_venue_title: "[first.GetShortUINameNoTooltip|U] hielt Inne, um den Veranstaltungsort zu bewundern"
+ COR_impressed_courtly_vassal_title: "Höfische Vasallen beeindruckt von üppigem Festmahl"
+ COR_music_performance_title: "Musik von [first.GetShortUINameNoTooltip|U]  lockte die Gäste zum Tanz"
+ COR_poetry_performance_title: "Poetische Darbietung von [first.GetShortUINameNoTooltip|U] ließ die Menge in Staunen verharren"
+ COR_officiant_impressed_title: "Offiziant von [second.GetShortUINameNoTooltip|U], [first.GetShortUINameNoTooltip|U], ist beeindruckt"
+ COR_lauded_food_title: "[first.GetShortUINameNoTooltip] lobt das [root_scope.Custom('GetExpensiveMeal')|U]"
+ COR_courtly_vassals_appeased_title: "Höfische Vasallen bewundern Vorbereitungen von [root_scope.GetShortUINameNoTooltip|U]"
+ COR_ridiculed_food_title: "[first.GetShortUINameNoTooltip|U] verspottet die Qualität des [root_scope.Custom('GetExpensiveMeal')|U]"
+
+ ### PARAMETERS
+ COR_activity_coronation_ceremony_base_cost: "Krönungszeremonie Grundkosten"
+ COR_activity_coronation_ceremony_cost_splendor_private: "Private Zeremonie Kosten"
+ COR_activity_coronation_ceremony_cost_splendor_dignified: "Würdevolle Zeremonie Kosten"
+ COR_activity_coronation_ceremony_cost_splendor_extravagant: "Extravagante Zeremonie Kosten"
+
+ ### OPTIONS
+ COR_ceremony_type: "Pracht"
+ COR_ceremony_type_private: "Private Zeremonie"
+ COR_ceremony_type_private_desc: "#weak Eine Krönung ist ein entscheidender Moment, der den Aufstieg eines neuen Herrschers markiert, aber auch eine feierliche, persönliche Angelegenheit sein kann.#!"
+ COR_ceremony_type_dignified: "Würdevolle Zeremonie"
+ COR_ceremony_type_dignified_desc: "#weak Diese Zeremonie schafft ein Gleichgewicht zwischen Ehrfurcht und Majestät und verkörpert den sakralen Machtwechsel in einer Weise, die der Würde des Throns angemessen ist.#!"
+ COR_ceremony_type_extravagant: "Extravagante Zeremonie"
+ COR_ceremony_type_extravagant_desc:1 "#weak Diese Zeremonie ist eine opulente Zurschaustellung von Reichtum und Macht, bei der keine Kosten gescheut werden, um den Anbruch einer neuen Ära unter einem großartigen Herrscher einzuläuten.#!"
+
+ COR_ceremony_option_entertainment: "Unterhaltung"
+ COR_ceremony_entertainment_bad: "Bardische Überlieferungen"
+ COR_ceremony_entertainment_bad_desc: "$EFFECT_LIST_BULLET$ Verringerter [prestige|E]-Zuwachs\n\n#weak Fokus auf traditionelle Minnesänger und Barden, die Heldengeschichten erzählen, alte Balladen singen und poetische Kompositionen vortragen, die die kulturellen und historischen Erzählungen des Reiches feiern.#!"
+ COR_ceremony_entertainment_normal: "Höfische Festlichkeiten"
+ COR_ceremony_entertainment_normal_desc: "$COR_ceremony_normal_option_desc$\n$EFFECT_LIST_BULLET$ durchschnittlicher [prestige|E]-Zuwachs\n\n#weak Eine ausgewogene Mischung aus Unterhaltung mit Troubadouren, Narren und Hoftänzern, die eine vielfältige Palette von Darbietungen bieten, die dem Adelsgeschmack entsprechen und die zeremonielle Würde wahren.#!"
+ COR_ceremony_entertainment_good: "Königliches Spektakel"
+ COR_ceremony_entertainment_good_desc: "$COR_ceremony_good_option_desc$\n$EFFECT_LIST_BULLET$ Erhöhter [prestige|E]-Zuwachs\n\n#weak Eine aufwendige Unterhaltungsschau mit großen Turnieren, kunstvollen Maskeraden und vielleicht exotischen Tierschauen oder Lanzenstechen, die die Macht des Monarchen und den Reichtum des Königreichs demonstrieren sollen.#!"
+
+ COR_ceremony_option_food: "Speisen und Getränke"
+ COR_ceremony_food_bad: "Bescheidenes Festmahl"
+ COR_ceremony_food_bad_desc: "$EFFECT_LIST_BULLET$ Verringerter [opinion|E]s-Zuwachs bei allen anwesenden Charakteren\n\n#weak Ein Festmahl, das den Erwartungen entspricht, aber nichts, woran man sich erinnern wird.#!"
+ COR_ceremony_food_normal: "Großzügiges Festmahl"
+ COR_ceremony_food_normal_desc:0 "$COR_ceremony_normal_option_desc$\n$EFFECT_LIST_BULLET$ durchschnittlicher [opinion|E]s-Zuwachs bei allen anwesenden Charakteren\n\n#weak Ein angemessenes Bankett, das allen Gästen gefallen wird.#!"
+ COR_ceremony_food_good: "Gigantisches Mahl"
+ COR_ceremony_food_good_desc: "$EFFECT_LIST_BULLET$ Bonus zum [stress|E]-Abbau\n$EFFECT_LIST_BULLET$ Erhöhte [health|E]s-Boni\n$COR_ceremony_good_option_desc$\n$EFFECT_LIST_BULLET$ Erhöhter [opinion|E]s-Zuwachs bei allen anwesenden Charakteren\n\n#weak Die Tische werden unter dem Gewicht all dieser Speisen ächzen!#!"
+
+ COR_ceremony_option_decoration: "Krönungsort"
+ COR_ceremony_decoration_bad: "Einfache Banner"
+ COR_ceremony_decoration_bad_desc: "$EFFECT_LIST_BULLET$ Verringerter [opinion|E]s-Zuwachs bei Euren [GetVassalStance( 'courtly' ).GetName]en [vassals|E]\n\n#weak Bescheidene Verzierungen mit schlichten Bannern und einer bescheidenen Menge an Teilnehmern und Dienern.#!"
+ COR_ceremony_decoration_normal: "Heraldische Vorhänge und Kerzenleuchter"
+ COR_ceremony_decoration_normal_desc: "$COR_ceremony_normal_option_desc$\n$EFFECT_LIST_BULLET$ durchschnittlicher [opinion|E]s-Zuwachs bei Euren [GetVassalStance( 'courtly' ).GetName]en [vassals|E]\n$EFFECT_LIST_BULLET$ Erhaltet [GetModifier( 'COR_ceremony_gracious_host_modifier' ).GetNameWithTooltip|L]\n\n#weak Traditionelle Dekorationen und genügend Diener, damit kein Becher leer bleibt.#!"
+ COR_ceremony_decoration_good: "Silber und Gold"
+ COR_ceremony_decoration_good_desc: "$EFFECT_LIST_BULLET$ [dynasty_prestige|E] und [prestige|E]\n$COR_ceremony_good_option_desc$\n$EFFECT_LIST_BULLET$ Erhaltet [GetModifier( 'COR_ceremony_magnificent_host_modifier' ).GetNameWithTooltip|L]\n\n#weak Eine unverschämte Zurschaustellung grenzenlosen Reichtums und genügend Bedienstete, damit jeder Gast seinen persönlichen Mundschenk hat.#!"
+
+ COR_ceremony_good_option_desc: "$EFFECT_LIST_BULLET$ [GetVassalStance( 'glory_hound' ).GetName] und [GetVassalStance( 'courtly' ).GetName] [vassals|E] werden mehr [opinion|E] für Euch gewinnen"
+ COR_ceremony_normal_option_desc: "$EFFECT_LIST_BULLET$ [GetVassalStance( 'parochial' ).GetName] und [GetVassalStance( 'zealot' ).GetName] [vassals|E] werden mehr [opinion|E] für Euch gewinnen"
+
+### PHASES
+ COR_ceremony_phase_ceremony: "Krönungszeremonie"
+ COR_ceremony_phase_ceremony_desc: "Alle Feierlichkeiten und Vorbereitungen, die im Krönungsakt gipfeln, der offiziell die Herrschaft des Souveräns einleitet."
+ COR_ceremony_phase_banquet: "Krönungsbankett"
+ COR_ceremony_phase_banquet_desc: "Ein Fest zu Ehren der Thronbesteigung: eine üppige Auswahl an Speisen, Getränken und Darbietungen im Überfluss."
+
+ ### COST
+ COR_activity_coronation_ceremony_predicted_cost: "Die Kosten der $COR_activity_coronation_ceremony$ hängen von den [activity_options|E] ab, die Ihr auswählt."
+
+ COR_activity_coronation_ceremony_conclusion_desc: "Während die letzten Augenblicke der $COR_activity_coronation_ceremony$ zu Ende gehen und die Eindrücke der Reise sich zu setzen beginnen, blicken wir mit erneuertem Sinn und Hoffnung nach vorne. Möge diese ehrwürdige Tradition als Zeugnis unserer Hingabe und Einheit dienen und ein stärkeres Band für die Zukunft des Reiches schmieden."
+ COR_activity_coronation_ceremony_hof_conclusion_desc: "Während die letzten Augenblicke der $COR_activity_coronation_ceremony$ zu Ende gehen und die Eindrücke der Reise sich zu setzen beginnen, blicken wir mit erneuertem Sinn und Hoffnung nach vorne. Möge diese ehrwürdige Tradition als Zeugnis unserer Hingabe und Einheit dienen und ein stärkeres Band für die Zukunft des Reiches schmieden."
+
+ COR_ceremony_completed_log_title: "Krönungszeremonie abgeschlossen"
+ COR_ceremony_completed_log: "[CHARACTER.GetShortUIName|U] hat die Krönungszeremonie abgeschlossen"
+ COR_ceremony_result_gained_piety: "[piety_i|E][piety|E] erhalten"
+ COR_ceremony_result_gained_prestige: "[prestige_i|E][prestige|E] erhalten"
+ COR_ceremony_result_gained_dynasty_prestige: "[dynasty_prestige_i][dynasty_prestige|E] erhalten"
+
+ # Memories
+ COR_ceremony_host_memory: "Erhielt [owner.Custom('DE_PRO_POS_S_3P')]e Krone im Rahmen einer [GetActivityType('COR_activity_coronation_ceremony').GetName]"
+ COR_ceremony_host_memory_first_perspective: "Ich erhielt meine Krone im Rahmen einer [GetActivityType('COR_activity_coronation_ceremony').GetName]"
+ COR_ceremony_host_memory_second_perspective: "Ihr habt Eure Krone im Rahmen einer [GetActivityType('COR_activity_coronation_ceremony').GetName] erhalten"
+ COR_ceremony_host_memory_third_perspective: "[owner.GetName] erhielt [owner.Custom('DE_PRO_POS_S_3P')]e Krone im Rahmen einer [GetActivityType('COR_activity_coronation_ceremony').GetName]"
+ COR_ceremony_guest_memory: "war Zeuge, als [host.GetTitledFirstName] [host.Custom('DE_PRO_POS_S_3P')]e Krone im Rahmen einer [GetActivityType('COR_activity_coronation_ceremony').GetName] erhielt"
+ COR_ceremony_guest_memory_first_perspective: "Ich war Zeuge, als [host.GetTitledFirstName] [host.Custom('DE_PRO_POS_S_3P')]e Krone im Rahmen einer [GetActivityType('COR_activity_coronation_ceremony').GetName] erhielt"
+ COR_ceremony_guest_memory_second_perspective: "Ihr wart Zeuge, als [host.GetTitledFirstName] [host.Custom('DE_PRO_POS_S_3P')]e Krone im Rahmen einer [GetActivityType('COR_activity_coronation_ceremony').GetName] erhielt"
+ COR_ceremony_guest_memory_third_perspective: "[owner.GetName] war Zeuge, als [host.GetTitledFirstName] [host.Custom('DE_PRO_POS_S_3P')]e Krone im Rahmen einer [GetActivityType('COR_activity_coronation_ceremony').GetName] erhielt"
+
+ ## Events
+ COR_ceremony_header: "Krönungszeremonie:"
+ COR_ceremony.0301.t: "Ende der Feierlichkeiten"
+ COR_ceremony.0301.desc: "Mit dem Tod von [host.Custom2('MyCharacterIntroduction', ROOT.Char)] endet [host.Custom('DE_PRO_POS_S_3P')]e Krönung.\n\nWährend die bedrückten Teilnehmer sich entfernen, bete ich, dass [ROOT.Char.GetFaith.HighGodNameAlternate] [host.GetFirstName] so herzlich im [ROOT.Char.GetFaith.PositiveAfterLife] willkommen heißt, wie [host.GetSheHe] uns in [host.Custom('DE_PRO_POS_S_3P')]en Hallen willkommen hieß."
+ COR_ceremony.0301.a: "Ich frage mich, was nun geschehen wird."
+
+ COR_ceremony.0302.t: "$COR_ceremony_header$ Eine abgebrochene Krönung"
+ COR_ceremony.0302.desc: "Mein Vorgänger, [host.GetNameRegnal], hat [host.Custom('DE_PRO_POS_S_3P')]e sterbliche Hülle abgelegt, während [host.GetSheHe] [host.Custom('DE_PRO_POS_S_3P')]e Krönungszeremonie organisierte. [host.GetSheHe] [host.GetDeathReason], was für eine Tragödie.\n\n"
+ COR_ceremony.0302.desc.entourage: "$activity_system.1010.desc.entourage$"
+ COR_ceremony.0302.desc.ruler: "Der verstorbene [host.GetTitleAsName] hätte nicht so sterben dürfen."
+ COR_ceremony.0302.a: "$activity_system.1010.a$"
+ COR_ceremony.0302.tt: "[GetActivityType('COR_activity_coronation_ceremony').GetName] von [host.GetShortUINameNoTooltip] wurde abgesagt"
+
+ COR_ceremony.0303.desc: "Da ich nun hinter Gittern sitze, wird meine Krönungszeremonie abgesagt. Oh, all die Mühe, die ich in die Vorbereitung gesteckt habe... Verschwendet!"
+ COR_ceremony.0303.a: "Kein [ROOT.Char.GetTitleAsNameNoTooltip], keine Krönung."
+
+ COR_ceremony.0304.desc: "[host.Custom2('MyCharacterIntroduction', ROOT.Char)|U] wurde eingekerkert, und [host.Custom('DE_PRO_POS_S_3P')]e Krönungszeremonie ist zu Ende. Wie tragisch!"
+ COR_ceremony.0304.a.tt: "Die Krönungszeremonie ist abgesagt"
+
+ COR_ceremony.0305.desc: "Mit dem unerwarteten Tod von [COR_coronator.GetTitledFirstName], der die Zeremonie leiten sollte, bin ich gezwungen, meine Krönung zu verschieben. Es scheint, als hätte [ROOT.Char.GetFaith.HouseholdGodName] andere Pläne für [COR_coronator.Custom('DE_PRO_PER_S_3P_A')]. Der Anspruch bleibt bestehen, jedoch bleibt das Versprechen einer Krönungszeremonie nun noch zu erfüllen."
+ COR_ceremony.0305.a: "Das ist eine Katastrophe!"
+
+ COR_ceremony.0306.desc: "Die Nachricht vom Tod von [COR_coronator.GetTitledFirstName], der die Zeremonie leiten sollte, verhindert sämtliche Festlichkeiten. Es scheint, als hätte [ROOT.Char.GetFaith.HouseholdGodName] andere Pläne für [COR_coronator.Custom('DE_PRO_PER_S_3P_A')].\n\nDer Anspruch bleibt bestehen, jedoch bleibt das Versprechen einer Krönungszeremonie nun noch zu erfüllen."
+ COR_ceremony.0306.a: "Wahrlich eine Tragödie..."
+
+ COR_ceremony.0307.desc: "Mit der Inhaftierung von [COR_coronator.GetTitledFirstName], der die Zeremonie leiten sollte, bin ich gezwungen, meine Krönung zu verschieben. Es scheint, als hätte [ROOT.Char.GetFaith.HouseholdGodName] andere Pläne für [COR_coronator.Custom('DE_PRO_PER_S_3P_A')].\n\nDer Anspruch bleibt bestehen, jedoch bleibt das Versprechen einer Krönungszeremonie nun noch zu erfüllen."
+
+ COR_ceremony.0308.desc: "Mit der Inhaftierung von [COR_coronator.GetTitledFirstName], der die Zeremonie leiten sollte, sieht es so aus, als ob [host.GetTitledFirstName] gezwungen ist, [host.Custom('DE_PRO_POS_S_3P')]e Krönung auf unbestimmte Zeit zu verschieben. Es scheint, als hätte [ROOT.Char.GetFaith.HouseholdGodName] andere Pläne für [COR_coronator.Custom('DE_PRO_PER_S_3P_A')].\n\nDer Anspruch bleibt bestehen, jedoch bleibt das Versprechen einer Krönungszeremonie nun noch zu erfüllen."
+ COR_ceremony.0308.a: "Wie enttäuschend."
+
+ COR_ceremony.0309.desc: "Ich kann es nicht glauben! [COR_coronator.GetTitledFirstName] ist nicht zu meiner Krönung erschienen! Ohne einen Priester, der meine Krönung vollzieht, kann die Zeremonie nicht stattfinden, und ich bin meiner rechtmäßigen Krone beraubt."
+ COR_ceremony.0309.a: "Das ist inakzeptabel!"
+
+ COR_ceremony.0310.desc: "Wie demütigend! [COR_coronator.GetTitledFirstName] ist nicht zur Krönungszeremonie von [host.GetTitledFirstName] erschienen! Und [host.GetSheHe] schickt uns jetzt alle nach Hause! Wäre ich an [host.Custom('DE_PRO_POS_S_3P')]er Stelle, ich würde #EMP niemals#! damit fertig werden..."
+ COR_ceremony.0310.a: "Wirklich schade."
+
+ COR_ceremony.0311.desc: "Meine Zeit als [ROOT.Char.GetTitleAsNameNoTooltip] ist zu einem abrupten und schmählichen Ende gekommen. Während ich über meine nächsten Schritte nachdenke, stehe ich vor der harten Realität einer Zukunft ohne die Krone. Die Zukunft ist ungewiss, und der Weg vor mir liegt im Schatten."
+ COR_ceremony.0311.a: "Das kann nicht sein!"
+
+ COR_ceremony.0312.desc: "Die neuesten Nachrichten unterbrachen die Feierlichkeiten und ließen alle überrascht und verwirrt zurück.\n\nAnscheinlich wird die Krönung aufgrund mangelnden Status und Besitzes nicht fortgesetzt werden können, und ohne einen starken Herrscher, der sie leitet, können wir nur enttäuscht den Heimweg antreten."
+ COR_ceremony.0312.a: "Wie schade..."
+
+ COR_ceremony.0313.desc: "Während ich aus der Kathedrale schreite, fühlt sich das Gewicht der Reichskrone in meinem Griff nicht nur als Symbol der Macht an, sondern als eine Erklärung meiner Unabhängigkeit von den Ketten der Tradition. Das schockierte Flüstern des Adels und die bestürzten Blicke der Geistlichkeit stärken nur meine Entschlossenheit. Ich habe mein Schicksal mit eigenen Händen ergriffen, befreit vom Griff des Papsttums. Lasst den Papst seinen Bann aussprechen; es bedeutet mir wenig. Heute habe ich nicht nur eine Krone beansprucht, sondern meine Souveränität und die Vorherrschaft des Thrones über den Altar bekräftigt. Der Weg vor mir mag voller Herausforderungen sein, aber ich stehe bereit, ein ungebundener Herrscher, der einen Kurs für mein Reich einschlägt, geleitet von meinem eigenen Willen und meiner Vision."
+ COR_ceremony.0313.a: "Wahrlich, dies ist der Beginn einer neuen Ära."
+
+ COR_ceremony.0314.desc: "Nach [COR_ruler.GetTitledFirstNamePossessive] beispiellosem Aufbegehren liegt die große Kathedrale nun in fassungsloser Stille, und in ihren heiligen Gewölben hallt das Flüstern der abgesagten Feierlichkeiten wider. Als der Herrscher mit der Reichskrone fest in seiner Hand die heilige Schwelle verlässt, herrscht unter den Adligen und Geistlichen eine spürbare Ungläubigkeit. \n\nDer Papst, sichtlich erschüttert, aber gefasst, verkündet mit fester Stimme, die jedoch von tiefer Trauer und Enttäuschung geprägt ist, die Exkommunikation des Herrschers. Diese Maßnahme isoliert [COR_ruler.GetTitledFirstName] nicht nur von der geistlichen Gemeinschaft der Kirche, sondern wirft auch einen dunklen Schatten auf das Reich, dessen Zukunft nun untrennbar mit dem ungewissen Schicksal eines Herrschers verbunden ist, der sich der göttlichen Führung entzogen hat, die einst seine Herrschaft legitimierte. Die Folgen dieses Tages, der von einem Akt der Willensstärke und Rebellion geprägt ist, werden sich sicherlich in den Annalen der Geschichte niederschlagen, während das Reich mit der Spaltung zwischen Krone und Kreuz zu kämpfen hat."
+ COR_ceremony.0314.a: "Ich kann es nicht fassen."
+
+ COR_ceremony.0315.desc: "Die neuesten Nachrichten unterbrachen die Feierlichkeiten und ließen alle überrascht und verwirrt zurück.\n\nAnscheinlich wird die Krönung aufgrund mangelnden Status und Besitzes nicht fortgesetzt werden können, und ohne einen starken Herrscher, der sie leitet, können wir nur enttäuscht den Heimweg antreten."
+
+ COR_ceremony.0316.desc: "Es ist immer ein trauriger Tag, wenn alle Hoffnungen und harte Arbeit, die eine Krönung begleiten, umsonst sind.\n\nLeider war diese Krönung einfach nicht vorherbestimmt.\n\nWährend die Diener mit dem Aufräumen beginnen, verlassen die Gäste in verwirrten und enttäuschten Gruppen den Ort, um in ihre jeweiligen Heimatländer zurückzukehren."
+
+ #Activity Events
+ COR_ceremony.0320.t: "Beginn der Krönungszeremonie"
+ COR_ceremony.0320.desc.private: "Die Zeit meiner Krönung rückt näher: nur noch wenige Tage, bevor ich vor Gott und all meinen Untertanen zum [ROOT.Char.GetTitleAsNameNoTooltip] gekrönt werde.\nIch kann das Gewicht der Krone auf meinem Haupt bereits fast spüren. Der Gedanke an meine neuen Pflichten als gesalbter Herrscher erfüllt mich mit Ehrfurcht. Es wird eine lange Zeit des Wartens sein, mit wenig zu tun, aber ich hoffe zumindest, dass mir diese Zeit der Zurückgezogenheit die Möglichkeit gibt, über meine zukünftigen Verantwortlichkeiten als [ROOT.Char.GetTitleAsNameNoTooltip] nachzudenken."
+ COR_ceremony.0320.desc.dignified: "Die Zeit meiner Krönung rückt näher: nur noch wenige Tage, bevor ich vor Gott und all meinen Untertanen zum [ROOT.Char.GetTitleAsNameNoTooltip] gekrönt werde.\nIch kann das Gewicht der Krone auf meinem Haupt bereits fast spüren. Der Gedanke an meine neuen Pflichten als gesalbter Herrscher erfüllt mich mit Ehrfurcht. Der Ort ist bereits gefüllt mit all den Vasallen meines Reiches, die gekommen sind, um Zeuge dieses grundlegenden Moments meiner Herrschaft zu werden."
+ COR_ceremony.0320.desc.extravagant: "Nur noch wenige Tage, bevor ich vor Gott und all meinen Untertanen zum [ROOT.Char.GetTitleAsNameNoTooltip] gekrönt werde.\nIch kann das Gewicht der Krone auf meinem Haupt bereits fast spüren. Der Gedanke an meine neuen Pflichten als gesalbter Herrscher erfüllt mich mit Ehrfurcht. Der Ort ist gefüllt mit all meinen angesehenen Gästen, sowohl Vasallen als auch ausländischen Würdenträgern, die gekommen sind, um Zeuge dieses grundlegenden Moments meiner Herrschaft zu werden. Eine so prachtvolle Zeremonie mit so prestigeträchtigen Gästen ist ein seltenes Schauspiel, selbst unter Königen."
+ COR_ceremony.0320.a: "Es wird nie früh genug sein."
+
+ #COR_ceremony.0321.desc: "Just days remain until [host.GetTitledFirstName] is anointed [host.GetTitleAsNameNoTooltip] under the watchful eyes of the divine. Excitement electrifies the air around me.\n\nEvery glance reveals guests in lively conversation, blossoms adorning every corner and diligent attendants navigating with platters brimming with delicacies.\n\nThe sovereign, poised and eager, stands at the threshold of destiny."
+
+ COR_ceremony.0322.t: "Die Krönung"
+ COR_ceremony.0322.desc_hre: "Ich nähere mich dem Altar, umgeben von einer Versammlung hochrangiger Geistlicher, Fürsten weiteren Adeligen. [COR_coronator.GetTitledFirstName] steht bereit, um mir die Reichsinsignien zu verleihen. [COR_coronator.GetSheHe] beginnt mit einem feierlichen Anruf:\n„Höre unser Gebet, Herr, und das deines Dieners [COR_ruler.GetFirstName]. Allmächtiger Gott, richte deinen gnädigen Blick auf diesen, deinen glorreichen Diener, [COR_ruler.GetFirstName] ...“\nWährend er die Reichskrone auf mein Haupt setzt und mich zum [COR_ruler.GetTitleAsNameNoTooltip] der Römer von Gottes Gnaden und zum Beschützer der gesamten Christenheit proklamiert.\n„Durch ihn gebührt dir Ehre und Ruhm in alle Ewigkeit. Amen.“\n[COR_coronator.GetTitledFirstName] überreicht mir die Reichsinsignien: „Empfange dieses Schwert aus den Händen der Bischöfe, die, obgleich sie unwürdig sind, an der Statt und mit der Autorität der heiligen Apostel geweiht wurden. Empfange es mit unserem Segen, damit du die heilige Kirche verteidigst, wie es von Gott bestimmt ist. Denke daran, von wem der Psalmist prophezeite, als er sagte: 'Gürte das Schwert um die Hüfte, du Held, auf dass du damit Gerechtigkeit übest.'\nEmpfange dieses Zepter, das Zeichen deiner königlichen Macht, um gerecht und nach Treu und Glauben zu herrschen. Mögen deine Urteile vom Willen Gottes geleitet sein, und mögest du die Schwachen beschützen und die Rechte der Kirche wahren.\nEmpfange diesen Reichsapfel, das Symbol deiner Weltherrschaft unter der Hand Christi. Mögest du erkennen, dass alle irdische Macht dem Willen Gottes unterworfen ist, und dass du Sein Diener bist, beauftragt mit der Sorge für Sein Volk.“\nNachdem ich vollständig mit den Insignien ausgestattet worden bin, hallt der Saal vom Gesang der Laudes Imperiales:\n„Christus vincit! Christus regnat! Christus imperat! Lang lebe der Kaiser, den Gott gesalbt und gekrönt hat, um über das Heilige Römische Reich zu herrschen!“\nDer [COR_coronator.GetTitleAsNameNoTooltip] spricht dann noch ein letztes Gebet:\n„Der Herr möge dich segnen und behüten. Möge er dir Weisheit, Stärke und Mut für deine Herrschaft schenken. Und wenn deine irdische Herrschaft endet, möge er dich in Sein ewiges Reich aufnehmen, wo du in Ewigkeit mit Ihm herrschen wirst. Amen.“\nDer [COR_coronator.GetTitleAsNameNoTooltip] spricht dann ein abschließendes Gebet:\n„Möge der Herr dich segnen und behüten. Er gewähre dir Weisheit, Stärke und Mut in deiner Herrschaft. Und wenn deine irdische Herrschaft beendet ist, möge Er dich in Sein ewiges Reich aufnehmen, wo du für immer und ewig mit Ihm regieren wirst. Amen.“"
+COR_ceremony.0322.desc_hre.1: "Ich nähere mich dem Altar, umgeben von einer Versammlung hochrangiger Geistlicher, Fürsten weiteren Adeligen. [COR_coronator.GetTitledFirstName] steht bereit, um mir die Reichsinsignien zu verleihen. [COR_coronator.GetSheHe] beginnt mit einem feierlichen Anruf:\n„Höre unser Gebet, Herr, und das deines Dieners [COR_ruler.GetFirstName]. Allmächtiger Gott, richte deinen gnädigen Blick auf diesen, deinen glorreichen Diener, [COR_ruler.GetFirstName] ...“\nWährend er die Reichskrone auf mein Haupt setzt und mich zum [COR_ruler.GetTitleAsNameNoTooltip] der Römer von Gottes Gnaden und zum Beschützer der gesamten Christenheit proklamiert.\n„Durch ihn gebührt dir Ehre und Ruhm in alle Ewigkeit. Amen.“"
+ COR_ceremony.0322.desc_hre.2: "[COR_coronator.GetTitledFirstName] überreicht mir die Reichsinsignien: „Empfange dieses Schwert aus den Händen der Bischöfe, die, obgleich sie unwürdig sind, an der Statt und mit der Autorität der heiligen Apostel geweiht wurden. Empfange es mit unserem Segen, damit du die heilige Kirche verteidigst, wie es von Gott bestimmt ist. Denke daran, von wem der Psalmist prophezeite, als er sagte: 'Gürte das Schwert um die Hüfte, du Held, auf dass du damit Gerechtigkeit übest.'\nEmpfange dieses Zepter, das Zeichen deiner königlichen Macht, um gerecht und nach Treu und Glauben zu herrschen. Mögen deine Urteile vom Willen Gottes geleitet sein, und mögest du die Schwachen beschützen und die Rechte der Kirche wahren.\nEmpfange diesen Reichsapfel, das Symbol deiner Weltherrschaft unter der Hand Christi. Mögest du erkennen, dass alle irdische Macht dem Willen Gottes unterworfen ist, und dass du Sein Diener bist, beauftragt mit der Sorge für Sein Volk.“\nNachdem ich vollständig mit den Insignien ausgestattet worden bin, hallt der Saal vom Gesang der Laudes Imperiales:\n„Christus vincit! Christus regnat! Christus imperat! Lang lebe der Kaiser, den Gott gesalbt und gekrönt hat, um über das Heilige Römische Reich zu herrschen!“\nDer [COR_coronator.GetTitleAsNameNoTooltip] spricht dann noch ein letztes Gebet:\n„Der Herr möge dich segnen und behüten. Möge er dir Weisheit, Stärke und Mut für deine Herrschaft schenken. Und wenn deine irdische Herrschaft endet, möge er dich in Sein ewiges Reich aufnehmen, wo du in Ewigkeit mit Ihm herrschen wirst. Amen.“\nDer [COR_coronator.GetTitleAsNameNoTooltip] spricht dann ein abschließendes Gebet:\n„Möge der Herr dich segnen und behüten. Er gewähre dir Weisheit, Stärke und Mut in deiner Herrschaft. Und wenn deine irdische Herrschaft beendet ist, möge Er dich in Sein ewiges Reich aufnehmen, wo du für immer und ewig mit Ihm regieren wirst. Amen.“"
+ COR_ceremony.0322.desc_hre.guest.1: "Ich nähere mich dem Altar, umgeben von einer Versammlung hochrangiger Geistlicher, Fürsten weiteren Adeligen. [COR_coronator.GetTitledFirstName] steht bereit, um mir die Reichsinsignien zu verleihen. [COR_coronator.GetSheHe] beginnt mit einem feierlichen Anruf:\n„Höre unser Gebet, Herr, und das deines Dieners [COR_ruler.GetFirstName]. Allmächtiger Gott, richte deinen gnädigen Blick auf diesen, deinen glorreichen Diener, [COR_ruler.GetFirstName] ...“\nWährend er die Reichskrone auf mein Haupt setzt und mich zum [COR_ruler.GetTitleAsNameNoTooltip] der Römer von Gottes Gnaden und zum Beschützer der gesamten Christenheit proklamiert.\n„Durch ihn gebührt dir Ehre und Ruhm in alle Ewigkeit. Amen.“"
+ COR_ceremony.0322.desc_king_of_the_germans.1: "Ich knie vor [COR_coronator.GetTitledFirstName], umgeben von meinen edlen Vasallen, während der Priester beginnt, die alten Gebete zu rezitieren:\n„Allmächtiger und ewiger Gott, Herr des Himmels und der Erde, wir bitten dich, diesen, deinen Diener [COR_ruler.GetFirstName], zu segnen, den du auserwählt hast, über die Völker des Reiches zu herrschen. Gewähre ihm Weisheit, Gerechtigkeit und Stärke, dass er mit Rechtschaffenheit regieren und deine heilige Kirche beschützen möge.“\nwährend er die Krone auf mein Haupt setzt und verkündet:\n„Empfange diese Krone, das Symbol königlicher Würde, die dir durch die Autorität des allmächtigen Gottes und der Kirche gegeben wird. Mögest du, durch die Gnade Gottes, sie mit Ehre tragen und die Rechte des Reiches verteidigen.“"
+ COR_ceremony.0322.desc_king_of_the_germans.2: "[COR_coronator.GetTitledFirstName] überreicht mir ein Schwert mit den Worten: „Nehmt dieses Schwert, das Euch durch die Hände der Bischöfe gegeben wird, als Zeichen Eurer Pflicht, die Kirche, das Reich und alles, was recht ist, zu verteidigen. Mögest du es mit Rechtschaffenheit führen, wie der Psalmist sagte: 'Gürte dein Schwert um die Hüfte, du Held; deine Majestät und deine Pracht! Und deine Pracht – sei stark, zieh aus für die Sache der Wahrheit und der Sanftmut und der Gerechtigkeit, so wird deine rechte Hand Wunder vollbringen.“\nDer Saal hallt vom Gesang der Laudes Regiae:\n„Christus vincit! Christus regnat! Christus imperat! Lang lebe der König der Römer, den Gott erwählt hat!“\nDie Krönung endet dann mit einem letzten Gebet:\n„Auf die Fürsprache der seligen Apostel Petrus und Paulus möge der allmächtige Gott, der dich in dieses hohe Amt erhoben hat, dir eine segensreiche Regentschaft und nach diesem Leben einen Platz in seinem ewigen Reich gewähren. Amen.“"
+ COR_ceremony.0322.desc_diplo: "Während ich vor dem ehrwürdigen [COR_coronator.GetTitledFirstName] knie, lastet bereits das Gewicht zukünftiger Bündnisse und Regierungsgeschäfte auf meinen Schultern. Umlebt von der andächtigen Stille meiner Vasallen, sinne ich über die Stabilität meines Reiches nach. In dem Moment, da der Priester mir die Krone aufsetzt, sind meine Gedanken bei der Bestandskraft meines Königreichs und der Loyalität derer, die mir bei seiner Lenkung helfen werden, selbst wenn ich durch die Gnade Gottes zum [COR_ruler.GetTitleAsNameNoTooltip] proklamiert werde."
+ COR_ceremony.0322.desc_religious: "In der feierlichen Stille der Krönung hallt jede sakrale Geste und jedes gesprochene Gebet tief in mir wider. Als ich vor [COR_coronator.GetTitledFirstName] knie, bin ich mir des göttlichen Bundes, der geschlossen wird, deutlich bewusst. Während mir die Krone verliehen wird und ich zum [COR_ruler.GetTitleAsNameNoTooltip] von [COR_ruler.GetPrimaryTitle.GetNameNoTier] proklamiert werde, richtet sich mein Herz nach dem göttlichen Willen aus, bereit, mein Volk mit einer Mischung aus spiritueller und weltlicher Weisheit zu führen."
+ COR_ceremony.0322.desc_party: "Der Höhepunkt der Krönungszeremonie rückt näher, und mit der Krone, die im Inbegriff ist, meinen Kopf zu schmücken, rast mein Herz in Vorfreude auf die bevorstehenden Feierlichkeiten. Der Gedanke an Schlemmereien, Musik und die geteilte Freude meines Volkes mildert die Schwere des Augenblicks. Doch als [COR_coronator.GetTitledFirstName] mich zum [COR_ruler.GetTitleAsNameNoTooltip] ausruft, konzentriere ich mich augenblicklich wieder auf die Tragweite meiner neuen Rolle, bereit, die Festlichkeiten als Herrscher meines Volkes zu begehen."
+ COR_ceremony.0322.desc_shy: "Das Gewicht der Krone ist spürbar, nicht nur in ihrer physischen Schwere, sondern in der Unermesslichkeit dessen, was sie darstellt. Während ich knie, umgeben von den erwartungsvollen Augen meines Königreichs, ist die Realität meiner neuen Pflichten als [COR_ruler.GetTitleAsNameNoTooltip] überwältigend. Die Ermutigung von [COR_coronator.GetTitledFirstName] ist ein kleiner Trost, während ich mich vorbereite, aufzustehen, gekrönt und bereit, diese einschüchternde Reise anzutreten."
+ COR_ceremony.0322.desc_arrogant: "Inmitten der Pracht der Krönungszeremonie reichen meine Ambitionen weit über die bloße Entgegennahme einer Krone von [COR_coronator.GetTitledFirstName] hinaus. Als ich mich zur Krönung erhebe, nährt das ehrfürchtige Raunen der Versammelten nur noch mehr meine Entschlossenheit. Die Krone auf meinem Haupt ist nicht nur ein Symbol der Autorität, sondern ein Zeugnis meiner unvermeidlichen Herrschaft. Mit einem Blick, der Stille gebietet, nehme ich dieses Symbol der Macht nicht als Ziel, sondern als Mittel an, um ein Reich zu schmieden, das in den Annalen der Geschichte nachhallen wird und an Ruhm und Macht unübertroffen sein wird."
+ COR_ceremony.0322.desc_paranoid: "Selbst inmitten meiner Krönung wird mein Geist von Gedanken an potenzielle Bedrohungen und versteckte Absichten belagert. Als die Krone auf mein Haupt gesetzt wird und ich zum [COR_ruler.GetTitleAsNameNoTooltip] ausgerufen werde, lässt meine Wachsamkeit nicht nach. Die Feierlichkeit des Anlasses vermag wenig, meine Zweifel über die wahre Loyalität derer zu zerstreuen, die sich nun vor mir verneigen."
+ COR_ceremony.0322.desc: "Die Riten und Bräuche der Krönung nehmen um mich herum ihren Lauf und gipfeln in dem Moment, in dem mir die Krone aufgesetzt wird. Eingehüllt in die ehrfürchtige Stille der Versammelten erhebe ich mich als [COR_ruler.GetTitleAsNameNoTooltip] und bin erfüllt von der Würde dieses Augenblicks und der bedrückenden Verantwortung, die nun auf mir lastet."
+ COR_ceremony.0322.a: "Nein, ich werde mich selbst krönen!"
+ COR_ceremony.0322.b: "Ich bin endlich und wahrhaftig [COR_ruler.GetTitleAsNameNoTooltip]."
+
+ COR_ceremony.0323.desc_hre.1: "Als der künftige [COR_ruler.GetTitleAsNameNoTooltip] der Römer sich dem Altar nähert, ist [COR_ruler.GetSheHe] umgeben von einer Versammlung hochrangiger Geistlicher, Fürsten und weiterer Adeliger. [COR_coronator.GetTitledFirstName] steht bereit, um die Reichsinsignien zu verleihen. [COR_coronator.GetSheHe] beginnt mit einem feierlichen Anruf:\n„Höre unser Gebet, Herr, und das deines Dieners [COR_ruler.GetFirstName]. Blicke, allmächtiger Gott, mit gnädigem Auge auf diesen, deinen glorreichen Diener, [COR_ruler.GetFirstName]...“\nwährend er die Reichskrone auf das Haupt von [COR_ruler.GetFirstName] setzt und [COR_ruler.Custom('DE_PRO_PER_S_3P_A')] zum [COR_ruler.GetTitleAsNameNoTooltip] der Römer von Gottes Gnaden und zum Beschützer der gesamten Christenheit proklamiert.\n„Durch ihn gebührt dir Ehre und Ruhm in alle Ewigkeit. Amen.“"
+ COR_ceremony.0323.desc_hre.2: "[COR_coronator.GetTitledFirstName] überreicht [COR_ruler.GetTitledFirstName] die Reichsinsignien: „Empfange dieses Schwert aus den Händen der Bischöfe, die, obgleich sie unwürdig sind, an der Statt und mit der Autorität der heiligen Apostel geweiht wurden. Empfange es mit unserem Segen, damit du die heilige Kirche verteidigst, wie es von Gott bestimmt ist. Denke daran, von wem der Psalmist prophezeite, als er sagte: 'Gürte das Schwert um die Hüfte, du Held, auf dass du damit Gerechtigkeit übest.'\nEmpfange dieses Zepter, das Zeichen deiner königlichen Macht, um gerecht und nach Treu und Glauben zu herrschen. Mögen deine Urteile vom Willen Gottes geleitet sein, und mögest du die Schwachen beschützen und die Rechte der Kirche wahren.\nEmpfange diesen Reichsapfel, das Symbol deiner Weltherrschaft unter der Hand Christi. Mögest du erkennen, dass alle irdische Macht dem Willen Gottes unterworfen ist, und dass du Sein Diener bist, beauftragt mit der Sorge für Sein Volk.“\nNachdem [COR_ruler.GetTitledFirstName] vollständig mit den Insignien ausgestattet worden ist, hallt der Saal vom Gesang der Laudes Imperiales:\n„Christus vincit! Christus regnat! Christus imperat! Lang lebe der Kaiser, den Gott gesalbt und gekrönt hat, um über das Heilige Römische Reich zu herrschen!“\nDer [COR_coronator.GetTitleAsNameNoTooltip] spricht dann ein abschließendes Gebet:\n„Der Herr segne dich und behüte dich. Er gewähre dir Weisheit, Stärke und Mut für deine Herrschaft. Und wenn deine irdische Herrschaft endet, möge Er dich in Sein ewiges Reich aufnehmen, wo du für immer und ewig mit Ihm regieren wirst. Amen.“"
+ COR_ceremony.0323.desc_king_of_the_germans.1: "[COR_ruler.GetTitledFirstName] kniet vor [COR_coronator.GetTitledFirstName], umgeben von [COR_ruler.Custom('DE_PRO_POS_S_3P')]en edlen Vasallen, während der Priester beginnt, die alten Gebete zu rezitieren:\n„Allmächtiger und ewiger Gott, Herr des Himmels und der Erde, wir bitten dich, diesen, deinen Diener [COR_ruler.GetFirstName], zu segnen, den du auserwählt hast, über die Völker des Reiches zu herrschen. Gewähre ihm Weisheit, Gerechtigkeit und Stärke, dass er mit Rechtschaffenheit regieren und deine heilige Kirche beschützen möge.“\nwährend er die Krone auf [COR_ruler.Custom('DE_PRO_POS_S_3P')] Haupt setzt und verkündet:\n„Empfange diese Krone, das Symbol königlicher Würde, die dir durch die Autorität des allmächtigen Gottes und der Kirche gegeben wird. Mögest du, durch die Gnade Gottes, sie mit Ehre tragen und die Rechte des Reiches verteidigen.“"
+ COR_ceremony.0323.desc_king_of_the_germans.2: "[COR_coronator.GetTitledFirstName] überreicht [COR_ruler.GetTitledFirstName] ein Schwert mit den Worten: „Nehmt dieses Schwert, das Euch durch die Hände der Bischöfe gegeben wird, als Zeichen Eurer Pflicht, die Kirche, das Reich und alles, was recht ist, zu verteidigen. Mögest du es mit Rechtschaffenheit führen, wie der Psalmist sagte: 'Gürte dein Schwert um die Hüfte, du Held; deine Majestät und deine Pracht! Und deine Pracht – sei stark, zieh aus für die Sache der Wahrheit und der Sanftmut und der Gerechtigkeit, so wird deine rechte Hand Wunder vollbringen.'“\nDer Saal hallt vom Gesang der Laudes Regiae:\n„Christus vincit! Christus regnat! Christus imperat! Lang lebe der König der Römer, den Gott erwählt hat!“\nDie Krönung endet dann mit einem letzten Gebet:\n„Auf die Fürsprache der seligen Apostel Petrus und Paulus möge der allmächtige Gott, der dich in dieses hohe Amt erhoben hat, dir eine segensreiche Regentschaft und nach diesem Leben einen Platz in seinem ewigen Reich gewähren. Amen.“"
+ COR_ceremony.0323.desc_child: "[COR_ruler.GetTitledFirstName] kniet vor [COR_coronator.GetTitledFirstName], während [COR_ruler.Custom('DE_PRO_POS_S_3P')]e Schar von Vasallen sie in völliger Stille beobachtet. Der Priester schenkt [COR_ruler.Custom('DE_PRO_PER_S_3P_D')] ein ermutigendes Lächeln, als [COR_coronator.GetSheHe] [COR_ruler.Custom('DE_PRO_PER_S_3P_A')] segnet und die Königskrone auf [COR_ruler.Custom('DE_PRO_POS_S_3P')] Haupt setzt, wobei [COR_coronator.GetSheHe] [COR_ruler.Custom('DE_PRO_PER_S_3P_A') zum [COR_ruler.GetTitleAsNameNoTooltip] von [COR_ruler.GetPrimaryTitle.GetNameNoTier] von Gottes Gnaden ausruft."
+ COR_ceremony.0323.desc: "[COR_ruler.GetTitledFirstName] kniet vor [COR_coronator.GetTitledFirstName], während [COR_ruler.Custom('DE_PRO_POS_S_3P')]e Schar von Vasallen sie in völliger Stille beobachtet. Der Priester segnet [COR_ruler.Custom('DE_PRO_PER_S_3P_A')] und setzt die Königskrone auf [COR_ruler.Custom('DE_PRO_POS_S_3P')] Haupt, wobei er [COR_ruler.Custom('DE_PRO_PER_S_3P_A')] zum [COR_ruler.GetTitleAsNameNoTooltip] von [COR_ruler.GetPrimaryTitle.GetNameNoTier] von Gottes Gnaden ausruft."
+ COR_ceremony.0323.a: "Heil dem [COR_ruler.GetTitleAsNameNoTooltip]!"
+ COR_ceremony.0323.a_hre: "Heil dem Kaiser!"
+
+ COR_ceremony.0324.t: "Skandalöse Krönung"
+ COR_ceremony.0324.desc_host: "Der Papst war fassungslos, als ich mitten in der Zeremonie nach der goldenen Reichskrone griff und sie ihm aus den Händen riss. Unter dem allgemeinen Erstaunen der uns umgebenden Adligen verkündete ich, dass das Papsttum von diesem Tag an keine Macht mehr über den kaiserlichen Thron haben würde."
+ COR_ceremony.0324.desc: "Der Papst war verblüfft, als [COR_ruler.GetTitledFirstName] mitten in der Zeremonie nach der Reichskrone griff und ihm den goldenen Reif aus den Händen riss. Unter dem allgemeinen Staunen der großen Schar Adliger, die sich um sie versammelt hatte, verkündete [COR_ruler.GetTitledFirstName], dass das Papsttum von nun an keine Macht mehr über den Kaiserthron haben würde."
+ COR_ceremony.0324.a_host: "Ich bin [COR_ruler.GetTitleAsNameNoTooltip] durch eigene Hand!"
+ COR_ceremony.0324.a: "Was tut [COR_ruler.GetSheHe] da?!"
+
+ COR_ceremony.0325.desc_pope: "Ich bin fassungslos, als [COR_ruler.GetTitledFirstName] inmitten der Zeremonie nach der goldenen Reichskrone greift und sie mir aus den Händen reißt. Unter dem allgemeinen Erstaunen der versammelten Adeligen verkündet [COR_ruler.GetSheHe], dass das Papsttum von heute an keine Macht mehr über den Kaiserthron haben würde."
+ COR_ceremony.0325.desc: "Ich habe die verdammenswertesten Gerüchte über die Krönungszeremonie von [COR_ruler.GetTitledFirstName]  erhalten. Den meisten Berichten zufolge warf der [COR_ruler.GetTitleAsNameNoTooltip] [COR_coronator.GetTitledFirstName] vom Balkon der Kathedrale, erklärte sich selbst zum [COR_ruler.GetTitleAsNameNoTooltip] enthüllte sich daraufhin als der Antichrist."
+ COR_ceremony.0325.a_pope: "Unglaubliche Frevel!"
+ COR_ceremony.0325.a_pope.tt: "Ihr exkommuniziert [COR_ruler.GetTitledFirstName]"
+ COR_ceremony.0325.a: "Beunruhigende Neuigkeiten..."
+
+ COR_ceremony.0330.desc: "Krönungen sind stets ein großartiges Spektakel für das gemeine Volk, das sich versammelt in der Hoffnung, seinen Souverän zu erblicken und, wenn auch nur symbolisch, an der Pracht des Reiches teilzuhaben.\n\nInsbesondere fällt mir auf, dass die laufenden Vorbereitungen für das große Bankett von einer Gruppe äußerst abgezehrt aussehender Bauern mit gespannter Aufmerksamkeit verfolgt werden..."
+
+ COR_ceremony.0331.desc: "Die Ankunft des [COR_ruler.GetTitleAsNameNoTooltip]s wurde von großem Prunk begleitet: eine ganze Parade reich geschmückter Pferde, die silberne Hufeisen für das gemeine Volk fallen ließen; Trommeln, Leiern, Sackpfeifen, Pantomimen und Narren.\n\nInzwischen hat sich die Parade aufgelöst, zieht aber immer noch eine beachtliche Menschenmenge an, die von der laufenden Zeremonie abgelenkt ist."
+ COR_ceremony_parade_arrival_log_title: "$ep2_wedding.1170.t$"
+ COR_ceremony_parade_arrival_log: "[CHARACTER.Custom('UIName')|U] kam zu [CHARACTER.Custom('DE_PRO_POS_S_3P')]er Krönungszeremonie mit einer prächtigen Parade an."
+ COR_ceremony_parade_death_log_title: "$wedding_parade_death_log_title$"
+ COR_ceremony_parade_death_log: "[TARGET_CHARACTER.Custom('UIName')|U] starb auf mysteriöse Weise während der Parade, die [CHARACTER.Custom('UINamePossessive')] Ankunft zur Krönungszeremonie feierte."
+
+ COR_ceremony.0360.t: "Keim der Freundschaft"
+ COR_ceremony.0360.desc: "Die Organisation einer so monumentalen Zeremonie hat mir die Gelegenheit gegeben, die Herrscher der an [host.GetPrimaryTitle.GetNameNoTier] angrenzenden Reiche kennenzulernen. Die Pflege guter Beziehungen zu meinen christlichen Amtskollegen ist grundlegend, um zukünftigen Frieden und Wohlstand für mein Reich zu sichern. [COR_potential_friend.GetTitledFirstName] erscheint mir besonders als [COR_potential_friend.GetWomanMan], [COR_potential_friend.Custom('DE_ART_DEF_S_D')] ich vertrauen könnte..."
+ COR_ceremony.0360.a: "Könnten wir Freunde werden?"
+ COR_ceremony.0360.b: "Und dennoch sollte ich vielleicht Abstand halten."
+
+ COR_ceremony.0361.desc: "Die Organisation einer so großen Zeremonie hat mir die Chance gegeben, einige meiner Vasallen besser kennenzulernen. Die Pflege guter Beziehungen zu all meinen Untertanen ist grundlegend, um die zukünftige Stabilität und den Wohlstand meines Reiches zu sichern. [COR_potential_friend.GetTitledFirstName] erscheint mir besonders als [COR_potential_friend.GetWomanMan], [COR_potential_friend.Custom('DE_ART_DEF_S_D')] ich vertrauen könnte..."
+
+ COR_ceremony.0362.desc: "[host.GetTitledFirstName] hat für [host.Custom('DE_PRO_POS_S_3P')]e Krönung keine Kosten gescheut. Als ich die prächtigen Anblicke bewunderte, wurde ich vom [host.GetTitleAsNameNoTooltip] höchstselbst angesprochen. Nachdem ich eine Weile mit [host.Custom('DE_PRO_PER_S_3P_D')] geplaudert habe, beginne ich zu denken, dass wir viel gemeinsam haben könnten..."
+ COR_ceremony.0362.a: "Lasst uns unsere Reiche in Freundschaft verbinden!"
+ COR_ceremony.0362.a.tt: "[host.GetTitledFirstNameNoTooltip] wird Euer Freundschaftsangebot erhalten"
+
+ COR_ceremony.0363.desc: "[COR_potential_friend.GetTitledFirstName] hat mein Freundschaftsangebot freudig angenommen. Ich lag nicht falsch, als ich [COR_potential_friend.Custom('DE_PRO_PER_S_3P_D')] mein Vertrauen schenkte, und nun habe ich dank dieses glücklichen Treffens die Stabilität meines Reiches weiter gesichert."
+ COR_ceremony.0363.a.tt: "Ihr habt Euch mit [COR_potential_friend.GetTitledFirstNameNoTooltip] angefreundet"
+
+ COR_ceremony.0364.desc: "Leider schien [COR_potential_friend.GetTitledFirstName] meine Gefühle nicht zu teilen und lehnte mein Freundschaftsangebot höflich ab. Obwohl [COR_potential_friend.GetSheHe] kaum unhöflich oder konfrontativ war, ist es bedauerlich, dass wir nicht einer Meinung sein konnten."
+ COR_ceremony.0364.a: "Vielleicht wird [COR_potential_friend.GetSheHe] in Zukunft [COR_potential_friend.Custom('DE_PRO_POS_S_3P')]e Meinung ändern..."
+
+ COR_ceremony.0370.t: "Gedankenaustausch"
+ COR_ceremony.0370.desc: "Neue Herrscher kennenzulernen und Ideen über Politik und königliche Tugenden auszutauschen, war eine interessante Folge dieser Zeremonie. Jeder hat mindestens eine Anekdote mit mir zu teilen über die richtige Art und Weise, ein Königreich zu regieren. Ich frage mich, was der Wahrheit näher kommt..."
+ COR_ceremony.0370.a: "Gute Beziehungen zu Nachbarn und Untertanen zu fördern ist von höchster Bedeutung."
+ COR_ceremony.0370.b: "Die kluge Handhabung der Finanzen des Reiches ist grundlegend."
+
+ COR_ceremony.0371.desc: "Die Anwesenheit von [COR_coronator.GetTitledFirstName] bei meiner bevorstehenden Krönung hat eine ganze Schar von Gelehrten und Theologen an meinen Hof gelockt. Während die meisten von ihnen Abstand zum Adel halten, hatte ich die Gelegenheit, einigen von ihnen zuzuhören, wie sie während des Abends über die faszinierendsten metaphysischen Themen diskutierten."
+ COR_ceremony.0371.a: "Ich werde ihnen weiterhin im Schatten zuhören."
+ COR_ceremony.0371.b: "Ich werde mich in die Gespräche einbringen."
+
+ COR_ceremony.0380.t: "Eindrücke"
+ COR_ceremony.0380.desc_child: "All die wichtigen Erwachsenen in meinem Palast zu haben, ist eine großartige Gelegenheit, ihnen zu zeigen, dass ich genauso klug und weise bin wie jeder [ROOT.Char.GetTitleAsNameNoTooltip], egal wie alt ich bin."
+ COR_ceremony.0380.desc: "Da so viele angesehene Gäste den weiten Weg an meinen Hof auf sich genommen haben, ist das Mindeste, was ich tun kann, sie zu unterhalten, während wir alle auf den Tag meiner Krönung warten. Dies könnte mir auch eine Gelegenheit bieten, einige meiner einflussreicheren Gäste zu beeindrucken."
+ COR_ceremony.0380.a: "Hört mal her, alle!"
+ COR_ceremony.0380.a.tt: "Versucht, Euer diplomatisches Geschick zu nutzen, um Eure Gäste zu beeindrucken"
+ COR_ceremony.0380.b: "Ich möchte mich vor der Zeremonie nicht blamieren."
+
+ COR_ceremony.0381.desc_child: "Als ich anfing, zitterte ich ein wenig, aber nachdem ich alle Pflichten aufgezählt hatte, die mein Lehrer mir über das Amt eines guten [ROOT.Char.GetTitleAsNameNoTooltip]s beigebracht hatte, applaudierten alle meine Gäste und gratulierten mir."
+ COR_ceremony.0381.desc: "Welche Zweifel ich auch immer an meiner Darbietung gehabt haben mag, sie waren völlig unbegründet: Meine Rede über die Pflichten eines guten [ROOT.Char.GetTitleAsNameNoTooltip]s gegenüber [ROOT.Char.Custom('DE_PRO_POS_S_3P')]en Untertanen war ergreifend und wurde äußerst gut aufgenommen."
+ COR_ceremony.0381.a: "Puh..."
+ COR_ceremony.0381.a.tt: "Die [opinion|E] aller Gäste ist aufgrund Eurer Rede um #P 5#! gestiegen"
+
+ COR_ceremony.0382.desc_child: "Der junge [host.GetTitledFirstName] beschloss, vor dem heutigen Abendmahl die Aufmerksamkeit all [host.Custom('DE_PRO_POS_S_3P')]er Gäste auf sich zu ziehen und verbrachte viel Zeit damit, die Tugenden eines guten [host.GetTitleAsNameNoTooltip]s aufzuzählen. Es war recht überraschend, ein Kind mit solch einer Weisheit zu sehen, sodass nach [host.Custom('DE_PRO_POS_S_3P')]er Rede viele überzeugt waren, dass [host.GetFirstNameNoTooltip] trotz [host.Custom('DE_PRO_POS_S_3P')]es jungen Alters ein großartiger [host.GetTitleAsNameNoTooltip] werden könnte."
+ COR_ceremony.0382.desc: "[host.GetTitledFirstName] beschloss, vor dem heutigen Abendmahl die Aufmerksamkeit all [host.Custom('DE_PRO_POS_S_3P')]er Gäste auf sich zu ziehen und verbrachte viel Zeit damit, die Tugenden eines guten [host.GetTitleAsNameNoTooltip]s zu aufzuzählen. [host.Custom('DE_PRO_POS_S_3P')]e Rede war leidenschaftlich und präzise, genug um viele der Anwesenden davon zu überzeugen, dass [host.GetSheHe] ein außergewöhnlicher Herrscher sein wird."
+ COR_ceremony.0382.a: "Mich eingeschlossen."
+
+ COR_ceremony.0383.desc_child: "Gerade als ich mitten in der Aufzählung der Pflichten eines guten [ROOT.Char.GetTitleAsNameNoTooltip]s war, wie mein Lehrer es mir beigebracht hatte, hustete jemand in der Menge und ich verlor meine Konzentration! Nach einigen gescheiterten Versuchen, meine Rede wieder aufzunehmen, war ich zu beschämt, um fortzufahren, und verließ den Raum mit meinem Gesicht in den Händen."
+ COR_ceremony.0383.desc: "Trotz meiner besten Bemühungen wurde meine Rede über die Pflichten eines guten [ROOT.Char.GetTitleAsNameNoTooltip]s gegenüber [ROOT.Char.Custom('DE_PRO_POS_S_3P')]en Untertanen etwas zu kühl aufgenommen im Vergleich zu meinen Erwartungen. Vielleicht hätte ich weniger Floskeln verwenden und über etwas Substanzielleres sprechen sollen..."
+ COR_ceremony.0383.a: "Oje, das hätte besser laufen können."
+ COR_ceremony.0383.a.tt: "Die [opinion|E] aller Gäste ist aufgrund Eurer Rede um #N 10#! gesunken"
+
+ COR_ceremony.0384.desc_child: "Der junge [host.GetTitledFirstName] beschloss, vor dem heutigen Abendmahl die Aufmerksamkeit all [host.Custom('DE_PRO_POS_S_3P')]er Gäste auf sich zu ziehen und verbrachte viel Zeit damit, die Tugenden eines guten [host.GetTitleAsNameNoTooltip]s aufzuzählen. Leider war das Kind der Aufgabe nicht gewachsen, brach mitten in [host.Custom('DE_PRO_POS_S_3P')]er Rede ab, und eilte, rot vor Verlegenheit, davon."
+ COR_ceremony.0384.desc: "[host.GetTitledFirstName] beschloss, vor dem heutigen Abendmahl die Aufmerksamkeit all [host.Custom('DE_PRO_POS_S_3P')]er Gäste auf sich zu ziehen und verbrachte viel Zeit damit, die Tugenden eines guten [host.GetTitleAsNameNoTooltip]s aufzuzählen. Leider war [host.Custom('DE_PRO_POS_S_3P')]e Rede abgestanden und voller Gemeinplätze und Binsenweisheiten, und nicht viele glaubten an die überzeugte Haltung, die [host.GetSheHe] vorgab zu haben."
+ COR_ceremony.0384.a: "Was für ein Jammer."
+
+ COR_ceremony.0390.t: "Entschlossenheit"
+ COR_ceremony.0390.desc: "Mit all diesem Prunk und Zeremoniell, all diesen prächtigen Vorbereitungen, und mit meiner Krönung so nahe, beginne ich endlich, das Gewicht und die Bedeutung meiner Rolle als [ROOT.Char.GetTitleAsNameNoTooltip] zu verstehen. Die Menschen erwarten Großes von mir."
+ COR_ceremony.0390.a: "Ich werde der größte [ROOT.Char.GetTitleAsNameNoTooltip] aller Zeiten sein!"
+ COR_ceremony.0390.b: "Dies ist ein Zeichen, mit dem Müßiggang aufzuhören und meine Pflichten ernst zu nehmen."
+
+ COR_ceremony.0401.t: "Beginn des Krönungsbanketts"
+ COR_ceremony.0401.desc_host: "Mit dem Abschluss der heiligen Riten ist der Moment der Freude gekommen!\n\nIch gebe den Bediensteten ein Zeichen, das Bankett zu eröffnen und unsere geschätzten Gäste in die Speisehalle zu führen.\n\nLasst das Festmahl beginnen!"
+ COR_ceremony.0401.desc: "Der zeremonielle Teil der Krönung — die Salbung — ist würdevoll zu Ende gegangen.\n\nEine Welle der Vorfreude erfasst alle ob des üppigen Festmahls, die faszinierenden Darbietungen und die fröhlichen Feierlichkeiten, die uns erwarten.\n\nZum Buffet!"
+ COR_ceremony.0401.a: "Lasst uns feiern!"
+
+ COR_ceremony.0402.desc: "Während des Essens merke ich, wie ich mich ganz leicht in Gespräche mit [new_friend.GetTitledFirstName] verwickeln lasse.\n\n[new_friend.GetSheHe|U] hat sehr interessante Ansichten, erzählt die besten Witze, und wir scheinen so viel gemeinsam zu haben! Wann immer ich eine Anekdote erzähle, hört [new_friend.GetSheHe] aufmerksam zu und wirft zur rechten Zeit die passenden Kommentare ein.\n\nWer hätte gedacht, dass ich bei dieser Krönung so angenehme Gesellschaft finden würde?"
+
+ COR_friend_enjoyable_chat: "[CHARACTER.GetShortUIName|U] und [TARGET_CHARACTER.GetShortUIName] haben sich während eines Krönungsbanketts hervorragend verstanden."
+
+ COR_ceremony.0404.desc_host: "\n\nWie sonst könnte ich meine eigene Krönung gebührend feiern?"
+
+ COR_ceremony_ewan.0011.desc.intro.normal: "Mit exotischen Köstlichkeiten, aufwendigen kulinarischen Kunstwerken und satten Farben mit noch reichhaltigeren Düften haben die Köche für das Krönungsfestmahl alles gegeben."
+
+ COR_ceremony_ewan.0021.desc.t3.love.ambitious: "„Nun #EMP das#! ist, was ich erwartet habe!“ poltert [char_1.Custom('FirstNameNoTooltip')], „ein angemessener Rahmen für eine wahrhaft #EMP großartige#! Krönung!“"
+
+ COR_ceremony_ewan.0041.desc.intro: "Jedes Krönungsbankett ist Schauplatz einer schier endlosen Reihe von Reden. Einige sind lang, andere kurz, manche ehrlich, andere trügerisch, sie schallen durch den Saal und untermalen jeden Gang des Festmahls wie Wellen. \n\nAls ich an der Reihe bin, frage ich mich: Soll ich auf das glückliche Paar eingehen oder"
+ COR_ceremony_ewan.0041.a: "Ich lobe den Herrscher, wie man es von mir erwartet."
+
+ COR_ceremony.0499.desc: "Die Zeremonie ist endlich zu Ende und alle Gäste sind nach Hause zurückgekehrt. Ich kann nun meine Pflichten als [ROOT.Char.GetTitleAsNameNoTooltip] wahrnehmen: Da ich nun offiziell den Segen der katholischen Kirche erhalten habe, steht die Legitimität meines gottgegebenen Herrschaftsrechts außer Frage."
+ COR_ceremony.0499.a: "Ausgezeichnet."
+
+ COR_ceremony.0500.desc: "Als sich die Versammlung zerstreut, ist auch für mich die Zeit gekommen, mich zu verabschieden. Die Krönungszeremonie war eine großartige Gelegenheit, um mit meinen Mitvasallen ins Gespräch zu kommen und an diesem ehrwürdigen Ereignis teilzunehmen. Ich verlasse die Zeremonie müde, aber zufrieden und wünsche dem Herrscher von ganzem Herzen eine von Weisheit und Prosperität geprägte Regierungszeit."
+ COR_ceremony.0500.a: "Lang lebe der Monarch!"
+
+# feast.2002.t:0 "$COR_ceremony_header$ Abandoned duties"
+# feast.2002.desc:1 "What a disaster!\n\nAfter all my preparations, my guests arrived to a feast with no host! They have gone home, and I have left them with a terrible impression of me."
+# feast.2002.a:0 "I may come to regret this."
+#
+# feast.2003.t:0 "$feast_header$ A Poor Celebration"
+# feast.2003.desc:0 "I cannot believe it. Despite my invitations and preparations, not a single guest showed up to my feast.\n\nNo matter! I will enjoy all this food and wine on my own, and the echo of footsteps in my great hall is all the company I need!"
+# feast.2003.a:0 "Am I truly so alone?"
+# feast.2003.b:0 "I feel a little relieved."
+
+# 2.4 Jewel of Byzantium
+ trait_COR_byz_crowned_by_patriarch_name: "Gekrönt"
+ trait_COR_byz_crowned_by_patriarch_with_name: "Von [ROOT.Char.MakeScope.Var('COR_coronator').Char.GetTitledFirstNameNoTooltip] gekrönt"
+ trait_COR_byz_crowned_by_patriarch_desc: "Dieser Charakter wurde vom Ökumenischen Patriarchen gesalbt.\nDies ist ein unwiderlegbarer Beweis für sein gottgegebenes Recht zu Herrschen."
+ trait_COR_byz_crowned_by_patriarch_with_name_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] wurde von [ROOT.Char.MakeScope.Var('COR_coronator').Char.GetTitledFirstNameNoTooltip] gesalbt.\nDies ist ein unwiderlegbarer Beweis für [ROOT.GetCharacter.Custom('DE_PRO_POS_S_3P')] gottgegebenes Recht zu Herrschen."
+ trait_COR_byz_crowned_by_patriarch_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] wurde vom Ökumenischen Patriarchen gesalbt.\nDies ist ein unwiderlegbarer Beweis für [ROOT.GetCharacter.Custom('DE_PRO_POS_S_3P')] gottgegebenes Recht zu Herrschen."
+
+ COR_byz_prepare_coronation_ceremony_decision: "$COR_prepare_coronation_ceremony_decision$"
+ COR_byz_prepare_coronation_ceremony_decision_desc: "Es ist für mich unerlässlich, vom Ökumenischen Patriarchen gekrönt zu werden, um mein gottgegebenes Herrschaftsrecht zu legitimieren. Um mit den Vorbereitungen für meine Krönungszeremonie zu beginnen, muss ich den Segen des Patriarchen erbitten."
+ COR_byz_prepare_coronation_ceremony_decision_confirm: "Einen Gesandten schicken"
+ COR_byz_prepare_coronation_ceremony_decision_tooltip: "Erbittet den Segen des Patriarchen"
+
+ ## Activity
+ COR_byz_activity_coronation_ceremony: "$COR_activity_coronation_ceremony$"
+ COR_byz_activity_coronation_ceremony_desc: "Es ist für mich unerlässlich, vom Ökumenischen Patriarchen gekrönt zu werden, um mein gottgegebenes Herrschaftsrecht zu legitimieren."
+ COR_byz_activity_coronation_ceremony_selection_tooltip: "$COR_activity_coronation_ceremony_selection_tooltip$"
+ COR_byz_activity_coronation_ceremony_destination_selection: ""
+ TRAVEL_NAME_FOR_COR_byz_activity_coronation_ceremony: "[Character.GetFirstNamePossessiveNoTooltip] $COR_activity_coronation_ceremony$"
+ COR_byz_activity_coronation_ceremony_host_desc: "$COR_activity_coronation_ceremony_host_desc$"
+ COR_byz_activity_coronation_ceremony_guest_desc: "$COR_activity_coronation_ceremony_guest_desc$"
+ COR_byz_activity_coronation_ceremony_guest_help_text: "$COR_activity_coronation_ceremony_guest_help_text$"
+ COR_byz_activity_coronation_ceremony_province_constantinople_desc: "#P +++ Das Juwel von Byzanz#!\nKonstantinopel, die Königin der Städte, steht als Zeugnis kaiserlicher Größe und christlicher Frömmigkeit. Im Herzen liegt die Hagia Sophia, ein Wunder architektonischer Brillanz und spiritueller Hingabe. An diesem heiligen Ort gekrönt zu werden bedeutet, das Erbe Justinians, Konstantins und der alten Cäsaren anzutreten.\n"
+ COR_byz_activity_coronation_ceremony_conclusion_desc: "Während die heiligen Riten der $COR_activity_coronation_ceremony$ zu ihrem Abschluss kommen und die feierlichen Gebete durch diese heiligen Gewölbe hallen, blicken wir mit erneuertem Glauben und Entschlossenheit in die Zukunft. Möge diese alte und heilige Tradition als Leuchtfeuer unserer unerschütterlichen Hingabe an die Einheit des Reiches und die Herrlichkeit Gottes stehen. Möge die gesalbte Herrschaft die Bande unseres Reiches stärken und uns zu einer Zukunft führen, die von Stärke, Wohlstand und der ewigen Gnade unseres Herrn geprägt ist."
+
+ COR_ceremony.7001.desc: "Die Zeit ist endlich gekommen, offiziell als [ROOT.Char.GetTitleAsNameNoTooltip] von [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip] anerkannt zu werden. Um dies zu erreichen, benötige ich den Segen von [COR_coronator.GetTitledFirstName]. Um mit den Vorbereitungen zu beginnen, sollte ich einen Gesandten schicken."
+ COR_ceremony.7001.a: "Ich bin gespannt auf die Antwort."
+ COR_ceremony.7001.a.tt: "Ihr erhaltet Zugang zur Krönungszeremonie-Aktivität"
+
+
+ COR_ceremony.7322.desc: "Begleitet von [COR_coronator.GetTitledFirstName] besteige ich den [Glossary('Ambon','AMBO_GLOSS')], wo die Krone und die [Glossary('Chlamys','CHLAMYS_GLOSS')] niedergelegt sind. Ich verneige meinen Kopf, während der Diakon eine [Glossary('Ektenie','EKTENIA_GLOSS')] vorträgt. Gleichzeitig verrichtet der [COR_coronator.GetTitleAsNameNoTooltip] schweigend das #italic Gebet über die Chlamys#!.\nNachdem [COR_coronator.GetSheHe] das Gebet beendet hat, nimmt der [COR_coronator.GetTitleAsNameNoTooltip] die Chlamys und übergibt sie zusammen mit dem Fibula-Verschluss den Mitgliedern des [Glossary('Kouboukleion','KOUBOUKLEISIOI_GLOSS')], die mich damit bekleiden.\nDanach rezitiert [COR_coronator.GetTitledFirstName] das #italic Gebet über die Krone#!, bevor [COR_coronator.GetSheHe] die Krone in beide Hände nimmt und mich damit krönt, während [COR_coronator.GetSheHe] verkündet: „Im Namen des Vaters, des Sohnes und des Heiligen Geistes“. Die versammelte Menge antwortet dreimal mit „Heilig, heilig, heilig“ und „Ehre sei Gott im höchsten und auf Erden Frieden“."
+ COR_ceremony.7322.a: "..."
+ COR_ceremony.7323.desc: "Der [COR_coronator.GetTitleAsNameNoTooltip] reicht mir daraufhin die Sakramente, woraufhin die zu beiden Seiten stehenden Militärstandarten gesenkt werden und die Senatoren und Chöre sich in Ehrerbietung verneigen. Es folgt eine Reihe ritualisierter lobpreisender Akklamationen, die Gott und mich, den [COR_ruler.GetTitleAsNameNoTooltip], preisen, einschließlich des [Glossary('Polychronion','POLYCHRONION_GLOSS')].\nMit bekröntem Haupt setze ich mich auf die [Glossary('Sella','SELLA_GLOSS')], woraufhin die verschiedenen Würdenträger herantreten und mir huldigen, indem sie sich gemäß der [Glossary('Proskynese','PROSKYNESIS_GLOSS')] flach auf den Boden legen und meine Füße küssen, in hierarchischer Reihenfolge zwölf Gruppen: zuerst die [Glossary('Magistroi','MAGISTROI_GLOSS')], dann die #italic Patrikioi#! und [Glossary('Strategoi','STRATEGOI_GLOSS')], dann die [Glossary('Protospatharioi','PROTOSPATHARIOI_GLOSS')] und immer weiter bis schließlich zu den untergeordneten Offizieren der [Glossary('Tagmata','TAGMATA_GLOSS')]-Regimenter und der Kaiserlichen Flotte."
+ COR_ceremony.7324.desc: "Begleitet von [COR_coronator.GetTitledFirstName] besteigt [COR_ruler.GetTitledFirstName] den [Glossary('Ambon','AMBO_GLOSS')], wo die Krone und die [Glossary('Chlamys','CHLAMYS_GLOSS')] niedergelegt sind. [COR_ruler.GetFirstName] verneigt [COR_ruler.Custom('DE_PRO_POS_S_3P')]en Kopf, während der Diakon eine [Glossary('Ektenie','EKTENIA_GLOSS')] vorträgt. Gleichzeitig verrichtet der [COR_coronator.GetTitleAsNameNoTooltip] schweigend das #italic Gebet über die Chlamys#!.\nNachdem [COR_coronator.GetSheHe] das Gebet beendet hat, nimmt der [COR_coronator.GetTitleAsNameNoTooltip] die Chlamys und übergibt sie mit dem Fibula-Verschluss den Mitgliedern des [Glossary('Kouboukleion','KOUBOUKLEISIOI_GLOSS')], die [COR_ruler.GetFirstName] damit bekleiden.\nDanach rezitiert [COR_coronator.GetTitledFirstName] das #italic Gebet über die Krone#!, bevor [COR_coronator.GetSheHe] die Krone in beide Hände nimmt und [COR_ruler.GetFirstName] damit krönt, während [COR_coronator.GetSheHe] verkündet: „Im Namen des Vaters, des Sohnes und des Heiligen Geistes“. Die versammelte Menge antwortet dreimal mit „Heilig, heilig, heilig“ und „Ehre sei Gott im höchsten und auf Erden Frieden“."
+ COR_ceremony.7324.a: "Heilig, heilig, heilig."
+ COR_ceremony.7325.desc: "Der [COR_coronator.GetTitleAsNameNoTooltip] reicht [COR_ruler.GetTitledFirstName] daraufhin die Sakramente, woraufhin die zu beiden Seiten stehenden Militärstandarten gesenkt werden und die Senatoren und Chöre sich in Ehrerbietung verneigen. Es folgt eine Reihe ritualisierter lobpreisender Akklamationen, die Gott und den [COR_ruler.GetTitleAsNameNoTooltip] preisen, einschließlich des [Glossary('Polychronion','POLYCHRONION_GLOSS')].\nMit gekröntem Haupt setzt sich [COR_ruler.GetTitledFirstName] auf die [Glossary('Sella','SELLA_GLOSS')], woraufhin die verschiedenen Würdenträger herantreten und [COR_ruler.Custom('DE_PRO_PER_S_3P_D')] huldigen, indem sie sich gemäß der [Glossary('Proskynese','PROSKYNESIS_GLOSS')] flach auf den Boden legen und [COR_ruler.Custom('DE_PRO_POS_S_3P')]e Füße küssen, in hierarchischer Reihenfolge zwölf Gruppen: zuerst die [Glossary('Magistroi','MAGISTROI_GLOSS')], dann die #italic Patrikioi#! und [Glossary('Strategoi','STRATEGOI_GLOSS')], dann die [Glossary('Protospatharioi','PROTOSPATHARIOI_GLOSS')] und immer weiter bis schließlich zu den untergeordneten Offizieren der [Glossary('Tagmata','TAGMATA_GLOSS')]-Regimenter und der Kaiserlichen Flotte."
+
+ ############
+ # Glossary #
+ ############
+ AMBO_GLOSS: "Der Ambon ist eine erhöhte Plattform im Inneren der Kirche, auf der während der Göttlichen Liturgie die Heilige Schrift gelesen wurde."
+ CHLAMYS_GLOSS: "Die Chlamys (Altgriechisch: χλαμύς, chlamýs, Genitiv: χλαμύδος, chlamydos) war eine Art antiker griechischer Mantel. In der Zeit des Byzantinischen Reiches war sie Teil der Amtstracht des Kaisers und hoher Würdenträger. Als solche blieb sie mindestens bis ins 12. Jahrhundert n. Chr. erhalten."
+ EKTENIA_GLOSS: "Eine Ektenie (aus dem Griechischen: ἐκτενής, romanisiert: ektenés; wörtlich „Eifer, Inbrunst“) wird oft mit dem bekannteren deutschen Begriff Litanei (aus dem Griechischen: λιτή, romanisiert: litḗ; wörtlich „Bitte, Flehen“) bezeichnet und ist ein Fürbittengebet in der orthodoxen Liturgie, bei dem ein Diakon vom Lesepult aus die Fürbitten spricht, sich dann mit den Worten „Lasst uns den Herrn anrufen“ an die Gemeinde wendet, die daraufhin mit einem gemeinsamen Gebetsruf, z. B. „Kyrie eleison“ („Herr, erbarme dich“ oder „Gott, erhöre uns“), antwortet und damit das Gebet bestätigt und verstärkt."
+ KOUBOUKLEISIOI_GLOSS: "Kouboukleisios (griechisch: κουβουκλείσιος) war ein Titel, den die byzantinischen Kaiser kirchlichen Hofbeamten verliehen, insbesondere denen des Patriarchen von Konstantinopel.Die Kouboukleisioi waren das kirchliche Pendant zu den Hofbeamten des Kaisers, den Koubikoularioi, und der Titel wurde von den Kaisern verliehen, obwohl im 11. Jahrhundert der mächtige Patriarch Michael Keroularios sich dieses Vorrecht anmaßte.\nNach dem Taktikon Benešević von ca. 934/944 gab es zwei Gruppen von Kouboukleisioi, Priester und Diakone. Das Amt wurde oft mit anderen Ämtern in der kirchlichen Verwaltung wie dem Chartophylax oder Skeuophylax verbunden, konnte aber auch von Mönchen bekleidet werden."
+ POLYCHRONION_GLOSS: "Das Polychronion (griechisch Πολυχρόνιον, deutsch.: „Viele Jahre“ oder „Lang-lebe…“, wörtlich: „Vielzeit“) ist ein feierlicher Lobgesang, der in der Liturgie der orthodoxen und katholischen Ostkirchen gesungen wird. Im römischen Ritus entspricht er der liturgischen Akklamation „Ad multos annos“."
+ SELLA_GLOSS: "Thron"
+ PROSKYNESIS_GLOSS: "Proskynese war in vielen Gesellschaften eine ehrerbietige Geste gegenüber Göttern und Menschen. Sie gehörte sowohl bei den Griechen als auch bei den Römern zu den religiösen Riten. In der byzantinischen Gesellschaft war sie eine gängige Geste der Unterwürfigkeit oder Ehrerbietung. Die körperliche Handlung reichte von der vollständigen Niederwerfung über den Kniefall und die Verbeugung bis hin zu einer einfachen Grußgeste, die die jeweilige Position des Ausführenden und des Begünstigten innerhalb einer Rangordnung verdeutlichte."
+ MAGISTROI_GLOSS: "Der Magister officiorum (lateinisch; wörtlich „Meister der Ämter“) war einer der höchsten Verwaltungsbeamten im späten Römischen Reich und in den ersten Jahrhunderten des Byzantinischen Reiches."
+ STRATEGOI_GLOSS: "Strategos, im Plural Strategoi, latinisiert Strategus, wird im Griechischen als Bezeichnung für einen Heerführer verwendet. In der hellenistischen Welt und im Oströmischen Reich wurde der Begriff auch für einen militärischen Statthalter verwendet. In der modernen griechischen Armee ist es der höchste Offiziersrang."
+ PROTOSPATHARIOI_GLOSS: "Prōtospatharios war einer der höchsten höfischen Würdentitel im Oströmischen Reich vom 8. bis zum 12. Jahrhundert, der verdienten Generälen und Provinzbeamten sowie ausländischen Fürsten verliehen wurde."
+ TAGMATA_GLOSS: "Das Tagma ist eine militärische Einheit in der Größe eines Bataillons oder Regiments, insbesondere die vom oströmischen Kaiser Konstantin V. gebildeten Eliteregimenter, die im 8. bis 11. Jahrhundert den Kern der byzantinischen Heermacht bildeten."

@@ -1,0 +1,18 @@
+﻿texticon = { 
+	icon = icon_imperatorscore
+	iconsize = {
+		texture = "gfx/interface/HRT/ImperatorScore.png"
+		size = { 25 25 }
+		fontsize = 12
+		offset = {0 10}
+	}
+}
+texticon = { 
+	icon = icon_domain
+	iconsize = {
+		texture = "gfx/interface/icons/icon_domain.dds"
+		size = { 25 25 }
+		fontsize = 12
+		offset = {0 10}
+	}
+}

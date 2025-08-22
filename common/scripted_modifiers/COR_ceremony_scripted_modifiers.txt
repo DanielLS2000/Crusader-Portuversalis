@@ -1,0 +1,80 @@
+﻿COR_activity_guest_coronation_ai_accept_modifier = {
+	#########
+    # TYPES #
+    #########
+    modifier = {
+		add = -1000
+		scope:COR_ceremony_type ?= flag:COR_ceremony_type_private 
+		NOR = {
+			this = scope:COR_coronator
+			is_close_family_of = scope:host
+		}
+		desc = COR_ACTIVITY_GUEST_PRIVATE
+    }
+    #############
+    # OFFICIANT #
+    #############
+    modifier = {
+		add = 10000
+		this = scope:COR_coronator
+		desc = COR_ACTIVITY_GUEST_CORONATOR
+    }
+	#########
+    # TYPES #
+    #########
+    modifier = {
+		add = -1000
+		NOT = { faith = scope:host.faith }
+		desc = COR_ACTIVITY_GUEST_HEATHEN
+    }
+    ###############
+    # PERSONALITY #
+    ###############
+    modifier = {
+        has_trait = gluttonous
+        add = 10
+        desc = ACTIVITY_GUEST_GLUTTONOUS_REASON
+    }
+    modifier = {
+        has_trait = arrogant
+        add = 10
+        desc = ACTIVITY_GUEST_ARROGANT_REASON
+    }
+    ##########
+    # STRESS #
+    ##########
+    modifier = {
+        has_trait = comfort_eater
+        add = 10
+        desc = ACTIVITY_GUEST_COMFORT_EATER_REASON
+    }
+    modifier = {
+        has_trait = drunkard
+        add = 10
+        desc = ACTIVITY_GUEST_DRUNKARD_REASON
+    }
+    #########
+    # OTHER #
+    #########
+    modifier = {
+        liege = scope:host
+        scope:host.faith = { has_doctrine = tenet_ritual_celebrations }
+        add = 15
+        desc = ACTIVITY_GUEST_RITUAL_CELEBRATIONS_REASON
+    }
+    modifier = { # It's very unlikely that foreign rulers that are much higher rank than you will come
+        is_landed = yes
+		NOT = { top_liege = scope:host.top_liege }
+		NOT = { is_close_or_extended_family_of = scope:host }
+        tier_difference = {
+            target = scope:host
+            value >= 2
+        }
+        add = {
+            value = scope:host.highest_held_title_tier
+            subtract = highest_held_title_tier
+            multiply = 30
+        }
+        desc = ACTIVITY_GUEST_HIGHER_RANK_REASON
+    }
+}
