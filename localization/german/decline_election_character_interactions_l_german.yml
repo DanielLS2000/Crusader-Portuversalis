@@ -1,0 +1,5 @@
+﻿l_german:
+ decline_election_remove_claim_interaction:0 "Auf Anspruch verzichten"
+ decline_election_remove_claim_interaction_desc:0 "Ihr könnt auf einen eurer Ansprüche verzichten, um zu verhindern, dass Anspruch erhebende Fraktionen Euch ins Visier nehmen."
+
+ NOT_I_HAVE_CLAIM_TRIGGER:0 "Ihr habt keinen Anspruch auf diesen Titel."

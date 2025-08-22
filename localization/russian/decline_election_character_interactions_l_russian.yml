@@ -1,0 +1,5 @@
+﻿l_russian:
+ decline_election_remove_claim_interaction:0 "Отказаться от претензий"
+ decline_election_remove_claim_interaction_desc:0 "Вы можете отказаться от своих претензий, чтобы предотвратить нападение на вас со стороны фракций претендентов."
+
+ NOT_I_HAVE_CLAIM_TRIGGER:0 "Вы не претендуете на этот титул."

@@ -1,0 +1,9 @@
+﻿l_german:
+ decline_election_decision:0 "Wahlen ablehnen"
+ decline_election_decision_desc:0 "Diese Entscheidung verleiht deinem Charakter eine Eigenschaft, die ihn für Titelwahlen unverfügbar macht.\nIhr könnt auch auf eure Ansprüche verzichten, indem Ihr eine diplomatische Charakterinteraktion nutzt."
+ decline_election_decision_confirm:0 "Lasst mich einfach in Ruhe!"
+ decline_election_decision_tooltip:0 "Lehnt alle Titelwahlen ab."
+ accept_election_decision:0 "Wahlen annehmen"
+ accept_election_decision_desc:0 "Durch diese Entscheidung verliert Euer Charakter die Eigenschaft, die ihn für Titelwahlen unverfügbar macht.\n Ihr könnt nicht mehr auf Eure Ansprüche verzichten, indem Ihr eine Diplomatie-Charakterinteraktion nutzt."
+ accept_election_decision_confirm:0 "Bitte stimmt wieder für mich!"
+ accept_election_decision_tooltip:0 "Hört auf, jede Titelwahl abzulehnen."

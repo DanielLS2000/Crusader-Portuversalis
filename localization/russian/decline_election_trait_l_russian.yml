@@ -1,0 +1,5 @@
+﻿l_russian:
+ trait_decline_election:0 "Уклонение от выборов"
+ trait_decline_election_desc:0 "Этот персонаж отказывается от любого титула, который переходит к нему в результате выборов."
+ trait_decline_election_character_desc:0 "[ROOT.GetCharacter.GetTitledFirstNameNoTooltip] не примет ни одного титула, который перейдёт к нему в результате выборов."
+ trait_decline_election_tooltip:0 "Отказывается от любых выборов титула."

@@ -1,0 +1,5 @@
+﻿l_german:
+ trait_decline_election:0 "Lehnt Wahlen ab"
+ trait_decline_election_desc:0 "Diese Person lehnt jeden Titel ab, der durch Wahl auf sie übergeht."
+ trait_decline_election_character_desc:0 "[ROOT.GetCharacter.GetTitledFirstNameNoTooltip] wird keinen Titel akzeptieren, der durch Wahl auf ihn übergeht."
+ trait_decline_election_tooltip:0 "Lehnt alle Titelwahlen ab."
