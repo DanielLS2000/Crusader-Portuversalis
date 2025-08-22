@@ -1,0 +1,146 @@
+﻿
+VIET_gift_baklava = {
+	category = interaction_category_friendly
+	common_interaction = yes
+
+	auto_accept = yes
+	
+	ai_targets = {
+		ai_recipients = scripted_relations
+	}
+	ai_targets = {
+		ai_recipients = liege
+	}
+	ai_targets = {
+		ai_recipients = neighboring_rulers
+		ai_recipients = peer_vassals
+		max = 10
+	}
+	ai_targets = {
+		ai_recipients = vassals
+		max = 10
+	}
+	ai_target_quick_trigger = {
+		adult = yes
+	}
+	ai_frequency = 36
+	
+	cooldown = { years = 1 }
+	
+	is_shown = {
+		NOT = {
+			scope:recipient = scope:actor
+		}
+		scope:actor = {	
+			has_character_modifier = VIET_traveling_baklava_merchant_in_town
+			is_ruler = yes
+		}
+		scope:recipient = {
+			#is_ai = yes
+			is_adult = yes
+			is_ruler = yes
+		}
+	}
+	
+	is_valid = {
+		scope:actor = {
+			gold >= minor_gold_value
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		scope:recipient = { is_busy_in_events_localised = yes }
+	}
+	
+	on_accept = {
+		scope:actor = {
+			remove_short_term_gold = minor_gold_value
+			trigger_event = VIETmisc.2039	
+			show_as_tooltip = {
+				VIET_huge_prestige_gain_effect = yes			
+			}
+		}
+		scope:recipient = {
+			show_as_tooltip = {
+				custom_tooltip = VIET_gift_baklava_effect_tooltip
+				add_opinion = {
+					target = scope:actor
+					modifier = VIET_opinion_gifted_baklava
+				}				
+			}
+		}
+	}
+}
+
+VIET_gift_spices = {
+	category = interaction_category_friendly
+	common_interaction = yes
+
+	auto_accept = yes
+	
+	ai_targets = {
+		ai_recipients = scripted_relations
+	}
+	ai_targets = {
+		ai_recipients = liege
+	}
+	ai_targets = {
+		ai_recipients = neighboring_rulers
+		ai_recipients = peer_vassals
+		max = 10
+	}
+	ai_targets = {
+		ai_recipients = vassals
+		max = 10
+	}
+	ai_target_quick_trigger = {
+		adult = yes
+	}
+	ai_frequency = 36
+	
+	cooldown = { years = 1 }
+	
+	is_shown = {
+		NOT = {
+			scope:recipient = scope:actor
+		}
+		scope:actor = {	
+			has_character_modifier = VIET_traveling_spice_merchant_in_town
+			is_ruler = yes
+		}
+		scope:recipient = {
+			#is_ai = yes
+			is_adult = yes
+			is_ruler = yes
+		}
+	}
+	
+	is_valid = {
+		scope:actor = {
+			gold >= minor_gold_value
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		scope:recipient = { is_busy_in_events_localised = yes }
+	}
+	
+	on_accept = {
+		scope:actor = {
+			remove_short_term_gold = minor_gold_value
+			trigger_event = VIETmisc.2043	
+			show_as_tooltip = {
+				VIET_huge_prestige_gain_effect = yes			
+			}
+		}
+		scope:recipient = {
+			show_as_tooltip = {
+				custom_tooltip = VIET_gift_spices_effect_tooltip
+				add_opinion = {
+					target = scope:actor
+					modifier = VIET_opinion_gifted_spices
+				}				
+			}
+		}
+	}
+}
