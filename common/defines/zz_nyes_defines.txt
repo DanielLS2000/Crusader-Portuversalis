@@ -1,0 +1,14 @@
+NChildbirth = {
+	###########
+	##  NYE  ##
+	###########
+
+	ACTIVE_TRAIT_CHANCE_ACTIVE_ACTIVE = 40			# Base = 80. Chance of outright inheriting a genetic trait if both parents have it
+	ACTIVE_TRAIT_CHANCE_ACTIVE_INACTIVE = 25		# Base = 50. Chance of outright inheriting a genetic trait if one parent has it, and one is carrying it recessively
+	ACTIVE_TRAIT_CHANCE_ACTIVE_NONE = 15			# Base = 25. Chance of outright inheriting a genetic trait if one parent has it
+	ACTIVE_TRAIT_CHANCE_INACTIVE_INACTIVE = 5		# Base = 10. Chance of outright inheriting a genetic trait if both parents are carrying it
+	ACTIVE_TRAIT_CHANCE_INACTIVE_NONE = 2			# Base = 2. Chance of outright inheriting a genetic trait if one parent is carrying it
+
+	MATCHED_TRAIT_DIFFERENCE_MULT = 0.15			# Base = 0.2. When trying to inherit a tiered genetic trait, and the other person has one of lower tier, we pretend that means they've  got the higher tier one recessively, and reduce the chance of inheritance by this much per tier further down than 1 the other parent's trait is
+	TIER_TRAIT_REDUCTION_MULT = 0.1					# Base = 0.4. When going down a tier, add this chance
+}
