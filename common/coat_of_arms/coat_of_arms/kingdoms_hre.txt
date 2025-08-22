@@ -1,0 +1,87 @@
+﻿k_upper_saxony = {
+	pattern = "pattern_solid.dds"
+	color1 = "black"
+	colored_emblem = {
+		texture = "ce_irminsul.dds"
+		color1 = "yellow"
+		color2 = "green"
+		instance = { scale = { 0.8 0.8 }  }
+	}
+}
+
+k_lower_saxony={
+	pattern="pattern_solid.dds"
+	color1=orange
+	colored_emblem={
+		color1=white
+		color2=green
+		texture="ce_irminsul.dds"
+		instance={
+			scale={ 0.800000 0.800000 }
+		}
+	}
+}
+
+k_slavinia = {
+	pattern="pattern_solid.dds"
+	color1=white
+	color2=red
+	colored_emblem={
+		color1=red
+		color2=yellow
+		color3=white
+		texture="ce_eagle_double.dds"
+		instance={
+			position={ 0.500000 0.520000 }
+			scale={ 1.000000 1.100000 }
+		}
+	}
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		texture="ce_crown_small.dds"
+		instance={
+			position={ 0.43000 0.077000 }
+			scale={ 0.115000 0.115000 }
+			rotation=25
+		}
+		
+	}
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		texture="ce_crown_small.dds"
+		instance={
+			position={ 0.57000 0.077000 }
+			scale={ 0.115000 0.115000 }
+			rotation=-25
+		}
+	}
+}
+
+k_carinthia = {
+	pattern="pattern_solid.dds"
+	color1=white
+	color2=black
+	colored_emblem={
+		color1=black
+		color2=red
+		color3=white
+		texture="ce_wyvern.dds"
+		instance={
+			position={ 0.500000 0.490000 }
+			scale={ 0.900000 1.000000 }
+		}
+		
+	}
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		texture="ce_crown_small.dds"
+		instance={
+			position={ 0.3780000 0.188000 }
+			scale={ 0.10000 0.100000 }
+			rotation=-5
+		}
+	}
+}

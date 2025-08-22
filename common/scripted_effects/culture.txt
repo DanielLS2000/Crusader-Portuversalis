@@ -1,0 +1,142 @@
+﻿# convert the defined region to the new culture
+enhanced_diverge_culture_convert = {
+	$CHARACTER$ = {
+		if = {
+			limit = {
+				has_primary_title = title:k_upper_saxony
+			}
+			every_county_in_region = {
+				region = custom_khre_upper_saxony_culture_convert
+				limit = {
+					culture = { has_cultural_pillar = heritage_west_slavic }
+				}
+				set_county_culture = scope:new_culture
+			}
+		}
+		else_if = {
+			limit = {
+				has_primary_title = title:k_austria
+			}
+			every_county_in_region = {
+				region = custom_khre_austria_culture_convert
+				limit = {
+					culture = culture:bavarian
+				}
+				set_county_culture = scope:new_culture
+			}
+		}
+		else_if = {
+			limit = {
+				has_primary_title = title:k_lotharingia
+			}
+			every_county_in_region = {
+				region = custom_khre_lotharingia_culture_convert
+				limit = {
+					culture = culture:franconian
+				}
+				set_county_culture = scope:new_culture
+			}
+		}
+		else_if = {
+			limit = {
+				has_primary_title = title:k_burgundy
+				capital_province = { geographical_region = custom_khre_burgundy_culture_convert }
+			}
+			every_county_in_region = {
+				region = custom_khre_burgundy_culture_convert
+				limit = {
+					culture = culture:french
+				}
+				set_county_culture = scope:new_culture
+			}
+		}
+		else_if = {
+			limit = {
+				has_primary_title = title:k_burgundy
+				capital_province = { geographical_region = custom_khre_savoie_dauphine_culture_convert }
+			}
+			every_county_in_region = {
+				region = custom_khre_savoie_dauphine_culture_convert
+				limit = {
+					culture = culture:french
+				}
+				set_county_culture = scope:new_culture
+			}
+		}
+		else_if = {
+			limit = {
+				has_primary_title = title:k_burgundy
+				capital_province = { geographical_region = custom_khre_provence_culture_convert }
+			}
+			every_county_in_region = {
+				region = custom_khre_provence_culture_convert
+				limit = {
+					culture = culture:occitan
+				}
+				set_county_culture = scope:new_culture
+			}
+		}
+		else_if = {
+			limit = {
+				has_primary_title = title:k_switzerland
+			}
+			every_county_in_region = {
+				region = custom_khre_swiss_culture_convert
+				set_county_culture = scope:new_culture
+			}
+		}
+	}
+}
+
+# undo the culture conversion done by the base game
+undo_diverged_culture_conversion = {
+	$CHARACTER$ = {
+		culture = {
+			save_scope_as = new_culture
+			random_parent_culture = {
+				# only 1 parent so won't be random
+				save_scope_as = old_culture
+			}
+		}
+		top_liege = {
+			every_sub_realm_county = {
+				limit = {
+					culture = scope:new_culture
+				}
+				set_county_culture = scope:old_culture
+			}
+		}
+	}
+}
+
+# triggers a more powerful version of the culture conversion event
+offer_vassal_culture_convert = {
+	# setup scopes required for kingdoms_hre_culture_conversion.0001
+	$CHARACTER$ = {
+		save_scope_as = converting_character
+		culture = {
+			save_scope_as = new_culture
+			random_parent_culture = {
+				# only 1 parent so won't be random
+				save_scope_as = old_culture
+			}
+		}
+	}
+	
+	every_vassal = {
+		if = {
+			limit = {
+				NOT = { has_government = theocracy_government }
+				NOT = { culture = scope:new_culture }
+				highest_held_title_tier >= tier_county
+			}
+			custom_description = {
+				text = decide_on_local_culture_conversion
+				trigger_event = {
+					id = kingdoms_hre_culture_conversion.0001
+					days = 1
+				}
+			}
+		}
+	}
+}

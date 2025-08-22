@@ -1,0 +1,164 @@
+﻿namespace = diverge_culture
+
+## Events
+# diverge_culture.0001 - Diverge new culture
+
+diverge_culture.0001 = {
+	type = character_event
+	title = diverge_culture.title
+	desc = diverge_culture.desc
+	
+	theme = culture_change
+	
+	left_portrait = {
+		character = scope:character
+		animation = thinking
+	}
+	
+	immediate = {
+		scope:character = {
+			primary_title = {
+				save_scope_as = primary_title
+			}
+		}
+	}
+	
+	option = {
+		name = diverge_culture.0001.a
+		
+		custom_tooltip = diverge_culture.0001.a.random_diverge
+		if = {
+			limit = {
+				scope:primary_title = title:k_upper_saxony
+			}
+			custom_tooltip = diverge_culture.0001.a.upper_saxony
+		}
+		if = {
+			limit = {
+				scope:primary_title = title:k_austria
+			}
+			custom_tooltip =  diverge_culture.0001.a.austria
+		}
+		if = {
+			limit = {
+				scope:primary_title = title:k_lotharingia
+			}
+			custom_tooltip = diverge_culture.0001.a.lotharingia
+		}
+		if = {
+			limit = {
+				has_primary_title = title:k_burgundy
+				capital_province = { geographical_region = custom_khre_burgundy_culture_convert }
+			}
+			custom_tooltip = diverge_culture.0001.a.burgundy
+		}
+		if = {
+			limit = {
+				has_primary_title = title:k_burgundy
+				OR = {
+					capital_province = { geographical_region = custom_khre_dauphine_culture_convert }
+					capital_province = { geographical_region = custom_khre_savoie_culture_convert }
+				}
+			}
+			custom_tooltip = diverge_culture.0001.a.savoie
+		}
+		if = {
+			limit = {
+				has_primary_title = title:k_burgundy
+				capital_province = { geographical_region = custom_khre_provence_culture_convert }
+			}
+			custom_tooltip = diverge_culture.0001.a.provence
+		}
+		if = {
+			limit = {
+				scope:primary_title = title:k_switzerland
+			}
+			custom_tooltip = diverge_culture.0001.a.swiss
+		}
+		
+		hidden_effect = {
+			add_character_flag = kingdoms_hre_enhanced_divergence
+			create_divergent_culture_with_side_effects_excluding_cost = yes
+		}
+
+		ai_chance = {
+			# AI should always do this
+			base = 100
+		}
+	}
+	
+	option = {
+		name = diverge_culture.0001.b
+		
+		custom_tooltip = diverge_culture.0001.b.diverge_cost_reduction
+		if = {
+			limit = {
+				scope:primary_title = title:k_upper_saxony
+			}
+			custom_tooltip = diverge_culture.0001.a.upper_saxony
+		}
+		if = {
+			limit = {
+				scope:primary_title = title:k_austria
+			}
+			custom_tooltip =  diverge_culture.0001.a.austria
+		}
+		if = {
+			limit = {
+				scope:primary_title = title:k_lotharingia
+			}
+			custom_tooltip = diverge_culture.0001.a.lotharingia
+		}
+		if = {
+			limit = {
+				has_primary_title = title:k_burgundy
+				capital_province = { geographical_region = custom_khre_burgundy_culture_convert }
+			}
+			custom_tooltip = diverge_culture.0001.a.burgundy
+		}
+		if = {
+			limit = {
+				has_primary_title = title:k_burgundy
+				OR = {
+					capital_province = { geographical_region = custom_khre_dauphine_culture_convert }
+					capital_province = { geographical_region = custom_khre_savoie_culture_convert }
+				}
+			}
+			custom_tooltip = diverge_culture.0001.a.savoie
+		}
+		if = {
+			limit = {
+				has_primary_title = title:k_burgundy
+				capital_province = { geographical_region = custom_khre_provence_culture_convert }
+			}
+			custom_tooltip = diverge_culture.0001.a.provence
+		}
+		if = {
+			limit = {
+				scope:primary_title = title:k_switzerland
+			}
+			custom_tooltip = diverge_culture.0001.a.swiss
+		}
+		
+		hidden_effect = {
+			add_character_flag = kingdoms_hre_customise_culture
+			add_character_flag = kingdoms_hre_enhanced_divergence
+		}
+
+		ai_chance = {
+			# player only option
+			base = 0
+		}
+	}
+	
+	option = {
+		name = diverge_culture.0001.c
+		
+		custom_tooltip = diverge_culture.0001.c.remain
+		
+		ai_chance = {
+			# player only option
+			base = 0
+		}
+	}
+}

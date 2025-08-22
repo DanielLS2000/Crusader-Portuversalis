@@ -1,0 +1,188 @@
+﻿grant_kingdom_title = {
+	hidden_effect = {
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					modifier = rejected_title_kingdom
+					target = title:e_hre.holder
+				}
+			}
+			remove_opinion = {
+				modifier = rejected_title_kingdom
+				target = title:e_hre.holder
+			}
+		}
+	}
+	
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+	$TARGET_TITLE$ = {
+		change_title_holder = {
+			holder = $OWNER$
+			change = scope:change
+		}
+	}
+	resolve_title_and_vassal_change = scope:change
+	vassal_contract_set_obligation_level = {
+		type = title_revocation_rights
+		level = 1
+	}
+	
+	legend_seed_new_title_effect = yes
+	
+	if = {
+		limit = {
+			scope:target_title = title:k_austria
+		}
+		create_austria_title = {
+			OWNER = $OWNER$
+		}
+	}
+	else_if = {
+		limit = {
+			scope:target_title = title:k_switzerland
+		}
+		create_switzerland_title = {
+			OWNER = $OWNER$
+		}
+	}
+	else_if = {
+		limit = {
+			scope:target_title = title:k_upper_saxony
+		}
+		create_upper_saxony_title = {
+			OWNER = $OWNER$
+		}
+	}
+	else_if = {
+		limit = {
+			scope:target_title = title:k_lower_saxony
+		}
+		create_lower_saxony_title = {
+			OWNER = $OWNER$
+		}
+	}
+	else_if = {
+		limit = {
+			scope:target_title = title:k_slavinia
+		}
+		create_slavinia_title = {
+			OWNER = $OWNER$
+		}
+	}
+	else_if = {
+		limit = {
+			scope:target_title = title:k_carinthia
+		}
+		create_carinthia_title = {
+			OWNER = $OWNER$
+		}
+	}
+	else_if = {
+		limit = {
+			scope:target_title = title:k_grand_franconia
+		}
+		create_franconia_title = {
+			OWNER = $OWNER$
+		}
+	}
+	else_if = {
+		limit = {
+			scope:target_title = title:k_grand_swabia
+		}
+		create_swabia_title = {
+			OWNER = $OWNER$
+		}
+	}
+	else_if = {
+		limit = {
+			scope:target_title = title:k_frisia
+		}
+		create_frisia_title = {
+			OWNER = $OWNER$
+		}
+	}
+	
+	# give option to change culture if criteria met
+	if = {
+		limit = {
+			has_dlc_feature = diverge_culture
+			# is not AI with disabled AI diverge culture game rule
+			NAND = {
+				is_ai = yes
+				has_game_rule = none_divergent_culture_ai_frequency
+			}
+			# is not a culture head
+			NOT = { culture.culture_head = $OWNER$ }
+			# capital is within the created kingdom
+			capital_county = {
+				kingdom = scope:target_title
+			}
+		}
+		# diverge culture?
+		if = {
+			limit = {
+				diverges_to_unique_culture = {
+					CHARACTER = $OWNER$
+				}
+			}
+			$OWNER$ = {
+				save_scope_as = character
+				culture = {
+					save_scope_as = current_culture
+				}
+			}
+			trigger_event = {
+				id = diverge_culture.0001
+				days = { culture_trigger_event_delay_days_lower culture_trigger_event_delay_days_upper }
+			}
+		}
+		# convert to local culture?
+		else_if = {
+			limit = {
+				# avoid changing heritage
+				$OWNER$.culture = {
+					has_same_culture_heritage = $OWNER$.capital_province.culture
+				}
+				# only switch is there a good chance of become the culture head
+				capital_culture_lacks_strong_culture_head = {
+					CAPITAL_CULTURE = $OWNER$.capital_province.culture
+				}
+			}
+			$OWNER$ = {
+				save_scope_as = character
+			}
+			trigger_event = {
+				id = convert_to_local_culture.0001
+				days = { culture_trigger_event_delay_days_lower culture_trigger_event_delay_days_upper }
+			}
+		}
+	}
+}
+
+notify_players_grant_kingdom_title = {
+	every_player = {
+		limit = {
+			NOT = {
+				has_title = $TARGET_TITLE$
+			}
+			OR = {
+				has_title = title:e_hre
+				AND = {
+					top_liege ?= {
+						has_title = title:e_hre
+					}
+				}
+			}
+		}
+		send_interface_message = {
+			type = event_generic_good_text
+			title = kingdoms_hre.0003.a.interface.title
+			desc = kingdoms_hre.0003.a.interface.desc
+			left_icon = $OWNER$
+		}
+	}
+}

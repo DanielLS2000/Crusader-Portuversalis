@@ -1,0 +1,30 @@
+﻿create_austria_title = {
+	$OWNER$ = {
+		hidden_effect = {
+			title:k_austria = {
+				set_de_jure_liege_title = title:e_hre
+				copy_title_history = title:d_osterreich
+			}
+		}
+		
+		title:d_osterreich = { set_de_jure_liege_title = title:k_austria }
+		title:d_steyermark = { set_de_jure_liege_title = title:k_austria }
+		
+		# if Bavarian king exists form a rivalry and worsen their opinion of the Emperor
+		if = {
+			limit = {
+				exists = title:k_bavaria.holder
+			}
+			set_relation_rival = {
+				target = title:k_bavaria.holder
+				reason = divided_kingdom
+			}
+			title:k_bavaria.holder = {
+				add_opinion = {
+					target = title:e_hre.holder
+					modifier = broke_apart_my_kingdom
+				}
+			}
+		}
+	}
+}

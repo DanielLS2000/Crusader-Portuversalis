@@ -1,0 +1,128 @@
+﻿unite_saxony_decision = {
+	ai_goal = yes
+	
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
+	
+	decision_group_type = major
+	
+	is_shown = {
+		OR = {
+			has_title = title:k_upper_saxony
+			has_title = title:k_lower_saxony
+		}
+	}
+	
+	is_valid = {
+		trigger_if = {
+			limit = {
+				has_game_rule = kingdoms_hre_culture_required
+			}
+			custom_tooltip = {
+				text = require_saxony_culture
+				culture = {
+					is_culture_or_is_descendant_culture_of = {
+						TARGET_CULTURE = culture:saxon
+					}
+				}
+			}
+		}
+		OR = {
+			AND = {
+				has_title = title:k_upper_saxony
+				has_title = title:k_lower_saxony
+			}
+			AND = {
+				has_title = title:k_upper_saxony
+				custom_tooltip = {
+					text = unite_saxony_lower_saxony_counties_requirement
+					controls_enough_of_region = {
+						CHARACTER = root
+						TARGET_REGION = custom_lower_saxony
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					are_sorbia_duchies_de_jure_hre = yes
+				}
+				AND = {
+					has_title = title:k_lower_saxony
+					custom_tooltip = {
+						text = unite_saxony_upper_saxony_counties_requirement
+						controls_enough_of_region = {
+							CHARACTER = root
+							TARGET_REGION = custom_upper_saxony
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					are_sorbia_duchies_de_jure_hre = no
+				}
+				AND = {
+					has_title = title:k_lower_saxony
+					custom_tooltip = {
+						text = unite_saxony_upper_saxony_without_sorbia_counties_requirement
+						controls_enough_of_region = {
+							CHARACTER = root
+							TARGET_REGION = custom_upper_saxony_without_sorbia
+						}
+					}
+				}
+			}
+		}
+		prestige_level >= high_prestige_level
+	}
+	
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_at_war = no
+		is_healthy = yes
+	}
+	
+	effect = {
+		custom_tooltip = unite_saxony_decision_merge_new_kingdom_tooltip
+		if = {
+			limit = {
+				are_sorbia_duchies_de_jure_hre = yes
+			}
+			custom_tooltip = unite_saxony_decision_merge_kingdoms_tooltip
+		}
+		else_if = {
+			limit = {
+				are_sorbia_duchies_de_jure_hre = no
+			}
+			custom_tooltip = unite_saxony_decision_merge_kingdoms_without_sorbia_tooltip
+		}
+		custom_tooltip = unite_saxony_decision_title_law_tooltip
+		root = {
+			save_scope_as = new_saxon_king
+		}
+		if = {
+			limit = {
+				exists = cp:councillor_chancellor
+			}
+			cp:councillor_chancellor = { save_scope_as = messenger }
+		}
+		else = {
+			random_vassal = { save_scope_as = messenger }
+		}
+		trigger_event = unite_saxony.0001
+	}
+	
+	cost = {
+		# no cost
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	
+	ai_will_do = {
+		base = 100
+	}
+}

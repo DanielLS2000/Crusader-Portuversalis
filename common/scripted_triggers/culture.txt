@@ -1,0 +1,10 @@
+﻿# all triggers defined here are assumed to have a culture scope
+
+is_culture_or_is_descendant_culture_of = {
+	OR = {
+		this = $TARGET_CULTURE$
+		any_parent_culture_or_above = {
+			this = $TARGET_CULTURE$
+		}
+	}
+}

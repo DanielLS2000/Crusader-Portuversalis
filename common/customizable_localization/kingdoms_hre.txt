@@ -1,0 +1,87 @@
+﻿GetHreMaleFemaleTitle = {
+	type = character
+	
+	text = {
+		trigger = {
+			title:k_bohemia = scope:second
+			is_male = yes
+		}
+		localization_key = king
+	}
+	
+	text = {
+		trigger = {
+			title:k_bohemia = scope:second
+			is_female = yes
+		}
+		localization_key = king_female
+	}
+	
+	text = {
+		trigger = {
+			title:k_austria = scope:second
+			is_male = yes
+		}
+		localization_key = archduke
+	}
+	
+	text = {
+		trigger = {
+			title:k_austria = scope:second
+			is_female = yes
+		}
+		localization_key = archduchess
+	}
+	
+	text = {
+		trigger = {
+			NOR = {
+				title:k_bohemia = scope:second
+				title:k_austria = scope:second
+			}
+			is_male = yes
+		}
+		localization_key = prince
+	}
+	
+	text = {
+		trigger = {
+			NOR = {
+				title:k_bohemia = scope:second
+				title:k_austria = scope:second
+			}
+			is_female = yes
+		}
+		localization_key = princess
+	}
+}
+
+GetHreTitleTier = {
+	type = character
+	
+	text = {
+		trigger = {
+			title:k_bohemia = scope:second
+		}
+		localization_key = kingdom_feudal
+	}
+
+	text = {
+		trigger = {
+			title:k_austria = scope:second
+		}
+		localization_key = archduchy
+	}
+	
+	text = {
+		trigger = {
+			title:k_switzerland = scope:second
+		}
+		localization_key = swiss_confederation
+	}
+	
+	text = {
+		fallback = yes
+		localization_key = title_principality
+	}
+}

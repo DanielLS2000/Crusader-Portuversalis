@@ -1,0 +1,108 @@
+﻿unite_saxony = {
+	hidden_effect = {
+		title:k_saxony = { set_de_jure_liege_title = title:e_hre }
+		# use that fancy coa
+		title:k_saxony = { set_coa = k_saxon_electorate }
+		
+		if = {
+			limit = {
+				are_sorbia_duchies_de_jure_hre = no
+				$OWNER$ = {
+					OR = {
+						completely_controls = title:d_meissen
+						completely_controls = title:d_lausitz
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = title:k_sorbia.holder
+				}
+				$OWNER$ = {
+					set_relation_rival = {
+						target = title:k_sorbia.holder
+						reason = divided_kingdom
+					}
+				}
+			}
+			# will contain no duchies so destroy
+			destroy_title = title:k_sorbia
+		}
+	}
+	
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+	
+	title:k_saxony = {
+		change_title_holder = {
+			holder = $OWNER$
+			change = scope:change
+		}
+	}
+	resolve_title_and_vassal_change = scope:change
+	
+	send_interface_message = {
+		title = unite_saxony_saxon_elective_enacted_title
+		desc = unite_saxony_saxon_elective_enacted_desc
+		# add saxon elective law
+		title:k_saxony = {
+			add_title_law = saxon_elective_succession_law
+		}
+	}
+	
+	# add all of current upper and lower duchies
+	title:d_angria = { set_de_jure_liege_title = title:k_saxony }
+	title:d_holstein = { set_de_jure_liege_title = title:k_saxony }
+	title:d_ostfalen = { set_de_jure_liege_title = title:k_saxony }
+	title:d_westfalen = { set_de_jure_liege_title = title:k_saxony }
+	title:d_anhalt = { set_de_jure_liege_title = title:k_saxony }
+	title:d_thuringia = { set_de_jure_liege_title = title:k_saxony }
+	if = {
+		limit = {
+			are_sorbia_duchies_de_jure_hre = no
+			$OWNER$ = {
+				OR = {
+					completely_controls = title:d_meissen
+					completely_controls = title:d_lausitz
+				}
+			}
+		}
+		title:d_meissen = { set_de_jure_liege_title = title:k_saxony }
+		title:d_lausitz = { set_de_jure_liege_title = title:k_saxony }
+	}
+	else_if = {
+		limit = {
+			are_sorbia_duchies_de_jure_hre = yes
+		}
+		title:d_meissen = { set_de_jure_liege_title = title:k_saxony }
+		title:d_lausitz = { set_de_jure_liege_title = title:k_saxony }
+	}
+	
+	hidden_effect = {
+		# copy history
+		if = {
+			limit = {
+				title:k_upper_saxony = $OWNER$.primary_title
+			}
+			title:k_saxony = {
+				copy_title_history = title:k_upper_saxony
+			}
+		}
+		else_if = {
+			if = {
+				limit = {
+					title:k_lower_saxony = $OWNER$.primary_title
+				}
+				title:k_saxony = {
+					copy_title_history = title:k_lower_saxony
+				}
+			}
+		}
+		# destroy upper and lower
+		destroy_title = title:k_upper_saxony
+		destroy_title = title:k_lower_saxony
+	}
+}

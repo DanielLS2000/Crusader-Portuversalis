@@ -1,0 +1,41 @@
+﻿on_culture_created = {
+	on_actions = {
+		enhanced_diverged_culture_conversion
+	}
+}
+
+enhanced_diverged_culture_conversion = {
+	effect = {
+		scope:founder = {
+			if = {
+				limit = {
+					culture = {
+						is_divergent_culture = yes
+					}
+					has_character_flag = kingdoms_hre_enhanced_divergence
+				}
+				# has diverged now, so remove flag
+				remove_character_flag = kingdoms_hre_enhanced_divergence
+				undo_diverged_culture_conversion = {
+					CHARACTER = scope:founder
+				}
+				enhanced_diverge_culture_convert = {
+					CHARACTER = scope:founder
+				}
+				offer_vassal_culture_convert = {
+					CHARACTER = scope:founder
+				}
+			}
+			if = {
+				limit = {
+					culture = {
+						is_divergent_culture = yes
+					}
+					has_character_flag = kingdoms_hre_customise_culture
+				}
+				# has diverged now, so remove flag
+				remove_character_flag = kingdoms_hre_customise_culture
+			}
+		}
+	}
+}

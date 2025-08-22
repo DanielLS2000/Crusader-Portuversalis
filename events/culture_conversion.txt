@@ -1,0 +1,113 @@
+﻿namespace = kingdoms_hre_culture_conversion
+
+kingdoms_hre_culture_conversion.0001 = {
+	type = character_event
+	title = culture_conversion.0001.t
+	desc = culture_conversion.0001.desc
+	theme = culture_change
+	left_portrait = {
+		character = scope:converting_character
+		animation = personality_honorable
+	}
+	
+	option = { # Good for them, I suppose
+		name = culture_conversion.0001.a
+		trigger = {
+			OR = {
+				# different heritage
+				NOT = {
+					culture = {
+						has_same_culture_heritage = scope:new_culture
+					}
+				}
+			}
+		}
+		show_as_tooltip = {
+			scope:converting_character = {
+				set_culture = scope:converting_character.culture
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	option = { # It's a bad idea to leave the old ways behind
+		name = culture_conversion.0001.b
+		trigger = {
+			culture = {
+				has_same_culture_heritage = scope:new_culture
+			}
+		}
+		show_as_tooltip = {
+			scope:converting_character = {
+				set_culture = scope:converting_character.culture
+			}
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = {
+					value = total_held_counties_with_current_culture
+					divide = total_held_counties
+				}
+			}
+			modifier = {
+				add = 40
+				NOT = {
+					any_held_title = {
+						tier = tier_county
+						OR = {
+							culture = root.culture
+							culture = scope:new_culture
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # Better move with the times
+		name = culture_conversion.0001.c
+		trigger = {
+			culture = {
+				has_same_culture_heritage = scope:new_culture
+			}
+		}
+		scope:new_culture = {
+			random_parent_culture = {
+				# only 1 parent so won't be random
+				save_scope_as = old_culture
+			}
+		}
+		convert_family_culture_and_notify_vassals_effect = {
+			CONVERTER = scope:converting_character
+			OLD_CULTURE = scope:old_culture
+			NEW_CULTURE = scope:new_culture
+		}
+		stress_impact = {
+			stubborn = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = {
+					value = total_held_counties_with_new_culture
+					divide = total_held_counties
+				}
+			}
+			modifier = {
+				add = 60
+				NOT = {
+					any_held_title = {
+						tier = tier_county
+						OR = {
+							culture = root.culture
+							culture = scope:new_culture
+						}
+					}
+				}
+			}
+		}
+	}
+}

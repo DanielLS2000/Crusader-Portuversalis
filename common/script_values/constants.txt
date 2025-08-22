@@ -1,0 +1,37 @@
+﻿kingdom_gift_amount = 150
+
+austria_required_renown_level = {
+	value = 0
+	if = {
+		limit = {
+			has_game_rule = kingdoms_hre_culture_noteworthy
+		}
+		add = 3
+	}
+	else_if = {
+		limit = {
+			has_game_rule = kingdoms_hre_culture_reputable
+		}
+		add = 4
+	}
+	else_if = {
+		limit = {
+			has_game_rule = kingdoms_hre_culture_well_known
+		}
+		add = 5
+	}
+}
+
+swiss_cantons_cities_required = 4
+
+petition_trigger_event_delay_days_lower = 5
+
+petition_trigger_event_delay_days_upper = 15
+
+culture_trigger_event_delay_days_lower = 20
+
+culture_trigger_event_delay_days_upper = 31
+
+enhanced_diverge_conversion_immediate_counties_convert_chance = 100
+
+enhanced_diverge_conversion_secondary_counties_convert_chance = 25

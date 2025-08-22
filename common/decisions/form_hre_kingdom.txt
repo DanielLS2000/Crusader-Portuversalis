@@ -1,0 +1,774 @@
+﻿form_hre_kingdom_decision = {
+	ai_goal = yes
+	
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	
+	decision_group_type = major
+	
+	cooldown = { years = 10 }
+	
+	is_shown = {
+		is_landed = yes
+		NOT = {
+			has_title = title:e_hre
+		}
+		top_liege ?= {
+			has_title = title:e_hre
+		}
+		highest_held_title_tier <= tier_duchy
+	}
+	
+	is_valid = {
+		NOT = {
+			has_title = title:e_hre
+		}
+		custom_tooltip = {
+			text = is_hre_vassal
+			top_liege ?= {
+				has_title = title:e_hre
+			}
+		}
+		custom_tooltip = {
+			text = form_hre_kingdom_decision_kingdom_criteria_met
+			OR = {
+				can_choose_austria = { CHARACTER = root }
+				can_choose_bavaria = { CHARACTER = root }
+				can_choose_bohemia = { CHARACTER = root }
+				can_choose_frisia = { CHARACTER = root }
+				can_choose_lotharingia = { CHARACTER = root }
+				can_choose_upper_saxony = { CHARACTER = root }
+				can_choose_switzerland = { CHARACTER = root }
+				can_choose_burgundy = { CHARACTER = root }
+				can_choose_italy = { CHARACTER = root }
+				can_choose_aquitaine = { CHARACTER = root }
+				can_choose_brittany = { CHARACTER = root }
+				can_choose_france = { CHARACTER = root }
+				can_choose_lower_saxony = { CHARACTER = root }
+				can_choose_pomerania = { CHARACTER = root }
+				can_choose_slavinia = { CHARACTER = root }
+				can_choose_carinthia = { CHARACTER = root }
+				can_choose_franconia = { CHARACTER = root }
+				can_choose_swabia = { CHARACTER = root }
+				can_choose_wendia = { CHARACTER = root }
+			}
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = required_amount_of_titles
+			any_held_title = {
+				count >= 2
+				tier = tier_duchy
+			}
+		}
+		faith = top_liege.faith	#Must share the faith of your emperor
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_at_war = no
+		is_healthy = yes
+	}
+	
+	widget = {
+		gui = "decision_view_widget_generic_multichoice_with_effects"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "choose_kingdom"
+		
+		### austria
+		item = {
+			value = choose_austria
+			is_valid = { can_choose_austria = { CHARACTER = root } }
+			localization = choose_austria_name
+			icon = "gfx/interface/icons/kingdoms_hre/austria.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_region = {
+							CHARACTER = root
+							TARGET_REGION = custom_core_austria
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### bavaria
+		item = {
+			value = choose_bavaria
+			is_valid = { can_choose_bavaria = { CHARACTER = root } }
+			localization = choose_bavaria_name
+			icon = "gfx/interface/icons/kingdoms_hre/bavaria.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_kingdom = {
+							CHARACTER = root
+							TARGET_KINGDOM = title:k_bavaria
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### bohemia
+		item = {
+			value = choose_bohemia
+			is_shown = {
+				title:k_bohemia = { target_is_de_jure_liege_or_above = title:e_hre }
+			}
+			is_valid = { can_choose_bohemia = { CHARACTER = root } }
+			localization = choose_bohemia_name
+			icon = "gfx/interface/icons/kingdoms_hre/bohemia.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_kingdom = {
+							CHARACTER = root
+							TARGET_KINGDOM = title:k_bohemia
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### carinthia
+		item = {
+			value = choose_carinthia
+			is_valid = { can_choose_carinthia = { CHARACTER = root } }
+			localization = choose_carinthia_name
+			icon = "gfx/interface/icons/kingdoms_hre/carinthia.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_region = {
+							CHARACTER = root
+							TARGET_REGION = custom_carinthia
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### franconia - CE only
+		item = {
+			is_shown = {
+				show_franconia = yes
+			}
+			value = choose_franconia
+			is_valid = { can_choose_franconia = { CHARACTER = root } }
+			localization = choose_franconia_name
+			icon = "gfx/interface/icons/kingdoms_hre/franconia.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_region = {
+							CHARACTER = root
+							TARGET_REGION = custom_khre_franconia
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### frisia
+		item = {
+			value = choose_frisia
+			is_shown = {
+				show_frisia = yes
+			}
+			is_valid = { can_choose_frisia = { CHARACTER = root } }
+			localization = choose_frisia_name
+			icon = "gfx/interface/icons/kingdoms_hre/frisia.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_kingdom = {
+							CHARACTER = root
+							TARGET_KINGDOM = title:k_frisia
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### frisia unformed - CE only
+		item = {
+			value = choose_frisia_unformed
+			is_shown = {
+				show_frisia_unformed = yes
+			}
+			is_valid = { can_choose_frisia = { CHARACTER = root } }
+			localization = choose_frisia_name
+			icon = "gfx/interface/icons/kingdoms_hre/frisia.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_region = {
+							CHARACTER = root
+							TARGET_REGION = custom_khre_frisia
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### lotharingia
+		item = {
+			value = choose_lotharingia
+			is_valid = { can_choose_lotharingia = { CHARACTER = root } }
+			localization = choose_lotharingia_name
+			icon = "gfx/interface/icons/kingdoms_hre/lotharingia.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_kingdom = {
+							CHARACTER = root
+							TARGET_KINGDOM = title:k_lotharingia
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### lower saxony
+		item = {
+			value = choose_lower_saxony
+			is_valid = { can_choose_lower_saxony = { CHARACTER = root } }
+			localization = choose_lower_saxony_name
+			icon = "gfx/interface/icons/kingdoms_hre/lower_saxony.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_region = {
+							CHARACTER = root
+							TARGET_REGION = custom_lower_saxony
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### swabia - CE only
+		item = {
+			is_shown = {
+				show_swabia = yes
+			}
+			value = choose_swabia
+			is_valid = { can_choose_swabia = { CHARACTER = root } }
+			localization = choose_swabia_name
+			icon = "gfx/interface/icons/kingdoms_hre/swabia.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_region = {
+							CHARACTER = root
+							TARGET_REGION = custom_khre_swabia
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### switzerland
+		item = {
+			value = choose_switzerland
+			is_valid = { can_choose_switzerland = { CHARACTER = root } }
+			localization = choose_switzerland_name
+			icon = "gfx/interface/icons/kingdoms_hre/switzerland.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_region = {
+							CHARACTER = root
+							TARGET_REGION = custom_core_switzerland
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### upper saxony
+		item = {
+			value = choose_upper_saxony
+			is_shown = { are_sorbia_duchies_de_jure_hre = yes }
+			is_valid = { can_choose_upper_saxony = { CHARACTER = root } }
+			localization = choose_upper_saxony_name
+			icon = "gfx/interface/icons/kingdoms_hre/upper_saxony.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_region = {
+							CHARACTER = root
+							TARGET_REGION = custom_upper_saxony
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### upper saxony (without sorbia de jure)
+		item = {
+			value = choose_upper_saxony_without_sorbia
+			is_shown = { are_sorbia_duchies_de_jure_hre = no }
+			is_valid = { can_choose_upper_saxony = { CHARACTER = root } }
+			localization = choose_upper_saxony_without_sorbia_name
+			icon = "gfx/interface/icons/kingdoms_hre/upper_saxony.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_region = {
+							CHARACTER = root
+							TARGET_REGION = custom_upper_saxony_without_sorbia
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### burgundy
+		item = {
+			value = choose_burgundy
+			is_valid = { can_choose_burgundy = { CHARACTER = root } }
+			localization = choose_burgundy_name
+			icon = "gfx/interface/icons/kingdoms_hre/burgundy.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_kingdom = {
+							CHARACTER = root
+							TARGET_KINGDOM = title:k_burgundy
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### italy
+		item = {
+			value = choose_italy
+			is_valid = { can_choose_italy = { CHARACTER = root } }
+			localization = choose_italy_name
+			icon = "gfx/interface/icons/kingdoms_hre/italy.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_kingdom = {
+							CHARACTER = root
+							TARGET_KINGDOM = title:k_italy
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### pomerania
+		item = {
+			value = choose_pomerania
+			is_valid = { can_choose_pomerania = { CHARACTER = root } }
+			localization = choose_pomerania_name
+			icon = "gfx/interface/icons/kingdoms_hre/pomerania.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_kingdom = {
+							CHARACTER = root
+							TARGET_KINGDOM = title:k_pomerania
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### slavinia
+		item = {
+			is_shown = {
+				show_slavinia = yes
+			}
+			value = choose_slavinia
+			is_valid = { can_choose_slavinia = { CHARACTER = root } }
+			localization = choose_slavinia_name
+			icon = "gfx/interface/icons/kingdoms_hre/slavinia.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_region = {
+							CHARACTER = root
+							TARGET_REGION = custom_slavinia
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### wendia - CE only
+		item = {
+			is_shown = {
+				show_wendia = yes
+			}
+			value = choose_wendia
+			is_valid = { can_choose_wendia = { CHARACTER = root } }
+			localization = choose_wendia_name
+			icon = "gfx/interface/icons/kingdoms_hre/wendia.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_region = {
+							CHARACTER = root
+							TARGET_REGION = custom_khre_wendia
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### aquitaine
+		item = {
+			value = choose_aquitaine
+			is_shown = {
+				title:k_aquitaine = { target_is_de_jure_liege_or_above = title:e_hre }
+				# account for french unification decision
+				kingdom_aquitaine_required_county_total > 0
+			}
+			is_valid = { can_choose_aquitaine = { CHARACTER = root } }
+			localization = choose_aquitaine_name
+			icon = "gfx/interface/icons/kingdoms_hre/aquitaine.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_kingdom = {
+							CHARACTER = root
+							TARGET_KINGDOM = title:k_aquitaine
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### brittany
+		item = {
+			value = choose_brittany
+			is_shown = {
+				title:k_brittany = { target_is_de_jure_liege_or_above = title:e_hre }
+			}
+			is_valid = { can_choose_brittany = { CHARACTER = root } }
+			localization = choose_brittany_name
+			icon = "gfx/interface/icons/kingdoms_hre/brittany.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_kingdom = {
+							CHARACTER = root
+							TARGET_KINGDOM = title:k_brittany
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		### france
+		item = {
+			value = choose_france
+			is_shown = {
+				title:k_france = { target_is_de_jure_liege_or_above = title:e_hre }
+			}
+			is_valid = { can_choose_france = { CHARACTER = root } }
+			localization = choose_france_name
+			icon = "gfx/interface/icons/kingdoms_hre/france.dds"
+			ai_chance = {
+				value = 0
+				if = {
+					limit = {
+						controls_enough_of_kingdom = {
+							CHARACTER = root
+							TARGET_KINGDOM = title:k_france
+						}
+					}
+					add = 100
+				}
+			}
+		}
+	}
+	
+	effect = {
+		custom_tooltip = form_hre_kingdom_decision_effect_selected
+		custom_tooltip = form_hre_kingdom_decision_emperor_opinion
+		custom_tooltip = form_hre_kingdom_decision_hook
+		custom_tooltip = form_hre_kingdom_decision_vassal_contract_change
+		if = {
+			limit = {
+				has_dlc_feature = legends
+			}
+			custom_tooltip = form_hre_kingdom_decision_gain_heroic_legend_seed
+		}
+		top_liege = {
+			save_scope_as = emperor
+		}
+		root = {
+			save_scope_as = vassal
+		}
+		# bavaria
+		if = {
+			limit = {
+				scope:choose_bavaria = yes
+			}
+			title:k_bavaria = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# bohemia
+		else_if = {
+			limit = {
+				scope:choose_bohemia = yes
+			}
+			title:k_bohemia = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# frisia
+		else_if = {
+			limit = {
+				scope:choose_frisia = yes
+			}
+			title:k_frisia = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# frisia (unformed)
+		else_if = {
+			limit = {
+				scope:choose_frisia_unformed = yes
+			}
+			title:k_frisia = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# lotharingia
+		else_if = {
+			limit = {
+				scope:choose_lotharingia = yes
+			}
+			title:k_lotharingia = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# burgundy
+		else_if = {
+			limit = {
+				scope:choose_burgundy = yes
+			}
+			title:k_burgundy = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# italy
+		else_if = {
+			limit = {
+				scope:choose_italy = yes
+			}
+			title:k_italy = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# brittany
+		else_if = {
+			limit = {
+				scope:choose_brittany = yes
+			}
+			title:k_brittany = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# france
+		else_if = {
+			limit = {
+				scope:choose_france = yes
+			}
+			title:k_france = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# aquitaine
+		else_if = {
+			limit = {
+				scope:choose_aquitaine = yes
+			}
+			title:k_aquitaine = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# austria
+		else_if = {
+			limit = {
+				scope:choose_austria = yes
+			}
+			title:k_austria = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# switzerland
+		else_if = {
+			limit = {
+				scope:choose_switzerland = yes
+			}
+			title:k_switzerland = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# upper saxony
+		else_if = {
+			limit = {
+				OR = {
+					scope:choose_upper_saxony = yes
+					scope:choose_upper_saxony_without_sorbia = yes
+				}
+			}
+			title:k_upper_saxony = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# lower saxony
+		else_if = {
+			limit = {
+				scope:choose_lower_saxony = yes
+			}
+			title:k_lower_saxony = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# pomerania
+		else_if = {
+			limit = {
+				scope:choose_pomerania = yes
+			}
+			title:k_pomerania = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# slavinia
+		else_if = {
+			limit = {
+				scope:choose_slavinia = yes
+			}
+			title:k_slavinia = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# carinthia
+		else_if = {
+			limit = {
+				scope:choose_carinthia = yes
+			}
+			title:k_carinthia = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# wendia
+		else_if = {
+			limit = {
+				scope:choose_wendia = yes
+			}
+			title:k_wendia = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# franconia
+		else_if = {
+			limit = {
+				scope:choose_franconia = yes
+			}
+			title:k_grand_franconia = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+		# swabia
+		else_if = {
+			limit = {
+				scope:choose_swabia = yes
+			}
+			title:k_grand_swabia = {
+				save_scope_as = target_title
+			}
+			trigger_event = kingdoms_hre.0001
+		}
+	}
+	
+	cost = {
+		prestige = {
+			value = 500
+		}
+	}
+	
+	ai_potential = {
+		highest_held_title_tier = tier_duchy
+		any_held_title = {
+			count >= 2
+			tier = tier_duchy
+		}
+		is_landed = yes
+		is_at_war = no
+	}
+	
+	ai_will_do = {
+		base = 50
+		modifier = {
+			has_trait = content
+			factor = 0
+		}
+		modifier = {
+			has_trait = ambitious
+			factor = 2
+		}
+		modifier = {
+			top_liege ?= {
+				save_temporary_opinion_value_as = { name = opinion_of_you target = root }
+				scope:opinion_of_you >= medium_positive_opinion
+			}
+			add = 25
+		}
+		modifier = {
+			gold >= kingdom_gift_amount
+			add = 25
+		}
+	}
+}

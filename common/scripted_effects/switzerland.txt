@@ -1,0 +1,30 @@
+﻿create_switzerland_title = {
+	$OWNER$ = {
+		hidden_effect = {
+			title:k_switzerland = {
+				set_de_jure_liege_title = title:e_hre
+				copy_title_history = title:d_transjurania
+			}
+		}
+		
+		title:d_transjurania = { set_de_jure_liege_title = title:k_switzerland }
+		title:d_currezia = { set_de_jure_liege_title = title:k_switzerland }
+		
+		# if Burgundy king exists form a rivalry and worsen their opinion of the Emperor
+		if = {
+			limit = {
+				exists = title:k_burgundy.holder
+			}
+			set_relation_rival = {
+				target = title:k_burgundy.holder
+				reason = divided_kingdom
+			}
+			title:k_burgundy.holder = {
+				add_opinion = {
+					target = title:e_hre.holder
+					modifier = broke_apart_my_kingdom
+				}
+			}
+		}
+	}
+}

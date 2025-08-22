@@ -1,0 +1,123 @@
+﻿emperor_opinion_of_vassal = {
+	value = 0
+	if = {
+		limit = {
+			scope:emperor = {
+				save_temporary_opinion_value_as = { name = opinion_of_vassal target = scope:vassal }
+			}
+		}
+		add = scope:opinion_of_vassal
+	}
+	if = {
+		limit = {
+			scope:opinion_of_vassal > 0
+		}
+		# positive opinion contributes only half
+		multiply = 0.5
+	}
+}
+
+ai_petition_acceptance_chance_percent_value = {
+	value = emperor_opinion_of_vassal
+	if = {
+		limit = {
+			scope:target_title = title:k_bohemia
+			scope:vassal = {
+				culture = {
+					is_culture_or_is_descendant_culture_of = {
+						TARGET_CULTURE = culture:czech
+					}
+				}
+			}
+		}
+		add = 15
+	}
+	if = {
+		limit = {
+			scope:vassal = { is_powerful_vassal = yes }
+		}
+		add = 10
+	}
+	if = {
+		limit = {
+			exists = scope:letter_positive
+		}
+		add = 15
+	}
+	if = {
+		limit = {
+			exists = scope:letter_negative
+		}
+		subtract = 15
+	}
+	if = {
+		limit = {
+			exists = scope:bought_gifts
+		}
+		add = 10
+	}
+	add = {
+		value = scope:emperor.ai_honor
+		max = 10
+		min = -10
+	}
+	max = 100
+	min = 0
+}
+
+ai_petition_rejection_chance_percent_value = {
+	value = ai_petition_acceptance_chance_percent_value
+	multiply = -1
+}
+
+ai_diplomacy_option_comparison_weight = {
+	value = 0
+	add = root.diplomacy
+	subtract = scope:emperor.diplomacy
+	multiply = 10
+}
+
+ai_petition_acceptance_base_chance_percent_value = {
+	value = 0
+	if = {
+		limit = {
+			has_game_rule = kingdoms_hre_emperor_acceptance_base_chance_five
+		}
+		add = 5
+	}
+	else_if = {
+		limit = {
+			has_game_rule = kingdoms_hre_emperor_acceptance_base_chance_ten
+		}
+		add = 10
+	}
+	else_if = {
+		limit = {
+			has_game_rule = kingdoms_hre_emperor_acceptance_base_chance_fifteen
+		}
+		add = 15
+	}
+	else_if = {
+		limit = {
+			has_game_rule = kingdoms_hre_emperor_acceptance_base_chance_twenty
+		}
+		add = 20
+	}
+	else_if = {
+		limit = {
+			has_game_rule = kingdoms_hre_emperor_acceptance_base_chance_twentyfive
+		}
+		add = 25
+	}
+	else_if = {
+		limit = {
+			has_game_rule = kingdoms_hre_emperor_acceptance_base_chance_thirty
+		}
+		add = 30
+	}
+}
+
+ai_petition_rejection_base_chance_percent_value = {
+	value = 100
+	subtract = ai_petition_acceptance_base_chance_percent_value
+}
