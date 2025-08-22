@@ -1,0 +1,129 @@
+namespace = lopc_duel_event
+#determine winner
+lopc_duel_event.0001 = {
+	#trigger = { is_ai = no } # seems dumb but maybe if scope issue. ai should not be triggering this anyways
+	#type = character_event
+	hidden = yes
+
+	immediate = {
+		if = { # you win!
+			limit = { 
+				this = scope:sc_victor
+				is_ai = no
+			}
+			scope:sc_victor = {
+				trigger_event = lopc_duel_event.0002
+			}
+		}
+		else_if = { # You lose!
+			limit = { 
+				NOT = { this = scope:sc_victor }
+				is_ai = no
+			}
+			trigger_event = lopc_duel_event.0003
+		}
+		else = { # To stop any issues with schemes that cannot complete (and ai that somehow managed to get this far)
+			scope:scheme = {
+				end_scheme = yes
+			}
+		}
+	}
+}
+#win_duel
+lopc_duel_event.0002 = {
+	type = character_event
+	title = lopc_duel_event.0001.t
+	desc = lopc_duel_event.0001.desc
+	theme = diplomacy
+	
+	left_portrait = {
+		character = root
+		animation = scheme
+	}
+	lower_right_portrait = {
+		character = scope:target
+		animation = scheme
+	}
+
+	immediate = {
+		lopc_successful_service_scheme_effect = {
+			TARGET = scope:target
+		}
+		dynasty ?= {
+			add_dynasty_prestige = 10
+		}
+	}
+
+	option = {
+		name = lopc_duel_event.0001.a
+		scope:scheme = {
+			end_scheme = yes
+		}
+	}
+}
+#lose_duel
+lopc_duel_event.0003 = {
+	type = character_event
+	title = lopc_duel_event.0002.t
+	desc = lopc_duel_event.0002.desc
+	theme = diplomacy
+	
+	
+	left_portrait = {
+		character = root
+		animation = scheme
+	}
+	lower_right_portrait = {
+		character = scope:target
+		animation = scheme
+	}
+
+	# Temporarily unhidden until the dreaded repeating event returns
+	#hidden = yes
+	immediate = {
+		# Trigger the response event for the target
+		lopc_failed_service_scheme_effect = {
+			TARGET = scope:target
+		}
+		#send_interface_message = {
+		#	type = msg_marshal_task_good
+		#	title = lopc_lost_duel
+		#	desc = will_remove_msg_next_update
+		#}
+	}
+
+	option = {
+		name = lopc_duel_event.0002.a
+		scope:scheme = {
+			end_scheme = yes
+		}
+	}
+}
+# For mercenary/holy order battle duels
+#determine winner
+lopc_duel_event.0004 = {
+	#type = character_event
+	hidden = yes
+
+	immediate = {
+		if = { # You lost
+			limit = { scope:sc_attacker = scope:sc_victor }
+			scope:sc_defender = {
+				send_interface_toast = {
+					title = lopc_event.2412.duel.failure
+					left_icon = root
+				}
+			}
+		}
+		else_if = { # You won
+			limit = { scope:sc_defender = scope:sc_victor }
+			scope:sc_defender = {
+				send_interface_toast = {
+					title = lopc_event.2412.duel.success
+					left_icon = root
+					add_prestige = 100
+				}
+			}
+		}
+	}
+}

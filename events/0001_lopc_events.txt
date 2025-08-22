@@ -1,0 +1,7845 @@
+﻿namespace = lopc_event
+
+########################################################################
+# Utility Events #######################################################
+########################################################################
+	
+	# 00XX = Events for joining/leaving court outcomes
+	# 10XX = Letter events for requesting to join court / seek promotion, or being absent from court
+	
+# -------------------------------------------------------------------- #
+
+# Joining/leaving Court Events
+lopc_event.0001 = { # Set current province owner as new liege
+	title = lopc_event.0001.t
+	#desc = lopc_event.0001.desc
+	desc = {
+		desc = lopc_event.0001.desc_0
+		first_valid = { # Noble or Lowborn?
+			triggered_desc = { 
+				trigger = {
+					scope:courtier_x_liege = {
+						is_lowborn = no
+					}
+				}
+				desc = lopc_event.0001.desc_1_noble
+			}
+			desc = lopc_event.0001.desc_1_lowborn
+		}
+		first_valid = { # Holding Type (and it follows, government type)
+			triggered_desc = { 
+				trigger = {
+					scope:courtier_x_liege.capital_province = {
+						has_holding_type = castle_holding
+					}
+				}
+				desc = lopc_event.0001.desc_2_castle
+			}
+			triggered_desc = { 
+				trigger = {
+					scope:courtier_x_liege.capital_province = {
+						has_holding_type = city_holding
+					}
+				}
+				desc = lopc_event.0001.desc_2_city
+			}
+			triggered_desc = { 
+				trigger = {
+					scope:courtier_x_liege.capital_province = {
+						has_holding_type = church_holding 
+					}
+				}
+				desc = lopc_event.0001.desc_2_temple
+			}
+			desc = lopc_event.0001.desc_2_tribal
+		}
+		first_valid = { # Liege Personality
+			triggered_desc = { # Mad
+				trigger = {
+					scope:courtier_x_liege = {
+						OR = { 
+							has_trait = lunatic_1
+							has_trait = lunatic_2
+							#has_trait = possessed
+							#has_trait = eccentric
+						}
+					}
+				}
+				desc = lopc_event.0001.desc_3_mad
+			}
+			triggered_desc = { # Cruel
+				trigger = {
+					scope:courtier_x_liege = {
+						OR = {
+							has_trait = sadistic
+							has_personality_malicious_trigger = yes
+						}
+						NOT = { has_trait = compassionate }
+						NOT = { has_relation_friend = root }
+					}
+				}
+				desc = lopc_event.0001.desc_3_cruel
+			}
+			triggered_desc = { # Benevolent
+				trigger = {
+					scope:courtier_x_liege = {
+						OR = {
+							has_trait = compassionate
+							has_personality_benevolent_trigger  = yes
+						}
+						NOT = { has_trait = sadistic }
+					}
+				}
+				desc = lopc_event.0001.desc_3_kind
+			}
+			triggered_desc = { # Extroverted
+				trigger = {
+					scope:courtier_x_liege = {
+						OR = {
+							has_trait = gregarious
+							has_personality_extroverted_trigger  = yes
+						}
+						NOT = { has_trait = temperate }
+					}
+				}
+				desc = lopc_event.0001.desc_3_extroverted
+			}
+			desc = lopc_event.0001.desc_3_ordinary
+		}
+		#desc = lopc_event.0001.desc_end
+	}
+	theme = realm
+	type = character_event
+	hidden = no
+	
+	immediate = {
+		lopc_leave_court_scripted_effect = yes
+		scope:courtier_x_liege = {
+			add_opinion = {
+				target = root 
+				opinion = 10
+				modifier = helpful_opinion
+			}
+		}
+		save_scope_as = courtier_x
+		set_relation_lopc_employer  = { 
+			custom_description = set_relation_lopc_employer_desc
+			target = scope:courtier_x_liege 
+		}
+		set_variable = {
+			name = lopc_court_performance
+			value = 0
+		}
+		change_lopc_performance = { amount = 5 }
+	}
+	
+	left_portrait = {
+		character = root
+		animation = throne_room_bow_3
+	}
+	right_portrait = {
+		character = scope:courtier_x_liege
+		animation = toast_goblet
+	}
+	
+	option = { # Accept barony court placement
+		trigger = {
+			scope:courtier_x_liege = {
+				highest_held_title_tier = tier_barony
+			}
+		}
+		name = lopc_event.0001.a
+		add_character_modifier = lopc_courtier_0 
+		
+	}
+	option = { # Accept county court placement
+		trigger = {
+			scope:courtier_x_liege = {
+				highest_held_title_tier = tier_county
+			}
+		}
+		name = lopc_event.0001.a
+		add_character_modifier = lopc_courtier_1
+		
+	}
+	option = { # Accept duchy court placement
+		trigger = {
+			scope:courtier_x_liege = {
+				highest_held_title_tier = tier_duchy
+			}
+		}
+		name = lopc_event.0001.a
+		add_character_modifier = lopc_courtier_2
+		
+	}
+	option = { # Accept kingdom court placement
+		trigger = {
+			scope:courtier_x_liege = {
+				highest_held_title_tier = tier_kingdom
+			}
+		}
+		name = lopc_event.0001.a
+		add_character_modifier = lopc_courtier_3
+		
+	}
+	option = { # Accept empire court placement
+		trigger = {
+			scope:courtier_x_liege = {
+				highest_held_title_tier = tier_empire
+			}
+		}
+		name = lopc_event.0001.a
+		add_character_modifier = lopc_courtier_4
+		
+	}
+	
+	after = {
+		if = { # IF liege is employer, no need to change anything
+			limit = { root.liege = scope:courtier_x_liege }
+		}
+		else_if = { #If unlanded, just recruit to court
+			limit = {
+				is_landed = no
+				is_landless_adventurer = no
+				#scope:courtier_x_liege = {
+				#	highest_held_title_tier > tier_barony
+				#}
+			}
+			scope:courtier_x_liege = { add_courtier = root }
+			hidden_effect = { return_to_court = yes }
+			trigger_event = {
+				id = lopc_event.2400
+				months = { 3 6 }
+			}
+		}
+		else_if = { # Else if new employer can become your liege (and is not already), make the change
+			limit = { 
+				NOT = { root.liege = scope:courtier_x_liege }
+				scope:courtier_x_liege = {
+					highest_held_title_tier > tier_duchy
+				}
+			}
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				save_scope_as = change
+			}
+			change_liege = {
+				liege = scope:courtier_x_liege
+				change = scope:change
+			}
+		
+			resolve_title_and_vassal_change = scope:change
+		}
+		else = { # otherwise, just ensure you are independent
+			hidden_effect = {
+				lopc_get_independence = yes
+			}
+		}
+		add_opinion = {
+			modifier = became_vassal
+			target = scope:courtier_x_liege
+			opinion = 10
+		}
+	}
+}
+lopc_event.0002 = { # Join Court acceptance response
+	type = letter_event
+	opening = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = scope:recipient }
+				}
+				desc = lopc_event.0002.opening.inheritance
+			}
+			desc = religious_interaction.1.opening
+		}
+	}
+	desc = {
+		desc = lopc_event.0002.desc_1
+		first_valid = {
+			triggered_desc = {	# Noble Family
+				trigger = { any_held_title = { is_noble_family_title = yes } }
+				desc = lopc_event.0002.desc_Noble
+			}
+			desc = lopc_event.0002.desc_NotNoble
+		}
+		desc = lopc_event.0002.desc_2
+	}
+	sender = scope:courtier_x_liege
+	
+	option = {
+		trigger = {
+			custom_description = {
+				text = lopc_event.0002.invalid.tt
+				NOT = {
+					any_relation = {
+						type = lopc_employer
+						is_alive = yes
+					}
+				}
+			}
+		}
+		show_as_unavailable = { always = yes }
+		name = lopc_event.0002.a
+		trigger_event = {
+			id = lopc_event.0001
+		}
+	}
+	option = { # ask me in a week
+		trigger = {
+			custom_description = {
+				text = lopc_event.invalid.tt.0002
+				any_relation = {
+					type = lopc_employer
+					is_alive = yes
+				}
+			}
+		}
+		name = lopc_event.0002.c
+		custom_tooltip = lopc_event.0002.c.tt
+		trigger_event = {
+			id = lopc_event.0002
+			days = 7
+		}
+	}
+	option = {
+		name = lopc_event.0002.b
+		if = { # IF this character is currently your liege (due to inherited offer), become independent
+			limit = { root.liege = scope:courtier_x_liege }
+			lopc_get_independence = yes
+		}
+		scope:courtier_x_liege = {
+			add_opinion = {
+				target = root 
+				opinion = -10
+				modifier = disappointed_opinion 
+			}
+		}
+	}
+}
+lopc_event.0003 = { # Join Court decline response
+	type = letter_event
+	opening = {
+		desc = religious_interaction.1.opening
+	}
+	desc = lopc_event.0003
+	sender = scope:courtier_x_liege
+	
+	option = {
+		name = religious_interaction.1000.negative
+	}
+}
+lopc_event.0004 = { # Leave Court response
+	type = letter_event
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		save_scope_as = courtier_x
+	}
+	opening = {
+		desc = lopc_event.0004.opening
+	}
+	desc = lopc_event.0004.desc
+	sender = scope:courtier_x_liege
+	
+	option = {
+		name = lopc_event.0004.a
+		add_gold = {
+			value = 0
+			if = {
+				limit = {
+					has_character_modifier = lopc_courtier_1
+				}
+				add = 25
+			}
+			else_if ={
+				limit = {
+					has_character_modifier = lopc_courtier_2
+				}
+				add = 50
+			}
+			else_if ={
+				limit = {
+					has_character_modifier = lopc_courtier_3
+				}
+				add = 75
+			}
+			else_if ={
+				limit = {
+					has_character_modifier = lopc_courtier_4
+				}
+				add = 100
+			}
+		}
+		
+		scope:courtier_x_liege = {
+			add_opinion = {
+				target = root 
+				opinion = -10
+				modifier = disappointed_opinion 
+			}
+		}
+	}
+	after = {
+		lopc_leave_court_scripted_effect = yes
+		if = { 
+			limit = { 
+				is_independent_ruler = no 
+				NOT = { any_held_title = { is_noble_family_title = yes } }
+			}
+			lopc_get_independence = yes
+		}
+	}
+}
+lopc_event.0005 = { # Leave Granted
+	type = letter_event
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	opening = {
+		desc = religious_interaction.1.opening
+	}
+	desc = lopc_event.0005_desc
+	sender = scope:courtier_x_liege
+	
+	option = {
+		name = religious_interaction.1000.positive
+	}
+}
+lopc_event.0006 = { # Leave Declined
+	type = letter_event
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	opening = {
+		desc = religious_interaction.1.opening
+	}
+	desc = lopc_event.0006_desc
+	sender = scope:courtier_x_liege
+	
+	option = {
+		name = religious_interaction.1000.negative
+	}
+}
+# On Action (Utility) Events Whilst A Courtier
+lopc_event.1001 = { # Liege asks you to return to court after leaving
+	trigger = {
+		NOT = {
+			OR = {
+				location = scope:courtier_x_liege.capital_province
+				location = scope:courtier_x_liege.location
+			}
+			has_character_modifier = lopc_absent_courtier
+			has_character_flag = lopc_courtier_x_on_leave
+			#in_activity_with = scope:courtier_x_liege
+			#scope:courtier_x_liege = {
+			#	is_in_an_activity = yes
+			#}
+		}
+	}
+	type = letter_event
+	immediate = {
+		add_character_modifier = lopc_absent_courtier
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		root = {
+			save_scope_as = courtier_x
+		}
+	}
+	
+	opening = {
+		desc = lopc_interaction.1.opening
+	}
+	desc = lopc_event.1001
+	sender = scope:courtier_x_liege
+	
+	option = {
+		name = lopc_event.1001.a
+	}
+	
+	after = {
+		custom_tooltip = lopc_event.1001.a_tooltip
+		trigger_event = {
+			id = lopc_event.1002
+			months = 6
+		}
+	}
+}
+lopc_event.1002 = { # Follow up event. If back in employers capital province, remove the absent modifier. If not, trigger event 1003
+	trigger = {
+		has_character_modifier = lopc_absent_courtier
+		NOT = { has_character_flag = lopc_courtier_x_on_leave }
+	}
+	type = character_event
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	hidden = yes
+	
+	option = {
+		name = lopc_event.1001.positive
+	}
+	
+	after = { 
+		if = {
+			limit = {
+				OR = {
+					location = scope:courtier_x_liege.capital_province
+					location = scope:courtier_x_liege.location
+				}
+			}
+			send_interface_toast = {
+				type = event_toast_effect_neutral
+				title = lopc_event_returned_to_court_success
+				left_icon = scope:root
+				right_icon = scope:lopc_employer
+				custom_tooltip = lopc_event_returned_to_court_success_tt
+			}
+		}
+		else = {
+			trigger_event = { id = lopc_event.1003 }
+		}
+		remove_character_modifier = lopc_absent_courtier 
+	}
+}
+lopc_event.1003 = { # Have fled the court. You are fired without compensation.
+	type = letter_event
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		add_prestige = -50
+	}
+	
+	opening = {
+		desc = lopc_event.0004.opening
+	}
+	desc = lopc_event.1003
+	sender = scope:courtier_x_liege
+	
+	option = {
+		name = lopc_event.1003.a
+		lopc_leave_court_scripted_effect = yes
+		if = { 
+			limit = { is_independent_ruler = no }
+			lopc_get_independence = yes
+		}
+		scope:courtier_x_liege = {
+			add_opinion = {
+				target = root 
+				opinion = -20
+				modifier = disrespect_opinion 
+			}
+		}
+	}
+}
+lopc_event.1004 = { # Seek promotion letter. Letter come from promotion target.
+	type = letter_event
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		lopc_leave_court_scripted_effect = yes
+	}
+	
+	opening = {
+		desc = religious_interaction.1.opening
+	}
+	desc = lopc_event.1004
+	sender = scope:courtier_x_liege.liege
+	
+	option = {
+		name = lopc_event.1004.a
+		scope:courtier_x_liege.liege = {
+			save_scope_as = courtier_x_liege
+		}
+		trigger_event = { id = lopc_event.0001 }
+	}
+}
+
+# Utility Events
+lopc_event.1005 = { #get random secret from character at location
+	type = character_event
+	hidden = yes
+	trigger = {
+		root.location = {
+			any_character_in_location = {
+				NOR = {
+					this = root
+					is_courtier_of = root
+				}
+				any_secret = {
+					NOT = { is_known_by = root }
+					is_blackmailable_secret_trigger = {
+						PARTICIPANT = prev
+						BLACKMAILER = root
+					}
+				}
+			}
+		}
+	}
+	immediate = {
+		random = {
+			chance = root.intrigue
+			root.location = {
+				random_character_in_location = {
+					limit = {
+						NOR = {
+							this = root
+							is_courtier_of = root
+						}
+						any_secret = {
+							NOT = { is_known_by = root }
+							is_blackmailable_secret_trigger = {
+								PARTICIPANT = prev
+								BLACKMAILER = root
+							}
+						}
+					}
+					random_secret = {
+						limit = {
+							NOT = { is_known_by = root }
+							is_blackmailable_secret_trigger = {
+								PARTICIPANT = prev
+								BLACKMAILER = root
+							}
+						}
+						save_scope_as = secret_target
+					}
+					save_scope_as = secret_target_holder
+				}
+			}
+			send_interface_message = {
+				type = msg_spymaster_task_good
+				title = lopc_intrigue.2030
+				desc = {
+					triggered_desc = {
+						trigger = {
+							scope:root = { intrigue < good_skill_level }
+						}
+						desc = lopc_intrigue_good_unskilled_notification_tooltip
+					}
+					triggered_desc = {
+						trigger = {
+							scope:root = { intrigue >= good_skill_level }
+						}
+						desc = lopc_intrigue_good_skilled_notification_tooltip
+					}
+				}
+				left_icon = scope:secret_target_holder
+				scope:secret_target = {
+					reveal_to_without_events_effect = {
+						CHARACTER = root
+					}
+				}
+			}
+		}
+	}
+}
+########################################################################
+# Random Court Events ##################################################
+########################################################################
+
+	# 2000 - 2049 = Msg events (10 per stat)
+	
+# -------------------------------------------------------------------- #
+lopc_event.2000 = { # Diplo Msg 1 - Make liege look good (improve relation, chance of friendship)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+			}
+		}
+		diplomacy >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { diplomacy >= good_skill_level }
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2000
+				desc = lopc_diplomacy_good_skilled_notification_tooltip
+				add_prestige = 20
+				
+				progress_towards_friend_effect = {
+					REASON = generic_encouraged_bonding_at_court
+					CHARACTER = scope:courtier_x_liege
+					OPINION = default_friend_opinion
+				} 
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 10
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2000
+				desc = lopc_diplomacy_good_unskilled_notification_tooltip
+				add_prestige = 10
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 5
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2001 = { # Diplo Msg 2 - Sabotaged Rival (Req. rival at location, they lose prestige and you gain it)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+			}
+		}
+		diplomacy >= average_skill_level
+		any_relation = {
+			type = rival
+			location = root.location
+		}
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		
+		random_relation = {
+			type = rival
+			limit = { location = root.location }
+				save_scope_as = targeted_rival
+		}
+		#root.location = {
+		#	any_character_in_location = {
+		#		limit = { has_relation_rival = root }
+		#		save_scope_as = targeted_rival
+		#	}
+		#}
+		if = {
+			limit = { diplomacy >= good_skill_level }
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2001
+				desc = lopc_diplomacy_good_skilled_notification_tooltip
+				add_prestige = 30
+				
+				scope:targeted_rival = {
+					add_prestige = -30
+					add_opinion = {
+						target = root 
+						opinion = -10
+						modifier = angry_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2001
+				desc = lopc_diplomacy_good_unskilled_notification_tooltip
+				add_prestige = 15
+				
+				scope:targeted_rival = {
+					add_prestige = -15
+					add_opinion = {
+						target = root 
+						opinion = -5
+						modifier = angry_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2002 = { # Diplo Msg 3 - Made introductions (requires 1 friend (not liege), chance of liege becoming friend of friend)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+			}
+		}
+		diplomacy >= average_skill_level
+		any_relation = {
+			type = friend
+			#location = root.location
+			NOT = { has_relation_lopc_courtier = root }
+		}
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		random_relation = {
+			type = friend
+			#location = root.location
+			NOT = { has_relation_lopc_courtier = root }
+			save_scope_as = introduced_friend
+		}
+		if = {
+			limit = { diplomacy >= good_skill_level }
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2002
+				desc = lopc_diplomacy_good_skilled_notification_tooltip
+				add_prestige = 30
+				
+				scope:courtier_x_liege = {
+					progress_towards_friend_effect = {
+						REASON = generic_encouraged_bonding_at_court
+						CHARACTER = scope:introduced_friend
+						OPINION = default_friend_opinion
+					}   
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = grateful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2002
+				desc = lopc_diplomacy_good_unskilled_notification_tooltip
+				add_prestige = 15
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = scope:introduced_friend 
+						opinion = 15
+						modifier = friendliness_opinion 
+					}
+					
+					add_opinion = {
+						target = root
+						opinion = 3
+						modifier = grateful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2003 = { # Diplo Msg 4 - Praised at court (lose stress and gain prestige depending on court tier)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		diplomacy >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { diplomacy >= good_skill_level }
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2003
+				desc = lopc_diplomacy_good_skilled_notification_tooltip
+				add_stress = -20
+				add_prestige = 40
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2003
+				desc = lopc_diplomacy_good_unskilled_notification_tooltip
+				add_stress = -20
+				add_prestige = 20
+			}
+		}
+	}
+}
+lopc_event.2004 = { # Diplo Msg 5 - Saved liege face (stress gain but prestige gain)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		diplomacy >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { diplomacy >= good_skill_level }
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2004
+				desc = lopc_diplomacy_good_skilled_notification_tooltip
+				add_stress = 20
+				add_prestige = 50
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2004
+				desc = lopc_diplomacy_good_unskilled_notification_tooltip
+				add_stress = 20
+				add_prestige = 30
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2005 = { # Diplo Msg 6 - Engaged in courtly drama (random other courtier gains 'scandalous rumnours' modifier, lose relation with them and gain with another)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		diplomacy >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		scope:courtier_x_liege = {
+			random_courtier = {
+				limit = { NOT { this = root } }
+				
+				save_scope_as = targeted_courtier_scandalous
+			}
+		}
+		scope:courtier_x_liege = {
+			random_courtier = {
+				limit = { 
+					NOR = {
+						this = root
+						this = scope:targeted_courtier_scandalous
+					} 
+				}
+				save_scope_as = targeted_courtier_rumourmonger
+			}
+		}
+		if = {
+			limit = { diplomacy >= good_skill_level }
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2005
+				desc = lopc_diplomacy_good_skilled_notification_tooltip
+				add_prestige = 20
+				scope:targeted_courtier_rumourmonger = {
+					progress_towards_friend_effect = {
+						REASON = generic_encouraged_bonding_at_court
+						CHARACTER = root
+						OPINION = default_friend_opinion
+					}   
+				}
+				scope:targeted_courtier_scandalous = {
+					add_opinion = {
+						target = root 
+						opinion = -15
+						modifier = annoyed_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2005
+				desc = lopc_diplomacy_good_unskilled_notification_tooltip
+				add_prestige = 10
+				scope:targeted_courtier_rumourmonger = {					
+					add_opinion = {
+						target = root 
+						opinion = 20
+						modifier = friendliness_opinion
+					}
+				}
+				scope:targeted_courtier_scandalous = {
+					add_opinion = {
+						target = root 
+						opinion = -20
+						modifier = annoyed_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2006 = { # Diplo Msg 7 - Interesting conversation at court (gains the interesting convo modifier)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		diplomacy >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		scope:courtier_x_liege = {
+			random_courtier = {
+				limit = { NOT { this = root } }
+				
+				save_scope_as = targeted_courtier
+			}
+		}
+		if = {
+			limit = { diplomacy >= good_skill_level }
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2006
+				desc = lopc_diplomacy_good_skilled_notification_tooltip
+				add_character_modifier = {
+					modifier = feast_had_interesting_conversation_modifier
+					months = 4
+				}
+				
+				scope:targeted_courtier = {
+					add_opinion = {
+						target = root 
+						opinion = 20
+						modifier = friendliness_opinion
+					}
+					add_character_modifier = {
+						modifier = feast_had_interesting_conversation_modifier
+						months = 4
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2006
+				desc = lopc_diplomacy_good_unskilled_notification_tooltip
+				add_character_modifier = {
+					modifier = feast_had_interesting_conversation_modifier
+					months = 3
+				}
+				
+				scope:targeted_courtier = {
+					add_opinion = {
+						target = root 
+						opinion = 15
+						modifier = friendliness_opinion
+					}
+					add_character_modifier = {
+						modifier = feast_had_interesting_conversation_modifier
+						months = 3
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2007 = { # Diplo Msg 8 - Learned about diplo (gain diplo lifestyle xp)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				diplomacy >= average_skill_level
+			}
+		}
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { diplomacy >= good_skill_level }
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2007
+				desc = lopc_diplomacy_good_skilled_notification_tooltip
+				add_diplomacy_lifestyle_xp = 125
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2007
+				desc = lopc_diplomacy_good_unskilled_notification_tooltip
+				add_prestige = 10
+				add_diplomacy_lifestyle_xp = 75
+			}
+		}
+	}
+}
+lopc_event.2008 = { # Diplo Msg 9 - Told a good joke (stress loss and prestige)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				diplomacy >= average_skill_level
+			}
+		}
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { diplomacy >= good_skill_level }
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2008
+				desc = lopc_diplomacy_good_skilled_notification_tooltip
+				add_stress = -30
+				add_prestige = 15
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2008
+				desc = lopc_diplomacy_good_unskilled_notification_tooltip
+				add_stress = -20
+				add_prestige = 5
+			}
+		}
+	}
+}
+lopc_event.2009 = { # Diplo Msg 10 - Impressed ambassador (the chancellor of random neighbouring ruler gains opinion + closer to friendship)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		diplomacy >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		scope:courtier_x_liege = {
+			random_neighboring_and_across_water_top_liege_realm_owner = {
+				limit = { 
+					every_diplomacy_councillor = {
+						limit = { NOT = { has_relation_rival = root } }
+						count > 0
+					}
+				}
+				random_diplomacy_councillor = {
+					save_scope_as = targeted_neighbouring_chancellor
+				}
+			} 
+		}
+		if = {
+			limit = { diplomacy >= good_skill_level }
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2009
+				desc = lopc_diplomacy_good_skilled_notification_tooltip
+				add_prestige = 40
+				scope:targeted_neighbouring_chancellor = {
+					add_opinion = {
+						target = scope:courtier_x_liege 
+						opinion = 30
+						modifier = respect_opinion
+					}
+					add_opinion = {
+						target = root 
+						opinion = 30
+						modifier = respect_opinion
+					}
+				}
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_chancellor_task_good
+				title = lopc_diplomacy.2009
+				desc = lopc_diplomacy_good_unskilled_notification_tooltip
+				add_prestige = 20
+				scope:targeted_neighbouring_chancellor = {
+					add_opinion = {
+						target = scope:courtier_x_liege 
+						opinion = 15
+						modifier = respect_opinion
+					}
+					add_opinion = {
+						target = root 
+						opinion = 15
+						modifier = respect_opinion
+					}
+				}
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2010 = { # Fixed liege accounting error (gold and liege opinion])
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		stewardship >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { stewardship >= good_skill_level }
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2010
+				desc = lopc_stewardship_good_skilled_notification_tooltip
+				add_gold = 14
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2010
+				desc = lopc_stewardship_good_unskilled_notification_tooltip
+				add_gold = 7
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2011 = { # Successful Trade (gold)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		stewardship >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { stewardship >= good_skill_level }
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2011
+				desc = lopc_stewardship_good_skilled_notification_tooltip
+				add_gold = 18
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2011
+				desc = lopc_stewardship_good_unskilled_notification_tooltip
+				add_gold = 9
+			}
+		}
+	}
+}
+lopc_event.2012 = { # Handled Audience with Commoners (liege opinion, prestige, and county modifier giving popular opinion)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		stewardship >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { stewardship >= good_skill_level }
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2012
+				desc = lopc_stewardship_good_skilled_notification_tooltip
+				add_prestige = 25
+				root.location.county = {
+					add_county_modifier = {
+						modifier = lopc_placated_commoners
+						months = 4
+					}
+				}
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2012
+				desc = lopc_stewardship_good_unskilled_notification_tooltip
+				add_prestige = 15
+				root.location.county = {
+					add_county_modifier = {
+						modifier = lopc_placated_commoners
+						months = 3
+					}
+				}
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2013 = { # Learned about stewardship (stewardship lifestyle xp)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				stewardship >= average_skill_level
+			}
+		}
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { stewardship >= good_skill_level }
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2013
+				desc = lopc_stewardship_good_skilled_notification_tooltip
+				add_stewardship_lifestyle_xp = 125
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2013
+				desc = lopc_stewardship_good_unskilled_notification_tooltip
+				add_stewardship_lifestyle_xp = 75
+			}
+		}
+	}
+}
+lopc_event.2014 = { # Assisted Provincial Planning (county development and prestige)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		stewardship >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { stewardship >= good_skill_level }
+			
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2012
+				desc = lopc_stewardship_good_skilled_notification_tooltip
+				add_prestige = 25
+				root.location.county = {
+					change_development_progress = 5
+				}
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2014
+				desc = lopc_stewardship_good_unskilled_notification_tooltip
+				add_prestige = 15
+				root.location.county = {
+					change_development_progress = 3
+				}
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2015 = { # Settled Family Feud (modifier giving general and dyanasty opinion)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				stewardship >= average_skill_level
+			}
+		}
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { stewardship >= good_skill_level }
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2015
+				desc = lopc_stewardship_good_skilled_notification_tooltip
+				add_gold = 10
+				
+				add_character_modifier = {
+					modifier = lopc_feud_settler
+					months = 6
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2015
+				desc = lopc_stewardship_good_unskilled_notification_tooltip
+				add_gold = 5
+				
+				add_character_modifier = {
+					modifier = lopc_feud_settler
+					months = 3
+				}
+			}
+		}
+	}
+}
+lopc_event.2016 = { # Negotiated Trade Deals (income modifier to liege, prestige and opinion gain)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		stewardship >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { stewardship >= good_skill_level }
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2016
+				desc = lopc_stewardship_good_skilled_notification_tooltip
+				add_prestige = 30
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+					add_character_modifier = {
+						modifier = lopc_managed_economy
+						months = 6
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2016
+				desc = lopc_stewardship_good_unskilled_notification_tooltip
+				add_prestige = 20
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+					add_character_modifier = {
+						modifier = lopc_managed_economy
+						months = 3
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2017 = { # Successful Investments (modifier giving monthly income for next 4/6 months (4/month?))
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		stewardship >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { stewardship >= good_skill_level }
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2017
+				desc = lopc_stewardship_good_skilled_notification_tooltip
+				
+				add_character_modifier = {
+					modifier = lopc_good_investment
+					months = 6
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2017
+				desc = lopc_stewardship_good_unskilled_notification_tooltip
+				
+				add_character_modifier = {
+					modifier = lopc_good_investment
+					months = 4
+				}
+			}
+		}
+	}
+}
+lopc_event.2018 = { # Placated Landowners (Req. boss to have republican vassal. Improves relation between the 2 and gives prestige.)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		root.location.barony_controller = {
+			any_vassal = {
+				has_government = republic_government
+			}
+		}
+		stewardship >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		scope:courtier_x_liege = {
+			random_vassal = {
+				limit = { has_government = republic_government }
+				save_scope_as = targeted_republican
+			}
+		}
+		if = {
+			limit = { stewardship >= good_skill_level }
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2018
+				desc = lopc_stewardship_good_skilled_notification_tooltip
+				add_prestige = 30
+				
+				scope:targeted_republican = {
+					add_opinion = {
+						target = scope:courtier_x_liege 
+						opinion = 20
+						modifier = respect_opinion
+					}
+					add_opinion = {
+						target = root
+						opinion = 20
+						modifier = respect_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2018
+				desc = lopc_stewardship_good_unskilled_notification_tooltip
+				add_prestige = 15
+				
+				scope:targeted_republican = {
+					add_opinion = {
+						target = scope:courtier_x_liege 
+						opinion = 15
+						modifier = respect_opinion
+					}
+					add_opinion = {
+						target = root
+						opinion = 15
+						modifier = respect_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2019 = { # Paid the troops (levy size modifier to county. Opinion with liege and prestige)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		stewardship >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { stewardship >= good_skill_level }
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2019
+				desc = lopc_stewardship_good_skilled_notification_tooltip
+				add_prestige = 30
+				root.location.county = {
+					add_county_modifier = {
+						modifier = lopc_recruitment_drive
+						months = 6
+					}
+				}
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_steward_task_good
+				title = lopc_stewardship.2019
+				desc = lopc_stewardship_good_unskilled_notification_tooltip
+				add_prestige = 15
+				root.location.county = {
+					add_county_modifier = {
+						modifier = lopc_recruitment_drive
+						months = 6
+					}
+				}
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2020 = { # Suggested good strategy (prestige and opinion with liege. liege gets movement bonus for 2/3 months)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				martial >= average_skill_level
+			}
+		}
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { martial >= good_skill_level }
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2020
+				desc = lopc_martial_good_skilled_notification_tooltip
+				add_prestige = 30
+				
+				scope:courtier_x_liege = {
+					add_character_modifier = {
+						modifier = lopc_sound_military_advice_01
+						months = 3
+					}
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2020
+				desc = lopc_martial_good_unskilled_notification_tooltip
+				add_prestige = 15
+				
+				scope:courtier_x_liege = {
+					add_character_modifier = {
+						modifier = lopc_sound_military_advice_01
+						months = 2
+					}
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2021 = { # Oversaw Military Drills (levy reinforcement rate modifier to liege. prestige.)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				martial >= average_skill_level
+			}
+		}
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { martial >= good_skill_level }
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2021
+				desc = lopc_martial_good_skilled_notification_tooltip
+				add_prestige = 30
+				
+				scope:courtier_x_liege = {
+					add_character_modifier = {
+						modifier = lopc_overseen_training
+						months = 5
+					}
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2021
+				desc = lopc_martial_good_unskilled_notification_tooltip
+				add_prestige = 15
+				
+				scope:courtier_x_liege = {
+					add_character_modifier = {
+						modifier = lopc_overseen_training
+						months = 3
+					}
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2022 = { # learned something about martial (martial xp)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				martial >= average_skill_level
+			}
+		}
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { martial >= good_skill_level }
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2022
+				desc = lopc_martial_good_skilled_notification_tooltip
+				add_martial_lifestyle_xp = 125
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2022
+				desc = lopc_martial_good_unskilled_notification_tooltip
+				add_martial_lifestyle_xp = 75
+			}
+		}
+	}
+}
+lopc_event.2023 = { # apprehended criminal (prestige, gold and opinion gain, spawn random criminal in bosses dungeon)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				martial >= average_skill_level
+			}
+		}
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		random_pool_character = {
+			province = root.location
+			limit = { 
+				#1010_basic_merchant_checks_trigger = yes
+				#is_available_healthy_adult = yes
+				1030_gallowsbait_character_trigger = yes
+			}
+			add_trait = gallowsbait
+			random_list = {
+				#Bandit
+				25 = {
+					add_trait_xp = {
+						trait = gallowsbait
+						track = bandit
+						value = {
+							integer_range = {
+								min = medium_lifestyle_random_xp_low
+								max = medium_lifestyle_random_xp_high
+							}
+						}
+					}
+				}
+				#Trickster
+				25 = {
+					add_trait_xp = {
+						trait = gallowsbait
+						track = trickster
+						value = {
+							integer_range = {
+								min = medium_lifestyle_random_xp_low
+								max = medium_lifestyle_random_xp_high
+							}
+						}
+					}
+				}
+				#Thief
+				25 = {
+					add_trait_xp = {
+						trait = gallowsbait
+						track = thief
+						value = {
+							integer_range = {
+								min = medium_lifestyle_random_xp_low
+								max = medium_lifestyle_random_xp_high
+							}
+						}
+					}
+				}
+				#Poacher
+				25 = {
+					add_trait_xp = {
+						trait = gallowsbait
+						track = poacher
+						value = {
+							integer_range = {
+								min = medium_lifestyle_random_xp_low
+								max = medium_lifestyle_random_xp_high
+							}
+						}
+					}
+				}
+				#Marauder
+				25 = {
+					add_trait_xp = {
+						trait = gallowsbait
+						track = marauder
+						value = {
+							integer_range = {
+								min = medium_lifestyle_random_xp_low
+								max = medium_lifestyle_random_xp_high
+							}
+						}
+					}
+				}
+			}
+			save_scope_as = targeted_criminal
+		}
+		if = {
+			limit = { martial >= good_skill_level }
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2023
+				desc = lopc_martial_good_skilled_notification_tooltip
+				add_prestige = 40
+				
+				scope:courtier_x_liege = {
+					imprison = {
+						target = scope:targeted_criminal
+						type = dungeon
+					}
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2023
+				desc = lopc_martial_good_unskilled_notification_tooltip
+				add_prestige = 25
+				
+				scope:courtier_x_liege = {
+					imprison = {
+						target = scope:targeted_criminal
+						type = dungeon
+					}
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2024 = { # sparred with the knights (Req. prowess. Chance to become potential friend with random knight. Gain prestige.)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				martial >= average_skill_level
+			}
+		}
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		scope:courtier_x_liege = {
+			random_knight = {
+				NOT = { 
+					has_relation_rival = root 
+					this = root
+				}
+				save_scope_as = targeted_knight
+			}
+		}
+		if = {
+			limit = { prowess >= good_skill_level }
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2024
+				desc = lopc_martial_good_skilled_notification_tooltip
+				add_prestige = 30
+				
+				scope:targeted_knight = {
+					progress_towards_friend_effect = {
+						REASON = friend_bested_me_in_duel
+						CHARACTER = root
+						OPINION = default_friend_opinion
+					}   
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2024
+				desc = lopc_martial_good_unskilled_notification_tooltip
+				add_prestige = 15
+				
+				scope:targeted_knight = {
+					add_opinion = {
+						target = scope:targeted_knight 
+						opinion = 20
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2025 = { # Trained for combat (Req. prowess. Gives small prowess modifier and prestige)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				prowess >= average_skill_level
+			}
+		}
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { prowess >= good_skill_level }
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2025
+				desc = lopc_martial_good_skilled_notification_tooltip
+				add_prestige = 20
+				
+				add_character_modifier = {
+					modifier = lopc_prowess_training
+					months = 5
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2025
+				desc = lopc_martial_good_unskilled_notification_tooltip
+				add_prestige = 10
+				
+				add_character_modifier = {
+					modifier = lopc_prowess_training
+					months = 3
+				}
+			}
+		}
+	}
+}
+lopc_event.2026 = { # Patrolled the province (improve county control, get gold and opinion with liege)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				martial >= average_skill_level
+			}
+		}
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { martial >= good_skill_level }
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2026
+				desc = lopc_martial_good_skilled_notification_tooltip
+				add_gold = 10
+				root.location.county = {
+					add_county_modifier = {
+						modifier = lopc_handled_discontent
+						months = 6
+					}
+				}
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2026
+				desc = lopc_martial_good_unskilled_notification_tooltip
+				add_gold = 5
+				root.location.county = {
+					add_county_modifier = {
+						modifier = lopc_handled_discontent
+						months = 4
+					}
+				}
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2027 = { # recognised guard breach (grateful liege gets modifer for scheme protection. improve opinion and get gold from liege unless greedy or broke)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		martial >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { martial >= good_skill_level }
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2027
+				desc = lopc_martial_good_skilled_notification_tooltip
+				if = {
+					limit = { scope:courtier_x_liege = { NOT = { has_trait = greedy } } }
+					add_gold = 10
+				}
+				
+				scope:courtier_x_liege = {
+					add_character_modifier = { 
+						modifier = lopc_improved_scheme_defence
+						months = 6
+					}
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2027
+				desc = lopc_martial_good_unskilled_notification_tooltip
+				if = {
+					limit = { scope:courtier_x_liege = { NOT = { has_trait = greedy } } }
+					add_gold = 5
+				}
+				
+				scope:courtier_x_liege = {
+					add_character_modifier = { 
+						modifier = lopc_improved_scheme_defence
+						months = 4
+					}
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2028 = { # Organised guard rosters (improves control growth)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		martial >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { martial >= good_skill_level }
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2028
+				desc = lopc_martial_good_skilled_notification_tooltip
+				add_prestige = 20
+				root.location.county = {
+					change_county_control = 8
+				}
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2028
+				desc = lopc_martial_good_unskilled_notification_tooltip
+				add_prestige = 10
+				root.location.county = {
+					change_county_control = 4
+				}
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2029 = { # drive local recruitment (increase local levy size with modifier)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		martial >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { martial >= good_skill_level }
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2029
+				desc = lopc_martial_good_skilled_notification_tooltip
+				add_prestige = 20
+				root.location.county = {
+					add_county_modifier = {
+						modifier = lopc_recruitment_drive
+						months = 6
+					}
+				}
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_marshal_task_good
+				title = lopc_martial.2029
+				desc = lopc_martial_good_unskilled_notification_tooltip
+				add_prestige = 10
+				root.location.county = {
+					add_county_modifier = {
+						modifier = lopc_recruitment_drive
+						months = 4
+					}
+				}
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2030 = { #
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		intrigue >= average_skill_level
+	}
+	hidden = yes
+	immediate = {
+		trigger_event = { id = lopc_event.1005 }
+	}
+}
+lopc_event.2031 = { # Interrogated Prisoner (liege gets dread, you get dread)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		intrigue >= average_skill_level
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { intrigue >= good_skill_level }
+			send_interface_message = {
+				type = msg_spymaster_task_good
+				title = lopc_intrigue.2031
+				desc = lopc_intrigue_good_skilled_notification_tooltip
+				add_prestige = 20
+				add_dread = 10
+				
+				scope:courtier_x_liege = {
+					add_dread = 4
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_spymaster_task_good
+				title = lopc_intrigue.2031
+				desc = lopc_intrigue_good_unskilled_notification_tooltip
+				add_prestige = 10
+				add_dread = 5
+				
+				scope:courtier_x_liege = {
+					add_dread = 2
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2032 = { # Learn something about intrigue (intrigue xp)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				intrigue >= average_skill_level
+			}
+		}
+	}
+	
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { intrigue >= good_skill_level }
+			send_interface_message = {
+				type = msg_spymaster_task_good
+				title = lopc_intrigue.2032
+				desc = lopc_intrigue_good_skilled_notification_tooltip
+				
+				add_intrigue_lifestyle_xp = 125
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_spymaster_task_good
+				title = lopc_intrigue.2032
+				desc = lopc_intrigue_good_unskilled_notification_tooltip
+				
+				add_intrigue_lifestyle_xp = 75
+			}
+		}
+	}
+}
+lopc_event.2040 = { # Give sage advice (prestige and piety and opinion with liege)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				learning >= average_skill_level
+			}
+		}
+	}
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { learning >= good_skill_level }
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2040
+				desc = lopc_learning_good_skilled_notification_tooltip
+				add_prestige = 10
+				add_piety = 15
+					
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2040
+				desc = lopc_learning_good_unskilled_notification_tooltip
+				add_prestige = 15
+				add_piety = 25
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2041 = { # Prayed with court priest (Req. Court priest to exist. Provides piety and relation with priest.)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		root.location.barony_controller = {
+			every_learning_councillor = {
+				limit = { 
+					NOT = { 
+						this = root
+						has_relation_rival = root 
+					} 
+				}
+				count > 0
+			}
+		}
+		learning >= average_skill_level
+	}
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		scope:courtier_x_liege = {
+			random_learning_councillor = {
+				save_scope_as = targeted_priest
+			}
+		}
+		if = {
+			limit = { learning >= good_skill_level }
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2041
+				desc = lopc_learning_good_skilled_notification_tooltip
+				add_piety = 40
+					
+				scope:targeted_priest = {
+					progress_towards_friend_effect = {
+						REASON = friend_prayed_for_me
+						CHARACTER = root
+						OPINION = default_friend_opinion
+					} 
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = respect_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2041
+				desc = lopc_learning_good_unskilled_notification_tooltip
+				add_piety = 25
+				
+				scope:targeted_priest = {
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2042 = { # Settled Religious debate (piety and same faith opinion modifier)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+			}
+		}
+		learning >= average_skill_level
+	}
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { learning >= good_skill_level }
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2042
+				desc = lopc_learning_good_skilled_notification_tooltip
+				add_piety = 30
+				scope:courtier_x_liege = {
+					add_character_modifier = {
+						modifier = lopc_faithful_approval
+						years = 1
+					}
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2042
+				desc = lopc_learning_good_unskilled_notification_tooltip
+				add_piety = 20
+				add_character_modifier = {
+					modifier = lopc_faithful_approval
+					months = 3
+				}
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2043 = { # Copied liege dynasty chronicles (gives liege tiny renown. You get prestige and opinion.)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		root.location.barony_controller = {
+			is_lowborn = no
+		}
+		learning >= average_skill_level
+	}
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { learning >= good_skill_level }
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2043
+				desc = lopc_learning_good_skilled_notification_tooltip
+				add_prestige = 30
+					
+				scope:courtier_x_liege = {
+					dynasty ?= {
+						add_dynasty_prestige = 5
+					}
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2043
+				desc = lopc_learning_good_unskilled_notification_tooltip
+				add_prestige = 20
+				
+				scope:courtier_x_liege = {
+					dynasty ?= {
+						add_dynasty_prestige = 3
+					}
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = helpful_opinion
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2044 = { # Experimented with herbs (gain tiny amount of lifestyle experience. Small chance to get herbalist/gardener/physician trait.)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		learning >= average_skill_level
+	}
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { learning >= good_skill_level }
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2044
+				desc = lopc_learning_good_skilled_notification_tooltip
+				add_learning_lifestyle_xp = 25
+				random_list = {
+					10 = {
+						root = { add_trait = lifestyle_gardener } 
+					}
+					
+					10 = {
+						add_trait_xp = {
+							trait = lifestyle_physician
+							value = 10
+						}
+						add_trait = lifestyle_physician
+					}
+					
+					10 = {
+						root = { add_trait = lifestyle_herbalist } 
+					}
+					
+					70 = 0
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2044
+				desc = lopc_learning_good_unskilled_notification_tooltip
+				add_learning_lifestyle_xp = 10
+				random_list = {
+					5 = {
+						root = { add_trait = lifestyle_gardener } 
+					}
+					
+					5 = {
+						add_trait_xp = {
+							trait = lifestyle_physician
+							value = 10
+						}
+						add_trait = lifestyle_physician
+					}
+					
+					5 = {
+						root = { add_trait = lifestyle_herbalist } 
+					}
+					
+					85 = 0
+				}
+			}
+		}
+	}
+}
+lopc_event.2045 = { # Observed medical procedure (Req. court physician role or trait. gain physician experience)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		learning >= average_skill_level
+		has_trait = lifestyle_physician
+	}
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { learning >= good_skill_level }
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2045
+				desc = lopc_learning_good_skilled_notification_tooltip
+				add_trait_xp = {
+					trait = lifestyle_physician
+					value = 15
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2045
+				desc = lopc_learning_good_unskilled_notification_tooltip
+				add_trait_xp = {
+					trait = lifestyle_physician
+					value = 10
+				}
+			}
+		}
+	}
+}
+lopc_event.2046 = { # Learned something about learning (learning lifestyle xp)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				learning >= average_skill_level
+			}
+		}
+	}
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { learning >= good_skill_level }
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2046
+				desc = lopc_learning_good_skilled_notification_tooltip
+				add_learning_lifestyle_xp = 125
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2046
+				desc = lopc_learning_good_unskilled_notification_tooltip
+				add_learning_lifestyle_xp = 75
+			}
+		}
+	}
+}
+lopc_event.2047 = { # studied local flora (like 2044 but no physician trait. small piety gain?)
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+		learning >= average_skill_level
+	}
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { learning >= good_skill_level }
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2047
+				desc = lopc_learning_good_skilled_notification_tooltip
+				add_learning_lifestyle_xp = 25
+				random = {
+					chance = 12
+					add_trait = lifestyle_gardener 
+				}
+				random = {
+					chance = 12
+					add_trait = lifestyle_herbalist   
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2047
+				desc = lopc_learning_good_unskilled_notification_tooltip
+				add_learning_lifestyle_xp = 15
+				random = {
+					chance = 6
+					add_trait = lifestyle_gardener 
+				}
+				random = {
+					chance = 6
+					add_trait = lifestyle_herbalist   
+				}
+			}
+		}
+	}
+}
+lopc_event.2048 = { # Shared differences with locals (Req. different culture to location. Gives cultural acceptance (0.5%?) and piety)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				learning >= average_skill_level
+			}
+		}
+		NOT = { root.culture = root.location.culture }
+	}
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { learning >= good_skill_level }
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2048
+				desc = lopc_learning_good_skilled_notification_tooltip
+				add_piety = 40
+				
+				root.location.county.culture = {
+					change_cultural_acceptance = {
+						target = root.culture
+						value = 1
+						desc = lopc_courtier_x_acceptance_desc
+					}
+				}
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = trust_opinion 
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2048
+				desc = lopc_learning_good_unskilled_notification_tooltip
+				add_piety = 30
+				
+				root.location.county.culture = {
+					change_cultural_acceptance = {
+						target = root.culture
+						value = 0.5
+						desc = lopc_courtier_x_acceptance_desc
+					}
+				}
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = trust_opinion 
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2049 = { # Discussed history of shared culture (Req. same culture as location. Gives prestige)
+	trigger = {
+		OR = {
+			is_lopc_adventurer_special_courtier = yes
+			AND = {
+				has_relation_lopc_employer = root.location.barony.holder
+				learning >= average_skill_level
+			}
+		}
+		root.culture = root.location.culture
+	}
+	hidden = yes
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		if = {
+			limit = { learning >= good_skill_level }
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2049
+				desc = lopc_learning_good_skilled_notification_tooltip
+				add_prestige = 40
+					
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 6
+						modifier = respect_opinion
+					}
+				}
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = msg_court_chaplain_task_good
+				title = lopc_learning.2049
+				desc = lopc_learning_good_unskilled_notification_tooltip
+				add_prestige = 25
+				
+				scope:courtier_x_liege = {
+					add_opinion = {
+						target = root 
+						opinion = 3
+						modifier = respect_opinion
+					}
+				}
+			}
+		}
+	}
+}
+# Dilemma Events - given several options, pick 1 for differing effects
+lopc_event.2050 = { # Settle Legal Debate (Req. stewardship/learning/diplo high. Choose in favour of Commons (most just), Burhgers (Most Rewarding) or Crown (Most loyal to)
+	title = lopc_event.2050.t
+	desc = lopc_event.2050.desc
+	theme = realm
+	type = character_event
+	hidden = no
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+	}
+	
+	option = { # Judge in favour of commons
+		trigger = {
+			always = yes
+		}
+		name = lopc_event.2050.a
+		stress_impact = {
+			loyal = medium_stress_impact_gain
+			just = medium_stress_impact_loss
+			greedy = miniscule_stress_impact_gain
+		}
+		add_piety = 100
+		add_prestige = -25
+		scope:courtier_x_liege = {
+			add_opinion = {
+				target = root 
+				opinion = -15
+				modifier = annoyed_opinion
+			}
+		}
+	}
+	
+	option = { # Judge in favour of merchants
+		trigger = {
+			always = yes
+		}
+		name = lopc_event.2050.b
+		stress_impact = {
+			loyal = medium_stress_impact_gain
+			disloyal = minor_stress_impact_loss
+			just = minor_stress_impact_gain
+			greedy = medium_stress_impact_loss
+		}
+		add_gold = 50
+		scope:courtier_x_liege = {
+			add_opinion = {
+				target = root 
+				opinion = -15
+				modifier = annoyed_opinion
+			}
+		}
+	}
+	
+	option = { # Judge in favour of crown
+		trigger = {
+			always = yes
+		}
+		name = lopc_event.2050.c
+		stress_impact = {
+			loyal = medium_stress_impact_loss
+			disloyal = minor_stress_impact_gain
+			just = miniscule_stress_impact_gain
+			greedy = miniscule_stress_impact_gain
+		}
+		add_prestige = 50
+		scope:courtier_x_liege = {
+			add_opinion = {
+				target = root 
+				opinion = 10
+				modifier = pleased_opinion
+			}
+		}
+	}
+}
+lopc_event.2051 = { # Uncovered Rebel Ring (Disband the ring (leads to follow up to determine approach), Redirect them against the crowns enemies (faction must exist), or Assist them (costs gold and spawns same MAA as Levy the Outcasts ~100.))
+	title = lopc_event.2051.t
+	desc = lopc_event.2051.desc
+	theme = realm
+	type = character_event
+	hidden = no
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+	}
+	
+	option = { # Crush the rebels
+		trigger = {
+			always = yes
+		}
+		name = lopc_event.2051.a
+		add_prestige = 25
+		stress_impact = {
+			brave = minor_stress_impact_loss
+			loyal = minor_stress_impact_loss
+		}
+		trigger_event = { id = lopc_event.2052 }
+	}
+	
+	option = { # Redirect with intrigue
+		trigger = {
+			intrigue >= 15
+		}
+		show_as_unavailable = {
+			always = yes
+		}
+		name = lopc_event.2051.b
+		skill = intrigue
+		add_prestige = 100
+		stress_impact = {
+			deceitful = minor_stress_impact_loss
+			loyal = minor_stress_impact_loss
+		}
+		scope:courtier_x_liege = {
+			add_opinion = {
+				target = root 
+				opinion = 15
+				modifier = helpful_opinion
+			}
+		}
+	}
+	
+	option = { # Support the group
+		trigger = {
+			always = yes
+		}
+		stress_impact = {
+			just = medium_stress_impact_gain
+			loyal = medium_stress_impact_gain
+			disloyal = medium_stress_impact_loss
+			ambitious = minor_stress_impact_loss
+		}
+		name = lopc_event.2051.c
+		add_prestige = -50
+		remove_short_term_gold = 50
+		spawn_army = {
+			men_at_arms = {
+				type = maa_bandits
+				stacks = 2
+			}
+			inheritable = no
+			uses_supply = yes
+			location = root.location
+			name = ep3_bandits_army
+		}
+		scope:courtier_x_liege = {
+			add_opinion = {
+				target = root 
+				opinion = -20
+				modifier = annoyed_opinion
+			}
+		}
+	}
+}
+lopc_event.2052 = { # Follow up to 2051
+	title = lopc_event.2052.t
+	desc = lopc_event.2052.desc
+	theme = realm
+	type = character_event
+	hidden = no
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+	}
+	
+	option = { # Take a group of volunteers and crush them
+		trigger = {
+			always = yes
+		}
+		name = lopc_event.2052.a
+		skill = martial
+		stress_impact = {
+			brave = minor_stress_impact_loss
+			impatient = minor_stress_impact_loss
+		}
+		
+		duel = {
+			skill = martial
+			value = high_skill_rating 
+			100 = { # Success! Rebels destroyed
+				desc = lopc_event.2052.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+					min = -30
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2052.success
+					left_icon = root
+					add_prestige = 75
+					scope:courtier_x_liege = {
+						add_opinion = {
+							target = root 
+							opinion = 15
+							modifier = impressed_opinion
+						}
+					}
+				}
+			}
+			50 = { # Failure! Rebels escape
+				desc = lopc_event.2052.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+					#min = -50
+				}
+				send_interface_toast = {
+					title = lopc_event.2052.failure
+					left_icon = root
+					right_icon = scope:courtier_x_liege
+					increase_wounds_effect = { REASON = fight }
+					scope:courtier_x_liege = {
+						add_opinion = {
+							target = root 
+							opinion = -15
+							modifier = disappointed_opinion
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # Trick them into an ambush
+		trigger = {
+			always = yes
+		}
+		name = lopc_event.2052.b
+		skill = intrigue
+		stress_impact = {
+			deceitful = minor_stress_impact_loss
+		}
+		
+		duel = {
+			skill = intrigue
+			value = high_skill_rating 
+			80 = { # Success! Rebels destroyed
+				desc = lopc_event.2052.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+					min = -30
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2052.success
+					left_icon = root
+					add_prestige = 75
+					scope:courtier_x_liege = {
+						add_opinion = {
+							target = root 
+							opinion = 15
+							modifier = impressed_opinion
+						}
+					}
+				}
+			}
+			50 = { # Failure! Rebels escape
+				desc = lopc_event.2052.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -10
+					#min = -50
+				}
+				send_interface_toast = {
+					title = lopc_event.2052.failure
+					left_icon = root
+					right_icon = scope:courtier_x_liege
+					scope:courtier_x_liege = {
+						add_opinion = {
+							target = root 
+							opinion = -15
+							modifier = disappointed_opinion
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # Placate them with empty promises
+		trigger = {
+			always = yes
+		}
+		name = lopc_event.2052.c
+		skill = diplomacy
+		
+		duel = {
+			skill = diplomacy
+			value = high_skill_rating 
+			80 = { # Success! Rebels destroyed
+				desc = lopc_event.2052.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+					min = -30
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2052.success
+					left_icon = root
+					add_prestige = 75
+					scope:courtier_x_liege = {
+						add_opinion = {
+							target = root 
+							opinion = 15
+							modifier = impressed_opinion
+						}
+					}
+				}
+			}
+			50 = { # Failure! Rebels escape
+				desc = lopc_event.2052.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -10
+					#min = -50
+				}
+				send_interface_toast = {
+					title = lopc_event.2052.failure
+					left_icon = root
+					right_icon = scope:courtier_x_liege
+					scope:courtier_x_liege = {
+						add_opinion = {
+							target = root 
+							opinion = -15
+							modifier = disappointed_opinion
+						}
+					}
+				}
+			}
+		}
+	}
+}
+lopc_event.2053 = { # Opportunity to fill unfilled role (champion, bodyguard, physician, seneschal, gardener (if gardener trait), assassin, others seem more awarded for loyalty?)
+	title = lopc_event.2053.t
+	desc = lopc_event.2053.desc
+	theme = realm
+	background = sitting_room
+	type = character_event
+	hidden = no
+	
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+	}
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	
+	right_portrait = {
+		character = scope:courtier_x_liege
+	}
+	
+	# Dissallow option (show with failures) if position is already taken
+	option = { # None
+		name = lopc_event.2053.a
+		trigger_event  = { id = lopc_event.2100 }
+	}
+	
+	option = { # Gardener (Stewardship Test)
+		name = lopc_event.2053.b
+		trigger = {
+			lopc_request_court_position_requirements = yes
+			scope:courtier_x_liege = {
+				can_appoint_char_to_court_position = {
+					CHAR = root
+					COURT_POS = court_gardener_court_position
+				}
+			}
+		}
+		lopc_request_court_position_cost = yes
+		show_as_unavailable = { always = yes }
+		
+		duel = {
+			skill = stewardship
+			value = high_skill_rating 
+			70 = { # Success! Get posiition
+				desc = lopc_event.2053.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 10
+					#min = -30
+				}
+				
+				set_variable = {
+					name = petition_court_position_liege
+					value = scope:courtier_x_liege
+					years = 5
+				}
+				set_variable = {
+					name = petition_court_position_role
+					value = flag:court_gardener
+					years = 5
+				}
+				scope:courtier_x_liege = {
+					employ_character_as_position_in_current_scope_court_effect = { 
+						CHARACTER = root 
+						POSITION = court_gardener
+					}
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.success
+					left_icon = root
+				}
+			}
+			50 = { # Failure! Don't get position
+				desc = lopc_event.2053.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -10
+					#min = -50
+				}
+				send_interface_toast = {
+					title = lopc_event.2053.failure
+					left_icon = root
+					right_icon = scope:courtier_x_liege
+				}
+			}
+		}
+	}
+	
+	option = { # Bodyguard (Prowess Test)
+		name = lopc_event.2053.c
+		trigger = {
+			lopc_request_court_position_requirements = yes
+			scope:courtier_x_liege = {
+				can_appoint_char_to_court_position = {
+					CHAR = root
+					COURT_POS = bodyguard_court_position
+				}
+			}
+		}
+		lopc_request_court_position_cost = yes
+		show_as_unavailable = { always = yes }
+		
+		duel = {
+			skill = prowess
+			value = high_skill_rating 
+			60 = { # Success! Get posiition
+				desc = lopc_event.2053.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 4
+					min = -40
+				}
+				
+				set_variable = {
+					name = petition_court_position_liege
+					value = scope:courtier_x_liege
+					years = 5
+				}
+				set_variable = {
+					name = petition_court_position_role
+					value = flag:bodyguard
+					years = 5
+				}
+				
+				
+				scope:courtier_x_liege = {
+					employ_character_as_position_in_current_scope_court_effect = { 
+						CHARACTER = root 
+						POSITION = bodyguard
+					}
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.success
+					left_icon = root
+				}
+			}
+			50 = { # Failure! Don't get position
+				desc = lopc_event.2053.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -6
+					min = -40
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.failure
+					left_icon = root
+					right_icon = scope:courtier_x_liege
+				}
+			}
+		}
+	}
+	
+	option = { # Champion (Prowess Test)
+		name = lopc_event.2053.d
+		trigger = {
+			lopc_request_court_position_requirements = yes
+			scope:courtier_x_liege = {
+				can_appoint_char_to_court_position = {
+					CHAR = root
+					COURT_POS = champion_court_position
+				}
+			}
+		}
+		lopc_request_court_position_cost = yes
+		show_as_unavailable = { always = yes }
+		
+		duel = {
+			skill = prowess
+			value = high_skill_rating 
+			40 = { # Success! Get posiition
+				desc = lopc_event.2053.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 4
+					min = -40
+				}
+				
+				set_variable = {
+					name = petition_court_position_liege
+					value = scope:courtier_x_liege
+					years = 5
+				}
+				set_variable = {
+					name = petition_court_position_role
+					value = flag:champion
+					years = 5
+				}
+				
+				
+				scope:courtier_x_liege = {
+					employ_character_as_position_in_current_scope_court_effect = { 
+						CHARACTER = root 
+						POSITION = champion
+					}
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.success
+					left_icon = root
+				}
+			}
+			50 = { # Failure! Don't get position
+				desc = lopc_event.2053.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -6
+					min = -40
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.failure
+					left_icon = root
+					right_icon = scope:courtier_x_liege
+				}
+			}
+		}
+	}
+	
+	option = { # court_physician (Learning Test)
+		name = lopc_event.2053.e
+		trigger = {
+			lopc_request_court_position_requirements = yes
+			scope:courtier_x_liege = {
+				can_appoint_char_to_court_position = {
+					CHAR = root
+					COURT_POS = court_physician_court_position
+				}
+			}
+		}
+		show_as_unavailable = { always = yes }
+		lopc_request_court_position_cost = yes
+		duel = {
+			skill = learning
+			value = high_skill_rating 
+			50 = { # Success! Get posiition
+				desc = lopc_event.2053.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 4
+					min = -40
+				}
+				
+				set_variable = {
+					name = petition_court_position_liege
+					value = scope:courtier_x_liege
+					years = 5
+				}
+				set_variable = {
+					name = petition_court_position_role
+					value = flag:court_physician
+					years = 5
+				}
+				
+				
+				scope:courtier_x_liege = {
+					employ_character_as_position_in_current_scope_court_effect = { 
+						CHARACTER = root 
+						POSITION = court_physician
+					}
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.success
+					left_icon = root
+				}
+			}
+			50 = { # Failure! Don't get position
+				desc = lopc_event.2053.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -6
+					min = -40
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.failure
+					left_icon = root
+					right_icon = scope:courtier_x_liege
+				}
+			}
+		}
+	}
+	
+	option = { # Tutor (Learning Test)
+		name = lopc_event.2053.f
+		trigger = {
+			lopc_request_court_position_requirements = yes
+			scope:courtier_x_liege = {
+				can_appoint_char_to_court_position = {
+					CHAR = root
+					COURT_POS = court_tutor_court_position
+				}
+			}
+		}
+		show_as_unavailable = { always = yes }
+		lopc_request_court_position_cost = yes
+		duel = {
+			skill = learning
+			value = high_skill_rating 
+			50 = { # Success! Get posiition
+				desc = lopc_event.2053.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 4
+					min = -40
+				}
+				
+				set_variable = {
+					name = petition_court_position_liege
+					value = scope:courtier_x_liege
+					years = 5
+				}
+				set_variable = {
+					name = petition_court_position_role
+					value = flag:court_tutor
+					years = 5
+				}
+				
+				
+				scope:courtier_x_liege = {
+					employ_character_as_position_in_current_scope_court_effect = { 
+						CHARACTER = root 
+						POSITION = court_tutor
+					}
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.success
+					left_icon = root
+				}
+			}
+			50 = { # Failure! Don't get position
+				desc = lopc_event.2053.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -6
+					min = -40
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.failure
+					left_icon = root
+					right_icon = scope:courtier_x_liege
+				}
+			}
+		}
+	}
+	
+	option = { # charioteer (Prowess Test)
+		name = lopc_event.2053.g
+		trigger = {
+			lopc_request_court_position_requirements = yes
+			scope:courtier_x_liege = {
+				can_appoint_char_to_court_position = {
+					CHAR = root
+					COURT_POS = charioteer_court_position
+				}
+			}
+		}
+		
+		show_as_unavailable = {
+			scope:courtier_x_liege = {
+				employs_court_position = charioteer_court_position
+			}
+		}
+		lopc_request_court_position_cost = yes
+		duel = {
+			skill = prowess
+			value = high_skill_rating 
+			50 = { # Success! Get posiition
+				desc = lopc_event.2053.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 4
+					min = -40
+				}
+				
+				set_variable = {
+					name = petition_court_position_liege
+					value = scope:courtier_x_liege
+					years = 5
+				}
+				set_variable = {
+					name = petition_court_position_role
+					value = flag:charioteer
+					years = 5
+				}
+				
+				
+				scope:courtier_x_liege = {
+					employ_character_as_position_in_current_scope_court_effect = { 
+						CHARACTER = root 
+						POSITION = charioteer
+					}
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.success
+					left_icon = root
+				}
+			}
+			50 = { # Failure! Don't get position
+				desc = lopc_event.2053.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -6
+					min = -40
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.failure
+					left_icon = root
+					right_icon = scope:courtier_x_liege
+				}
+			}
+		}
+	}
+	
+	option = { # Chronicler (Learning Test)
+		name = lopc_event.2053.h
+		trigger = {
+			lopc_request_court_position_requirements = yes
+			scope:courtier_x_liege = {
+				can_appoint_char_to_court_position = {
+					CHAR = root
+					COURT_POS = chronicler_court_position
+				}
+			}
+		}
+		show_as_unavailable = { always = yes }
+		lopc_request_court_position_cost = yes
+		duel = {
+			skill = learning
+			value = high_skill_rating 
+			50 = { # Success! Get posiition
+				desc = lopc_event.2053.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 4
+					min = -40
+				}
+				
+				set_variable = {
+					name = petition_court_position_liege
+					value = scope:courtier_x_liege
+					years = 5
+				}
+				set_variable = {
+					name = petition_court_position_role
+					value = flag:chronicler
+					years = 5
+				}
+				
+				
+				scope:courtier_x_liege = {
+					employ_character_as_position_in_current_scope_court_effect = { 
+						CHARACTER = root 
+						POSITION = chronicler
+					}
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.success
+					left_icon = root
+				}
+			}
+			50 = { # Failure! Don't get position
+				desc = lopc_event.2053.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -6
+					min = -40
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.failure
+					left_icon = root
+					right_icon = scope:courtier_x_liege
+				}
+			}
+		}
+	}
+	
+	option = { # seneschal (Diplo Test)
+		name = lopc_event.2053.i
+		trigger = {
+			lopc_request_court_position_requirements = yes
+			scope:courtier_x_liege = {
+				can_appoint_char_to_court_position = {
+					CHAR = root
+					COURT_POS = seneschal_court_position
+				}
+			}
+		}
+		show_as_unavailable = { always = yes }
+		lopc_request_court_position_cost = yes
+		duel = {
+			skill = diplomacy
+			value = high_skill_rating 
+			50 = { # Success! Get posiition
+				desc = lopc_event.2053.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 4
+					min = -40
+				}
+				
+				set_variable = {
+					name = petition_court_position_liege
+					value = scope:courtier_x_liege
+					years = 5
+				}
+				set_variable = {
+					name = petition_court_position_role
+					value = flag:seneschal
+					years = 5
+				}
+				
+				
+				scope:courtier_x_liege = {
+					employ_character_as_position_in_current_scope_court_effect = { 
+						CHARACTER = root 
+						POSITION = seneschal
+					}
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.success
+					left_icon = root
+				}
+			}
+			50 = { # Failure! Don't get position
+				desc = lopc_event.2053.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -6
+					min = -40
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.failure
+					left_icon = root
+					right_icon = scope:courtier_x_liege
+				}
+			}
+		}
+	}
+	
+	option = { # Assassin (Intrigue Test)
+		name = lopc_event.2053.j
+		trigger = {
+			lopc_request_court_position_requirements = yes
+			scope:courtier_x_liege = {
+				can_appoint_char_to_court_position = {
+					CHAR = root
+					COURT_POS = master_assassin_court_position
+				}
+			}
+		}
+		show_as_unavailable = { always = yes }
+		lopc_request_court_position_cost = yes
+		duel = {
+			skill = intrigue
+			value = high_skill_rating
+			50 = { # Success! Get posiition
+				desc = lopc_event.2053.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 4
+					min = -40
+				}
+				
+				set_variable = {
+					name = petition_court_position_liege
+					value = scope:courtier_x_liege
+					years = 5
+				}
+				set_variable = {
+					name = petition_court_position_role
+					value = flag:master_assassin
+					years = 5
+				}
+				
+				
+				scope:courtier_x_liege = {
+					employ_character_as_position_in_current_scope_court_effect = { 
+						CHARACTER = root 
+						POSITION = master_assassin
+					}
+				}
+				
+				send_interface_toast = {
+					title = ekdd_travel_events.1001.b.success
+					left_icon = root
+					right_icon = scope:courtier_x_liege
+				}
+			}
+			50 = { # Failure! Don't get position
+				desc = lopc_event.2053.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -6
+					min = -40
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2053.failure
+					left_icon = root
+					right_icon = scope:courtier_x_liege
+				}
+			}
+		}
+	}
+}
+lopc_event.2054 = { # Family Chronicle (Req. High learning. Whilst writing up documents detailing history of liege house, have choice to focus on prestige or piety, giving yourself a smaller amount of the same. Alternatively, extol self for renown)
+	title = lopc_event.2054.t
+	desc = lopc_event.2054.desc
+	theme = realm
+	type = character_event
+	hidden = no
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+	}
+	
+	right_portrait = {
+		character = root
+		animation = throne_room_writer
+	}
+	option = { #
+		trigger = {
+			always = yes
+		}
+		name = lopc_event.2054.a
+		scope:courtier_x_liege = {
+			add_prestige = 50
+		}
+		add_prestige = 25
+		
+		stress_impact = {
+			compassionate = miniscule_stress_impact_gain
+			brave = minor_stress_impact_loss
+			ambitious = minor_stress_impact_loss
+		}
+	}
+	
+	option = { #
+		trigger = {
+			always = yes
+		}
+		name = lopc_event.2054.b
+		scope:courtier_x_liege = {
+			add_piety = 50
+		}
+		add_piety = 25
+		stress_impact = {
+			zealous = minor_stress_impact_loss
+			content = minor_stress_impact_loss
+		}
+	}
+	
+	option = { #
+		trigger = {
+			always = yes
+		}
+		name = lopc_event.2054.c
+		dynasty ?= {
+			add_dynasty_prestige = 50
+		}
+		stress_impact = {
+			just = medium_stress_impact_gain
+			loyal = medium_stress_impact_gain
+			content = minor_stress_impact_gain
+			disloyal = medium_stress_impact_loss
+			ambitious = minor_stress_impact_loss
+		}
+		scope:courtier_x_liege = {
+			add_opinion = {
+				target = root 
+				opinion = -10
+				modifier = annoyed_opinion
+			}
+		}
+	}
+}
+lopc_event.2055 = { # Factional Exchange (Req. High intrigue/learning. Have intercepted a letter between 2 members of a faction. May return the letter, show to liege, or keep to yourself)
+	title = lopc_event.2055.t
+	desc = lopc_event.2055.desc
+	theme = realm
+	type = character_event
+	hidden = no
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	
+	trigger = {
+		has_relation_lopc_employer = root.location.barony.holder
+	}
+	
+	option = { #
+		trigger = {
+			always = yes
+		}
+		name = lopc_event.2055.a
+	}
+}
+lopc_event.2060 = { # NOT AT CAPITAL. Confronted by locals (Req. low county control and in top realm of liege. Disgruntled locals realise you serve your liege. Either bribe, flee, fight, or convince they're mistaken)
+	title = lopc_event.2060.t
+	desc = lopc_event.2060.desc
+	theme = realm
+	type = character_event
+	hidden = no
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	
+	trigger = {
+		NOT = { has_relation_lopc_employer = root.location.barony.holder }
+	}
+	
+	option = { #
+		trigger = {
+			always = yes
+		}
+		name = lopc_event.2060.a
+	}
+}
+lopc_event.2061 = { # NOT AT CAPITAL. liege is a rival, or you are sadistic/disloyal. Ambititous thoughts. can either plot to kill liege (start scheme and add modifier to it), plot to rob him (start heist scheme) or reassert loyalty
+	title = lopc_event.2061.t
+	desc = lopc_event.2061.desc
+	theme = realm
+	type = character_event
+	hidden = no
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	
+	trigger = {
+		NOT = { has_relation_lopc_employer = root.location.barony.holder }
+	}
+	
+	option = { # 
+		trigger = {
+			always = yes
+		}
+		name = lopc_event.2061.a
+	}
+}
+lopc_event.2070 = { #
+	title = lopc_event.2070.t
+	desc = lopc_event.2070.desc
+	theme = realm
+	type = character_event
+	hidden = no
+	trigger = { is_lopc_adventurer_courtier = yes }
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	
+	option = { # 
+		trigger = {
+			always = yes
+		}
+		name = lopc_event.2070.a
+	}
+}
+
+########################################################################
+# "Attend Court Decision" Events #######################################
+########################################################################
+
+	#
+	
+# -------------------------------------------------------------------- #
+
+lopc_event.2100 = { #
+	trigger = { is_ai = no}
+	type = character_event
+	title = lopc_event.2100.t	
+	window = visit_settlement_window
+	#desc = lopc_event.2100.desc
+	desc = { 
+		desc = lopc_event.2100_desc_0
+		first_valid = { # Court Grandeur - if not kingdom or empire, just something
+			triggered_desc = { # No grandeur
+				trigger = {
+					scope:courtier_x_liege = {
+						highest_held_title_tier < tier_kingdom
+					}
+				}
+				desc = lopc_event.2100_desc_1_NoGrandeur
+			}
+			triggered_desc = { # High Grandeur
+				trigger = {
+					scope:courtier_x_liege = {
+						court_grandeur_current >= 75
+					}
+				}
+				desc = lopc_event.2100_desc_1_HighGrandeur
+			}
+			triggered_desc = { # Medium Grandeur
+				trigger = {
+					scope:courtier_x_liege = {
+						court_grandeur_current >= 40
+					}
+				}
+				desc = lopc_event.2100_desc_1_MediumGrandeur
+			}
+			desc = lopc_event.2100_desc_1_LowGrandeur
+		}
+		desc = "There are always rumours circulating at court"
+		first_valid = { # Current News 1
+			triggered_desc = { # At War
+				trigger = {
+					scope:courtier_x_liege = {
+						is_at_war = yes
+					}
+				}
+				desc = lopc_event.2100_desc_2_War
+			}
+			triggered_desc = { # Religous Tensions
+				trigger = {
+					scope:courtier_x_liege = {
+						NOT = { religion = capital_province.religion }
+					}
+				}
+				desc = lopc_event.2100_desc_2_WrongReligion
+			}
+			triggered_desc = { # Empty Treasury
+				trigger = {
+					scope:courtier_x_liege = {
+						gold < 0
+					}
+				}
+				desc = lopc_event.2100_desc_2_Debt
+			}
+			desc = lopc_event.2100_desc_2_NoRumours
+		}
+		first_valid = { # Current News 2
+			triggered_desc = { # Anarchy (control less than 25)
+				trigger = {
+					scope:courtier_x_liege.capital_province.county = {
+						county_control < 25
+					}
+				}
+				desc = lopc_event.2100_desc_3_Anarchy
+			}
+			triggered_desc = { # Anger on the streets (popular opinion less than -10)
+				trigger = {
+					scope:courtier_x_liege.capital_province.county = {
+						county_opinion < -30
+					}
+				}
+				desc = lopc_event.2100_desc_3_Anger
+			}
+			triggered_desc = { # Epidemic
+				trigger = {
+					scope:courtier_x_liege = {
+						realm_has_any_epidemic = {
+							SIZE = 1
+							INTENSITY = minor
+						}
+					}
+				}
+				desc = lopc_event.2100_desc_3_Epidemic
+			}
+			desc = "" # Else None
+		}
+	}
+	
+	theme = host_dinner
+	override_icon = { reference = "gfx/interface/icons/event_types/type_duty.dds" }
+	override_background = { reference = throne_room }
+	#override_sound = { reference = "event:/SFX/Events/Themes/sfx_event_theme_type_social" }
+	
+	hidden = no
+	#trigger = { is_lopc_adventurer_courtier = yes }
+	lower_right_portrait = {
+		character = scope:courtier_x_liege
+	}
+	right_portrait = {
+		character = scope:targeted_courtier_1
+		# is counciller
+		triggered_animation = {
+			trigger = { 
+				is_councillor = yes
+			}
+  			animation = throne_room_writer
+  		}
+  		# is important
+  		triggered_animation = {
+			trigger = { 
+				is_landed = yes
+			}
+  			animation = throne_room_conversation_3
+  		}
+  		# is lowborn
+  		triggered_animation = {
+			trigger = { 
+				is_lowborn = yes
+			}
+  			animation = personality_content
+  		}
+  		#Otherwise default to
+		animation = throne_room_conversation_1
+	}
+	
+	left_portrait = {
+		character = scope:targeted_courtier_2
+		# is counciller
+		triggered_animation = {
+			trigger = { 
+				is_councillor = yes
+			}
+  			animation = steward
+  		}
+  		# is important
+  		triggered_animation = {
+			trigger = { 
+				is_landed = yes
+			}
+  			animation = dismissal
+  		}
+  		# is lowborn
+  		triggered_animation = {
+			trigger = { 
+				is_lowborn = yes
+			}
+  			animation = personality_coward
+  		}
+  		#Otherwise default to
+		animation = throne_room_conversation_2
+	}
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			random_courtier_or_guest = {
+				limit = { is_adult = yes NOT = { this = root } }
+				save_scope_as = targeted_courtier_1
+			}
+			random_courtier_or_guest = {
+				limit = {  is_adult = yes NOT = { OR = { this = root this = scope:targeted_courtier_1 } } }
+				save_scope_as = targeted_courtier_2
+			}
+			save_scope_as = courtier_x_liege
+		}
+		root.location.county.holder = { save_scope_as = bg_override_char }
+	}
+	
+	option = { # Seek Promotion
+		name = lopc_event.2100.a
+		trigger = {
+			lopc_request_court_position_requirements = yes 
+		}
+		show_as_unavailable = {
+			always = yes
+		}
+		trigger_event = { id = lopc_event.2053 }
+	}
+	
+	option = { # Perform Courtly Duties (Get Scheme)
+		name = lopc_event.2100.b
+		trigger = {
+			is_ai = no # Could this be the root of mystery 0002?
+			custom_tooltip = {
+				text = lopc_event.2100.b.tt
+				NOT = {
+					any_scheme = {
+						OR = {
+							scheme_type = lopc_develop_service
+							scheme_type = lopc_event_service
+							scheme_type = lopc_alms_service
+							scheme_type = lopc_bodyguard_service
+							scheme_type = lopc_champion_service
+							scheme_type = lopc_chronicler_service
+							scheme_type = lopc_clerical_service
+							scheme_type = event_service_scheme
+							scheme_type = lopc_minority_service
+							scheme_type = lopc_physician_service
+							scheme_type = lopc_republican_service
+							scheme_type = lopc_generic_service
+							scheme_type = lopc_strategic_service
+						}
+						#count >= 1
+					}
+				}
+			}
+		}
+		show_as_unavailable = { always = yes }
+		
+		trigger_event = { id = lopc_event.2103 }
+	}
+	
+	option = { # Ask For Local Contract (Changed to "Seek Patronage")
+		name = lopc_event.2100.c
+		trigger = {
+			scope:courtier_x_liege = {
+				opinion = {
+					target = root
+					value >= 75
+				}
+				NOT = { is_contact_of = root }
+			}
+			is_landless_adventurer = yes
+			prestige >= {
+				value = 200
+				multiply = scope:courtier_x_liege.highest_held_title_tier
+			}
+		}
+		show_as_unavailable = {
+			is_landless_adventurer = yes
+		}
+		add_prestige = {
+			value = -200
+			multiply = scope:courtier_x_liege.highest_held_title_tier
+		}
+		add_contact = scope:courtier_x_liege
+	}
+	
+	option = { # Oust liege from office (req. republican government)
+		trigger = { 
+			scope:courtier_x_liege = { has_government = republic_government } 
+			NOR = {
+				has_character_flag = flag:lopc_big_election_investment
+				has_character_flag = flag:lopc_medium_election_investment
+				has_character_flag = flag:lopc_small_election_investment
+			}
+		}
+		name = lopc_event.2100.f
+		skill = stewardship
+		custom_tooltip = {
+			text = lopc_oust_from_office_loc
+		}
+		trigger_event = { id = lopc_event.2105 }
+	
+	}
+	
+	option = { # Indulge in Courtly Luxuries (Fires Event where you can benefit from levels of court grandeur)
+		name = lopc_event.2100.d
+		custom_tooltip = {
+			text = lopc_indulge_in_court_loc
+		}
+		trigger_event = { id = lopc_event.2101 }
+	
+	}
+	
+	option = { # Leave and reset decision cooldown
+		name = lopc_event.2100.e
+		remove_decision_cooldown = lopc_attend_court_decision
+		hidden_effect = { remove_interaction_cooldown = lopc_true_landless_attend_court }
+	}
+}
+
+lopc_event.2101 = { # Indulge in Courtly Luxuries
+	type = character_event
+	title = lopc_event.2101.t	
+	window = visit_settlement_window
+	desc = lopc_event.2101.desc
+	theme = host_dinner
+	soundeffect = feast_event
+	hidden = no
+	trigger = { is_lopc_adventurer_courtier = yes }
+	
+	right_portrait = {
+		character = scope:targeted_courtier_3
+		animation = drink_goblet
+	}
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			random_courtier_or_guest = {
+				limit = {
+					is_adult = yes
+					NOT = { has_trait = temperate }
+					OR = {
+						has_trait = drunkard
+						#has_trait = lustful
+						has_trait = gregarious
+						has_trait = lifestyle_reveler
+					}
+				}
+				save_scope_as = targeted_courtier_3
+			}
+			save_scope_as = courtier_x_liege
+		}
+		root.location.county.holder = { save_scope_as = bg_override_char }
+	}
+	
+	option = { # Delight in Courtly Dishes (if court's food level is highest)
+		name = lopc_event.2101.a
+		stress_impact = {
+			temperate = minor_stress_impact_gain
+			gluttonous = minor_stress_impact_loss
+		}
+		trigger = {
+			scope:courtier_x_liege = {
+				amenity_level = { type = court_food_quality value >= 5 }
+			}
+		}
+		show_as_unavailable = { always = yes }
+		add_character_modifier = {
+			modifier = lopc_courtier_x_food_amenities
+			months = 6
+		}
+	}
+	
+	option = { # Find A New Outfit  (if court's fashion level is highest)
+		name = lopc_event.2101.b
+		trigger = {
+			scope:courtier_x_liege = {
+				amenity_level = { type = court_fashion value >= 5 }
+			}
+		}
+		show_as_unavailable = { always = yes }
+		add_character_modifier = {
+			modifier = lopc_courtier_x_fashion_amenities
+			months = 6
+		}
+	}
+	
+	option = { # Gossip With The Servants  (if court's servants level is highest)
+		name = lopc_event.2101.c
+		trigger = {
+			scope:courtier_x_liege = {
+				amenity_level = { type = court_fashion value >= 5 }
+			}
+		}
+		show_as_unavailable = { always = yes }
+		add_character_modifier = {
+			modifier = lopc_courtier_x_servants_amenities
+			months = 6
+		}
+	}
+	
+	option = { # Retire to your quarters  (effect depending on dormitories level)
+		name = lopc_event.2101.d
+		if = { 
+			limit = { has_trait = lazy }
+			custom_tooltip = {
+				text = lopc_visit_lodgings_lazy_loc
+			}
+		}
+		else_if = { 
+			limit = { has_trait = athletic }
+			custom_tooltip = {
+				text = lopc_visit_lodgings_athletic_loc
+			}
+		}
+		trigger_event = { id = lopc_event.2102 }
+	
+	}
+	
+	option = { # Return to Attend Court screen
+		name = lopc_event.2101.e
+		trigger_event = { id = lopc_event.2100 }
+	}
+}
+
+lopc_event.2102 = { # Go To Quarters (Chance to lose stress, pray (piety), get some work done (prestige for stress) or go back)
+	type = character_event
+	title = lopc_event.2102.t	
+	window = visit_settlement_window
+	#desc = lopc_event.2102.desc
+	
+	desc = {
+		first_valid = {
+			triggered_desc = { # Just a tent
+				trigger = {
+					OR = {
+						has_character_modifier = lopc_adventurer
+						has_character_modifier = lopc_merc
+					}
+				}
+				desc = lopc_event.2102.desc_tent
+			}
+			desc = {
+				desc = lopc_event.2102.desc_0
+				first_valid = { # Quality of Quarters
+					triggered_desc = { # 5
+						trigger = {
+							scope:courtier_x_liege = {
+								amenity_level = { type = court_lodging_standards value = 5 }
+							}
+						}
+						desc = lopc_event.2102.desc_1_Lodging5
+					}
+					triggered_desc = { # 4
+						trigger = {
+							scope:courtier_x_liege = {
+								amenity_level = { type = court_lodging_standards value = 4 }
+							}
+						}
+						desc = lopc_event.2102.desc_1_Lodging4
+					}
+					triggered_desc = { # 3
+						trigger = {
+							scope:courtier_x_liege = {
+								amenity_level = { type = court_lodging_standards value = 3 }
+							}
+						}
+						desc = lopc_event.2102.desc_1_Lodging3
+					}
+					triggered_desc = { # 1
+						trigger = {
+							scope:courtier_x_liege = {
+								amenity_level = { type = court_lodging_standards value = 1 }
+							}
+						}
+						desc = lopc_event.2102.desc_1_Lodging1
+					}
+					desc = lopc_event.2102.desc_1_Lodging2 # If no royal court assumed to be 2
+				}
+				triggered_desc = { # Terrain from window
+					trigger = {
+						scope:courtier_x_liege = {
+							NOT = { amenity_level = { type = court_lodging_standards value = 1 } }
+						}
+						scope:courtier_x_liege = {
+							NOT = { amenity_level = { type = court_lodging_standards value = 1 } }
+						}
+					}
+					desc = lopc_event.2102.desc_2_WindowView
+				}
+				first_valid = { # Holding Type from window
+					triggered_desc = { 
+						trigger = {
+							scope:courtier_x_liege = {
+								NOT = { amenity_level = { type = court_lodging_standards value = 1 } }
+							}
+							scope:courtier_x_liege.capital_province = {
+								has_holding_type = castle_holding
+							}
+						}
+						desc = lopc_event.2102.desc_5_castle
+					}
+					triggered_desc = { 
+						trigger = {
+							scope:courtier_x_liege = {
+								NOT = { amenity_level = { type = court_lodging_standards value = 1 } }
+							}
+							scope:courtier_x_liege.capital_province = {
+								has_holding_type = city_holding
+							}
+						}
+						desc = lopc_event.2102.desc_5_city
+					}
+					triggered_desc = { 
+						trigger = {
+							scope:courtier_x_liege = {
+								NOT = { amenity_level = { type = court_lodging_standards value = 1 } }
+							}
+							scope:courtier_x_liege.capital_province = {
+								has_holding_type = church_holding
+							}
+						}
+						desc = lopc_event.2102.desc_5_temple
+					}
+					triggered_desc = { 
+						trigger = {
+							scope:courtier_x_liege = {
+								NOT = { amenity_level = { type = court_lodging_standards value = 1 } }
+							}
+							scope:courtier_x_liege.capital_province = {
+								has_holding_type = tribal_holding
+							}
+						}
+						desc = lopc_event.2102.desc_5_tribal
+					}
+					#desc = lopc_event.2102.desc_5_tribal
+				}
+				first_valid = { # Winter
+					triggered_desc = { # 5
+						trigger = { # Harsh
+							scope:courtier_x_liege = {
+								NOT = { amenity_level = { type = court_lodging_standards value = 1 } }
+							}
+							scope:courtier_x_liege.capital_province = {
+								has_province_modifier = winter_harsh_modifier
+							}
+						}
+						desc = lopc_event.2102.desc_3_HarshWinter
+					}
+					triggered_desc = { # Mild
+						trigger = {
+							scope:courtier_x_liege = {
+								NOT = { amenity_level = { type = court_lodging_standards value = 1 } }
+							}
+							scope:courtier_x_liege.capital_province = {
+								OR = {
+									has_province_modifier = winter_mild_modifier
+									has_province_modifier = winter_normal_modifier
+								}
+							}
+						}
+						desc = lopc_event.2102.desc_3_MildWinter
+					}
+					#desc = lopc_event.2102_desc_3_NoWinter # No winter
+				}
+				first_valid = { # Coastal / River
+					triggered_desc = { # 5
+						trigger = { # Coastal
+							scope:courtier_x_liege = {
+								NOT = { amenity_level = { type = court_lodging_standards value = 1 } }
+							}
+							scope:courtier_x_liege.capital_province = {
+								is_coastal = yes
+							}
+						}
+						desc = lopc_event.2102.desc_4_coastal
+					}
+					triggered_desc = { # River
+						trigger = {
+							scope:courtier_x_liege = {
+								NOT = { amenity_level = { type = court_lodging_standards value = 1 } }
+							}
+							scope:courtier_x_liege.capital_province = {
+								is_riverside_province = yes
+							}
+						}
+						desc = lopc_event.2102.desc_4_river
+					}
+				}
+			}
+		}
+	}
+	theme = host_dinner
+	override_background = {
+		trigger = {
+			OR = {
+				has_character_modifier = lopc_adventurer
+				has_character_modifier = lopc_merc
+			}
+		}
+		reference = ep3_relaxing_tent
+	}
+	override_background = { reference = bedchamber }
+	hidden = no
+	trigger = { 
+		OR = { 
+			is_lopc_adventurer_courtier = yes 
+			is_lopc_adventurer_special_courtier = yes 
+		}
+	}
+	left_portrait = {
+		character = root
+	}
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		root.location.county.holder = { save_scope_as = bg_override_char }
+	}
+	
+	option = { # Relax
+		name = lopc_event.2102.a
+		stress_impact = {
+			diligent = minor_stress_impact_gain
+			lazy = minor_stress_impact_loss
+			content = minor_stress_impact_loss
+		}
+		if = {
+			limit = {
+				scope:courtier_x_liege = {
+					amenity_level = { type = court_lodging_standards value = 5 }
+				}
+			}
+			add_stress = -50
+		}
+		else_if = {
+			limit = {
+				scope:courtier_x_liege = {
+					amenity_level = { type = court_lodging_standards value = 4 }
+				}
+			}
+			add_stress = -40
+		}
+		else_if = {
+			limit = {
+				scope:courtier_x_liege = {
+					amenity_level = { type = court_lodging_standards value = 3 }
+				}
+			}
+			add_stress = -30
+		}
+		else_if = {
+			limit = {
+				scope:courtier_x_liege = {
+					amenity_level = { type = court_lodging_standards value = 2 }
+				}
+			}
+			add_stress = -20
+		}
+		else = {
+			add_stress = -10
+		}
+	}
+	
+	option = { # Pray
+		name = lopc_event.2102.b
+		stress_impact = {
+			zealous = medium_stress_impact_loss
+			cynical = medium_stress_impact_gain
+		}
+		random_list = {
+			5 = { 
+				send_interface_toast = {
+					title = lopc_event.2101.b.success
+					left_icon = root
+					add_piety = 100 
+				}
+			}
+			10 = { 
+				send_interface_toast = {
+					title = lopc_event.2101.b.success
+					left_icon = root
+					add_piety = 75 
+				}
+			}
+			15 = { 
+				send_interface_toast = {
+					title = lopc_event.2101.b.success
+					left_icon = root
+					add_piety = 50 
+				}
+			}
+			10 = { 
+				send_interface_toast = {
+					title = lopc_event.2101.b.success
+					left_icon = root
+					add_piety = 25 
+				}
+			}
+		}
+	}
+	
+	option = { # Get Work Done
+		name = lopc_event.2102.c
+		skill = stewardship
+		add_stress = 30
+		stress_impact = {
+			diligent = medium_stress_impact_loss
+			lazy = minor_stress_impact_gain
+		}
+		duel = {
+			skill = stewardship
+			value = high_skill_rating 
+			10 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 27
+					min = -40
+				}
+				send_interface_toast = {
+					title = lopc_event.2101.c.success
+					left_icon = root
+					add_prestige = 100 
+				}
+				change_lopc_performance = { amount = 4 }
+			}
+			50 = { 
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 9
+					min = -40
+				}
+				send_interface_toast = {
+					title = lopc_event.2101.c.success
+					left_icon = root
+					add_prestige = 75 
+				}
+				change_lopc_performance = { amount = 3 }
+			}
+			50 = { 
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3
+					min = -40
+				}
+				send_interface_toast = {
+					title = lopc_event.2101.c.success
+					left_icon = root
+					add_prestige = 50 
+				}
+				change_lopc_performance = { amount = 2 }
+			}
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+					min = -40
+				}
+				send_interface_toast = {
+					title = lopc_event.2101.c.success
+					left_icon = root
+					add_prestige = 25 
+				}
+				change_lopc_performance = { amount = 1 }
+			}
+		}
+	
+	}
+	
+	option = { # Return to Indulge screen (or main camp)
+		name = lopc_event.2102.d
+		if = {
+			limit = {
+				OR = {
+					has_character_modifier = lopc_adventurer
+					has_character_modifier = lopc_merc
+				}
+			}
+			trigger_event = { id = lopc_event.2420 }
+		}
+		else = { trigger_event = { id = lopc_event.2101 } }	
+	}
+}
+
+lopc_event.2103 = { # Select Service Scheme	
+	title = lopc_event.2103.t
+	desc = lopc_event.2103.desc
+	theme = realm
+	background = sitting_room
+	type = character_event
+	hidden = no
+	trigger = { is_lopc_adventurer_courtier = yes }
+	
+	right_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		root.location.county.holder = { save_scope_as = bg_override_char }
+	}
+	
+	option = { # Generic Service - TARGET BOSS
+		name = lopc_event.2103.a
+		trigger = {
+			always = yes
+		}
+		show_as_unavailable = { always = yes }
+		
+		skill = diplomacy
+		
+		begin_scheme_with_agents_effect = {
+			SCHEME_TYPE = lopc_generic_service
+			TARGET_TYPE = target_character
+			TARGET_SCOPE = scope:courtier_x_liege
+			# Success.
+			AGENT_1 = agent_diplomat
+			AGENT_2 = agent_diplomat
+			# Speed.
+			AGENT_3 = lopc_agent_assistant 
+			AGENT_4 = lopc_agent_assistant 
+			AGENT_5 = agent_bureaucrat
+		}
+		
+		custom_tooltip = {
+			text = lopc_event.2103.a.tt
+		}
+	}
+	
+	option = { # Republican Service - TARGET BOSS
+		name = lopc_event.2103.b
+		trigger = {
+			scope:courtier_x_liege = {
+				any_vassal = {
+					has_government = republic_government
+				}
+			}
+		}
+		#show_as_unavailable = { always = yes }
+		
+		skill = diplomacy # Should get lesser modifier bonus for stewardship too
+		
+		begin_scheme_with_agents_effect = {
+			SCHEME_TYPE = lopc_republican_service
+			TARGET_TYPE = target_character
+			TARGET_SCOPE = scope:courtier_x_liege
+			# Success.
+			AGENT_1 = agent_diplomat 
+			AGENT_2 = agent_bookkeeper 
+			# Speed.
+			AGENT_3 = lopc_agent_assistant
+			AGENT_4 = agent_bureaucrat
+			AGENT_5 = agent_bureaucrat
+		}
+		
+		custom_tooltip = {
+			text = lopc_event.2103.b.tt
+		}
+	}
+	
+	option = { # Clerical Service - TARGET BOSS
+		name = lopc_event.2103.c
+		trigger = {
+			scope:courtier_x_liege = {
+				any_held_title = {
+					is_head_of_faith = no
+				}
+			}
+		}
+		#show_as_unavailable = { always = yes }
+		
+		skill = diplomacy # Should get lesser modifier bonus for learning too
+		
+		begin_scheme_with_agents_effect = {
+			SCHEME_TYPE = lopc_clerical_service
+			TARGET_TYPE = target_character
+			TARGET_SCOPE = scope:courtier_x_liege
+			# Success.
+			AGENT_1 = agent_diplomat 
+			AGENT_2 = agent_theologian_success 
+			# Speed.
+			AGENT_3 = agent_bureaucrat
+			AGENT_4 = agent_cleric 
+			AGENT_5 = agent_cleric 
+		}
+		
+		custom_tooltip = {
+			text = lopc_event.2103.c.tt
+		}
+	}
+	
+	option = { # Minority Service - TARGET BOSS
+		name = lopc_event.2103.d
+		trigger = {
+			scope:courtier_x_liege = {
+				any_vassal = {
+					NOT = { has_culture = scope:courtier_x_liege.culture this = root }
+				}
+			}
+			NOT = { has_culture = scope:courtier_x_liege.culture }
+		}
+		#show_as_unavailable = { always = yes }
+		
+		skill = diplomacy
+		
+		begin_scheme_with_agents_effect = {
+			SCHEME_TYPE = lopc_minority_service
+			TARGET_TYPE = target_character
+			TARGET_SCOPE = scope:courtier_x_liege
+			# Success.
+			AGENT_1 = agent_diplomat
+			AGENT_2 = agent_diplomat 
+			# Speed.
+			AGENT_3 = lopc_agent_assistant
+			AGENT_4 = lopc_agent_assistant
+			AGENT_5 = agent_bureaucrat
+		}
+		
+		custom_tooltip = {
+			text = lopc_event.2103.d.tt
+		}
+	}
+	
+	option = { # Alms Service - TARGET COUNTY
+		name = lopc_event.2103.e
+		trigger = {
+			always = yes
+		}
+		show_as_unavailable = { always = yes }
+		
+		skill = learning
+		
+		begin_scheme_with_agents_effect = {
+			SCHEME_TYPE = lopc_alms_service
+			TARGET_TYPE = target_title
+			TARGET_SCOPE = scope:courtier_x_liege.capital_province.county
+			# Success.
+			AGENT_1 = agent_bailiff 
+			AGENT_2 = agent_outcast 
+			# Speed.
+			AGENT_3 = agent_herald 
+			AGENT_4 = agent_cleric 
+			AGENT_5 = agent_bureaucrat
+		}
+		
+		custom_tooltip = {
+			text = lopc_event.2103.e.tt
+		}
+	}
+	
+	option = { # Strategic Service - TARGET BOSS
+		name = lopc_event.2103.f
+		trigger = {
+			scope:courtier_x_liege = {
+				is_at_war = yes
+			}
+		}
+		#show_as_unavailable = { always = yes }
+		
+		skill = martial
+		
+		begin_scheme_with_agents_effect = {
+			SCHEME_TYPE = lopc_strategic_service
+			TARGET_TYPE = target_character
+			TARGET_SCOPE = scope:courtier_x_liege
+			# Success.
+			AGENT_1 = lopc_agent_strategist
+			AGENT_2 = lopc_agent_strategist  
+			# Speed.
+			AGENT_3 = agent_infiltrator 
+			AGENT_4 = agent_infiltrator 
+			AGENT_5 = agent_bureaucrat
+		}
+		
+		custom_tooltip = {
+			text = lopc_event.2103.f.tt
+		}
+	}
+	
+	option = { # Develop Service - TARGET COUNTY
+		name = lopc_event.2103.g
+		trigger = {
+		}
+		#show_as_unavailable = { always = yes }
+		
+		skill = stewardship
+		
+		begin_scheme_with_agents_effect = {
+			SCHEME_TYPE = lopc_develop_service
+			TARGET_TYPE = target_title
+			TARGET_SCOPE = scope:courtier_x_liege.capital_province.county
+			# Success.
+			AGENT_1 = agent_bookkeeper  
+			AGENT_2 =  agent_draughtsman 
+			AGENT_3 = agent_muscle
+			# Speed.
+			AGENT_4 = agent_supplier
+			AGENT_5 = agent_bureaucrat
+		}
+		
+		custom_tooltip = {
+			text = lopc_event.2103.g.tt
+		}
+	}
+	
+	option = { # Event Service - TARGET BOSS - issue with trigger so leaving for now
+		name = lopc_event.2103.h
+		trigger = {
+			#scope:courtier_x_liege = {
+				#AND = {
+				#	is_in_an_activity = yes
+				#	owns_an_activity = yes
+				#}
+			#}
+			always = no
+		}
+		#show_as_unavailable = { always = yes }
+		
+		skill = stewardship
+		
+		begin_scheme_with_agents_effect = {
+			SCHEME_TYPE = lopc_event_service
+			TARGET_TYPE = target_character
+			TARGET_SCOPE = scope:courtier_x_liege
+			# Success.
+			AGENT_1 = agent_diplomat
+			AGENT_2 = agent_sycophant
+			# Speed.
+			AGENT_3 = lopc_agent_assistant
+			AGENT_4 = lopc_agent_assistant
+			AGENT_5 = agent_bureaucrat
+		}
+		
+		custom_tooltip = {
+			text = lopc_event.2103.h.tt
+		}
+	}
+	
+	option = { # Court Position Services - NEW EVENT
+		name = lopc_event.2103.i
+		trigger = {
+			has_any_court_position = yes
+		}
+		show_as_unavailable = { always = yes }
+		trigger_event = { id = lopc_event.2104 }
+	}
+	
+	option = { # Return to Attend Court screen
+		name = lopc_event.2101.e
+		trigger_event = { id = lopc_event.2100 }
+	}
+}
+
+lopc_event.2104 = { # Select Service Scheme (court position options)	
+	title = lopc_event.2104.t
+	desc = lopc_event.2103.desc
+	theme = realm
+	background = sitting_room
+	type = character_event
+	hidden = no
+	trigger = { is_lopc_adventurer_courtier = yes }
+	
+	right_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	left_portrait = {
+		character = scope:treatment_target
+		animation = sick
+	}
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			random_courtier_or_guest = {
+				limit = { lopc_needs_treatment = yes }
+				save_scope_as = treatment_target
+			}
+			save_scope_as = courtier_x_liege
+		}
+		root.location.county.holder = { save_scope_as = bg_override_char }
+	}
+	
+	option = { # Physician Service - TARGET COURTIER WITH AILMENT (should prob add interaction to treat specific target too at some point)
+		name = lopc_event.2104.a
+		trigger = {
+			has_court_position = court_physician_court_position
+			custom_tooltip = {
+				text = lopc_event.2104.a.tt.1
+				scope:treatment_target = { exists = yes }
+			}
+		}
+		show_as_unavailable = { always = yes }
+		
+		skill = learning  # bonus for physician traits
+		
+		begin_scheme_with_agents_effect = {
+			SCHEME_TYPE = lopc_physician_service
+			TARGET_TYPE = target_character
+			TARGET_SCOPE = scope:treatment_target
+			# Success.
+			AGENT_1 = agent_physic 
+			AGENT_2 = agent_alchemist  
+			# Speed.
+			AGENT_3 = agent_supplier 
+			AGENT_4 = lopc_agent_assistant 
+			AGENT_5 = lopc_agent_assistant 
+		}
+		
+		custom_tooltip = {
+			text = lopc_event.2104.a.tt.2
+		}
+	}
+	
+	option = { # Bodyguard Service - TARGET BOSS
+		name = lopc_event.2104.b
+		trigger = {
+			has_court_position = bodyguard_court_position 
+		}
+		show_as_unavailable = { always = yes }
+		
+		skill = prowess
+		
+		begin_scheme_with_agents_effect = {
+			SCHEME_TYPE = lopc_bodyguard_service
+			TARGET_TYPE = target_character
+			TARGET_SCOPE = scope:courtier_x_liege
+			# Success.
+			AGENT_1 = agent_bodyguard  
+			AGENT_2 = agent_bodyguard  
+			AGENT_3 = agent_bodyguard
+			# Speed.
+			AGENT_4 = agent_planner 
+			AGENT_5 = lopc_agent_assistant 
+		}
+		
+		custom_tooltip = {
+			text = lopc_event.2104.b.tt
+		}
+	}
+	
+	option = { # Champion Service - TARGET BOSS
+		name = lopc_event.2104.c
+		trigger = {
+			has_court_position = champion_court_position 
+		}
+		show_as_unavailable = { always = yes }
+		
+		skill = prowess # Should get lesser modifier bonus for stewardship too
+		
+		begin_scheme_with_agents_effect = {
+			SCHEME_TYPE = lopc_champion_service
+			TARGET_TYPE = target_character
+			TARGET_SCOPE = scope:courtier_x_liege
+			# Success.
+			AGENT_1 = agent_comrade_in_arms 
+			AGENT_2 = agent_bodyguard 
+			# Speed.
+			AGENT_3 = agent_herald 
+			AGENT_4 = agent_herald 
+			AGENT_5 = lopc_agent_assistant 
+		}
+		
+		custom_tooltip = {
+			text = lopc_event.2104.c.tt
+		}
+	}
+	
+	option = { # Chronicler Service - TARGET BOSS
+		name = lopc_event.2104.e
+		trigger = {
+			has_court_position = chronicler_court_position 
+		}
+		show_as_unavailable = { always = yes }
+		
+		skill = learning # Should get lesser modifier bonus for diplomacy too
+		
+		begin_scheme_with_agents_effect = {
+			SCHEME_TYPE = lopc_chronicler_service
+			TARGET_TYPE = target_character
+			TARGET_SCOPE = scope:courtier_x_liege
+			# Success.
+			AGENT_1 = agent_scribe
+			AGENT_2 = agent_scribe 
+			AGENT_3 = agent_scribe 
+			# Speed.
+			AGENT_4 = agent_herald 
+			AGENT_5 = lopc_agent_assistant 
+		}
+		# Extra event here to decide type of chronicle
+		trigger_event = lopc_scheme_event.0114
+		custom_tooltip = {
+			text = lopc_event.2104.e.tt
+		}
+	}
+	
+	option = { # Return to 1st service scheme screen
+		name = lopc_event.2102.d
+		trigger_event = { id = lopc_event.2103 }
+	}
+}
+lopc_event.2105 = { # Oust republican ruler from power
+	title = lopc_event.2105.t
+	desc = lopc_event.2105.desc
+	type = character_event
+	theme = realm
+    immediate = {
+		save_scope_as = courtier_x
+		#random_relation = {
+		#	type = lopc_employer
+		#	save_scope_as = courtier_x_liege
+		#}
+	}
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	lower_left_portrait = {
+		character = scope:courtier_x_liege
+		animation = thinking
+	}
+	option = { # Large investment
+		name = lopc_event.2105.a
+		custom_tooltip = {
+			text = lopc_event.2105.a.tt
+		}
+		add_character_flag = flag:lopc_big_election_investment
+        remove_short_term_gold = {
+			value = 100
+			multiply = scope:courtier_x_liege.highest_held_title_tier
+			min = 100
+		}
+		stress_impact = {
+			disloyal = medium_stress_impact_loss
+			loyal = medium_stress_impact_gain
+		}
+		trigger_event = { 
+			id = lopc_event.2106
+			years = 1
+		}
+	}
+	option = { # Medium investment
+		name = lopc_event.2105.b
+		custom_tooltip = {
+			text = lopc_event.2105.b.tt
+		}
+		add_character_flag = flag:lopc_medium_election_investment
+        remove_short_term_gold = {
+			value = 50
+			multiply = scope:courtier_x_liege.highest_held_title_tier
+			min = 50
+		}
+		stress_impact = {
+			disloyal = medium_stress_impact_loss
+			loyal = medium_stress_impact_gain
+		}
+		trigger_event = { 
+			id = lopc_event.2106
+			years = 1
+		}
+	}
+	option = { # Minimum investment
+		name = lopc_event.2105.c
+		custom_tooltip = {
+			text = lopc_event.2105.c.tt
+		}
+		add_character_flag = flag:lopc_small_election_investment
+        remove_short_term_gold = {
+			value = 25
+			multiply = scope:courtier_x_liege.highest_held_title_tier
+			min = 25
+		}
+		stress_impact = {
+			disloyal = medium_stress_impact_loss
+			loyal = medium_stress_impact_gain
+		}
+		trigger_event = { 
+			id = lopc_event.2106
+			years = 1
+		}
+	}
+	option = { # Actually, no.
+		name = lopc_event.2105.d
+		trigger_event = { id = lopc_event.2100 }
+	}
+}
+lopc_event.2106 = { # Oust republican ruler from power - check outcome
+	hidden = yes
+	trigger = {
+		any_relation = {
+			type = lopc_employer
+			has_government = republic_government
+		}
+	}
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+    option = {
+		random_list = {
+			25 = { # You win
+				modifier = {
+					add = lopc_republican_election_value
+					min = 0
+				}
+				modifier = {
+					add = {
+						value = scope:courtier_x_liege.lopc_republican_election_value
+						multiply = -1
+					}
+					max = 0
+				}
+				trigger_event = lopc_event.2107
+			}
+			75 = { # You lose
+				trigger_event = lopc_event.2108
+			}
+		}
+	}
+	after = {
+		remove_character_flag = flag:lopc_big_election_investment
+		remove_character_flag = flag:lopc_medium_election_investment
+		remove_character_flag = flag:lopc_small_election_investment
+	}
+}
+lopc_event.2107 = { # Oust republican ruler from power - success
+	title = lopc_event.2107.t
+	desc = lopc_event.2107.desc
+	type = character_event
+	theme = realm
+    immediate = {
+		scope:courtier_x_liege = {
+			progress_towards_rival_effect = {
+				REASON = rival_plotting_against_me
+				CHARACTER = root
+				OPINION = -50
+			}
+		}
+	}
+	option = { # I won!
+		name = lopc_event.2107.a
+		stress_impact = {
+			arrogant = minor_stress_impact_loss
+			ambitious = minor_stress_impact_loss
+		}
+	}
+	
+	after = {
+		scope:courtier_x_liege = {
+			every_held_title = {
+				limit = {
+					# But not their noble family title, so they can continue playing as LADMIN
+					NOR = { has_title_law = noble_family_succession_law }
+					# and not baronies
+					#tier >= tier_county
+				}
+				add_to_list = target_titles
+			}
+		}
+
+		on_claimant_faction_war_win_common = {
+			TARGET_TITLES = target_titles
+			ATTACKER = root
+			DEFENDER = scope:courtier_x_liege
+			CLAIMANT = root
+		}
+	}
+}
+lopc_event.2108 = { # Oust republican ruler from power - failure
+	title = lopc_event.2108.t
+	desc = lopc_event.2108.desc
+	type = character_event
+	theme = realm
+    immediate = {
+		scope:courtier_x_liege = {
+			progress_towards_rival_effect = {
+				REASON = rival_plotting_against_me
+				CHARACTER = root
+				OPINION = -50
+			}
+		}
+	}
+	option = { # I lost!
+		name = lopc_event.2108.a
+		stress_impact = {
+			arrogant = minor_stress_impact_gain
+			ambitious = minor_stress_impact_gain
+		}
+	}
+}
+############################
+# Commander/Knight event ###
+############################
+lopc_event.2200 = {
+	type = character_event
+	title = lopc_event.2200.t
+	desc = lopc_event.2200.desc
+	theme = war
+	hidden = no
+	trigger = { is_lopc_adventurer_courtier = yes }
+	left_portrait = {
+		character = root
+	}
+	immediate = {
+		if = {
+			limit = { martial >= 20 }
+			add_prestige = 200
+		}
+		else_if = {
+			limit = { martial >= 15 }
+			add_prestige = 150
+		}
+		else ={
+			add_prestige = 100
+		}
+	}
+	
+	option = { # Relax with the troops
+		name = lopc_event.2200.a
+		stress_impact = {
+			diligent = minor_stress_impact_gain
+			lazy = minor_stress_impact_loss
+			content = minor_stress_impact_loss
+		}
+		add_prestige = 50
+	}
+	
+	option = { # Pray for some solace, and comrades lost
+		name = lopc_event.2200.b
+		stress_impact = {
+			zealous = medium_stress_impact_loss
+			compassionate = medium_stress_impact_loss
+			cynical = minor_stress_impact_gain
+		}
+		random_list = {
+			5 = { 
+				send_interface_toast = {
+					title = lopc_event.2101.b.success
+					left_icon = root
+					add_piety = 200 
+				}
+			}
+			10 = { 
+				send_interface_toast = {
+					title = lopc_event.2101.b.success
+					left_icon = root
+					add_piety = 175 
+				}
+			}
+			15 = { 
+				send_interface_toast = {
+					title = lopc_event.2101.b.success
+					left_icon = root
+					add_piety = 150 
+				}
+			}
+			10 = { 
+				send_interface_toast = {
+					title = lopc_event.2101.b.success
+					left_icon = root
+					add_piety = 125 
+				}
+			}
+		}
+	}
+	
+	option = { # Plan strategies against the enemy
+		name = lopc_event.2200.c
+		skill = martial
+		add_stress = 10
+		stress_impact = {
+			diligent = medium_stress_impact_loss
+			lazy = minor_stress_impact_gain
+		}
+		duel = {
+			skill = martial
+			value = high_skill_rating 
+			10 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 27
+					min = -40
+				}
+				send_interface_toast = {
+					title = lopc_event.2101.c.success
+					left_icon = root
+					add_prestige = 200 
+				}
+			}
+			50 = { 
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 9
+					min = -40
+				}
+				send_interface_toast = {
+					title = lopc_event.2101.c.success
+					left_icon = root
+					add_prestige = 150 
+				}
+			}
+			50 = { 
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3
+					min = -40
+				}
+				send_interface_toast = {
+					title = lopc_event.2101.c.success
+					left_icon = root
+					add_prestige = 100 
+				}
+			}
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+					min = -40
+				}
+				send_interface_toast = {
+					title = lopc_event.2101.c.success
+					left_icon = root
+					add_prestige = 50 
+				}
+			}
+		}
+	
+	}
+}
+
+#knight
+lopc_event.2201 = {
+	type = character_event
+	title = lopc_event.2201.t
+	desc = lopc_event.2201.desc
+	theme = war
+	hidden = no
+	trigger = { is_lopc_adventurer_courtier = yes }
+	left_portrait = {
+		character = root
+	}
+	immediate = {
+		if = {
+			limit = { prowess >= 20 }
+			add_prestige = 175
+		}
+		else_if = {
+			limit = { prowess >= 15 }
+			add_prestige = 125
+		}
+		else ={
+			add_prestige = 75
+		}
+	}
+	
+	option = { # Relax with the troops
+		name = lopc_event.2201.a
+		stress_impact = {
+			diligent = minor_stress_impact_gain
+			lazy = minor_stress_impact_loss
+			content = minor_stress_impact_loss
+		}
+		add_prestige = 50
+	}
+	
+	option = { # Pray for some solace, and comrades lost
+		name = lopc_event.2201.b
+		stress_impact = {
+			zealous = medium_stress_impact_loss
+			compassionate = medium_stress_impact_loss
+			cynical = minor_stress_impact_gain
+		}
+		random_list = {
+			5 = { 
+				send_interface_toast = {
+					title = lopc_event.2101.b.success
+					left_icon = root
+					add_piety = 200 
+				}
+			}
+			10 = { 
+				send_interface_toast = {
+					title = lopc_event.2101.b.success
+					left_icon = root
+					add_piety = 175 
+				}
+			}
+			15 = { 
+				send_interface_toast = {
+					title = lopc_event.2101.b.success
+					left_icon = root
+					add_piety = 150 
+				}
+			}
+			10 = { 
+				send_interface_toast = {
+					title = lopc_event.2101.b.success
+					left_icon = root
+					add_piety = 125 
+				}
+			}
+		}
+	}
+	
+	option = { # Plan strategies against the enemy
+		name = lopc_event.2201.c
+		skill = prowess
+		add_stress = 10
+		stress_impact = {
+			diligent = medium_stress_impact_loss
+			lazy = minor_stress_impact_gain
+		}
+		duel = {
+			skill = prowess
+			value = high_skill_rating 
+			10 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 27
+					min = -40
+				}
+				send_interface_toast = {
+					title = lopc_event.2101.c.success
+					left_icon = root
+					add_prestige = 100 
+				}
+			}
+			50 = { 
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 9
+					min = -40
+				}
+				send_interface_toast = {
+					title = lopc_event.2101.c.success
+					left_icon = root
+					add_prestige = 75 
+				}
+			}
+			50 = { 
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3
+					min = -40
+				}
+				send_interface_toast = {
+					title = lopc_event.2101.c.success
+					left_icon = root
+					add_prestige = 50 
+				}
+			}
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+					min = -40
+				}
+				send_interface_toast = {
+					title = lopc_event.2101.c.success
+					left_icon = root
+					add_prestige = 25 
+				}
+			}
+		}
+	
+	}
+}
+###############################
+### Court-Position-Specific ###
+###############################
+lopc_event.2300 = { # Travel begins
+	title = lopc_event.2300.t
+	desc = {
+		desc = lopc_event.2300.desc.1
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:courtier_x_liege = { involved_activity = { has_activity_type = activity_tournament } } }
+				desc = lopc_event.2300.desc.tournament
+			}
+			triggered_desc = {
+				trigger = { scope:courtier_x_liege = { involved_activity = { has_activity_type = activity_feast } } }
+				desc = lopc_event.2300.desc.feast
+			}
+			triggered_desc = {
+				trigger = { scope:courtier_x_liege = { involved_activity = { has_activity_type = activity_hunt } } }
+				desc = lopc_event.2300.desc.hunt
+			}
+			triggered_desc = {
+				trigger = { scope:courtier_x_liege = { involved_activity = { has_activity_type = activity_tour } } }
+				desc = lopc_event.2300.desc.tour
+			}
+			triggered_desc = {
+				trigger = { scope:courtier_x_liege = { involved_activity = { has_activity_type = activity_adult_education  } } }
+				desc = lopc_event.2300.desc.uni
+			}
+			triggered_desc = {
+				trigger = { scope:courtier_x_liege = { involved_activity = { has_activity_type = activity_pilgrimage } } }
+				desc = lopc_event.2300.desc.pilgrimage
+			}
+			triggered_desc = {
+				trigger = { scope:courtier_x_liege = { involved_activity = { has_activity_type = activity_chariot_race } } }
+				desc = lopc_event.2300.desc.chariots
+			}
+			triggered_desc = {
+				trigger = { scope:courtier_x_liege = { involved_activity = { has_activity_type = activity_wedding } } }
+				desc = lopc_event.2300.desc.wedding
+			}
+			triggered_desc = {
+				trigger = { scope:courtier_x_liege = { involved_activity = { has_activity_type = activity_funeral } } }
+				desc = lopc_event.2300.desc.funeral
+			}
+			desc = lopc_event.2300.desc.generic
+		}
+		desc = lopc_event.2300.desc.2
+	}
+	
+	type = character_event
+	theme = travel
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	
+	left_portrait = {
+		character = root
+		animation = survey
+	}
+	right_portrait = {
+		character = scope:courtier_x_liege
+		animation = thinking
+	}
+	
+	option = { # 
+		name = lopc_event.2300.a
+	}
+}
+lopc_event.2301 = { # Travel ends
+	title = lopc_event.2301.t
+	desc = lopc_event.2301.desc
+	type = character_event
+	theme = travel
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	
+	left_portrait = {
+		character = root
+		animation = survey
+	}
+	right_portrait = {
+		character = scope:courtier_x_liege
+		animation = thinking
+	}
+	
+	option = { # 
+		name = lopc_event.2301.a
+	}
+	after = {
+		lopc_successful_service_scheme_effect = { TARGET = scope:courtier_x_liege }
+	}
+}
+lopc_event.2302 = { # Travel Event 1: Time in holding
+	title = lopc_event.2302.t
+	desc = lopc_event.2302.desc
+	type = character_event
+	theme = travel
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	
+	left_portrait = {
+		character = root
+		animation = survey
+	}
+	right_portrait = {
+		character = scope:courtier_x_liege
+		animation = thinking
+	}
+	
+	option = { # 
+		name = lopc_event.2302.a
+	}
+}
+lopc_event.2303 = { # Travel Event 2: Time on the road
+	title = lopc_event.2303.t
+	desc = lopc_event.2303.desc
+	type = character_event
+	theme = travel
+	
+	immediate = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+	}
+	
+	left_portrait = {
+		character = root
+		animation = survey
+	}
+	right_portrait = {
+		character = scope:courtier_x_liege
+		animation = thinking
+	}
+	
+	option = { # 
+		name = lopc_event.2303.a
+	}
+}
+### TRUE LANDLESS UTILITY EVENTS ###
+# Since not "playable", not included in the normal on_actions, therefore using a utility event instead
+lopc_event.2400 = { # Normal Court Utility Event. If still courtier, fire a msg event and trigger this again in 3-12 months
+	type = character_event
+	hidden = yes
+	trigger = {
+		is_lopc_adventurer_courtier = yes
+		is_landless_adventurer = no
+		is_ai = no
+	}
+	immediate = {
+		if = {
+			limit = { is_imprisoned = no }
+			random_list = { # Random Courtier Events - want lots
+				10 = { trigger_event = lopc_event.2000 }
+				10 = { trigger_event = lopc_event.2001 }
+				10 = { trigger_event = lopc_event.2002 }
+				10 = { trigger_event = lopc_event.2003 }
+				10 = { trigger_event = lopc_event.2004 }
+				10 = { trigger_event = lopc_event.2005 }
+				10 = { trigger_event = lopc_event.2006 }
+				10 = { trigger_event = lopc_event.2007 }
+				10 = { trigger_event = lopc_event.2008 }
+				10 = { trigger_event = lopc_event.2009 }
+				10 = { trigger_event = lopc_event.2010 }
+				10 = { trigger_event = lopc_event.2011 }
+				10 = { trigger_event = lopc_event.2012 }
+				10 = { trigger_event = lopc_event.2013 }
+				10 = { trigger_event = lopc_event.2014 }
+				10 = { trigger_event = lopc_event.2015 }
+				10 = { trigger_event = lopc_event.2016 }
+				10 = { trigger_event = lopc_event.2017 }
+				10 = { trigger_event = lopc_event.2018 }
+				10 = { trigger_event = lopc_event.2019 }
+				10 = { trigger_event = lopc_event.2020 }
+				10 = { trigger_event = lopc_event.2021 }
+				10 = { trigger_event = lopc_event.2022 }
+				10 = { trigger_event = lopc_event.2023 }
+				10 = { trigger_event = lopc_event.2024 }
+				10 = { trigger_event = lopc_event.2025 }
+				10 = { trigger_event = lopc_event.2026 }
+				10 = { trigger_event = lopc_event.2027 }
+				10 = { trigger_event = lopc_event.2028 }
+				10 = { trigger_event = lopc_event.2029 }
+				10 = { trigger_event = lopc_event.2030 }
+				10 = { trigger_event = lopc_event.2031 }
+				10 = { trigger_event = lopc_event.2032 }
+				10 = { trigger_event = lopc_event.2040 }
+				10 = { trigger_event = lopc_event.2041 }
+				10 = { trigger_event = lopc_event.2042 }
+				10 = { trigger_event = lopc_event.2043 }
+				10 = { trigger_event = lopc_event.2044 }
+				10 = { trigger_event = lopc_event.2045 }
+				10 = { trigger_event = lopc_event.2046 }
+				10 = { trigger_event = lopc_event.2047 }
+				10 = { trigger_event = lopc_event.2048 }
+				10 = { trigger_event = lopc_event.2049 }
+				200 = 0					# No event
+					# Dilemma Events
+			}
+			random_relation = {
+				type = lopc_employer
+				add_courtier = root
+			}
+			hidden_effect = { return_to_court = yes }
+		}
+		trigger_event = {
+			id = lopc_event.2400
+			months = { 3 12 }
+		}
+	}
+}
+lopc_event.2401 = { # Holy order Utility Event.
+	type = character_event
+	hidden = yes
+	trigger = {
+		has_character_modifier = lopc_holy_order
+		is_landless_adventurer = no
+	}
+	immediate = {
+		#change_lopc_performance = { amount = 1 }
+		if = {
+			limit = { is_imprisoned = no }
+			random_list = { # Random Courtier Events - want lots
+				#chance_to_happen = 100
+				10 = { trigger_event = lopc_event.2000 }
+				10 = { trigger_event = lopc_event.2000 }
+				10 = { trigger_event = lopc_event.2002 }
+				10 = { trigger_event = lopc_event.2015 }
+				10 = { trigger_event = lopc_event.2021 }
+				10 = { trigger_event = lopc_event.2022 }
+				10 = { trigger_event = lopc_event.2023 }
+				10 = { trigger_event = lopc_event.2024 }
+				10 = { trigger_event = lopc_event.2025 }
+				10 = { trigger_event = lopc_event.2026 }
+				10 = { trigger_event = lopc_event.2032 }
+				10 = { trigger_event = lopc_event.2040 }
+				10 = { trigger_event = lopc_event.2046 }
+				10 = { trigger_event = lopc_event.2048 }
+				120 = 0					# No event
+				# Dilemma Events
+			}
+		}
+		
+		trigger_event = {
+			id = lopc_event.2401
+			months = { 3 6 }
+		}
+	}
+}
+lopc_event.2402 = { # Mercenary Utility Event.
+	type = character_event
+	hidden = yes
+	trigger = {
+		has_character_modifier = lopc_merc
+		is_landless_adventurer = no
+	}
+	immediate = {
+		if = { # if hired and liege does not have the hired flag, pay courtier
+			limit = {
+				liege = { NOT = { has_character_flag = flag:lopc_hired_mercenary } }
+				any_ruler = {
+					any_hired_mercenary = {
+						mercenary_company_leader = root.liege
+						mercenary_company_expiration_days > 0
+					}	
+				}
+				#liege = { 
+				#	primary_title = { mercenary_company_expiration_days > 0 } 
+				#	NOT = { has_character_flag = flag:lopc_hired_mercenary }
+				#}
+			}
+			liege = { 
+				add_character_flag = flag:lopc_hired_mercenary
+			}
+			trigger_event = lopc_event.2411
+			trigger_event = {
+				id = lopc_event.2413
+				months = 3
+			}
+		}
+		else_if = { # if not hired and has flag, remove it.
+			limit = {
+				root.liege = { has_character_flag = flag:lopc_hired_mercenary }
+				any_mercenary_company = {
+					mercenary_company_leader = root.liege
+					mercenary_company_expiration_days = 0
+				}
+			}
+			liege = { remove_character_flag = flag:lopc_hired_mercenary }
+			trigger_event = lopc_event.2414
+		}
+		#change_lopc_performance = { amount = 1 }
+		if = {
+			limit = { is_imprisoned = no }
+			random_list = { # Random Courtier Events - want lots
+				10 = { trigger_event = lopc_event.2000 }
+				10 = { trigger_event = lopc_event.2001 }
+				10 = { trigger_event = lopc_event.2002 }
+				10 = { trigger_event = lopc_event.2008 }
+				10 = { trigger_event = lopc_event.2020 }
+				10 = { trigger_event = lopc_event.2021 }
+				10 = { trigger_event = lopc_event.2022 }
+				10 = { trigger_event = lopc_event.2024 }
+				10 = { trigger_event = lopc_event.2025 }
+				10 = { trigger_event = lopc_event.2032 }
+				10 = { trigger_event = lopc_event.2040 }
+				10 = { trigger_event = lopc_event.2046 }
+				10 = { trigger_event = lopc_event.2048 }
+				10 = { hidden_effect = { add_character_modifier = lopc_merc_experience } }
+				110 = 0					# No event
+				# Dilemma Events
+			}
+		}
+		
+		trigger_event = {
+			id = lopc_event.2402
+			months = { 3 6 }
+		}
+	}
+}
+lopc_event.2403 = { # Adventurer Utility Event.
+	type = character_event
+	hidden = yes
+	trigger = {
+		has_character_modifier = lopc_adventurer
+		is_landless_adventurer = no
+	}
+	immediate = {
+		#change_lopc_performance = { amount = 1 }
+		if = {
+			limit = { is_imprisoned = no }
+		}
+		random_list = { # Random Courtier Events - want lots
+			10 = { trigger_event = lopc_event.2000 }
+			10 = { trigger_event = lopc_event.2001 }
+			10 = { trigger_event = lopc_event.2002 }
+			10 = { trigger_event = lopc_event.2007 }
+			10 = { trigger_event = lopc_event.2008 }
+			10 = { trigger_event = lopc_event.2013 }
+			10 = { trigger_event = lopc_event.2022 }
+			10 = { trigger_event = lopc_event.2024 }
+			10 = { trigger_event = lopc_event.2025 }
+			10 = { trigger_event = lopc_event.2040 }
+			10 = { trigger_event = lopc_event.2046 }
+			10 = { trigger_event = lopc_event.2048 }
+			100 = 0					# No event
+			# Dilemma Events
+		}
+		
+		trigger_event = {
+			id = lopc_event.2403
+			months = { 3 6 }
+		}
+	}
+}
+
+lopc_event.2410 = { # Holy Order. Just Hired.
+	title = lopc_event.2410.t
+	desc = lopc_event.2410.desc
+	type = character_event
+	theme = war
+	
+	immediate = {
+		root.liege = { save_scope_as = grandmaster }
+		trigger_event = {
+			id = lopc_event.2412
+			months = 3
+		}
+	}
+	
+	left_portrait = {
+		character = scope:grandmaster
+		animation = bold
+	}
+	lower_left_portrait = {
+		character = scope:actor
+		animation = bold
+	}
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	
+	option = { # Deus Vult
+		name = lopc_event.2410.a
+		add_piety = 100
+	}
+}
+lopc_event.2411 = { # Mercenary Company. Just Hired.
+	title = lopc_event.2411.t
+	desc = lopc_event.2411.desc
+	type = character_event
+	theme = war
+	
+	immediate = {
+		root.liege = {
+			save_scope_as = mercenary_leader
+		}
+		random_ruler = {
+			limit = { 
+				any_hired_mercenary = {
+					mercenary_company_leader = root.liege
+				}	
+			}
+			save_scope_as = mercenary_employer
+		}
+	}
+	
+	left_portrait = {
+		character = root.liege
+		animation = bold
+	}
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	lower_right_portrait = {
+		character = scope:mercenary_employer
+		animation = thinking
+	}
+	
+	option = { # Money
+		name = lopc_event.2411.a
+		add_gold = 10
+	}
+}
+lopc_event.2412 = { # Hired Holy Order ongoing-war event
+	title = lopc_event.2412.t
+	desc = lopc_event.2412.desc
+	type = character_event
+	theme = war
+	
+	trigger = {
+		is_lopc_adventurer_special_courtier = yes
+		scope:actor = {
+			any_primary_war_enemy = {
+				NOT = { has_faith = scope:actor.faith }
+			}
+		}
+	}
+	
+	immediate = {
+		scope:actor = {
+			random_primary_war_enemy = {
+				save_scope_as = target_enemy
+				random_knight = {
+					save_scope_as = target_knight
+				}
+			}
+		}
+		trigger_event = {
+			id = lopc_event.2412
+			months = 3
+		}
+	}
+	
+	left_portrait = {
+		character = root
+		animation = aggressive_sword
+	}
+	lower_left_portrait = {
+		character = scope:actor
+		animation = aggressive_sword
+	}
+	right_portrait = {
+		character = scope:target_knight
+		animation = aggressive_sword
+	}
+	
+	lower_right_portrait = {
+		character = scope:target_enemy
+		animation = aggressive_sword
+	}
+	
+	option = { # Prowess scheme. More gold + prestige on success. Also, a 10% chance of injury.
+		name = lopc_event.2411.a
+		trigger = { 
+			custom_tooltip = {
+				text = lopc_event.2411.a.invalidated
+				is_imprisoned = no
+				is_pregnant = no
+				is_incapable = no
+			}
+			exists = scope:target_enemy
+		}
+		
+		duel = {
+			skill = prowess
+			value = very_high_skill_rating 
+			100 = { 
+				desc = lopc_event.2412.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+					min = -30
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2412.success
+					left_icon = root
+					add_prestige = 50
+					add_piety = 50
+					add_gold = 10
+				}
+				change_lopc_performance = { amount = 3 }
+			}
+			50 = { 
+				desc = lopc_event.2412.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+					#min = -50
+				}
+				send_interface_toast = {
+					title = lopc_event.2412.failure
+					left_icon = root
+					add_prestige = 25
+					add_piety = 25
+					add_gold = 5
+				}
+				change_lopc_performance = { amount = 1 }
+			}
+		}
+		
+		random_list = {
+			20 = { 
+				increase_wounds_effect = { REASON = fight } 
+				send_interface_toast = {
+					title = lopc_event.2412.wounded
+					left_icon = root
+				}
+			}
+			20 = { # trigger a duel 
+				custom_tooltip = lopc_event.2412.tt
+				if = {
+					limit = { exists = scope:target_knight }
+					configure_start_single_combat_effect = {
+						SC_INITIATOR = root
+						SC_ATTACKER = scope:target_knight
+						SC_DEFENDER = root
+						FATALITY = possible
+						FIXED = no
+						LOCALE = terrain_scope
+						OUTPUT_EVENT = lopc_duel_event.0004
+						INVALIDATION_EVENT = perk_interaction.0102
+					}
+				}
+			}
+			60 = 0
+		}
+	}
+	
+	option = { # Rest instead (minimal payout but no risk of injury)
+		name = lopc_event.2411.b
+		add_gold = 2
+	}
+}
+lopc_event.2413 = { # Hired mercenary company ongoing-war event
+	title = lopc_event.2413.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:mercenary_employer = { is_at_war = yes } }
+				desc = lopc_event.2413.desc_War
+			}
+			desc = lopc_event.2413.desc_NoWar
+		}
+		
+	}
+	type = character_event
+	theme = war
+	
+	trigger = {
+		is_lopc_adventurer_special_courtier = yes
+		liege = { has_character_flag = flag:lopc_hired_mercenary }
+	}
+	
+	immediate = {
+		# get scopes of employer and their enemy
+		random_ruler = {
+			limit = { 
+				any_hired_mercenary = {
+					mercenary_company_leader = root.liege
+				}	
+			}
+			save_scope_as = mercenary_employer
+		}
+		scope:mercenary_employer = {
+			random_war_enemy = {
+				save_scope_as = target_enemy
+				random_knight = {
+					save_scope_as = target_knight
+				}
+			}
+		}
+		trigger_event = {
+			id = lopc_event.2413
+			months = 3
+		}
+	}
+	
+	after = {
+		clear_saved_scope = target_enemy
+		clear_saved_scope = target_knight
+		clear_saved_scope = mercenary_employer
+	}
+	
+	left_portrait = {
+		character = root
+		animation = aggressive_sword
+	}
+	lower_left_portrait = {
+		character = scope:mercenary_employer
+		animation = aggressive_sword
+	}
+	right_portrait = {
+		trigger = { scope:mercenary_employer = { is_at_war = yes } }
+		character = scope:target_knight
+		animation = aggressive_sword
+	}
+	
+	lower_right_portrait = {
+		trigger = { scope:mercenary_employer = { is_at_war = yes } }
+		character = scope:target_enemy
+		animation = aggressive_sword
+	}
+	
+	option = { # Prowess scheme. More gold + prestige on success. Also, a 10% chance of injury.
+		name = lopc_event.2411.a
+		trigger = { 
+			custom_tooltip = {
+				text = lopc_event.2411.a.invalidated
+				is_imprisoned = no
+				is_pregnant = no
+				is_incapable = no
+			}
+			scope:mercenary_employer = { is_at_war = yes }
+			exists = scope:target_enemy
+		}
+		show_as_unavailable = {
+			scope:mercenary_employer = { is_at_war = yes }
+		}
+		
+		duel = {
+			skill = prowess
+			value = very_high_skill_rating 
+			100 = { 
+				desc = lopc_event.2412.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+					min = -30
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2412.success
+					left_icon = root
+					add_prestige = 50
+					add_gold = 15
+				}
+				change_lopc_performance = { amount = 3 }
+			}
+			50 = { 
+				desc = lopc_event.2412.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+					#min = -50
+				}
+				send_interface_toast = {
+					title = lopc_event.2412.failure
+					left_icon = root
+					add_prestige = 25
+					add_gold = 10
+				}
+				change_lopc_performance = { amount = 1 }
+			}
+		}
+		
+		random_list = {
+			20 = { 
+				increase_wounds_effect = { REASON = fight } 
+				send_interface_toast = {
+					title = lopc_event.2412.wounded
+					left_icon = root
+				}
+			}
+			20 = { # trigger a duel 
+				custom_tooltip = lopc_event.2412.tt
+				if = {
+					limit = { exists = scope:target_knight }
+					configure_start_single_combat_effect = {
+						SC_INITIATOR = root
+						SC_ATTACKER = scope:target_knight
+						SC_DEFENDER = root
+						FATALITY = possible
+						FIXED = no
+						LOCALE = terrain_scope
+						OUTPUT_EVENT = lopc_duel_event.0004
+						INVALIDATION_EVENT = perk_interaction.0102
+					}
+				}
+			}
+			60 = 0
+		}
+	}
+	
+	option = { # Rest instead (minimal payout but no risk of injury)
+		name = lopc_event.2411.b
+		add_gold = 5
+	}
+}
+
+lopc_event.2414 = { # Mercenary Company. Contract ended
+	title = lopc_event.2414.t
+	desc = lopc_event.2414.desc
+	type = character_event
+	theme = war
+	
+	immediate = {
+		root.liege = { save_scope_as = mercenary_leader }
+	}
+	
+	left_portrait = {
+		character = scope:mercenary_leader
+		animation = thinking
+	}
+	right_portrait = {
+		character = root
+		animation = disapproval
+	}
+	
+	option = { # Damn
+		name = lopc_event.2414.a
+	}
+}
+lopc_event.2420 = { # Visit Camp - main event (for mercs and adventurers)
+	title = lopc_event.2420.t
+	desc = lopc_event.2420.desc
+	type = character_event
+	theme = war
+	window = visit_settlement_window
+	
+	immediate = {
+		root.liege = {
+			random_courtier_or_guest = {
+				limit = { 
+					is_imprisoned = no 
+					NOT = { this = root }
+				}
+				save_scope_as = target_comrade
+			}
+			save_scope_as = courtier_x_liege
+		}
+	}
+	
+	left_portrait = {
+		character = target_comrade
+		triggered_animation = {
+			trigger = {
+				OR = {
+					has_court_position = master_bard_camp_officer
+					has_trait = poet
+				}
+			}
+  			animation = lute_active
+  		}
+		triggered_animation = {
+			trigger = {
+				OR = {
+					has_trait = hashishiyah
+					has_trait = drunkard
+					has_trait = rakish
+				}
+			}
+  			animation = drink
+  		}
+		triggered_animation = {
+			trigger = {
+				OR = {
+					has_trait = brave
+				}
+			}
+  			animation = personality_bold
+  		}
+		animation = inspect_weapon
+	}
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	
+	option = { # Sit by the campfire
+		name = lopc_event.2420.a
+		custom_tooltip = lopc_event.2420.a.tt
+		add_stress = -25
+		stress_impact = {
+			diligent = miniscule_stress_impact_gain
+			lazy = medium_stress_impact_loss
+		}
+	}
+	option = { # Go to your tent.
+		name = lopc_event.2420.b
+		custom_tooltip = lopc_event.2420.b.tt
+		trigger_event = lopc_event.2102
+	}
+	option = { # Walk Around Camp
+		name = lopc_event.2420.c
+		custom_tooltip = lopc_event.2420.c.tt
+		trigger_event = lopc_event.2421
+	}
+	option = { # There's work to be done.
+		name = lopc_event.2420.d
+		custom_tooltip = lopc_event.2420.d.tt
+		hidden_effect = {
+			remove_interaction_cooldown = lopc_true_landless_attend_camp
+		}
+	}
+}
+
+lopc_event.2421 = { # Visit Camp - actvities based on domicile buildings
+	title = lopc_event.2421.t
+	desc = lopc_event.2421.desc
+	type = character_event
+	theme = war
+	window = visit_settlement_window
+	
+	immediate = {
+	}
+	lower_left_portrait = {
+		character = root.liege
+	}
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	
+	option = { # Train at the training grounds (always for mercs)
+		trigger = {
+			OR = {
+				liege = { has_domicile_building_or_higher = proving_grounds_01 }
+				has_character_modifier = lopc_merc
+			}
+		}
+		name = lopc_event.2421.a
+		custom_tooltip = lopc_event.2421.a.tt
+		random_list = {
+			10 = { 
+				send_interface_toast = {
+					title = lopc_event.2421.training
+					left_icon = root
+					add_prowess_skill = 1 
+				}
+			}
+			45 = { 
+				send_interface_toast = {
+					title = lopc_event.2421.training
+					left_icon = root
+					add_character_modifier = {
+						modifier = lopc_prowess_training
+						years = 1
+					}
+				}
+			}
+			40 = {
+				send_interface_toast = {
+					title = lopc_event.2421.training
+					left_icon = root
+					add_martial_lifestyle_xp = 75
+				}
+			}
+			5 = { 
+				send_interface_toast = {
+					title = lopc_event.2421.training
+					left_icon = root
+					increase_wounds_effect = { REASON = fight } 
+				}
+			}
+		}
+	}
+	option = { # Adopt a dog.
+		trigger = {
+			root.liege = {
+				domicile ?= { has_domicile_parameter = camp_unlocks_adopt_a_kennel_dog_decision }
+			}			
+			NOT = {
+				any_owned_story = {
+					story_type = story_cycle_pet_dog
+				}
+			}
+		}
+		name = lopc_event.2421.b
+		custom_tooltip = lopc_event.2421.b.tt
+		show_as_tooltip = { start_dog_story_cycle_effect = yes }
+		trigger_event = ep3_laamps.8010
+	}
+	option = { # Visit the barber
+		trigger = { 
+			liege = { 
+				has_domicile_building_or_higher = barber_tent_01 
+				is_landless_adventurer = yes
+			} 
+		}
+		name = lopc_event.2421.c
+		custom_tooltip = lopc_event.2421.c.tt
+		add_character_modifier = {
+			modifier = ep3_laamp_flavour_ewan_0051_check_building_barber_tent_modifier  
+			years = 1
+		}
+	}
+	option = { # Visit the mess tent - always available to mercs
+		trigger = { liege = { has_domicile_building_or_higher = mess_tent_01 } }
+		name = lopc_event.2421.d
+		custom_tooltip = lopc_event.2421.d.tt
+		add_character_modifier = {
+			modifier = feast_hearty_diet_modifier 
+			years = 1
+		}
+	}
+	option = { # Do some odd jobs.
+		name = lopc_event.2421.e
+		custom_tooltip = lopc_event.2421.e.tt
+		hidden_effect = {
+			change_lopc_performance = { amount = 1 }
+			random_list = { # Random camp events - want lots
+				10 = { trigger_event = lopc_event.2000 }
+				10 = { trigger_event = lopc_event.2001 }
+				10 = { trigger_event = lopc_event.2002 }
+				10 = { trigger_event = lopc_event.2007 }
+				10 = { trigger_event = lopc_event.2008 }
+				10 = { trigger_event = lopc_event.2013 }
+				10 = { trigger_event = lopc_event.2022 }
+				10 = { trigger_event = lopc_event.2024 }
+				10 = { trigger_event = lopc_event.2025 }
+				10 = { trigger_event = lopc_event.2040 }
+				10 = { trigger_event = lopc_event.2046 }
+				10 = { trigger_event = lopc_event.2048 }
+				10 = { # Couple more outcomes unique to helping around camp.
+					liege = { 
+						domicile = { change_provisions = medium_provisions_gain } 
+					}
+				}
+				10 = {
+					add_character_modifier = {
+						modifier = ep3_inspired_by_life
+						years = 1
+					}
+				}
+				50 = 0					# No event
+			}
+		}
+	}
+	option = { # Back to main camp
+		name = lopc_event.2421.f
+		custom_tooltip = lopc_event.2421.f.tt
+		trigger_event = lopc_event.2420
+	}
+}
+
+lopc_event.2430 = { # Opportunities menu - Mercenaries to join, look for local employment, buy a home (save variable of location scope), 
+	title = lopc_event.2430.t
+	desc = lopc_event.2430.desc
+	type = character_event
+	theme = realm
+	override_background = {
+		#reference = terrain_scope
+		reference = tavern
+	}
+	
+	immediate = {
+		location.barony = { save_scope_as = local_province }
+		location = {
+			save_scope_as = home_location
+		}
+		location.barony.holder = { save_scope_as = local_ruler }
+		random_mercenary_company = {
+			limit = { 
+				mercenary_company_leader = {
+					#capital_province.geographical_region = root.capital_province.geographical_region
+					#is_mercenary_in_hire_range = root.location.holder
+					in_diplomatic_range = root
+				}
+				#is_mercenary_in_hire_range = root.location.holder
+			}
+			mercenary_company_leader = { save_scope_as = local_merc }
+		}
+	}
+	
+	lower_left_portrait = {
+		character = scope:local_merc
+	}
+	lower_center_portrait = {
+		character = scope:local_ruler
+	}
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	
+	option = { # Mercs to join
+		trigger = {
+			custom_tooltip = {
+				text = lopc_event.2430.a.invalid
+				lopc_is_employed = no
+			}
+			exists = scope:local_merc
+		}
+		show_as_unavailable = { always = yes }
+		name = lopc_event.2430.a
+		custom_tooltip = lopc_event.2430.a.tt
+		scope:local_merc = { 
+			add_courtier = root
+		}
+		hidden_effect = { 
+			return_to_court = yes 				
+			set_relation_lopc_employer  = { 
+				custom_description = set_relation_lopc_employer_desc
+				target = scope:local_merc
+			}
+			set_variable = {
+				name = lopc_court_performance
+				value = 0
+			}
+			change_lopc_performance = { amount = 5 }
+		}
+		
+		add_character_modifier = lopc_merc
+
+		trigger_event = {
+			id = lopc_event.2402
+			months = { 1 3 }
+		}
+	}
+	option = { # Local Jobs
+		trigger = { 
+			custom_tooltip = {
+				text = lopc_event.2430.a.invalid
+				lopc_is_employed = no
+			}
+		}
+		show_as_unavailable = { always = yes }
+		name = lopc_event.2430.b
+		custom_tooltip = lopc_event.2430.b.tt
+		hidden_effect = {
+			random_list = {
+				10 = { trigger_event = lopc_event.2431 }
+				10 = { trigger_event = lopc_event.2432 }
+				10 = { trigger_event = lopc_event.2433 }
+				10 = { trigger_event = lopc_event.2434 }
+				10 = { trigger_event = lopc_event.2435 }
+			}
+		}
+	}
+	option = { # Buy A Home
+		trigger = {
+			lopc_homeowner = no
+			gold >= {
+				value = 2
+				multiply = scope:home_location.county.development_level
+			}
+		}
+		show_as_unavailable = { lopc_homeowner = no }
+		name = lopc_event.2430.c
+		custom_tooltip = lopc_event.2430.c.tt
+		remove_short_term_gold = {
+			value = 2
+			multiply = scope:home_location.county.development_level
+		}
+		add_character_modifier = lopc_owns_home_1		
+		set_variable = {
+			name = lopc_home_location
+			value = scope:home_location
+		}
+	}
+	option = { # Another time
+		name = lopc_event.2430.d
+		custom_tooltip = lopc_event.2431.b.tt
+		#hidden_effect = {
+		#	remove_interaction_cooldown = lopc_search_opportunities
+		#}
+	}
+}
+
+lopc_event.2431 = { # Local job 1: guard
+	title = lopc_event.2431.t
+	desc = lopc_event.2431.desc
+	type = character_event
+	theme = martial
+	override_background = {
+		reference = tavern
+	}
+	immediate = {
+	}
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	option = { # Let's Try
+		name = lopc_event.2431.a
+		skill = prowess
+		duel = {
+			skill = prowess
+			value = high_skill_rating 
+			100 = { # Got the job!
+				desc = lopc_event.2431.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+					min = -30
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2431.success
+					left_icon = root
+					add_character_modifier = {
+						modifier = lopc_job_guard
+						years = 3
+					}
+					add_prestige = 25
+				}
+			}
+			50 = { # Didn't qualify
+				desc = lopc_event.2431.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+					#min = -50
+				}
+				send_interface_toast = {
+					title = lopc_event.2431.failure
+					left_icon = root
+				}
+			}
+		}
+	}
+	option = { # No thanks
+		name = lopc_event.2431.b
+		custom_tooltip = lopc_event.2431.b.tt
+	}
+}
+
+lopc_event.2432 = { # Local job 2: Lesser Noble Herald
+	title = lopc_event.2432.t
+	desc = lopc_event.2432.desc
+	type = character_event
+	theme = diplomacy
+	override_background = {
+		reference = tavern
+	}
+	immediate = {
+	}
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	option = { # Let's Try
+		name = lopc_event.2432.a
+		skill = diplomacy
+		duel = {
+			skill = diplomacy
+			value = high_skill_rating 
+			100 = { # Got the job!
+				desc = lopc_event.2431.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+					min = -30
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2431.success
+					left_icon = root
+					add_character_modifier = {
+						modifier = lopc_job_herald
+						years = 3
+					}
+					add_prestige = 100
+				}
+			}
+			50 = { # Didn't qualify
+				desc = lopc_event.2431.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+					#min = -50
+				}
+				send_interface_toast = {
+					title = lopc_event.2431.failure
+					left_icon = root
+				}
+			}
+		}
+	}
+	option = { # No thanks
+		name = lopc_event.2431.b
+	}
+}
+
+lopc_event.2433 = { # Local job 3: shop assistant
+	title = lopc_event.2433.t
+	desc = lopc_event.2433.desc
+	type = character_event
+	theme = stewardship
+	override_background = {
+		reference = tavern
+	}
+	immediate = {
+	}
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	option = { # Let's Try
+		name = lopc_event.2433.a
+		skill = stewardship
+		duel = {
+			skill = stewardship
+			value = high_skill_rating 
+			100 = { # Got the job!
+				desc = lopc_event.2431.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+					min = -30
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2431.success
+					left_icon = root
+					add_character_modifier = {
+						modifier = lopc_job_assistant
+						years = 3
+					}
+					add_piety = 50
+				}
+			}
+			50 = { # Didn't qualify
+				desc = lopc_event.2431.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+					#min = -50
+				}
+				send_interface_toast = {
+					title = lopc_event.2431.failure
+					left_icon = root
+				}
+			}
+		}
+	}
+	option = { # No thanks
+		name = lopc_event.2431.b
+	}
+}
+
+lopc_event.2434 = { # Local job 4: ruffian
+	title = lopc_event.2434.t
+	desc = lopc_event.2434.desc
+	type = character_event
+	theme = intrigue
+	override_background = {
+		reference = tavern
+	}
+	immediate = {
+	}
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	option = { # Let's Try
+		name = lopc_event.2434.a
+		skill = intrigue
+		duel = {
+			skill = intrigue
+			value = high_skill_rating 
+			100 = { # Got the job!
+				desc = lopc_event.2431.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+					min = -30
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2431.success
+					left_icon = root
+					add_prestige = -50
+					add_character_modifier = {
+						modifier = lopc_job_ruffian
+						years = 3
+					}
+				}
+			}
+			50 = { # Didn't qualify
+				desc = lopc_event.2431.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+					#min = -50
+				}
+				send_interface_toast = {
+					title = lopc_event.2431.failure
+					left_icon = root
+				}
+			}
+		}
+	}
+	option = { # No thanks
+		name = lopc_event.2431.b
+	}
+}
+
+lopc_event.2435 = { # Local job 5: scribe
+	title = lopc_event.2435.t
+	desc = lopc_event.2435.desc
+	type = character_event
+	theme = learning
+	override_background = {
+		reference = tavern
+	}
+	immediate = {
+	}
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	option = { # Let's Try
+		name = lopc_event.2435.a
+		skill = learning
+		duel = {
+			skill = learning
+			value = high_skill_rating 
+			100 = { # Got the job!
+				desc = lopc_event.2431.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 5
+					min = -30
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2431.success
+					left_icon = root
+					add_character_modifier = {
+						modifier = lopc_job_scribe
+						years = 3
+					}
+				}
+			}
+			50 = { # Didn't qualify
+				desc = lopc_event.2431.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -5
+					#min = -50
+				}
+				send_interface_toast = {
+					title = lopc_event.2431.failure
+					left_icon = root
+					add_piety = 50
+				}
+			}
+		}
+	}
+	option = { # No thanks
+		name = lopc_event.2431.b
+	}
+}
+
+lopc_event.2436 = { # Establish a business
+	title = lopc_event.2436.t
+	desc = lopc_event.2436.desc
+	type = character_event
+	theme = realm
+	override_background = {
+		reference = study
+	}
+	trigger = {
+		is_imprisoned = no
+		exists = var:lopc_home_location
+		NOT = { has_character_flag = flag:lopc_owns_business }
+	}
+    #cooldown = { years = 5 }
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	immediate = {
+		var:lopc_home_location = {
+			save_scope_as = home_location
+		}
+	}
+	option = { # An inn
+		name = lopc_event.2436.a
+		remove_short_term_gold = 25
+		add_character_flag = flag:lopc_owns_business
+		add_character_modifier = lopc_business_inn_mixed
+	}
+	option = { # A shop
+		name = lopc_event.2436.b
+		remove_short_term_gold = 25
+		add_character_flag = flag:lopc_owns_business
+		add_character_modifier = lopc_business_shop_mixed
+	}
+	option = { # A farm
+		trigger = { var:lopc_home_location = { terrain = farmlands } }
+		show_as_unavailable = { always = yes }
+		name = lopc_event.2436.c
+		remove_short_term_gold = 25
+		add_character_flag = flag:lopc_owns_business
+		add_character_modifier = lopc_business_farm_mixed
+	}
+	option = { # A shipping company
+		trigger = {
+			var:lopc_home_location = { is_coastal = yes }
+		}
+		show_as_unavailable = { always = yes }
+		name = lopc_event.2436.d
+		remove_short_term_gold = 50
+		add_character_flag = flag:lopc_owns_business
+		add_character_modifier = lopc_business_shipping_mixed
+	}
+	option = { # A trade post
+		trigger = {
+			var:lopc_home_location.county.development_level <= 5
+		}
+		show_as_unavailable = { always = yes }
+		name = lopc_event.2436.e
+		remove_short_term_gold = 50
+		add_character_flag = flag:lopc_owns_business
+		add_character_modifier = lopc_business_trade_post_mixed
+	}
+	option = { # I'm good, actually
+		name = lopc_event.2436.f
+		add_stress = -10
+        stress_impact = {
+            greedy = miniscule_stress_impact_gain
+            lazy = minor_stress_impact_loss
+        }
+	}
+}
+### Generic events for truly landless (maybe make it less boring?) ###
+lopc_event.2440 = { # generic truly landless utility (~1/MONTH, add lifestyle xp and fire an event)
+	type = character_event
+	hidden = yes
+	trigger = {
+		is_landless = yes
+		is_landless_adventurer = no
+	}
+	cooldown = { days = 28 }
+	immediate = {
+		add_focused_lifestyle_xp_effect = { AMOUNT = 25 }
+		lopc_refresh_business = yes
+		if = {
+			limit = { is_imprisoned = no } 
+			random_list = { 
+				10 = { trigger_event = lopc_event.2441 }
+				10 = { trigger_event = lopc_event.2442 }
+				10 = { trigger_event = lopc_event.2443 }
+				10 = { trigger_event = lopc_event.2444 }
+				10 = { trigger_event = lopc_event.2445 }
+				10 = { trigger_event = lopc_event.2446 }
+				#10 = { trigger_event = lopc_event.2436 }
+				200 = 0					# No event
+			}
+		}
+		
+		trigger_event = {
+			id = lopc_event.2440
+			months = 1
+		}
+	}
+}
+# Templates: random_barrel_character, preaching_tour_priest_character, attacking_bandit, head_chasing_monk_character 
+lopc_event.2441 = { # Just travel_events.1003 without some triggers (bandit attack)
+    type = character_event
+    title = travel_events.1003.t
+    desc = lopc_event.2441.desc
+    theme = travel_danger
+    left_portrait = {
+        character = root
+       	animation = aggressive_sword
+    }
+    right_portrait = {
+        character = scope:attacking_bandit
+        animation = threatening
+    }
+    override_background = { reference = wilderness_scope }
+    cooldown = { years = 1 }
+    trigger = {
+        is_available_travelling_adult = yes
+        is_location_valid_for_travel_event_on_land = yes
+        exists = root.current_travel_plan.travel_leader
+		NOR = { 
+			has_character_flag = had_travel_danger_event_1002_bandit_event_recently
+			has_character_flag = had_travel_event_3070_bandit_event_recently
+		}
+    }
+    immediate = {
+    	wayfarer_storyteller_fame_effect = { VALUE = roaming_reward_fame_small }
+		mp_delay_travel_plan = { DAYS = 90 }
+
+        create_character = {
+            template = bandit_character
+            location = root.location
+            #Set up the scope
+            save_scope_as = attacking_bandit
+        }
+        if = {
+        	limit = { exists = root.current_travel_plan.travel_leader }
+        	root.current_travel_plan.travel_leader = { save_scope_as = travel_leader }
+        }
+
+        traveler_danger_xp_effect = {
+			MIN = 3
+			MAX = 7
+		}
+        add_character_flag = {
+        	flag = had_travel_event_1003_bandit_event_recently
+        	years = 5
+        }
+
+    }
+    #Pay
+    option = { 
+        name = travel_events.1003.a
+        stress_impact = {   
+            greedy = miniscule_stress_impact_gain
+        }
+        remove_short_term_gold = minor_gold_value
+    	ai_chance = {
+    	    base = 100
+    	    ai_value_modifier = {
+    	        ai_greed = -1    
+    	    }
+			modifier = {
+				factor = 0
+				gold <= minor_gold_value
+			}
+    	}
+    }
+    #Fight
+    option = { 
+        name = travel_events.1003.b
+        duel = {
+        	skill = prowess
+        	value = decent_skill_rating
+        	#They die!
+			1 = { 
+				death = {
+					killer = scope:attacking_bandit
+					death_reason = death_battle
+				}
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -1
+				}
+			}
+			#They are seriously wounded
+			2 = { 
+				apply_maimed_trait_and_modifier_effect = yes
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -1
+				}
+			}
+			#They receive minor wounds
+			5 = { 
+				increase_wounds_effect = { REASON = fight }
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -4
+				}
+			}
+			#They're fine
+			10 = { 
+				root = {
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 3.5
+						min = -5
+					}
+					add_prestige = 50
+				}
+			}
+		}
+		stress_impact = {   
+			greedy = miniscule_stress_impact_loss
+			lustful = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_compassion = -1    
+			}
+		}
+	}
+	#Diplomacy
+	option = { 
+		name = lopc_event.2441.c
+		duel = {
+			skill = diplomacy
+			value = decent_skill_rating
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = travel_events.1003.a.success
+			}
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = travel_events.1003.a.failure
+				scope:travel_leader = {
+					increase_wounds_effect = { REASON = fight }
+				}
+			}
+		}
+		stress_impact = {
+			wrathful = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_compassion = 1   
+			}
+		}
+	}
+	#Clean up the bandit
+	after = {
+		mp_resume_travel_plan = yes
+		if = {
+			limit = {
+				exists = scope:attacking_bandit
+				scope:attacking_bandit = { is_alive = yes }
+				root = { is_ai = yes }
+			}
+			scope:attacking_bandit = { silent_disappearance_effect = yes }
+		}
+	}
+}
+
+lopc_event.2442 = { # Begger asks for coin
+	title = lopc_event.2442.t
+	desc = lopc_event.2442.desc
+	type = character_event
+	theme = realm
+	override_background = {
+		reference = terrain_scope
+	}
+    cooldown = { years = 3 }
+    immediate = {
+        create_character = {
+            template = random_barrel_character
+            location = root.location
+			culture = root.location.culture
+			faith = root.location.faith
+            #Set up the scope
+            save_scope_as = begger
+        }
+	}
+	right_portrait = {
+		character = scope:begger
+		animation = beg
+	}
+	option = { # Here's a bunch
+		name = lopc_event.2442.a
+        remove_short_term_gold = 10
+        add_piety = 100
+		stress_impact = {
+			generous = medium_stress_impact_loss
+			compassionate = minor_stress_impact_loss
+			greedy = medium_stress_impact_gain
+			callous = medium_stress_impact_gain
+		}
+	}
+	option = { # Here's a bit
+		name = lopc_event.2442.b
+        remove_short_term_gold = 2
+        add_piety = 25
+		stress_impact = {
+			generous = minor_stress_impact_loss
+			compassionate = miniscule_stress_impact_loss
+			greedy = minor_stress_impact_gain
+			callous = minor_stress_impact_gain
+		}
+	}
+	option = { # No thanks
+		name = lopc_event.2442.c
+        add_piety = -25
+		stress_impact = {
+			generous = minor_stress_impact_gain
+			compassionate = minor_stress_impact_gain
+			greedy = minor_stress_impact_loss
+			callous = minor_stress_impact_loss
+		}
+	}
+	#Clean up the character
+	after = {
+		if = {
+			limit = {
+				exists = scope:begger
+				scope:begger = { is_alive = yes }
+			}
+			scope:begger = { silent_disappearance_effect = yes }
+		}
+	}
+}
+lopc_event.2443 = { # preacher disagreement
+    title = lopc_event.2443.t
+    desc = lopc_event.2443.desc
+    type = character_event
+    theme = realm
+    override_background = { reference = terrain_scope }
+    cooldown = { years = 3 }
+
+    immediate = {
+		save_scope_as = player
+        create_character = {
+            template = preaching_tour_priest_character
+            location = root.location
+            save_scope_as = wayward_preacher
+        }
+    }
+
+    left_portrait = {
+        character = root
+        animation = disapproval
+    }
+
+    right_portrait = {
+        character = scope:wayward_preacher
+        animation = debating
+    }
+
+    option = {
+        name = lopc_event.2443.a # Confront them publicly
+		duel = {
+			skill = learning
+			value = decent_skill_rating
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = lopc_event.2443.a.success
+				send_interface_toast = {
+					title = ekdd_travel_events.2443.a.success
+					add_piety = 100
+				}
+			}
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = lopc_event.2443.a.failure
+				send_interface_toast = {
+					title = ekdd_travel_events.2443.a.failure
+					add_piety = -100
+				}
+			}
+		}
+        stress_impact = {
+            zealous = minor_stress_impact_loss
+            humble = minor_stress_impact_gain
+        }
+    }
+
+    option = {
+        name = lopc_event.2443.b # Turn it into a clever opportunity
+        trigger = {
+            has_trait = cynical
+        }
+        add_gold = 50
+        add_piety = -50
+        stress_impact = {
+            cynical = minor_stress_impact_loss
+            zealous = minor_stress_impact_gain
+        }
+    }
+
+    option = {
+        name = lopc_event.2443.c # Let them preach
+        stress_impact = {
+            honest = minor_stress_impact_gain
+            cynical = minor_stress_impact_loss
+        }
+    }
+
+    after = {
+        if = {
+            limit = {
+                exists = scope:wayward_preacher
+                scope:wayward_preacher = { is_alive = yes }
+            }
+            scope:wayward_preacher = { silent_disappearance_effect = yes }
+        }
+    }
+}
+lopc_event.2444 = { # Coastal province, help down the docks
+	title = lopc_event.2444.t
+	desc = lopc_event.2444.desc
+	type = character_event
+	theme = realm
+	trigger = {
+		location = { is_coastal = yes }
+	}
+	override_background = {
+		reference = docks
+	}
+	immediate = {
+	}
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+    cooldown = { years = 2 }
+	option = { # Okay
+		name = lopc_event.2444.a
+		skill = prowess
+		duel = {
+			skill = prowess
+			value = high_skill_rating 
+			50 = { # Good job!
+				desc = lopc_event.2444.success
+				
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -45
+				}
+				
+				send_interface_toast = {
+					title = lopc_event.2444.success
+					left_icon = root
+					add_gold = medium_gold_value
+				}
+			}
+			50 = { # Acceptable
+				desc = lopc_event.2444.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -45
+				}
+				send_interface_toast = {
+					title = lopc_event.2444.failure
+					left_icon = root
+					add_gold = minor_gold_value
+				}
+			}
+		}
+		
+        stress_impact = {
+            greedy = miniscule_stress_impact_loss
+            lazy = minor_stress_impact_gain
+        }
+	}
+	option = { # No thanks
+		name = lopc_event.2444.b
+		add_stress = -10
+        stress_impact = {
+            lazy = minor_stress_impact_loss
+        }
+	}
+}
+
+lopc_event.2445 = { # A random ruler in the region has heard about you and invites you to their court.
+	type = letter_event
+	opening = {
+		desc = lopc_event.2445.opening
+	}
+	desc = lopc_event.2445.desc
+	
+	sender = scope:job_offerer
+	trigger = {
+		is_lopc_adventurer_courtier = no
+		prestige_level > 2
+		any_ruler = {
+			limit = { 
+				is_landed = yes
+				in_diplomatic_range = root
+				highest_held_title_tier = root.prestige_level
+			}
+			count > 0
+		}
+	}
+	immediate = {
+		random_ruler = {
+			limit = { 
+				is_landed = yes
+				in_diplomatic_range = root
+				highest_held_title_tier = root.prestige_level
+				opinion = {
+					target = root
+					value >= 5
+				}
+			}
+			save_scope_as = job_offerer
+		}
+		save_scope_as = player
+	}
+    cooldown = { years = 2 }
+	option = { # Okay
+		name = lopc_event.2445.a
+		scope:job_offerer = {
+			save_scope_as = courtier_x_liege
+		}
+		#save_scope_as = recipient
+		trigger_event = {
+			id = lopc_event.0002
+		}
+	}
+	option = { # No thanks
+		name = lopc_event.2445.b
+		
+        stress_impact = {
+            ambitious = minor_stress_impact_loss
+        }
+	}
+}
+
+lopc_event.2446 = { # You are in debt and cannot afford food. Lose prestige and health
+	title = lopc_event.2446.t
+	desc = lopc_event.2446.desc
+	type = character_event
+	theme = mental_break
+	
+    override_background = { reference = terrain_scope }
+	trigger = {
+		is_lopc_adventurer_courtier = no
+		gold < 0
+	}
+	immediate = {
+		save_scope_as = player
+		if = {
+			limit = {
+				has_variable = character_weight_variable
+			}
+			change_variable = {
+				name = character_weight_variable
+				add = -4
+			}
+		}
+		add_character_modifier = {
+			modifier = stress_starvation 
+			years = 1
+		}
+		add_prestige = -50
+	}
+	right_portrait = {
+		character = root
+		animation = beg
+	}
+    cooldown = { years = 1 }
+	
+	option = { # Oh dear
+		name = lopc_event.2446.a
+	}
+}

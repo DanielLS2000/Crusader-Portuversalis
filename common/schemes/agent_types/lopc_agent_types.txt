@@ -1,0 +1,172 @@
+lopc_agent_assistant = {
+	contribution_type = speed
+
+	contribution = {
+		add = agent_theologian_contribution_value
+		# Speed, so invert it.
+		multiply = -1
+	}
+}
+
+lopc_agent_strategist = {
+	contribution_type = success_chance_max
+	contribution = {
+		value = scheme_agent_general_bonuses_contribution_score_value
+		# Skills
+		## Intrigue
+		add = {
+			value = intrigue
+			multiply = agent_3to1_1_skill_mult_value
+			ceiling = yes
+			max = agent_max_skill_value
+			desc = scheme_agent_aptitude.skill.intrigue
+		}
+		## Martial
+		add = {
+			value = martial
+			multiply = agent_3to1_3_skill_mult_value
+			ceiling = yes
+			max = agent_max_skill_value
+			desc = scheme_agent_aptitude.skill.martial
+		}
+		# Traits
+		## Bonuses
+		### ++ Traveler
+		if = {
+			limit = { has_trait = lifestyle_traveler }
+			add = {
+				value = agent_trait_bonus_t2_value
+				desc = scheme_agent_aptitude.trait.lifestyle_traveler
+			}
+		}
+		### ++ Hunter
+		if = {
+			limit = { has_trait = lifestyle_hunter }
+			add = {
+				value = agent_trait_bonus_t2_value
+				desc = scheme_agent_aptitude.trait.lifestyle_hunter
+			}
+		}
+		### +++ Martial Education
+		if = {
+			limit = { 
+				has_trait_rank = {
+				  trait = education_martial
+				  rank > 2
+				} 
+			}
+			add = {
+				value = agent_trait_bonus_t3_value
+				desc = scheme_agent_aptitude.trait.education_martial
+			}
+		}
+		### +++ Strategist
+		if = {
+			limit = { 
+				has_trait = strategist
+			}
+			add = {
+				value = agent_trait_bonus_t3_value
+				desc = scheme_agent_aptitude.trait.strategist
+			}
+		}
+		### ++ Deceitful
+		if = {
+			limit = { has_trait = deceitful }
+			add = {
+				value = agent_trait_bonus_t2_value
+				desc = scheme_agent_aptitude.trait.deceitful
+			}
+		}
+		### ++ Callous
+		if = {
+			limit = { has_trait = callous }
+			add = {
+				value = agent_trait_bonus_t2_value
+				desc = scheme_agent_aptitude.trait.callous
+			}
+		}
+		### + Patient
+		if = {
+			limit = { has_trait = patient }
+			add = {
+				value = agent_trait_bonus_t2_value
+				desc = scheme_agent_aptitude.trait.patient
+			}
+		}
+		### + Cynical
+		if = {
+			limit = { has_trait = cynical }
+			add = {
+				value = agent_trait_bonus_t1_value
+				desc = scheme_agent_aptitude.trait.cynical
+			}
+		}
+		## Maluses
+		### - Impatient
+		if = {
+			limit = { has_trait = impatient }
+			add = {
+				value = agent_trait_malus_t1_value
+				desc = scheme_agent_aptitude.trait.impatient
+			}
+		}
+		### -- Forgiving
+		if = {
+			limit = { has_trait = forgiving }
+			add = {
+				value = agent_trait_malus_t2_value
+				desc = scheme_agent_aptitude.trait.forgiving
+			}
+		}
+		### -- Honest
+		if = {
+			limit = { has_trait = honest }
+			add = {
+				value = agent_trait_malus_t2_value
+				desc = scheme_agent_aptitude.trait.honest
+			}
+		}
+		# Cap this off.
+		max = agent_scheme_contributor_max
+		min = agent_scheme_contributor_min
+	}
+}
+
+# Leverage Scheme agent agents #
+# Secrecy
+lopc_agent_secrecy = {
+	contribution_type = secrecy
+
+	valid_agent_for_slot = {
+		liege = {
+			has_relation_lopc_courtier = scope:owner
+		}
+	} 
+
+	contribution = { value = 25 }
+}
+# Success_chance_max
+lopc_agent_success_chance_max = {
+	contribution_type = success_chance_max
+
+	valid_agent_for_slot = {
+		liege = {
+			has_relation_lopc_courtier = scope:owner
+		}
+	} 
+
+	contribution = { value = 25 }
+}
+# speed
+lopc_agent_speed = {
+	contribution_type = speed
+
+	valid_agent_for_slot = {
+		liege = {
+			has_relation_lopc_courtier = scope:owner
+		}
+	} 
+
+	contribution = { value = 25 }
+}

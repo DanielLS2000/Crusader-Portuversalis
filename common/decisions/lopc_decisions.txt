@@ -1,0 +1,211 @@
+lopc_menial_labour_decision = { # Non-Courtiers are able to trade some prestige for meagre gold. Ambitious and arrogant characters get stressed, humble benefit.
+	desc = lopc_menial_labour_decision_desc
+	selection_tooltip = lopc_menial_labour_decision_tooltip
+	confirm_text = lopc_menial_labour_decision_confirm
+	
+	major = no
+	decision_group_type = adventurer_minor
+	sort_order = 0
+	
+	is_shown = {
+		#is_lopc_adventurer_courtier = no
+		#is_ruler = no
+		#is_landed = no
+		always = no
+	}
+	
+	cooldown = { months = 3 }
+	
+	is_valid = {
+		prestige_level <= 3
+	}
+	
+	ai_potential = {
+		always = no
+	}
+	
+	effect = {
+		add_prestige = -15
+		add_gold = 5
+		stress_impact = { 
+			arrogant = minor_stress_impact_gain
+			ambitious = minor_stress_impact_gain
+			humble = minor_stress_impact_loss
+		}
+	}
+}
+lopc_join_court_decision = { # Now made redundant by character interaction
+	desc = lopc_join_court_decision_desc
+	selection_tooltip = lopc_join_court_decision_tooltip
+	confirm_text = lopc_join_court_decision_confirm
+	
+	major = no
+	
+	is_shown = {
+		always = no
+		is_landless_adventurer = yes
+		NOT = {
+			OR = {
+				has_character_modifier = lopc_courtier_0
+				has_character_modifier = lopc_courtier_1
+				has_character_modifier = lopc_courtier_2
+				has_character_modifier = lopc_courtier_3
+				has_character_modifier = lopc_courtier_4
+			}
+		}
+	}
+	
+	is_valid = {
+		exists = location.province_owner
+		location = location.province_owner.capital_province
+	}
+	
+	cooldown = { months = 2 }
+	
+	ai_potential = {
+		always = no
+	}
+	
+	effect = {
+		location.province_owner = {
+			save_scope_as = courtier_x_liege
+		}
+		trigger_event = {
+			id = lopc_event.0002
+		}
+	}
+}
+lopc_leave_court_decision = {
+	desc = lopc_leave_court_decision_desc
+	selection_tooltip = lopc_leave_court_decision_tooltip
+	confirm_text = lopc_leave_court_decision_confirm
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/ep3_decision_laamp_neutral_mountain.dds"
+	}
+	
+	major = no
+	decision_group_type = adventurer_minor
+	sort_order = 49
+	
+	is_shown = {
+		is_lopc_adventurer_courtier = yes
+	}
+	
+	is_valid = {
+		#prestige >= 50
+	}
+	
+	cost = {
+		prestige = 50
+	}
+	
+	cooldown = { years = 5 }
+	
+	ai_potential = {
+		always = no
+	}
+	
+	effect = {
+		stress_impact = {
+			loyal = medium_stress_impact_gain
+			content = small_stress_impact_gain
+		}
+		trigger_event = { id = lopc_event.0004 }
+	}
+}
+lopc_attend_court_decision = { # goes to main court event
+	desc = lopc_attend_court_decision_desc
+	selection_tooltip = lopc_attend_court_decision_tooltip
+	confirm_text = lopc_attend_court_decision_confirm
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/ep3_cerimonial_decision.dds"
+	}
+	
+	major = no
+	decision_group_type = adventurer_minor
+	sort_order = 50
+	
+	is_shown = {
+		is_ai = no
+		is_lopc_adventurer_courtier = yes
+	}
+	
+	is_valid = {
+		#always = yes
+		OR = {
+			is_travelling = no
+			custom_tooltip = {
+				text = join_court_interaction_correctlocation_tt
+				is_lopc_with_employer = yes
+			}
+		}
+		
+	}
+	
+	cooldown = { months = 2 }
+	
+	ai_potential = {
+		always = no
+	}
+	
+	effect = {
+		random_relation = {
+			type = lopc_employer
+			save_scope_as = courtier_x_liege
+		}
+		
+		if = {
+			limit = { NOT = { location = scope:courtier_x_liege.capital_province } } 
+				
+			start_travel_plan = {
+				destination = scope:courtier_x_liege.capital_province
+				on_arrival_event = lopc_noble_family_event.0001
+			}
+		}
+		else = {
+			trigger_event = { id = lopc_event.2100 }
+		}
+		#trigger_event = { id = lopc_event.2100 }
+	}
+}
+lopc_disband_camp_decision = { # attempt at a proper landless intro that doesn't require shenanigans to get working
+	desc = lopc_disband_camp_decision_desc
+	selection_tooltip = lopc_disband_camp_decision_tooltip
+	confirm_text = lopc_disband_camp_decision_confirm
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/ep3_decision_laamp_neutral_mountain.dds"
+	}
+	
+	major = no
+	decision_group_type = adventurer_minor
+	sort_order = -10
+	
+	is_shown = {
+		#DLC check.
+		has_ep3_dlc_trigger = yes
+		is_landless_adventurer = yes
+	}
+	
+	is_valid = {
+	}
+	
+	cooldown = { months = 2 }
+	
+	ai_potential = {
+		always = no
+	}
+	
+	effect = {
+		#lopc_leave_court_scripted_effect = yes
+		laamp_clear_domicile_buildings_effect = yes
+		destroy_title = root.primary_title
+		trigger_event = { 
+			id = lopc_event.2440 
+			months = 2
+		}
+		if = {
+			limit = { is_lopc_adventurer_courtier = yes }
+			trigger_event = { id = lopc_event.0004 }
+		}
+	}
+}

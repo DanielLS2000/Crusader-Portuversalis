@@ -1,0 +1,31 @@
+lopc_promotion_cost_loc = {
+	# allowed types are: 
+		# artifact
+		# character
+		# landed_title
+		# province
+		# activity
+		# secret
+		# scheme
+		# combat
+		# combat_side
+		# title_and_vassal_change
+		# faith
+		# dynasty
+	type = character 
+	random_valid = no # determines whether first valid text should be chosen, or a random valid one
+	text = { # If has court position, asking for another will cost 200 prestige
+		trigger = {  
+			has_lopc_court_position = yes
+		}
+		localization_key = lopc_promotion_cost_loc_01
+	}
+	text = { # If not, 100 prestige
+		trigger = {
+			has_lopc_court_position = no
+		}
+		localization_key = lopc_promotion_cost_loc_02
+		fallback = yes
+	}
+	# you may add as many text blocks as you want
+}

@@ -1,0 +1,15 @@
+#lopc_court_performance_modifier = {
+#    icon = intrigue_positive
+
+#    #apply_modifier = yes  # Applies dynamically every day (expensive if overused)
+
+#    monthly_prestige = {
+#        add = 0.01
+#        multiply = lopc_performance_value
+#    }
+
+#    liege_opinion = {
+#        add = 0.5
+#        multiply = lopc_performance_value
+#    }
+#}

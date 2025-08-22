@@ -1,0 +1,426 @@
+﻿#Travel
+
+#Character
+lopc_courtier_0 = { # Barony
+	icon = letter_mixed
+	desc = lopc_courtier_0_desc
+	monthly_income = 0.25
+	stress_gain_mult = 0.05
+}
+lopc_courtier_1 = { # County
+	icon = letter_mixed
+	desc = lopc_courtier_1_desc
+	monthly_income = 0.5
+	stress_gain_mult = 0.1
+}
+lopc_courtier_2 = { # Duchy
+	icon = letter_mixed
+	desc = lopc_courtier_2_desc
+	monthly_income = 0.75
+	stress_gain_mult = 0.15
+}
+lopc_courtier_3 = { # Kingdom
+	icon = letter_mixed
+	desc = lopc_courtier_3_desc
+	monthly_income = 1
+	stress_gain_mult = 0.15
+}
+lopc_courtier_4 = { # Empire
+	icon = letter_mixed
+	desc = lopc_courtier_4_desc
+	monthly_income = 1.25
+	stress_gain_mult = 0.2
+}
+lopc_adventurer = { # Follower of adventurer
+	icon = prowess_mixed
+	desc = lopc_adventurer_desc
+	monthly_income = 0.25
+	monthly_prestige = 0.1
+}
+lopc_holy_order = { # Follower of holy order
+	icon = prowess_mixed
+	desc = lopc_adventurer_desc
+	monthly_income = 0.2
+	monthly_piety = 0.25
+}
+lopc_merc = { # Follower of mercenary company
+	icon = prowess_mixed
+	desc = lopc_adventurer_desc
+	monthly_income = 0.5
+	stress_gain_mult = 0.1
+}
+lopc_merc_experience = {
+	icon = prowess_positive
+	prowess = 1
+	mercenary_hire_cost_mult = -0.2
+}
+lopc_job_guard = {
+	icon = prowess_mixed
+	monthly_income = 0.3
+	stress_gain_mult = 0.1
+	prowess = 1
+}
+lopc_job_scribe = {
+	icon = learning_mixed
+	monthly_income = 0.3
+	stress_gain_mult = 0.1
+	learning = 1
+}
+lopc_job_assistant = {
+	icon = stewardship_mixed
+	monthly_income = 0.3
+	stress_gain_mult = 0.1
+	stewardship = 1
+}
+lopc_job_ruffian = {
+	icon = intrigue_mixed
+	monthly_income = 0.3
+	stress_gain_mult = 0.1
+	intrigue = 1
+}
+lopc_job_herald = {
+	icon = diplomacy_mixed
+	monthly_income = 0.3
+	stress_gain_mult = 0.1
+	diplomacy = 1
+	monthly_prestige = 0.1
+}
+lopc_absent_courtier = {
+	name = lopc_absent_courtier
+	icon = letter_negative
+	desc = lopc_absent_courtier_desc
+	monthly_income = -0.25
+	monthly_prestige = -0.1
+}
+lopc_owns_home_1 = {
+	icon = lopc_owns_home_1_mixed
+	desc = lopc_owns_home_1_desc
+	monthly_income = 0.1
+	monthly_prestige = 0.1
+}
+lopc_owns_home_2 = {
+	icon = lopc_owns_home_2_mixed
+	monthly_income = 0.2
+	monthly_prestige = 0.2
+	stress_gain_mult = -0.1
+}
+lopc_owns_home_3 = {
+	icon = lopc_owns_home_3_mixed
+	monthly_income = 0.3
+	monthly_prestige = 0.3
+	stress_gain_mult = -0.2
+}
+lopc_owns_home_4 = {
+	icon = lopc_owns_home_3_mixed
+	monthly_income = 0.5
+	monthly_prestige = 0.5
+	stress_gain_mult = -0.3
+}
+lopc_managed_business = {
+	icon = stewardship_positive
+}
+lopc_business_inn_mixed = {
+	icon = stewardship_mixed
+	monthly_income = 0.01
+	monthly_prestige = 0.01
+	
+	scale = {
+		value = lopc_business_value 
+		#desc = lopc_court_performance_scale_desc
+		display_mode = scaled
+	}
+}
+lopc_business_shop_mixed = {
+	icon = stewardship_mixed
+	monthly_income = 0.01
+	monthly_prestige = 0.01
+	
+	scale = {
+		value = lopc_business_value 
+		#desc = lopc_court_performance_scale_desc
+		display_mode = scaled
+	}
+}
+lopc_business_farm_mixed = {
+	icon = stewardship_mixed
+	monthly_income = 0.01
+	monthly_prestige = 0.01
+	
+	scale = {
+		value = lopc_business_value 
+		#desc = lopc_court_performance_scale_desc
+		display_mode = scaled
+	}
+}
+lopc_business_shipping_mixed = {
+	icon = stewardship_mixed
+	monthly_income = 0.015
+	monthly_prestige = 0.01
+	
+	scale = {
+		value = lopc_business_value 
+		#desc = lopc_court_performance_scale_desc
+		display_mode = scaled
+	}
+}
+lopc_business_trade_post_mixed = {
+	icon = stewardship_mixed
+	monthly_income = 0.02
+	monthly_prestige = 0.01
+	
+	scale = {
+		value = lopc_business_value 
+		#desc = lopc_court_performance_scale_desc
+		display_mode = scaled
+	}
+}
+lopc_moving_up = {
+	icon = county_modifier_opinion_positive
+	desc = lopc_moving_up_desc
+	monthly_prestige = 0.1
+}
+lopc_side_hustle = {
+	icon = stewardship_positive
+	monthly_income = 3
+}
+lopc_upstart_ruler = {
+	icon = legitimacy_negative
+	independent_ruler_opinion = -25
+	vassal_opinion = -25
+	legitimacy_gain_mult = -0.4
+	county_opinion_add = -10
+}
+lopc_good_investment = {
+	icon = stewardship_positive
+	monthly_income = 3
+}
+lopc_managed_economy = {
+	icon = stewardship_positive
+	monthly_income_mult = 0.1
+}
+lopc_minority_approval = {
+	icon = diplomacy_positive
+	desc = lopc_minority_approval_desc
+	different_culture_opinion = 5
+	minority_opinion = 15 
+}
+lopc_merchant_approval = {
+	icon = stewardship_positive
+	desc = lopc_merchant_approval_desc
+	parochial_opinion = 20 
+}
+lopc_commoners_approval = {
+	icon = health_positive
+	desc = lopc_commoners_approval_desc
+	county_opinion_add = 20
+}
+lopc_faithful_approval = {
+	icon = piety_positive
+	desc = lopc_commoners_approval_desc
+	clergy_opinion = 10
+	same_faith_opinion = 5
+	zealot_opinion = 5
+}
+lopc_feud_settler = {
+	icon = family_positive
+	desc = lopc_feud_settler_desc
+	general_opinion = 10
+	dynasty_opinion = 5
+}
+lopc_sound_military_advice_01 = { # Movement Speed
+	name = lopc_sound_military_advice_01
+	icon = martial_positive
+	desc = lopc_sound_military_advice_01_desc
+	movement_speed = 0.2
+}
+lopc_sound_military_advice_02 = { # Army Toughness
+	name = lopc_sound_military_advice_01
+	icon = martial_positive
+	desc = lopc_sound_military_advice_02_desc
+	army_toughness_mult = 0.15
+}
+lopc_sound_military_advice_03 = { # Army Damage
+	name = lopc_sound_military_advice_01
+	icon = martial_positive
+	desc = lopc_sound_military_advice_03_desc
+	army_damage_mult = 0.15
+}
+lopc_sound_military_advice_04 = { # army_siege_value_mult
+	name = lopc_sound_military_advice_01
+	icon = martial_positive
+	desc = lopc_sound_military_advice_04_desc
+	army_siege_value_mult = 0.25
+}
+lopc_sound_military_advice_05 = { # army_pursuit_mult
+	name = lopc_sound_military_advice_01
+	icon = martial_positive
+	desc = lopc_sound_military_advice_05_desc
+	army_pursuit_mult = 0.25
+}
+lopc_sound_military_advice_06 = { # knight_effectiveness_mult
+	name = lopc_sound_military_advice_01
+	icon = martial_positive
+	desc = lopc_sound_military_advice_06_desc
+	knight_effectiveness_mult = 0.1
+}
+lopc_prowess_training = {
+	icon = prowess_positive
+	desc = lopc_sound_military_advice_01_desc
+	prowess = 2
+}
+lopc_overseen_training = {
+	icon = martial_positive
+	desc = lopc_overseen_training_desc
+	army_damage_mult = 0.05
+}
+lopc_improved_scheme_defence = {
+	icon = intrigue_positive
+	desc = lopc_improved_scheme_defence_desc
+	enemy_hostile_scheme_phase_duration_add = minor_scheme_phase_duration_malus_value
+	enemy_hostile_scheme_success_chance_add = -20
+}
+lopc_improved_legend_spread = {
+	icon = legend_positive
+	desc = lopc_improved_legend_spread_desc
+	owned_legend_spread_mult = 0.2
+}
+lopc_courtier_x_fashion_amenities = {
+	name = lopc_courtier_x_fashion_amenities
+	icon = drink_positive
+	monthly_prestige = 1.6
+}
+lopc_courtier_x_food_amenities = {
+	name = lopc_courtier_x_food_amenities
+	icon = food_positive
+	negate_health_penalty_add = 0.4
+	stress_loss_mult = 0.4
+}
+lopc_courtier_x_servants_amenities = {
+	name = lopc_courtier_x_servants_amenities
+	icon = social_positive
+	personal_scheme_phase_duration_add = -8
+	enemy_hostile_scheme_phase_duration_add = 8
+}
+lopc_court_performance_modifier_0 = {
+	name = lopc_court_performance_modifier
+	icon = mask_mixed
+	#desc = {
+	#	desc = lopc_court_performance_modifier_desc_1
+	#	first_valid = {
+	#		triggered_desc = {
+	#			trigger = { var:lopc_court_performance = 100 }
+	#			desc = lopc_court_performance_modifier_desc_Rating4
+	#		}
+	#		triggered_desc = {
+	#			trigger = { var:lopc_court_performance >= 75 }
+	#			desc = lopc_court_performance_modifier_desc_Rating3
+	#		}
+	#		triggered_desc = {
+	#			trigger = { var:lopc_court_performance >= 50 }
+	#			desc = lopc_court_performance_modifier_desc_Rating2
+	#		}
+	#		triggered_desc = {
+	#			trigger = { var:lopc_court_performance >= 25 }
+	#			desc = lopc_court_performance_modifier_desc_Rating1
+	#		}
+	#		desc = lopc_court_performance_modifier_desc_Rating0
+	#	}
+	#	desc = lopc_court_performance_modifier_desc_2
+	#}
+	monthly_prestige = 0.01
+	liege_opinion = 1
+	
+	scale = {
+		value = lopc_performance_value 
+		#value = var:lopc_court_performance
+		desc = lopc_court_performance_scale_desc
+		display_mode = scaled
+	}
+}
+lopc_court_performance_modifier_1 = {
+	icon = mask_mixed
+	monthly_prestige = 0.01
+	liege_opinion = 1
+	
+	scale = {
+		value = lopc_performance_value 
+		desc = lopc_court_performance_scale_desc
+		display_mode = scaled
+	}
+}
+lopc_court_performance_modifier_2 = {
+	icon = mask_mixed
+	monthly_prestige = 0.01
+	liege_opinion = 1
+	
+	scale = {
+		value = lopc_performance_value 
+		desc = lopc_court_performance_scale_desc
+		display_mode = scaled
+	}
+}
+lopc_court_performance_modifier_3 = {
+	icon = mask_mixed
+	monthly_prestige = 0.01
+	liege_opinion = 1
+	
+	scale = {
+		value = lopc_performance_value 
+		desc = lopc_court_performance_scale_desc
+		display_mode = scaled
+	}
+}
+lopc_court_performance_modifier_4 = {
+	icon = mask_mixed
+	monthly_prestige = 0.01
+	liege_opinion = 1
+	
+	scale = {
+		value = lopc_performance_value 
+		desc = lopc_court_performance_scale_desc
+		display_mode = scaled
+	}
+}
+lopc_home_modifier_1 = {
+	icon = mask_mixed
+	monthly_prestige = 0.01
+	liege_opinion = 1
+	
+	scale = {
+		value = lopc_performance_value 
+		desc = lopc_court_performance_scale_desc
+		display_mode = scaled
+	}
+}
+# County
+lopc_placated_commoners = {
+	icon = health_positive
+	desc = lopc_placated_commoners_desc
+	county_opinion_add = 20
+
+}
+lopc_city_planning = {
+	icon = health_positive
+	desc = lopc_city_planning_desc
+	county_opinion_add = 20
+
+}
+lopc_recruitment_drive = {
+	icon = martial_positive
+	desc = lopc_recruitment_drive_desc
+	levy_size = 0.25
+
+}
+lopc_handled_discontent = {
+	icon = dread_positive
+	desc = lopc_handled_discontent_desc
+	monthly_county_control_change_add = 2
+	travel_danger = -10
+
+}
+lopc_rebel_hideout = {
+	icon = martial_negative
+	desc = lopc_rebel_hideout_desc
+	monthly_county_control_change_add = -2
+	travel_danger = 25
+}

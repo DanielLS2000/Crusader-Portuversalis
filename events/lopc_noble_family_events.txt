@@ -1,0 +1,37 @@
+namespace = lopc_noble_family_event
+
+# You arrive at the capital, lets you know that you need to select "Return Home" in the Travel Planner to return
+lopc_noble_family_event.0001 = {
+	title = lopc_noble_family_event.0001.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { any_held_title = { is_noble_family_title = yes } } 
+				desc = lopc_noble_family_event.0001.desc_Noble
+			}
+			desc = lopc_noble_family_event.0001.desc_NotNoble
+		}
+	}
+	theme = travel
+
+	immediate = {
+		root.location = { save_scope_as = court_location }
+		if = {
+			limit  = { exists = current_travel_plan }
+			current_travel_plan = { pause_travel_plan = yes }
+		}
+
+		#change_influence = miniscule_influence_gain
+	}
+	
+	right_portrait = {
+		character = root
+		animation = jockey_idle
+	}
+	
+	option = {
+		name = lopc_noble_family_event.0001.a
+		# Got it!
+		trigger_event = lopc_event.2100
+	}
+}
