@@ -1,0 +1,21 @@
+﻿elector_voting_pattern_opinion_co_king = {
+	modifier = { #Current ruler will always try to elect his player heir before everybody else.
+		add = 50
+		desc = tooltip_is_co_king_mod
+		scope:candidate = {
+			is_diarch_of_target = scope:holder
+		}
+		scope:holder = {
+			has_diarchy_type = co_monarchy
+		}
+	}
+}
+ai_is_feudal_elective_secure_elections = {
+	modifier = { #Undo base effect, ai will slowly work up as children age
+		add = 100
+		any_held_title = {
+			has_title_law = feudal_elective_succession_law
+			tier > 3
+		}
+	}
+}

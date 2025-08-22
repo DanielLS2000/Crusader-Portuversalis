@@ -1,0 +1,22 @@
+﻿kurultai_region = {
+	duchies = {
+		#Dzungaria
+		d_altay d_kara_khoja d_gurbantunggut d_naiman_gobi
+		#Mongolia
+		d_orkhon d_ogrash d_selenga_valley d_ovorkhangai d_arkhangai d_khovsgol d_gobi_altai d_ubsunur_hollow d_khovd
+		d_togina d_tannu_ola d_western_sayan
+		d_khakass_hollow d_shoria d_kargassia d_eastern_sayan
+		d_uda_valley d_bargujin_tukum d_dauria d_baigaluuls d_tsagaanbaigal
+		d_yenisei_kan d_chuna_valley d_lena d_angara
+		#Xia
+		d_xia d_wuluhai d_zhenfan d_liangzhou d_shanzhou d_qilin d_ganzhou d_yijinai d_guiyi d_aksay
+		#Pontic Steppe
+		d_yedisan d_levedia d_don_valley d_khazaria d_ciscaucasia d_itil d_crimea d_alania d_azov d_pecheneg
+		#Volga Bulgaria
+		d_volga_bulgaria d_kazan d_bashkiria d_voronezh d_mordvinia d_chuvashia d_khopyor d_ural d_udmurtia d_martyuba d_uraltau d_aqtobe d_jalmat d_vogulia d_perm
+		#Turkestan
+		d_transcaspiana d_barsuki d_zhetysu d_tarbagatai d_jemba d_aral_il d_chah d_syr_darya d_muyunkum d_alakol d_ili-alatau
+		#Cumania
+		d_kurgan d_mugodzhar_hills d_atyrau d_turgay d_kush-murun d_saryarka d_kazakh d_kentarlau d_karkaraly d_karabas d_betpa d_semey
+	}
+}
