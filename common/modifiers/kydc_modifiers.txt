@@ -1,0 +1,66 @@
+# 首都圈
+kydc_county_modifier_range_1 = {
+    icon = family_positive
+	county_opinion_add = 8
+    tax_mult = 0.1
+    build_gold_cost = -0.05
+    development_growth_factor = 0.1
+    monthly_county_control_growth_add = 0.15
+}
+
+# 核心圈
+kydc_county_modifier_range_2 = {
+    icon = family_positive
+	county_opinion_add = 5
+    tax_mult = 0.1
+    monthly_county_control_growth_add = 0.1
+}
+
+# 掌控圈
+kydc_county_modifier_range_3 = {
+    icon = family_mixed
+	county_opinion_add = 2
+    tax_mult = -0.05
+}
+
+# 失控圈
+kydc_county_modifier_range_4 = {
+    icon = family_negative
+	county_opinion_add = -5
+    tax_mult = -0.15
+    build_gold_cost = 0.05
+    monthly_county_control_decline_add = -0.1
+}
+
+# 腐败圈
+kydc_county_modifier_range_5 = {
+    icon = family_negative
+	county_opinion_add = -15
+    tax_mult = -0.7
+    build_gold_cost = 0.15
+    monthly_county_control_decline_add = -0.5
+}
+
+# 名义占领圈
+kydc_county_modifier_range_6 = {
+    icon = family_negative
+	county_opinion_add = -20
+    tax_mult = -2.0
+    build_gold_cost = 0.5
+    monthly_county_control_decline_add = -5
+}
+
+# 经济特区，较差
+kydc_county_modifier_special_bad = {
+    icon = stewardship_mixed
+    tax_mult = 0.05
+    county_opinion_add = -5
+}
+
+# 经济特区，较好
+kydc_county_modifier_special_good = {
+    icon = stewardship_positive
+    tax_mult = 0.1
+    county_opinion_add = 10
+    monthly_county_control_growth_add = 0.1
+}

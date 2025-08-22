@@ -1,0 +1,93 @@
+kydc_special_area_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_culture.dds"
+	}
+	decision_group_type = realm
+	sort_order = 1000
+
+	is_shown = {
+		is_ai = no
+		is_ruler = yes
+		is_landed = yes
+		any_sub_realm_county = {
+			holder = root
+			OR = {
+				has_county_modifier = kydc_county_modifier_range_4
+				has_county_modifier = kydc_county_modifier_range_5
+				has_county_modifier = kydc_county_modifier_range_6
+			}
+		}
+		NOT = {
+			any_sub_realm_county = {
+				holder = root
+				OR = {
+					has_county_modifier = kydc_county_modifier_special_bad
+					has_county_modifier = kydc_county_modifier_special_good
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_at_war = no
+	}
+
+	cost = {
+		#gold = 250
+		gold = kydc_distance_1_value
+		prestige = 100
+	}
+
+	widget = {
+        controller = create_holy_order
+        barony_valid = {
+            trigger_if = {
+                limit = { exists = this }
+				is_capital_barony = yes
+				holder = scope:ruler
+				is_leased_out = no
+				county = {
+					OR = {
+						has_county_modifier = kydc_county_modifier_range_4
+						has_county_modifier = kydc_county_modifier_range_5
+						has_county_modifier = kydc_county_modifier_range_6
+					}
+				}
+            }
+        }
+    }
+
+	effect = {
+        scope:barony = {
+			county = {
+				if = {
+					limit = { root.stewardship >= 18 }
+					kydc_county_modifiers_add_effect_special_good = yes
+				}
+				else = {
+					kydc_county_modifiers_add_effect_special_bad = yes
+					custom_tooltip = kydc_special_not_enough_stewardship
+				}
+			}
+		}
+    }
+
+	ai_check_interval = 0
+    ai_will_do = {
+        base = 0
+    }
+}
+
+# test_decision_kydc = {
+#
+# 	picture = { reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds" }
+# 	sort_order = 110
+# 	decision_group_type = decisions
+#
+# 	effect = {
+# 		kydc_county_modifiers_add_effect = yes
+# 	}
+#
+# }

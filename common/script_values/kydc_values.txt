@@ -1,0 +1,52 @@
+@kydc_county_distance_1 = 5625  # 首都圈 半径75内
+@kydc_county_distance_2 = 25500  # 核心圈 半径150内
+@kydc_county_distance_3 = 90000  # 掌控圈 半径300内
+@kydc_county_distance_4 = 250000  # 失控圈 半径500内
+@kydc_county_distance_5 = 640000  # 腐败圈 半径800内
+# 名义占领圈 半径>800
+#
+
+# 以下无效，弃用
+
+
+# kydc_distance_multiply_factor = {
+#
+#     value = 1.0
+#
+#     # 行政制加成
+#     if = { limit = { government_has_flag = government_is_administrative } add = 0.1 }
+#
+#     # 管理能力加成
+#     if = { limit = { stewardship < 6 } add = -1 }
+#     else_if = { limit = { stewardship < 10 } add = -0.1 }
+#     else_if = { limit = { stewardship < 16 } add = 0 }
+#     else_if = { limit = { stewardship < 20 } add = 0.1 }
+#     else_if = { limit = { stewardship >= 20 } add = 0.2 }
+#
+# }
+#
+# kydc_distance_1_value = {
+#     value = @kydc_county_distance_1
+#     multiply = kydc_distance_multiply_factor
+#     multiply = kydc_distance_multiply_factor
+# }
+# kydc_distance_2_value = {
+#     value = @kydc_county_distance_2
+#     multiply = kydc_distance_multiply_factor
+#     multiply = kydc_distance_multiply_factor
+# }
+# kydc_distance_3_value = {
+#     value = @kydc_county_distance_3
+#     multiply = kydc_distance_multiply_factor
+#     multiply = kydc_distance_multiply_factor
+# }
+# kydc_distance_4_value = {
+#     value = @kydc_county_distance_4
+#     multiply = kydc_distance_multiply_factor
+#     multiply = kydc_distance_multiply_factor
+# }
+# kydc_distance_5_value = {
+#     value = @kydc_county_distance_5
+#     multiply = kydc_distance_multiply_factor
+#     multiply = kydc_distance_multiply_factor
+# }

@@ -1,0 +1,359 @@
+@kydc_county_distance_1 = 5625  # 首都圈 半径75内
+@kydc_county_distance_2 = 25500  # 核心圈 半径150内
+@kydc_county_distance_3 = 90000  # 掌控圈 半径300内
+@kydc_county_distance_4 = 250000  # 失控圈 半径500内
+@kydc_county_distance_5 = 640000  # 腐败圈 半径800内
+
+# 1.2倍距离
+@kydc_county_distance_1_good = 8100
+@kydc_county_distance_2_good = 36720
+@kydc_county_distance_3_good = 129600
+@kydc_county_distance_4_good = 360000
+@kydc_county_distance_5_good = 921600
+
+# 0.8倍距离
+@kydc_county_distance_1_bad = 3600
+@kydc_county_distance_2_bad = 16320
+@kydc_county_distance_3_bad = 57600
+@kydc_county_distance_4_bad = 160000
+@kydc_county_distance_5_bad = 409600
+
+kydc_county_effect_range_remove = {
+    hidden_effect = {
+        remove_county_modifier = kydc_county_modifier_range_1
+        remove_county_modifier = kydc_county_modifier_range_2
+        remove_county_modifier = kydc_county_modifier_range_3
+        remove_county_modifier = kydc_county_modifier_range_4
+        remove_county_modifier = kydc_county_modifier_range_5
+        remove_county_modifier = kydc_county_modifier_range_6
+        remove_county_modifier = kydc_county_modifier_special_bad
+        remove_county_modifier = kydc_county_modifier_special_good
+    }
+}
+
+kydc_county_modifiers_add_effect = {
+    if = {
+        limit = { stewardship < 9 }
+        kydc_county_modifiers_add_effect_bad = yes
+    }
+    else_if = {
+        limit = { stewardship < 21 }
+        kydc_county_modifiers_add_effect_normal = yes
+    }
+    else = {
+        limit = { stewardship >= 21}
+        kydc_county_modifiers_add_effect_good = yes
+    }
+}
+
+kydc_county_modifiers_add_effect_normal = {
+    every_sub_realm_county = {
+        if = {
+            limit = {
+                holder = root
+                squared_distance = { target = root.capital_province value < @kydc_county_distance_1 }
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_1
+                years = 2
+            }
+        }
+        else_if = {
+            limit = {
+                holder = root
+                squared_distance = { target = root.capital_province value < @kydc_county_distance_2 }
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_2
+                years = 2
+            }
+        }
+        else_if = {
+            limit = {
+                holder = root
+                squared_distance = { target = root.capital_province value < @kydc_county_distance_3 }
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_3
+                years = 2
+            }
+        }
+        else_if = {
+            limit = {
+                holder = root
+                squared_distance = { target = root.capital_province value < @kydc_county_distance_4 }
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_4
+                years = 2
+            }
+        }
+        else_if = {
+            limit = {
+                holder = root
+                squared_distance = { target = root.capital_province value < @kydc_county_distance_5 }
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_5
+                years = 2
+            }
+        }
+        else = {
+            limit = {
+                holder = root
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_6
+                years = 2
+            }
+        }
+    }
+}
+
+kydc_county_modifiers_add_effect_bad = {
+    every_sub_realm_county = {
+        if = {
+            limit = {
+                holder = root
+                squared_distance = { target = root.capital_province value < @kydc_county_distance_1_bad }
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_1
+                years = 2
+            }
+        }
+        else_if = {
+            limit = {
+                holder = root
+                squared_distance = { target = root.capital_province value < @kydc_county_distance_2_bad }
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_2
+                years = 2
+            }
+        }
+        else_if = {
+            limit = {
+                holder = root
+                squared_distance = { target = root.capital_province value < @kydc_county_distance_3_bad }
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_3
+                years = 2
+            }
+        }
+        else_if = {
+            limit = {
+                holder = root
+                squared_distance = { target = root.capital_province value < @kydc_county_distance_4_bad }
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_4
+                years = 2
+            }
+        }
+        else_if = {
+            limit = {
+                holder = root
+                squared_distance = { target = root.capital_province value < @kydc_county_distance_5_bad }
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_5
+                years = 2
+            }
+        }
+        else = {
+            limit = {
+                holder = root
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_6
+                years = 2
+            }
+        }
+    }
+}
+
+kydc_county_modifiers_add_effect_good = {
+    every_sub_realm_county = {
+        if = {
+            limit = {
+                holder = root
+                squared_distance = { target = root.capital_province value < @kydc_county_distance_1_good }
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_1
+                years = 2
+            }
+        }
+        else_if = {
+            limit = {
+                holder = root
+                squared_distance = { target = root.capital_province value < @kydc_county_distance_2_good }
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_2
+                years = 2
+            }
+        }
+        else_if = {
+            limit = {
+                holder = root
+                squared_distance = { target = root.capital_province value < @kydc_county_distance_3_good }
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_3
+                years = 2
+            }
+        }
+        else_if = {
+            limit = {
+                holder = root
+                squared_distance = { target = root.capital_province value < @kydc_county_distance_4_good }
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_4
+                years = 2
+            }
+        }
+        else_if = {
+            limit = {
+                holder = root
+                squared_distance = { target = root.capital_province value < @kydc_county_distance_5_good }
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_5
+                years = 2
+            }
+        }
+        else = {
+            limit = {
+                holder = root
+                NOR = {
+                    has_county_modifier = kydc_county_modifier_special_bad
+                    has_county_modifier = kydc_county_modifier_special_good
+                }
+            }
+            kydc_county_effect_range_remove = yes
+            add_county_modifier = {
+                modifier = kydc_county_modifier_range_6
+                years = 2
+            }
+        }
+    }
+}
+
+kydc_county_modifiers_add_effect_special_bad = {
+    trigger = {
+        OR = {
+            has_county_modifier = kydc_county_modifier_range_4
+            has_county_modifier = kydc_county_modifier_range_5
+            has_county_modifier = kydc_county_modifier_range_6
+        }
+    }
+    kydc_county_effect_range_remove = yes
+    add_county_modifier = {
+        modifier = kydc_county_modifier_special_bad
+        years = 20
+    }
+}
+
+kydc_county_modifiers_add_effect_special_good = {
+    trigger = {
+        OR = {
+            has_county_modifier = kydc_county_modifier_range_4
+            has_county_modifier = kydc_county_modifier_range_5
+            has_county_modifier = kydc_county_modifier_range_6
+        }
+    }
+    kydc_county_effect_range_remove = yes
+    add_county_modifier = {
+        modifier = kydc_county_modifier_special_good
+        years = 20
+    }
+}

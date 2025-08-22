@@ -1,0 +1,51 @@
+# on action
+random_yearly_playable_pulse = {
+    on_actions = {
+        kydc_ai_ruler_tax_distance
+    }
+}
+
+quarterly_playable_pulse = {
+    on_actions = {
+        kydc_player_tax_distance
+    }
+}
+
+on_title_gain = {
+    on_actions = {
+        kydc_clear_modifier
+    }
+}
+
+# mod effect
+kydc_ai_ruler_tax_distance = {
+    trigger = {
+        is_ai = yes
+        sub_realm_size > 30
+        not = { government_has_flag = government_is_nomadic }
+    }
+    effect = { kydc_county_modifiers_add_effect = yes }
+}
+
+kydc_player_tax_distance = {
+    trigger = {
+        is_ai = no
+        not = { government_has_flag = government_is_nomadic }
+    }
+    effect = { kydc_county_modifiers_add_effect = yes }
+}
+
+kydc_clear_modifier = {
+    trigger = {
+        scope:title = {
+            is_nomad_title = no
+            tier = tier_county
+        }
+    }
+    effect = {
+        scope:title.county = {
+            kydc_county_effect_range_remove = yes
+        }
+    }
+}
+

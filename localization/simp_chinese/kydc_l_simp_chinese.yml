@@ -1,0 +1,22 @@
+﻿l_simp_chinese:
+ kydc_county_modifier_range_1: "首都地区"
+ kydc_county_modifier_range_1_desc: "该地距离领地中心很近，属于领地的心脏地带"
+ kydc_county_modifier_range_2: "核心地区"
+ kydc_county_modifier_range_2_desc: "该地距离领地中心不远，是领地的核心区域"
+ kydc_county_modifier_range_3: "掌控地区"
+ kydc_county_modifier_range_3_desc: "该地距离领地中心有一段距离，但还在[ruler|E]的掌握之中"
+ kydc_county_modifier_range_4: "边缘地区"
+ kydc_county_modifier_range_4_desc: "该地距离领地中心较远。这里是王国的边缘地带，[ruler|E]有些鞭长莫及"
+ kydc_county_modifier_range_5: "千里之外"
+ kydc_county_modifier_range_5_desc: "该地距离领地中心遥不可及。一份书信传来都需要数月，在这里[ruler|E]的治理举步维艰"
+ kydc_county_modifier_range_6: "名义占领地区"
+ kydc_county_modifier_range_6_desc: "该地区过于遥远，[ruler|E]难以直接统治。该地现在只是名义上归属于[ruler|E]，正在等待[ruler|E]的下一步安排"
+
+ kydc_county_modifier_special_good: "良好运作的经济特区"
+ kydc_county_modifier_special_bad: "勉力维持的经济特区"
+
+ kydc_special_area_decision: "建立经济特区"
+ kydc_special_area_decision_desc: "众多遥远的直辖地让人鞭长莫及……但我们家族还是有能力维持一块经济特区[county|E]，将这块[county|E]牢牢掌控在手中。\n\n有“经济特区”修正的[county|E]不会受到和[capital|E]距离的影响。你仅可以持有一块经济特区。"
+ kydc_special_area_decision_tooltip: "建立经济特区，免受距离影响"
+ kydc_special_area_decision_confirm: "执行吧！"
+ kydc_special_not_enough_stewardship: "若你有18或更高的[stewardship|E]，此修正会变得更好"
