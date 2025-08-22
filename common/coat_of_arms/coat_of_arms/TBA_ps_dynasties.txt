@@ -1,0 +1,26 @@
+house_blackadder_ps = { # Black Adder
+	pattern = "pattern_solid.dds"
+	color1 = "black"
+	color2 = "yellow"
+	colored_emblem = {
+		texture = "ps_bestiary_serpent_twisted_sword.dds"
+		color1 = "yellow"
+		color2 = "white"
+		instance = { position = { 0.5 0.51 } scale = { 0.975 0.975 }  }
+	}	
+}
+dynasty_tbablackadder = house_blackadder_ps
+
+house_flashheart_ps = { # Flashheart
+	pattern = "pattern_solid.dds"
+	color1 = "red"
+	color2 = "yellow"
+	colored_emblem = {
+		texture = "ps_charge_heart_flaming.dds"
+		color1 = "yellow_mid"
+		color2 = "red_mid"
+		instance = { position = { 0.5 0.5 } scale = { 0.95 0.95 }  }
+	}	
+}
+dynasty_tbaflashheart = house_flashheart_ps
+d_laamp_flashheart = house_flashheart_ps
