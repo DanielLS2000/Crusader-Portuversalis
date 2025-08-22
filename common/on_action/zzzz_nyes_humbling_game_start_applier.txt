@@ -1,0 +1,96 @@
+on_game_start_after_lobby = {
+	on_actions = {
+		# Everyone
+		apply_maa_humbler_start
+
+		# Adventurers
+		apply_adventurer_maa_humbler_start
+
+		# Governments
+		apply_admin_government_levies_start
+		apply_nomadic_buff_start
+
+		# Edge Cases
+		viking_exiles_nerf_start
+		peasant_leader_nerf_start
+	}
+}
+
+
+
+
+
+
+apply_maa_humbler_start = {
+	effect = {
+		every_ruler = {
+			add_character_modifier = { modifier = maas_humbled }
+		}	
+	}
+}
+
+
+apply_adventurer_maa_humbler_start = {
+	effect = {
+		every_ruler = {
+			limit = {
+				is_landless_adventurer = yes
+			}
+			add_character_modifier = { modifier = adventurer_maas_humbled }
+		}
+	}
+}
+
+# Considerations
+apply_admin_government_levies_start = {
+	effect = {
+		every_ruler = {
+			limit = {
+				has_government = administrative_government
+			}
+			add_character_modifier = { modifier = admin_government_levy_size }
+		}
+	}
+}
+
+apply_nomadic_buff_start = {
+	trigger = {
+		is_landless_adventurer = no
+		OR = {
+			has_government = nomad_government
+			has_government = herder_government
+		}
+		NOT = { has_character_modifier = nomadic_government_horse_rider_buff }
+	}
+	effect = {
+		add_character_modifier = { modifier = nomadic_government_horse_rider_buff }
+	}
+}
+
+# Edge Cases
+viking_exiles_nerf_start = {
+	effect = {
+		every_ruler = {
+			limit = {
+				has_character_modifier = scandinavian_adventurer_fp1_modifier
+			}
+			add_character_modifier = { modifier = levies_nerf }
+		}
+	}
+}
+
+peasant_leader_nerf_start = {
+	effect = {
+		every_ruler = {
+			limit = {
+				OR = {
+					has_trait = peasant_leader
+					has_trait = populist_leader
+				}
+				is_landed = no
+			}
+			add_character_modifier = { modifier = levies_nerf }
+		}
+	}
+}
+

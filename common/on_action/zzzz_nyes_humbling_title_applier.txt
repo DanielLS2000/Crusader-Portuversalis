@@ -1,0 +1,36 @@
+on_title_gain = {
+    on_actions = {
+        # Everyone
+		apply_maa_humbler
+
+		# Adventurers
+		remove_adventurer_maa_humbler
+
+		# Era
+		apply_early_medieval_levies
+		apply_high_medieval_levies
+		apply_late_medieval_levies
+
+		# Governments
+		apply_admin_government_levies
+		apply_nomadic_buff
+
+		# Edge Cases
+		viking_exiles_nerf
+		peasant_leader_nerf
+    }
+}
+
+
+on_domicile_moved = {
+	effect = {
+		scope:owner = {
+			if = {
+				limit = {
+					NOT = { has_character_modifier = adventurer_maas_humbled }
+				}
+				add_character_modifier = { modifier = adventurer_maas_humbled }
+			}
+		}
+	}
+}

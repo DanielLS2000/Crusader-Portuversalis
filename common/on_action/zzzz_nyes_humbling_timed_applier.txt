@@ -1,0 +1,28 @@
+random_yearly_playable_pulse = {
+	on_actions = {
+		# If anything has been overlooked, then this will act as a yearly fix.
+		
+		# Everyone
+		apply_maa_humbler
+
+		# Adventurers
+		apply_adventurer_maa_humbler
+		remove_adventurer_maa_humbler
+
+		# Recruitment Drive
+		apply_recruit_maas
+		remove_recruit_maas
+
+		# Era
+		apply_early_medieval_levies
+		apply_high_medieval_levies
+		apply_late_medieval_levies
+
+		# Governments
+		apply_admin_government_levies
+		apply_nomadic_buff
+
+		# Edge Cases
+		viking_exiles_nerf
+	}
+}

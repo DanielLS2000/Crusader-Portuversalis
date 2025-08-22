@@ -1,0 +1,183 @@
+apply_maa_humbler = {
+	trigger = {
+		NOT = { has_character_modifier = maas_humbled }
+	}
+	effect = {
+		add_character_modifier = { modifier = maas_humbled }
+	}
+}
+
+
+apply_adventurer_maa_humbler = {
+	trigger = {
+		is_landless_adventurer = yes
+		NOT = { has_character_modifier = adventurer_maas_humbled }
+	}
+	effect = {
+		add_character_modifier = { modifier = adventurer_maas_humbled }
+	}
+}
+
+remove_adventurer_maa_humbler = {
+	trigger = {
+		is_landless_adventurer = no
+		has_character_modifier = adventurer_maas_humbled
+	}
+	effect = {
+		remove_character_modifier = adventurer_maas_humbled
+	}
+}
+
+
+apply_early_medieval_levies = {
+	trigger = {
+		years_from_game_start >= 50 
+		is_ruler = yes
+		is_landed = yes
+		NOT = { 
+			has_character_modifier = early_medieval_levies 
+			years_from_game_start >= 150
+			is_landless_adventurer = yes
+			OR = {
+				has_trait = peasant_leader
+				has_trait = populist_leader
+			}
+		}
+	}
+	effect = {
+		add_character_modifier = { modifier = early_medieval_levies }
+	}
+}
+
+apply_high_medieval_levies = {
+	trigger = {
+		years_from_game_start >= 150 
+		is_ruler = yes
+		is_landed = yes
+		NOT = { 
+			has_character_modifier = high_medieval_levies 
+			years_from_game_start >= 300
+			is_landless_adventurer = yes
+			OR = {
+				has_trait = peasant_leader
+				has_trait = populist_leader
+			}
+		}
+		
+	}
+	effect = {
+		add_character_modifier = { modifier = high_medieval_levies }
+		remove_character_modifier = early_medieval_levies
+	}
+}
+
+apply_late_medieval_levies = {
+	trigger = {
+		years_from_game_start >= 300 
+		is_ruler = yes
+		is_landed = yes
+		NOT = { 
+			has_character_modifier = late_medieval_levies 
+			is_landless_adventurer = yes
+			OR = {
+				has_trait = peasant_leader
+				has_trait = populist_leader
+			}
+		}
+	}
+	effect = {
+		add_character_modifier = { modifier = late_medieval_levies }
+		remove_character_modifier = early_medieval_levies
+		remove_character_modifier = high_medieval_levies
+	}
+}
+
+
+apply_recruit_maas = {
+	trigger = {
+		#is_ai = yes
+		is_landless_adventurer = no
+		is_ruler = yes
+		NOT = { 
+			OR = {
+				has_character_modifier = recruit_maas 
+				has_character_modifier = ambitious_maa_maint # Aggressive AI Compat
+				has_character_modifier = top_liege_maa_maint # Aggressive AI Compat
+			}
+			
+		}
+	}
+	effect = {
+		add_character_modifier = { modifier = recruit_maas }
+	}
+}
+
+remove_recruit_maas = {
+	trigger = {
+		OR = {
+			AND = {
+				#is_ai = yes
+				is_landless_adventurer = yes
+				has_character_modifier = recruit_maas
+			}
+			#AND = {
+			#	is_ai = no
+			#	has_character_modifier = recruit_maas
+			#}
+			has_character_modifier = ambitious_maa_maint # Aggressive AI Compat
+			has_character_modifier = top_liege_maa_maint # Aggressive AI Compat
+		}
+		
+	}
+	effect = {
+		remove_character_modifier = recruit_maas
+	}
+}
+
+# Considerations
+apply_admin_government_levies = {
+	trigger = {
+		has_government = administrative_government
+		NOT = { has_character_modifier = admin_government_levy_size }
+	}
+	effect = {
+		add_character_modifier = { modifier = admin_government_levy_size }
+	}
+}
+
+apply_nomadic_buff = {
+	trigger = {
+		is_landless_adventurer = no
+		OR = {
+			has_government = nomad_government
+			has_government = herder_government
+		}
+		NOT = { has_character_modifier = nomadic_government_horse_rider_buff }
+	}
+	effect = {
+		add_character_modifier = { modifier = nomadic_government_horse_rider_buff }
+	}
+}
+
+# Edge Cases
+viking_exiles_nerf = {
+	trigger = {
+		has_character_modifier = scandinavian_adventurer_fp1_modifier # makes viking exiles too strong as they spawn in with 7k+ levies so we bring them back to base.
+	}
+	effect = {
+		add_character_modifier = { modifier = levies_nerf }
+	}
+}
+
+peasant_leader_nerf = {
+	trigger = {
+		OR = {
+			has_trait = peasant_leader
+			has_trait = populist_leader
+		}
+		is_landed = no
+	}
+	effect = {
+		add_character_modifier = { modifier = levies_nerf }
+	}
+}

@@ -1,0 +1,29 @@
+﻿l_english:
+ maas_humbled:0 "Men-at-Arms Humbled"
+ maas_humbled_desc:0 "A supplement force."
+
+ adventurer_maas_humbled:0 "Adventurer"
+ adventurer_maas_humbled_desc:0 "Lacking proper military infrastructure."
+
+ recruit_maas:0 "Men-at-Arms Recruitment Drive"
+
+ early_medieval_levies:0 "Early Era Levy Equipment"
+ early_medieval_levies_desc:0 "Utilizing early medieval equipment."
+
+ high_medieval_levies:0 "High Era Levy Equipment"
+ high_medieval_levies_desc:0 "Utilizing improved equipment."
+
+ late_medieval_levies:0 "Late Era Levy Equipment"
+ late_medieval_levies_desc:0 "Utilizing advanced equipment."
+
+ men_at_arms_levies:0 "Men-at-Arms Levies"
+ men_at_arms_levies_desc:0 "Levies are filled with Men-at-Arms regiments."
+
+ admin_government_levy_size:0 "Administrative Government Levies"
+ admin_government_levy_size_desc:0 "Actively maintaining a fighting force."
+
+ nomadic_government_horse_rider_buff:0 "Nomadic Government Buff"
+ nomadic_government_horse_rider_buff_desc:0 "Focused on Horde Riders."
+
+ levies_nerf:0 "Levies Nerfed"
+ levies_nerf_desc:0 "Without proper military infrastructure, this character's army equipment has become worn down."

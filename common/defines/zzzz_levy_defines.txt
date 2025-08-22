@@ -1,0 +1,27 @@
+NCombat = {
+	# Much better levies as a starting base.
+	LEVY_ATTACK = 40	 
+	LEVY_TOUGHNESS = 40								
+	LEVY_SIEGE = 0									
+	LEVY_PURSUIT = 0								
+	LEVY_SCREEN = 0
+
+	DAMAGE_SCALING_FACTOR = 0.017					# Base = 0.03
+	PURSUIT_PHASE_DAYS = 5							# Base = 3
+}
+
+NArmy = {
+	#REGIMENT_MAA_CAP_BY_TIER = { 0 0 2 4 7 10 } #???, baron???, count, duchy, kingdom, empire
+	REGIMENT_MONTHLY_REINFORCE_SPEED = 0.03			# Monthly reinforcement percentage
+	REGIMENT_MONTHLY_MAA_REINFORCE_SPEED = 0.07		# Monthly reinforcement percentage
+}
+
+NCombat = {
+	MEN_AT_ARMS_MAX_COUNTER = 0.5					# When RATIO_FOR_MAX_COUNTER is hit, the damage output for the MaA will be reduced by this much. For values lower, it'll be linear between 0 and this value
+	RATIO_FOR_MAX_COUNTER = 2.0				# Base = 2.0. You need this many effective regiment chunks to counter a single regiment chunk. Modified by counter effectiveness (E.G., = 2.0 in the MaA's counter section means twice as effective countering). So if stack size is 100, 50 men from a regiment with 2x counter will produce one point of countering. Thus if the ratio for max counter is 1.0, they'd fully counter a full-strength MaA chunk, or halfway counter two, etc.
+	MEN_AT_ARMS_COUNTER_MODIFICATION = 6			# Base = 6. A countered men at arms base type get this modification to all of their rolls
+
+	ADVANTAGE_DAMAGE_SCALING_FACTOR = 3				# Base = 5. How much should the advantage affect damage given
+	KNIGHT_DAMAGE_PER_PROWESS = 25					# Base = 100. How much "Damage" stat does a knight get per prowess?
+	KNIGHT_TOUGHNESS_PER_PROWESS = 10				# Base = 10. How much "Toughness" stat does a knight get per prowess?
+}

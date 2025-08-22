@@ -1,0 +1,57 @@
+# Humblers
+maas_humbled = {
+	maa_damage_mult = -0.6
+	maa_toughness_mult = -0.6
+	maa_pursuit_mult = -0.6
+	maa_screen_mult = -0.6
+}
+
+adventurer_maas_humbled = {
+	maa_damage_mult = -0.1
+	maa_toughness_mult = -0.1
+	maa_pursuit_mult = -0.1
+	maa_screen_mult = -0.1
+}
+
+# Cheaty b.s... but the ai is killing me here.
+recruit_maas = {
+	hide_effects = yes
+	men_at_arms_recruitment_cost = -0.1
+
+	men_at_arms_maintenance = -0.1
+	army_maintenance_mult = -0.1
+}
+
+# Simulate Era boosts
+early_medieval_levies = {
+	levy_attack = 10.0
+	levy_toughness = 10.0
+}
+
+high_medieval_levies = {
+	levy_attack = 15.0
+	levy_toughness = 15.0
+}
+
+late_medieval_levies = {
+	levy_attack = 20.0
+	levy_toughness = 20.0
+}
+
+# Considerations
+admin_government_levy_size = {
+	levy_size = 0.4
+}
+
+nomadic_government_horse_rider_buff = {
+	maa_damage_mult = 0.4
+	maa_toughness_mult = 0.4
+	maa_pursuit_mult = 0.4
+	maa_screen_mult = 0.4
+}
+
+# Edge Cases
+levies_nerf = {
+	levy_attack = -20.0
+	levy_toughness = -20.0
+}
