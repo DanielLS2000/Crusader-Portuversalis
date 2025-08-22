@@ -1,0 +1,15 @@
+NOldAge = {
+	LOWER_HEALTH_YEARLY_INCREASE = 0.025 # Base = 0.025. This is the yearly increase of the chance to lose health
+	DIE_HEALTH_TRESHOLD = 2.5 # Base = 3.0. Characters have a chance to die each month they have less health than this
+	DIE_HEALTH_CHANCE_ZERO = 0.75 # Base = 0.25. This is the month chance that a character dies at zero health (or lower)
+}
+
+NCharacter = {
+	RANDOM_CHARACTER_MIN_HEALTH = 4.75
+	RANDOM_CHARACTER_MAX_HEALTH = 5.25
+}
+
+NChildbirth = {
+	NEWBORN_HEALTH_BASE = 3.75
+	NEWBORN_HEALTH_FEMALE_BONUS = 0.25
+}
