@@ -1,0 +1,16 @@
+template "new_chat" {
+	dynamicgridbox = {
+		datamodel = "[GetGlobalList('global_chat_messages')]"
+		item = {
+			button_standard = {
+				size = { 200 30 }
+				onclick = "[DefaultOnCharacterClick(Scope.GetCharacter.GetID)]"
+				# onclick = "[Scope.GetCharacter.ToggleCharacterPinned]"
+				# onclick = "[GetScriptedGui('test_name').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('target', Scope.GetCharacter.MakeScope).End)]"
+				text = "[Scope.GetCharacter.MakeScope.Var('sender').GetCharacter.GetNameNoTooltip]"
+				# text = "[Scope.Province.Var('message').GetText]"
+			}
+
+		}
+	}
+}

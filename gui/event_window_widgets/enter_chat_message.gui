@@ -1,0 +1,41 @@
+
+vbox = {
+	name = "enter_chat_message"
+	layoutpolicy_horizontal = expanding
+
+	datacontext = "[EventWindowWidgetNameCharacter.GetCharacter]"
+
+	editbox = {
+		layoutpolicy_horizontal = expanding
+		size = { 150 33 }
+		alwaystransparent = no
+		using = Font_Type_Standard
+		using = Font_Size_Small
+		default_format = "#high"
+		align = nobaseline
+		margin_left = 10
+		margin_top = -1
+		# multiline = yes
+		focus_on_visible = yes
+		visible = "[GetVariableSystem.Exists('chat')]"
+
+		text = "[EventWindowWidgetNameCharacter.GetCurrentName]"
+		ontextedited = "[EventWindowWidgetNameCharacter.OnEditCurrentName]"
+		ontextedited = "[GetVariableSystem.Set('hide_chat_helper', 'yes')]"
+		onreturnpressed = "[PdxGuiTriggerAllAnimations('exit_event')]"
+
+		text_single = {
+			visible = "[Not(GetVariableSystem.Exists('hide_chat_helper'))]"
+			position = { 20 0 }
+			align = nobaseline
+			parentanchor = vcenter
+			raw_text = "chat_helper"
+			default_format = "#low;help"
+		}
+
+		using = Background_Area_Border
+		background = {
+			using = Background_Area
+		}
+	}
+}

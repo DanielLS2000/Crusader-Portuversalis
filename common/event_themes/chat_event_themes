@@ -1,0 +1,11 @@
+﻿silent = {
+	icon = {
+		reference = "gfx/interface/icons/event_types/type_diplomacy.dds"
+	}
+	sound = {
+        reference = "event:/SFX/UI/Notifications/Messages/sfx_ui_message_theme_neutral"
+	}
+	background = {
+		event_background = throne_room
+	}
+}

@@ -1,0 +1,610 @@
+﻿new_message = {
+	scope = character
+
+	ai_is_valid = {
+		always = no
+	}
+
+	is_shown = {
+		NOT = {
+			has_variable_list = selected_chat
+		}
+	}
+
+	is_valid = {
+		NOT = {
+			has_variable = writing_message
+		}
+	}
+
+	effect = {
+		trigger_event = {
+			id = chat.1
+		}
+	}
+}
+
+get_players = {
+	scope = character
+
+	ai_is_valid = {
+		always = no
+	}
+
+	effect = {
+		every_player = {
+			root = {
+				add_to_variable_list = {
+					name = players
+					target = prev
+				}
+			}
+		}
+
+		every_in_list = {
+			variable = players
+			limit = {
+				is_ai = yes
+			}
+
+			root = {
+				remove_list_variable = {
+					name = players
+					target = prev
+				}
+			}
+		}
+
+		add_to_variable_list = {
+			name = private_chat_members
+			target = this
+		}
+
+		every_player = {
+			limit = {
+				NOT = { this = root }
+			}
+			root = {
+				add_to_variable_list = {
+					name = players_right
+					target = prev
+				}
+			}
+		}
+
+		every_in_list = {
+			variable = selected_chat
+			limit = {
+				is_ai = yes
+			}
+
+			root = {
+				remove_list_variable = {
+					name = selected_chat
+					target = prev
+				}
+			}
+		}
+
+		every_in_list = {
+			variable = players_right
+			limit = {
+				is_ai = yes
+			}
+
+			root = {
+				remove_list_variable = {
+					name = players_right
+					target = prev
+				}
+			}
+		}
+	}
+}
+
+general_chat = {
+	scope = character
+
+	is_shown = {
+		NOT = {
+			has_variable_list = selected_chat
+		}
+	}
+
+	effect = {
+		clear_variable_list = selected_chat
+		if = {
+			limit = { has_variable = unread }
+			remove_variable = unread
+		}
+	}
+}
+
+private_chat = {
+	scope = character
+
+	saved_scopes = {
+		host
+	}
+
+	is_valid = {
+		NOT = {
+			has_variable = writing_message
+		}
+	}
+
+	is_shown = {
+		scope:host = {
+			is_target_in_variable_list = {
+				name = private_chat_members
+				target = root
+			}
+		}
+	}
+}
+
+mute = {
+	scope = character
+
+	saved_scopes = {
+		baka
+	}
+
+	is_shown = {
+		NOT = {
+			is_target_in_variable_list = {
+				name = muted
+				target = scope:baka
+			}
+		}
+	}
+
+	effect = {
+		add_to_variable_list = {
+			name = muted
+			target = scope:baka
+		}
+	}
+}
+
+clear_messages = {
+	scope = character
+
+	confirm_title = "clear_general_confirm"
+	confirm_text = "clear_general_confirm_text"
+
+	effect = {
+		clear_global_variable_list = chat
+	}
+}
+
+clear_private_messages = {
+	scope = character
+
+	saved_scopes = {
+		host
+	}
+
+	confirm_text = "clear_private_messages_confirm_text"
+	confirm_title = "clear_private_messages_confirm"
+
+	is_shown = {
+		scope:host = root
+	}
+
+	effect = {
+		clear_variable_list = private_chat
+	}
+}
+
+unmute = {
+	scope = character
+
+	saved_scopes = {
+		baka
+	}
+
+	is_shown = {
+		is_target_in_variable_list = {
+			name = muted
+			target = scope:baka
+		}
+	}
+
+	effect = {
+		remove_list_variable = {
+			name = muted
+			target = scope:baka
+		}
+	}
+}
+
+can_join_chat = {
+	scope = character
+
+	saved_scopes = {
+		host
+	}
+
+	is_shown = {
+		scope:host = {
+			is_target_in_variable_list = {
+				name = private_chat_members
+				target = root
+			}
+		}
+	}
+}
+
+selected_chat = {
+	scope = character
+
+	saved_scopes = {
+		host
+	}
+
+	ai_is_valid = {
+		always = no
+	}
+
+	is_shown = { #TODO needs a check that we have the list
+		has_variable_list = selected_chat
+		is_target_in_variable_list = {
+			name = selected_chat
+			target = scope:host
+		}
+	}
+
+	effect = {
+		clear_variable_list = selected_chat
+
+		if = {
+			limit = {
+				is_target_in_variable_list = {
+					name = unread_private
+					target = scope:host
+				}
+			}
+			remove_list_variable = {
+				name = unread_private
+				target = scope:host
+			}
+		}
+
+		add_to_variable_list = {
+			name = selected_chat
+			target = scope:host
+		}
+	}
+}
+
+add_to_my_chat = {
+	scope = character
+
+	confirm_title = "invite_confirm_title"
+
+	saved_scopes = {
+		member
+	}
+
+	ai_is_valid = {
+		always = no
+	}
+
+	is_valid = {
+		scope:member = {
+			NOT = {
+				is_target_in_variable_list = {
+					name = muted
+					target = root
+				}
+			}
+		}
+	}
+
+	is_shown = {
+		has_variable_list = private_chat_members
+		NOT = { #TODO needs a check that we have the list
+			is_target_in_variable_list = {
+				name = private_chat_members
+				target = scope:member
+			}
+		}
+	}
+
+	effect = {
+		add_to_variable_list = {
+			name = private_chat_members
+			target = scope:member
+		}
+
+		scope:member = { # if the invited player hasn't opened chat, they won't see any private messages. This creates the list of players for them.
+			if = {
+				limit = { NOT = { has_variable_list = players } }
+				every_player = {
+					scope:member = {
+						add_to_variable_list = {
+							name = players
+							target = prev
+						}
+					}
+				}
+			}
+			if = { # if the room owner is new, they might not be in the list of players, so we need to check.
+				limit = {
+					NOT = {
+						is_target_in_variable_list = {
+							name = players
+							target = root
+						}
+					}
+				}
+				add_to_variable_list = {
+					name = players
+					target = root
+				}
+			}
+		}
+
+		scope:member = {
+			send_interface_toast = {
+				title = "invited_toast"
+				left_icon = root
+			}
+		}
+	}
+}
+
+kick_from_my_chat = {
+	scope = character
+
+	confirm_title = "kick_player_confirm"
+
+	saved_scopes = {
+		member
+	}
+
+	is_shown = {
+		is_target_in_variable_list = {
+			name = private_chat_members
+			target = scope:member
+		}
+	}
+
+	effect = {
+		remove_list_variable = {
+			name = private_chat_members
+			target = scope:member
+		}
+
+		scope:member = {
+			if = {
+				limit = {
+					is_target_in_variable_list = {
+						name = selected_chat
+						target = root
+					}
+				}
+				remove_list_variable = {
+					name = selected_chat
+					target = root
+				}
+			}
+
+			send_interface_toast = {
+				title = "kicked_toast"
+				left_icon = root
+			}
+		}
+	}
+}
+
+leave_chat = {
+	scope = character
+
+	saved_scopes = {
+		host
+	}
+
+	is_shown = {
+		NOT = {
+			scope:host = root
+		}
+	}
+
+	effect = {
+		scope:host = {
+			remove_list_variable = {
+				name = private_chat_members
+				target = root
+			}
+		}
+		remove_list_variable = {
+			name = selected_chat
+			target = scope:host
+		}
+	}
+}
+
+
+private_message = {
+	scope = character
+
+	saved_scopes = {
+		host
+	}
+	ai_is_valid = {
+		always = no
+	}
+
+	effect = {
+		trigger_event = {
+			id = chat.2
+		}
+	}
+}
+
+
+first_letter = {
+	scope = character
+
+	saved_scopes = {
+		letter_recipient
+	}
+
+	is_valid = {
+		scope:letter_recipient = {
+			NOT = {
+				is_target_in_variable_list = {
+					name = muted
+					target = root
+				}
+			}
+		}
+	}
+
+	effect = {
+		save_scope_as = actor
+		trigger_event = {
+			id = letter.10
+		}
+	}
+}
+
+letter = {
+	scope = character
+
+	saved_scopes = {
+		letter_recipient
+	}
+
+	is_valid = {
+		scope:letter_recipient = {
+			NOT = {
+				is_target_in_variable_list = {
+					name = muted
+					target = root
+				}
+			}
+		}
+	}
+
+	effect = {
+		save_scope_as = actor
+		trigger_event = {
+			id = letter.1
+		}
+	}
+}
+
+edit_message = {
+	scope = character
+
+	saved_scopes = {
+		message
+		killer
+	}
+
+	is_shown = {
+		scope:killer = root
+	}
+
+	effect = {
+		trigger_event = {
+			id = chat.3
+		}
+	}
+}
+
+delete_message = {
+	scope = character
+
+	confirm_title = "delete_message_confirm"
+
+	saved_scopes = {
+		message
+		killer
+	}
+
+	is_shown = {
+		scope:killer = root
+	}
+
+	effect = {
+		remove_list_global_variable = {
+			name = chat
+			target = scope:message
+		}
+	}
+}
+
+delete_private_message = {
+	scope = character
+
+	confirm_title = "delete_message"
+
+	saved_scopes = {
+		message
+		killer
+	}
+
+	is_shown = {
+		scope:killer = root
+	}
+
+	effect = {
+		remove_list_variable = {
+			name = private_chat
+			target = scope:message
+		}
+	}
+}
+
+
+unread_private = {
+	scope = character
+
+	saved_scopes = {
+		host
+	}
+
+	is_shown = {
+		is_target_in_variable_list = {
+			name = unread_private
+			target = scope:host
+		}
+	}
+}
+
+unread = {
+	scope = character
+
+	is_shown = {
+		has_variable = unread
+	}
+}
+
+dead_chat = {
+	scope = character
+
+	is_shown = {
+		is_target_in_global_variable_list = {
+			name = global_chat_messages
+			target = this
+		}
+	}
+}
+
+
+suppress_chat_errors = {
+	is_shown = {
+
+	}
+	effect = {
+		add_to_variable_list = {
+			name = global_chat_messages
+			target = this
+		}
+		set_variable = unread
+	}
+}
