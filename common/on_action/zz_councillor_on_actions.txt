@@ -1,0 +1,9 @@
+﻿task_fabricate_claim_success_effect = {
+	random_events = {
+		chance_of_no_event = {
+			value = court_chaplain_claim_success_chance_of_no_event
+		}
+		100 = court_chaplain_task.0301 #Claim on County
+		20 = court_chaplain_task.0302 #Claim on Duchy
+	}
+}
