@@ -1,0 +1,20 @@
+benficiary_war_county_won_opinion = {
+    opinion = 30  
+	years = 10
+    decaying = no
+}
+benficiary_war_duchy_won_opinion = {
+    opinion = 50  
+	years = 20
+    decaying = no
+}
+benficiary_war_kingdom_won_opinion = {
+    opinion = 70  
+	years = 30
+    decaying = no
+}
+benficiary_war_independence_won_opinion = {
+    opinion = 30  
+	years = 10
+    decaying = no
+}

@@ -1,0 +1,6 @@
+adventurers_beneficiary_assigned = {
+	set_variable = {
+		name = val_beneficiary
+		value = $CHARACTER$
+	}
+}

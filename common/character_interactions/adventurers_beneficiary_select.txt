@@ -1,0 +1,40 @@
+adventurers_beneficiary_select_interaction = { 
+	category = interaction_category_diplomacy
+	common_interaction = yes
+	desc = adventurers_beneficiary_select_interaction_desc
+
+	is_shown = {
+		scope:actor = {
+			is_ai = no
+			is_landless_adventurer = yes
+			NOT = { scope:recipient = var:val_beneficiary }
+			NOT = { scope:recipient = scope:actor }
+		}
+		scope:recipient = {
+			is_alive = yes
+			#is_ruler = no
+		}
+	}
+
+    auto_accept = yes
+
+    ai_accept = {
+        base = 100
+    }
+
+	on_accept = {
+		scope:actor = {
+			adventurers_beneficiary_assigned = { CHARACTER = scope:recipient }
+			send_interface_message = {
+				type = event_gold_neutral
+				title = adventurer_beneficiary_selected_notif.t
+				custom_tooltip = adventurer_beneficiary_selected_notif.desc
+				right_icon = var:val_beneficiary
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = -10000
+	}
+}

@@ -1,0 +1,34 @@
+﻿l_english:
+ adventurers_beneficiary_select_interaction:0 "Select Beneficiary"
+ adventurers_beneficiary_select_interaction_desc:0 "Become [recipient.GetShortUIName]'s' benefactor."
+
+ adventurers_beneficiary_unselect_interaction:0 "Unselect Beneficiary"
+ adventurers_beneficiary_unselect_interaction_desc:0 "Stop being [recipient.GetShortUIName]'s' benefactor."
+
+ adventurer_beneficiary_selected_notif.t:0 "New Beneficiary"
+ adventurer_beneficiary_selected_notif.desc:0 "[recipient.GetShortUIName] is your new beneficiary."
+
+ adventurer_beneficiary_unselected_notif.t:0 "No longer a Benefactor"
+ adventurer_beneficiary_unselected_notif.desc:0 "[recipient.GetShortUIName] is no longer your beneficiary."
+
+ adventurers_beneficiary_county_conquest_cb_victory_desc_attacker:0 "Your beneficiary gains the contested Titles."
+ adventurers_beneficiary_county_conquest_cb_victory_desc:0 "adventurers_beneficiary_county_conquest_cb_victory_desc"
+ adventurers_beneficiary_msg_county_conquest_war_invalidated_message:0 "Your beneficiary has died!"
+ adventurers_beneficiary_msg_duchy_conquest_war_invalidated_message:0 "Your beneficiary has died!"
+
+ benficiary_war_county_won_opinion:0 "Secured a County"
+ benficiary_war_duchy_won_opinion:0 "Secured a Duchy"
+ benficiary_war_kingdom_won_opinion:0 "Raised to the throne"
+ benficiary_war_independence_won_opinion:0 "Fought for independence"
+
+ ADVENTURERS_BENEFICIARY_COUNTY_CB_NAME:0 "Adventurer's Beneficiary County Conquest"
+ ADVENTURERS_BENEFICIARY_CONQUEST_DUCHY_CB_NAME:0 "Adventurer's Beneficiary Duchy Conquest"
+ ADVENTURERS_BENEFICIARY_WAR_NAME:0 "Adventurer's Beneficiary Conquest for the [TITLE.GetBaseName]"
+ ADVENTURERS_BENEFICIARY_WAR_NAME_BASE:0 "Adventurer's Beneficiary Conquest for the [TITLE.GetBaseName]"
+ ADVENTURERS_BENEFICIARY_CONQUEST_WAR_NAME:0 "Adventurer's Beneficiary Conquest for the [TITLE.GetBaseName]"
+
+ ADVENTURERS_BENEFICIARY_KINGDOM_WAR_NAME:0 "Adventurer's Beneficiary Conquest for the [TITLE.GetBaseName]"
+ ADVENTURERS_BENEFICIARY_KINGDOM_WAR_NAME_BASE:0 "Adventurer's Beneficiary Conquest for the [TITLE.GetBaseName]"
+ ADVENTURERS_BENEFICIARY_CB_KINGDOM_NAME:0 "Adventurer's Beneficiary Kingdom Conquest"
+
+ ADVENTURERS_BENEFICIARY_INDEPENDENCE_WAR_NAME:0 "Adventurer's Beneficiary Independence"
