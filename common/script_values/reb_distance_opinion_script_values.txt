@@ -1,0 +1,1119 @@
+﻿# Distance Opinion Value #
+reb_distance_opinion_value = {
+	# Distance #
+	if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.capital_barony
+					value < 10000
+				}
+			}
+		}
+		value = 5
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.capital_barony
+					value < 40000
+				}
+			}
+		}
+		value = -5
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.capital_barony
+					value < 90000
+				}
+			}
+		}
+		value = -10
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.capital_barony
+					value < 160000
+				}
+			}
+		}
+		value = -15
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.capital_barony
+					value < 250000
+				}
+			}
+		}
+		value = -20
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.capital_barony
+					value < 490000
+				}
+			}
+		}
+		value = -25
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.capital_barony
+					value < 810000
+				}
+			}
+		}
+		value = -30
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.capital_barony
+					value < 1440000
+				}
+			}
+		}
+		value = -35
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.capital_barony
+					value < 2250000
+				}
+			}
+		}
+		value = -40
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.capital_barony
+					value < 4000000
+				}
+			}
+		}
+		value = -45
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.capital_barony
+					value < 6250000
+				}
+			}
+		}
+		value = -50
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.capital_barony
+					value < 12250000
+				}
+			}
+		}
+		value = -55
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.capital_barony
+					value < 20250000
+				}
+			}
+		}
+		value = -60
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.capital_barony
+					value < 36000000
+				}
+			}
+		}
+		value = -65
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.capital_barony
+					value >= 36000000
+				}
+			}
+		}
+		value = -70
+	}
+}
+
+reb_distance_opinion_value_2 = {
+	# Distance #
+	if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.capital_barony
+					value < 10000
+				}
+			}
+		}
+		value = 5
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.capital_barony
+					value < 40000
+				}
+			}
+		}
+		value = -5
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.capital_barony
+					value < 90000
+				}
+			}
+		}
+		value = -10
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.capital_barony
+					value < 160000
+				}
+			}
+		}
+		value = -15
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.capital_barony
+					value < 250000
+				}
+			}
+		}
+		value = -20
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.capital_barony
+					value < 490000
+				}
+			}
+		}
+		value = -25
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.capital_barony
+					value < 810000
+				}
+			}
+		}
+		value = -30
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.capital_barony
+					value < 1440000
+				}
+			}
+		}
+		value = -35
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.capital_barony
+					value < 2250000
+				}
+			}
+		}
+		value = -40
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.capital_barony
+					value < 4000000
+				}
+			}
+		}
+		value = -45
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.capital_barony
+					value < 6250000
+				}
+			}
+		}
+		value = -50
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.capital_barony
+					value < 12250000
+				}
+			}
+		}
+		value = -55
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.capital_barony
+					value < 20250000
+				}
+			}
+		}
+		value = -60
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.capital_barony
+					value < 36000000
+				}
+			}
+		}
+		value = -65
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.capital_barony
+					value >= 36000000
+				}
+			}
+		}
+		value = -70
+	}
+}
+
+reb_distance_opinion_value_3 = {
+	# Distance #
+	if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.capital_barony
+					value < 10000
+				}
+			}
+		}
+		value = 5
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.capital_barony
+					value < 40000
+				}
+			}
+		}
+		value = -5
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.capital_barony
+					value < 90000
+				}
+			}
+		}
+		value = -10
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.capital_barony
+					value < 160000
+				}
+			}
+		}
+		value = -15
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.capital_barony
+					value < 250000
+				}
+			}
+		}
+		value = -20
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.capital_barony
+					value < 490000
+				}
+			}
+		}
+		value = -25
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.capital_barony
+					value < 810000
+				}
+			}
+		}
+		value = -30
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.capital_barony
+					value < 1440000
+				}
+			}
+		}
+		value = -35
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.capital_barony
+					value < 2250000
+				}
+			}
+		}
+		value = -40
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.capital_barony
+					value < 4000000
+				}
+			}
+		}
+		value = -45
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.capital_barony
+					value < 6250000
+				}
+			}
+		}
+		value = -50
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.capital_barony
+					value < 12250000
+				}
+			}
+		}
+		value = -55
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.capital_barony
+					value < 20250000
+				}
+			}
+		}
+		value = -60
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.capital_barony
+					value < 36000000
+				}
+			}
+		}
+		value = -65
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.capital_barony
+					value >= 36000000
+				}
+			}
+		}
+		value = -70
+	}
+}
+
+reb_distance_opinion_value_4 = {
+	# Distance #
+	if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.liege.capital_barony
+					value < 10000
+				}
+			}
+		}
+		value = 5
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.liege.capital_barony
+					value < 40000
+				}
+			}
+		}
+		value = -5
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.liege.capital_barony
+					value < 90000
+				}
+			}
+		}
+		value = -10
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.liege.capital_barony
+					value < 160000
+				}
+			}
+		}
+		value = -15
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.liege.capital_barony
+					value < 250000
+				}
+			}
+		}
+		value = -20
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.liege.capital_barony
+					value < 490000
+				}
+			}
+		}
+		value = -25
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.liege.capital_barony
+					value < 810000
+				}
+			}
+		}
+		value = -30
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.liege.capital_barony
+					value < 1440000
+				}
+			}
+		}
+		value = -35
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.liege.capital_barony
+					value < 2250000
+				}
+			}
+		}
+		value = -40
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.liege.capital_barony
+					value < 4000000
+				}
+			}
+		}
+		value = -45
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.liege.capital_barony
+					value < 6250000
+				}
+			}
+		}
+		value = -50
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.liege.capital_barony
+					value < 12250000
+				}
+			}
+		}
+		value = -55
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.liege.capital_barony
+					value < 20250000
+				}
+			}
+		}
+		value = -60
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.liege.capital_barony
+					value < 36000000
+				}
+			}
+		}
+		value = -65
+	}
+	else_if = {
+		limit = {
+			capital_barony = {
+				squared_distance = {
+					target = prev.liege.liege.liege.liege.capital_barony
+					value >= 36000000
+				}
+			}
+		}
+		value = -70
+	}
+}
+
+reb_opinion_weighted_value = {
+    value = reb_distance_opinion_value
+    if = {
+        limit = {
+            reb_distance_opinion_value < 0
+        }
+        if = {
+            limit = {
+                has_game_rule = reb_opinion_33
+            }
+            multiply = 0.33
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_66
+            }
+            multiply = 0.66
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_150
+            }
+            multiply = 1.5
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_200
+            }
+            multiply = 2
+        }
+    }
+    else = {
+        if = {
+            limit = {
+                has_game_rule = reb_opinion_33
+            }
+            multiply = 2
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_66
+            }
+            multiply = 1.5
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_150
+            }
+            multiply = 0.66
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_200
+            }
+            multiply = 0.33
+        }
+    }
+}
+
+reb_opinion_weighted_value_2 = {
+    value = reb_distance_opinion_value_2
+    if = {
+        limit = {
+            reb_distance_opinion_value_2 < 0
+        }
+        if = {
+            limit = {
+                has_game_rule = reb_opinion_33
+            }
+            multiply = 0.33
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_66
+            }
+            multiply = 0.66
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_150
+            }
+            multiply = 1.5
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_200
+            }
+            multiply = 2
+        }
+    }
+    else = {
+        if = {
+            limit = {
+                has_game_rule = reb_opinion_33
+            }
+            multiply = 2
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_66
+            }
+            multiply = 1.5
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_150
+            }
+            multiply = 0.66
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_200
+            }
+            multiply = 0.33
+        }
+    }
+}
+
+reb_opinion_weighted_value_3 = {
+    value = reb_distance_opinion_value_3
+    if = {
+        limit = {
+            reb_distance_opinion_value_3 < 0
+        }
+        if = {
+            limit = {
+                has_game_rule = reb_opinion_33
+            }
+            multiply = 0.33
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_66
+            }
+            multiply = 0.66
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_150
+            }
+            multiply = 1.5
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_200
+            }
+            multiply = 2
+        }
+    }
+    else = {
+        if = {
+            limit = {
+                has_game_rule = reb_opinion_33
+            }
+            multiply = 2
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_66
+            }
+            multiply = 1.5
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_150
+            }
+            multiply = 0.66
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_200
+            }
+            multiply = 0.33
+        }
+    }
+}
+
+reb_opinion_weighted_value_4 = {
+    value = reb_distance_opinion_value_4
+    if = {
+        limit = {
+            reb_distance_opinion_value_4 < 0
+        }
+        if = {
+            limit = {
+                has_game_rule = reb_opinion_33
+            }
+            multiply = 0.33
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_66
+            }
+            multiply = 0.66
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_150
+            }
+            multiply = 1.5
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_200
+            }
+            multiply = 2
+        }
+    }
+    else = {
+        if = {
+            limit = {
+                has_game_rule = reb_opinion_33
+            }
+            multiply = 2
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_66
+            }
+            multiply = 1.5
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_150
+            }
+            multiply = 0.66
+        }
+        else_if = {
+            limit = {
+                has_game_rule = reb_opinion_200
+            }
+            multiply = 0.33
+        }
+    }
+}
+
+reb_distance_county_value = {
+	# Distance #
+	if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value < 40000
+			}
+		}
+		value = 5
+	}
+	else_if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value < 90000
+			}
+		}
+		value = 10
+	}
+	else_if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value < 160000
+			}
+		}
+		value = 15
+	}
+	else_if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value < 250000
+			}
+		}
+		value = 20
+	}
+	else_if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value < 490000
+			}
+		}
+		value = 25
+	}
+	else_if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value < 810000
+			}
+		}
+		value = 30
+	}
+	else_if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value < 1440000
+			}
+		}
+		value = 35
+	}
+	else_if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value < 2250000
+			}
+		}
+		value = 40
+	}
+	else_if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value < 4000000
+			}
+		}
+		value = 45
+	}
+	else_if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value < 6250000
+			}
+		}
+		value = 50
+	}
+	else_if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value < 12250000
+			}
+		}
+		value = 55
+	}
+	else_if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value < 20250000
+			}
+		}
+		value = 60
+	}
+	else_if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value < 36000000
+			}
+		}
+		value = 65
+	}
+	else_if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value >= 36000000
+			}
+		}
+		value = 70
+	}
+	if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value > 10000
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = reb_opinion_33
+			}
+			multiply = 0.33
+		}
+		else_if = {
+			limit = {
+				has_game_rule = reb_opinion_66
+			}
+			multiply = 0.66
+		}
+		else_if = {
+			limit = {
+				has_game_rule = reb_opinion_150
+			}
+			multiply = 1.5
+		}
+		else_if = {
+			limit = {
+				has_game_rule = reb_opinion_200
+			}
+			multiply = 2
+		}
+	}
+	if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value <= 10000
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = reb_opinion_33
+			}
+			multiply = 2
+		}
+		else_if = {
+			limit = {
+				has_game_rule = reb_opinion_66
+			}
+			multiply = 1.5
+		}
+		else_if = {
+			limit = {
+				has_game_rule = reb_opinion_150
+			}
+			multiply = 0.66
+		}
+		else_if = {
+			limit = {
+				has_game_rule = reb_opinion_200
+			}
+			multiply = 0.33
+		}
+	}
+}
+
+reb_distance_county_control_value = {
+	value = reb_distance_county_value
+	if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value > 10000
+			}
+		}
+		divide = 1.5
+	}
+}

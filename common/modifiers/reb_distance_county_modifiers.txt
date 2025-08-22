@@ -1,0 +1,39 @@
+﻿reb_distance_county_negative_modifier = {
+	icon = county_modifier_opinion_negative
+	county_opinion_add = -1
+
+    scale = {
+		value = reb_distance_county_value
+		display_mode = scaled
+	}
+}
+
+reb_distance_county_positive_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 1
+
+    scale = {
+		value = reb_distance_county_value
+		display_mode = scaled
+	}
+}
+
+reb_distance_county_control_negative_modifier = {
+	icon = county_modifier_opinion_negative
+	monthly_county_control_growth_factor = -0.01
+
+    scale = {
+		value = reb_distance_county_control_value
+		display_mode = scaled
+	}
+}
+
+reb_distance_county_control_positive_modifier = {
+	icon = county_modifier_opinion_positive
+	monthly_county_control_growth_factor = 0.01
+
+    scale = {
+		value = reb_distance_county_control_value
+		display_mode = scaled
+	}
+}

@@ -1,0 +1,62 @@
+﻿reb_opinion_game_rule = {
+	
+	categories = {
+		difficulty game_modes
+	}
+	
+	default = reb_opinion_normal
+
+	reb_opinion_normal = {
+
+	}
+	
+	reb_opinion_33 = {
+
+	}
+
+	reb_opinion_66 = {
+
+	}
+
+	reb_opinion_150 = {
+
+	}
+
+	reb_opinion_200 = {
+
+	}
+}
+
+reb_opinion_ai_game_rule = {
+	
+	categories = {
+		difficulty game_modes
+	}
+	
+	default = reb_opinion_player_only
+
+	reb_opinion_player_only = {
+
+	}
+	
+	reb_opinion_ai = {
+
+	}
+}
+
+reb_opinion_county_game_rule = {
+	
+	categories = {
+		difficulty game_modes
+	}
+	
+	default = reb_opinion_county_off
+
+	reb_opinion_county_on = {
+
+	}
+	
+	reb_opinion_county_off = {
+
+	}
+}

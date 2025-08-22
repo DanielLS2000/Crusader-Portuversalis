@@ -1,0 +1,38 @@
+﻿on_game_start_after_lobby = {
+	on_actions = {
+		reb_on_game_start_on_action
+	}
+}
+
+on_vassal_gained = {
+	on_actions = {
+		reb_on_vassal_gained_on_action
+	}
+}
+
+yearly_global_pulse = {
+	on_actions = {
+		reb_yearly_on_action
+	}
+}
+
+#################################################
+
+reb_on_game_start_on_action = {
+	effect = {
+		reb_calculate_all_effect = yes
+	}
+}
+
+reb_on_vassal_gained_on_action = {
+	effect = {
+		reb_on_vassal_gained_effect = yes
+	}
+}
+
+reb_yearly_on_action = {
+	effect = {
+		reb_calculate_all_effect = yes
+		reb_remove_opinion_modifier_effect = yes
+	}
+}

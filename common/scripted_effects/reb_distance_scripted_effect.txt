@@ -1,0 +1,202 @@
+﻿# Calculate Every Distance - Simple #
+reb_calculate_all_effect = {
+	every_ruler = {
+        limit = {
+			OR = {
+				AND = {
+					has_game_rule = reb_opinion_player_only
+					is_ai = no
+				}
+				AND = {
+					has_game_rule = reb_opinion_ai
+				}
+			}
+        }
+		every_vassal_or_below  = {
+			reb_distance_modifier_effect = yes
+		}
+		if = {
+			limit = {
+				has_game_rule = reb_opinion_county_on	
+			}
+			every_held_title = {
+				limit = {
+					tier = tier_county
+				}
+				reb_distance_county_modifier_effect = yes
+			}
+		}
+	}
+}
+
+reb_distance_county_modifier_effect = {
+	if = {
+		limit = {
+			squared_distance = {
+				target = prev.capital_barony
+				value < 10000
+			}
+		}
+		add_county_modifier = reb_distance_county_positive_modifier
+		add_county_modifier = reb_distance_county_control_positive_modifier
+	}
+	else = {
+		add_county_modifier = reb_distance_county_negative_modifier
+		add_county_modifier = reb_distance_county_control_negative_modifier
+	}
+}
+
+# A character gains a vassal
+# root = character gaining vassal
+# scope:vassal = vassal being gained
+# scope:old_liege = the previous liege of the vassal. Might be the null character (vassal used to be a non-ruler or independent), so make sure to use "exists" checks where relevant
+reb_on_vassal_gained_effect = {
+	if = {
+		limit = {
+			OR = {
+				AND = {
+					has_game_rule = reb_opinion_player_only
+					is_ai = no
+				}
+				AND = {
+					has_game_rule = reb_opinion_ai
+				}
+			}
+        }
+		scope:vassal = {
+			reb_distance_modifier_effect = yes
+		}
+	}
+	if = {
+		limit = {
+			exists = scope:old_liege
+		}
+		scope:old_liege ?= {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							has_game_rule = reb_opinion_player_only
+							is_ai = no
+						}
+						AND = {
+							has_game_rule = reb_opinion_ai
+						}
+					}
+					scope:vassal = {
+						has_opinion_modifier = {
+							modifier = reb_distance_opinion
+							target = scope:old_liege
+						}
+					}
+				}
+				remove_opinion = {
+					modifier = reb_distance_opinion
+					target = scope:old_liege
+				}
+			}
+		}
+	}
+}
+
+reb_distance_modifier_effect = {
+	if = {
+		limit = {
+			exists = this.liege.liege.liege.liege
+			OR = {
+				AND = {
+					has_game_rule = reb_opinion_player_only
+					this.liege.liege.liege.liege = { is_ai = no }
+				}
+				AND = {
+					has_game_rule = reb_opinion_ai
+				}
+			}
+		}
+		add_opinion = {
+			modifier = reb_distance_opinion
+			opinion = reb_opinion_weighted_value_4
+			target = this.liege.liege.liege.liege
+		}
+	}
+	if = {
+		limit = {
+			exists = this.liege.liege.liege
+			OR = {
+				AND = {
+					has_game_rule = reb_opinion_player_only
+					this.liege.liege.liege = { is_ai = no }
+				}
+				AND = {
+					has_game_rule = reb_opinion_ai
+				}
+			}
+		}
+		add_opinion = {
+			modifier = reb_distance_opinion
+			opinion = reb_opinion_weighted_value_3
+			target = this.liege.liege.liege
+		}
+	}
+	if = {
+		limit = {
+			exists = this.liege.liege
+			OR = {
+				AND = {
+					has_game_rule = reb_opinion_player_only
+					this.liege.liege = { is_ai = no }
+				}
+				AND = {
+					has_game_rule = reb_opinion_ai
+				}
+			}
+		}
+		add_opinion = {
+			modifier = reb_distance_opinion
+			opinion = reb_opinion_weighted_value_2
+			target = this.liege.liege
+		}
+	}
+	if = {
+		limit = {
+			exists = this.liege
+			OR = {
+				AND = {
+					has_game_rule = reb_opinion_player_only
+					this.liege = { is_ai = no }
+				}
+				AND = {
+					has_game_rule = reb_opinion_ai
+				}
+			}
+		}
+		add_opinion = {
+			modifier = reb_distance_opinion
+			opinion = reb_opinion_weighted_value
+			target = this.liege
+		}
+	}
+}
+
+reb_remove_opinion_modifier_effect = {
+	every_player = {
+		save_temporary_scope_as = current_player
+		every_ruler = {
+			if = {
+				limit = {
+					NOT = {
+						is_vassal_or_below_of = scope:current_player
+					}
+					has_opinion_modifier = {
+						modifier = reb_distance_opinion
+						target = scope:current_player
+					}
+				}
+				remove_opinion = {
+					modifier = reb_distance_opinion
+					target = scope:current_player
+				}
+			}
+		}
+	}
+}
