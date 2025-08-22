@@ -1,0 +1,130 @@
+﻿l_simp_chinese:
+ notify_of_war_activate:0 "激活战争警报"
+ notify_of_war_activate_desc:0 "激活战争警报的决议选项，并展开多种战争警报选项。激活之后战争警报选项会出现在附决议中，只有选择对应选项才会出现对应的战争警报。"
+ notify_of_war_activate_tooltip:0 "使得战争警报相关选项可选。所有选项会出现在附决议中。"
+ notify_of_war_activate_confirm:0 "激活"
+
+ notify_of_war_pinned_decision_value_one:0 "钉选的角色-激活警报"
+ notify_of_war_pinned_decision_value_one_desc:0 "打开被钉选角色发起战争时的提示。"
+ notify_of_war_pinned_decision_value_one_tooltip:0 "打开被钉选角色发起战争或被发起战争时的提示。"
+ notify_of_war_pinned_decision_value_one_confirm:0 "打开被钉选角色的战争提示"
+ 
+ notify_of_war_pinned_decision_value_zero:0 "钉选的角色-关闭警报"
+ notify_of_war_pinned_decision_value_zero_desc:0 "关闭被标记的角色发起战争时的提示。"
+ notify_of_war_pinned_decision_value_zero_tooltip:0 "关闭被标记的角色发起战争或被发起战争时的提示。"
+ notify_of_war_pinned_decision_value_zero_confirm:0 "关闭被钉选角色的战争提示"
+ 
+ notify_of_war_family_decision_value_one:0 "亲族成员战争-激活警报"
+ notify_of_war_family_decision_value_one_desc:0 "打开至亲或是其他与你有关系的人发起或受到攻击时的提示。至亲包括你的伴侣、父母、祖父母、子女、孙辈、兄弟姐妹。有关系的人包括你的情人、灵魂伴侣、朋友、仇敌、被监护人、监护人、学生和导师。"
+ notify_of_war_family_decision_value_one_tooltip:0 "打开至亲或是其他与你有关系的人发起或受到攻击时的提示。"
+ notify_of_war_family_decision_value_one_confirm:0 "打开亲族成员战争提示"
+ 
+ notify_of_war_family_decision_value_two:0 "远亲战争-扩展的警报"
+ notify_of_war_family_decision_value_two_desc:0 "打开至亲、远亲或是其他与你有关系的人发起或受到攻击时的提示。至亲包括你的伴侣、父母、祖父母、子女、孙辈、兄弟姐妹。远亲包括你的同辈堂表亲、叔舅、姑姨、侄甥、侄甥女。有关系的人包括你的情人、灵魂伴侣、朋友、仇敌、被监护人、监护人、学生和导师。"
+ notify_of_war_family_decision_value_two_tooltip:0 "打开至亲、远亲或是其他与你有关系的人发起或受到攻击时的提示。"
+ notify_of_war_family_decision_value_two_confirm:0 "打开远亲战争提示"
+ 
+ notify_of_war_family_decision_value_zero:0 "亲族成员战争-关闭警报"
+ notify_of_war_family_decision_value_zero_desc:0 "关闭至亲、远亲或是其他与你有关系的人发起或受到攻击时的提示。至亲包括你的伴侣、父母、祖父母、子女、孙辈、兄弟姐妹。远亲包括你的同辈堂表亲、叔舅、姑姨、侄甥、侄甥女。有关系的人包括你的情人、灵魂伴侣、朋友、仇敌、被监护人、监护人、学生和导师。"
+ notify_of_war_family_decision_value_zero_tooltip:0 "关闭至亲、远亲或是其他与你有关系的人发起或受到攻击时的提示。"
+ notify_of_war_family_decision_value_zero_confirm:0 "关闭亲族成员战争提示"
+ 
+ notify_of_war_family_decision_value_zero_first:0 "亲族成员战争-关闭警报"
+ notify_of_war_family_decision_value_zero_first_desc:0 "关闭至亲或是其他与你有关系的人发起或受到攻击时的提示。至亲包括你的伴侣、父母、祖父母、子女、孙辈、兄弟姐妹。有关系的人包括你的情人、灵魂伴侣、朋友、仇敌、被监护人、监护人、学生和导师。"
+ notify_of_war_family_decision_value_zero_first_confirm:0 "关闭亲族成员战争提示"
+ 
+ notify_of_war_dynasty_decision_value_one:0 "家族成员战争-激活警报"
+ notify_of_war_dynasty_decision_value_one_desc:0 "打开家族成员发起或受到攻击时的提示。"
+ notify_of_war_dynasty_decision_value_one_tooltip:0 "打开家族成员发起或受到攻击时的提示。"
+ notify_of_war_dynasty_decision_value_one_confirm:0 "打开家族成员战争提示"
+ 
+ notify_of_war_dynasty_decision_value_two:0 "家族/宗族成员战争-扩展的警报"
+ notify_of_war_dynasty_decision_value_two_desc:0 "打开家族成员和宗族成员发起或受到攻击时的提示。"
+ notify_of_war_dynasty_decision_value_two_tooltip:0 "打开家族成员和宗族成员发起或受到攻击时的提示。"
+ notify_of_war_dynasty_decision_value_two_confirm:0 "打开宗族成员战争提示"
+
+ notify_of_war_dynasty_decision_value_zero:0 "家族/宗族成员战争-关闭警报"
+ notify_of_war_dynasty_decision_value_zero_desc:0 "关闭家族成员和宗族成员发起或受到攻击时的提示。"
+ notify_of_war_dynasty_decision_value_zero_tooltip:0 "关闭家族成员和宗族成员发起或受到攻击时的提示。"
+ notify_of_war_dynasty_decision_value_zero_confirm:0 "关闭家族成员和宗族成员战争提示"
+ 
+ notify_of_war_dynasty_decision_value_zero_first:0 "家族成员战争-关闭警报"
+ notify_of_war_dynasty_decision_value_zero_first_desc:0 "关闭家族成员发起或受到攻击时的提示。"
+ notify_of_war_dynasty_decision_value_zero_first_tooltip:0 "关闭家族成员发起或受到攻击时的提示。"
+ notify_of_war_dynasty_decision_value_zero_first_confirm:0 "关闭家族成员战争提示"
+ 
+ notify_of_war_peasant_decision_value_one:0 "农民叛乱-激活警报"
+ notify_of_war_peasant_decision_value_one_desc:0 "打开封臣遭受农民叛乱攻击时的提示。"
+ notify_of_war_peasant_decision_value_one_tooltip:0 "打开封臣遭受农民叛乱攻击时的提示。"
+ notify_of_war_peasant_decision_value_one_confirm:0 "打开农民叛乱战争提示"
+
+ notify_of_war_peasant_decision_value_zero:0 "农民叛乱-关闭警报"
+ notify_of_war_peasant_decision_value_zero_desc:0 "关闭封臣遭受农民叛乱攻击时的提示。"
+ notify_of_war_peasant_decision_value_zero_tooltip:0 "关闭封臣遭受农民叛乱攻击时的提示。"
+ notify_of_war_peasant_decision_value_zero_confirm:0 "关闭农民叛乱战争提示"
+ 
+ notify_of_war_vassal_wars_decision_value_one:0 "封臣对外战争-激活警报"
+ notify_of_war_vassal_wars_decision_value_one_desc:0 "打开封臣对外发起攻击时的提示。"
+ notify_of_war_vassal_wars_decision_value_one_tooltip:0 "打开封臣对外发起攻击时的提示。"
+ notify_of_war_vassal_wars_decision_value_one_confirm:0 "打开封臣战争提示"
+
+ notify_of_war_vassal_wars_decision_value_two:0 "封臣对内/对外战争-扩展的警报"
+ notify_of_war_vassal_wars_decision_value_two_desc:0 "打开封臣对其他封臣以及对外发起攻击时的提示。"
+ notify_of_war_vassal_wars_decision_value_two_tooltip:0 "打开封臣对其他封臣以及对外发起攻击时的提示。"
+ notify_of_war_vassal_wars_decision_value_two_confirm:0 "打开扩展的封臣战争提示"
+
+ notify_of_war_vassal_wars_decision_value_zero:0 "封臣对内/对外战争-关闭警报"
+ notify_of_war_vassal_wars_decision_value_zero_desc:0 "关闭封臣对其他封臣以及对外发起攻击时的提示。"
+ notify_of_war_vassal_wars_decision_value_zero_tooltip:0 "关闭封臣对其他封臣以及对外发起攻击时的提示。"
+ notify_of_war_vassal_wars_decision_value_zero_confirm:0 "关闭封臣战争提示"
+ 
+ notify_of_war_vassal_wars_decision_value_zero_first:0 "封臣对外战争-关闭警报"
+ notify_of_war_vassal_wars_decision_value_zero_first_desc:0 "关闭封臣对外发起攻击时的提示。"
+ notify_of_war_vassal_wars_decision_value_zero_first_tooltip:0 "关闭封臣对外发起攻击时的提示。"
+ notify_of_war_vassal_wars_decision_value_zero_first_confirm:0 "关闭封臣战争提示"
+
+ notify_of_neighbour_wars_decision_value_one:0 "邻国战争-激活警报"
+ notify_of_neighbour_wars_decision_value_one_desc:0 "打开临近领主发起或受到战争时的提示。"
+ notify_of_neighbour_wars_decision_value_one_tooltip:0 "打开临近领主发起或受到战争时的提示。"
+ notify_of_neighbour_wars_decision_value_one_confirm:0 "打开邻国战争提示"
+
+ notify_of_neighbour_wars_decision_value_zero:0 "邻国战争-关闭警报"
+ notify_of_neighbour_wars_decision_value_zero_desc:0 "关闭临近领主发起或受到战争时的提示。"
+ notify_of_neighbour_wars_decision_value_zero_tooltip:0 "关闭临近领主发起或受到战争时的提示。"
+ notify_of_neighbour_wars_decision_value_zero_confirm:0 "关闭邻国战争提示"
+ 
+ notify_of_war_hide_legacy_set:0 "激活战争警报选项的显示/隐藏功能。"
+ notify_of_war_hide_legacy_set_desc:0 "激活战争警报的显示/隐藏功能。激活之后，战争警报选项会重新显示在附决议下，不激活的情况下战争警报选项会被隐藏，以避免决议列表过长。此选项仅适用于早期版本的存档，未来的游戏版本中，战争警报的显示/隐藏功能会在初始游戏中自动设定。"
+ notify_of_war_hide_legacy_set_tooltip:0 ""激活战争警报选项的显示/隐藏功能。激活后，战争警报选项会重现显示在附决议中。"
+ notify_of_war_hide_legacy_set_confirm:0 "激活"
+  
+ notify_of_war_hide_hide:0 "隐藏战争警报选项"
+ notify_of_war_hide_hide_desc:0 "从决议栏中隐藏战争警报的选项。所有已经设定的战争警报选项仍旧有效。通过切换到‘显示战争警报’的选项，所有的战争警报选项会重新显示。"
+ notify_of_war_hide_hide_tooltip:0 "从决议栏中隐藏战争警报选项。所有已经设定的战争警报选项仍旧有效。"
+ notify_of_war_hide_hide_confirm:0 "隐藏战争警报选项"
+ 
+ notify_of_war_hide_show:0 "显示战争警报选项"
+ notify_of_war_hide_show_desc:0 "从决议栏中显示战争警报选项。选项显示后，可以进行设定和更改。所有已经设定的战争警报选项依旧有效。"
+ notify_of_war_hide_show_tooltip:0 "从决议栏中显示战争警报选项。选项显示后，可以进行设定和更改。所有已经设定的战争警报选项依旧有效。"
+ notify_of_war_hide_show_confirm:0 "显示战争警报选项"
+ 
+ #New
+ notify_of_war_turn_on_all:0 "Enable All War Alerts"
+ notify_of_war_turn_on_all_desc:0 "Enable all War Alerts."
+ notify_of_war_turn_on_all_tooltip:0 "Enables all War Alerts."
+ notify_of_war_turn_on_all_confirm:0 "Enable All War Alerts"
+ 
+ notify_of_war_turn_max_all:0 "Enable All Expanded War Alerts"
+ notify_of_war_turn_max_all_desc:0 "Set all War Alerts that have two possible levels to their second expanded level.\n\nWar Alerts with only one possible level are unaffected."
+ notify_of_war_turn_max_all_tooltip:0 "Sets all War Alerts that have two possible levels to their second expanded level.\n\nWar Alerts with only one possible level are unaffected."
+ notify_of_war_turn_max_all_confirm:0 "Enable All Expanded War Alerts"
+
+ notify_of_war_turn_min_all:0 "Disable All Expanded War Alerts"
+ notify_of_war_turn_min_all_desc:0 "Set all War Alerts that have two possible levels to their first unexpanded level.\n\nWar Alerts with only one possible level are unaffected."
+ notify_of_war_turn_min_all_tooltip:0 "Sets all War Alerts that have two possible levels to their first unexpanded level.\n\nWar Alerts with only one possible level are unaffected."
+ notify_of_war_turn_min_all_confirm:0 "Disable All Expanded War Alerts"
+
+ notify_of_war_turn_off_all:0 "Disable All War Alerts"
+ notify_of_war_turn_off_all_desc:0 "Disable all War Alerts."
+ notify_of_war_turn_off_all_tooltip:0 "Disables all War Alerts."
+ notify_of_war_turn_off_all_confirm:0 "Turn Off All War Alerts"
