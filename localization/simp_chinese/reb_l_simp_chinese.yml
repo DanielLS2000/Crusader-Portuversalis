@@ -1,0 +1,12 @@
+﻿l_simp_chinese:
+ rule_reb_disinherit_game_rule: "Disinherit Rebalanced"
+ setting_reb_disinherit_normal:1 "正常"
+ setting_reb_disinherit_normal_desc:0 "无变化。"
+ setting_reb_disinherit_33:1 "正常数值的33%"
+ setting_reb_disinherit_33_desc:0 "威望和声望消耗为正常数值的33%（仅适用于增加时）。（非常容易）"
+ setting_reb_disinherit_66:1 "正常数值的66%"
+ setting_reb_disinherit_66_desc:0 "威望和声望消耗为正常数值的66%（仅适用于增加时）。（较容易）"
+ setting_reb_disinherit_150:1 "正常数值的150%"
+ setting_reb_disinherit_150_desc:0 "威望和声望消耗为正常数值的150%（仅适用于增加时）。（较难）"
+ setting_reb_disinherit_200:1 "正常数值的200%"
+ setting_reb_disinherit_200_desc:0 "威望和声望消耗为正常数值的200%（仅适用于增加时）。（非常困难）"

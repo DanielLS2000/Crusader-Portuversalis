@@ -1,0 +1,12 @@
+﻿l_french:
+ rule_reb_disinherit_game_rule: "Disinherit Rebalanced"
+ setting_reb_disinherit_normal:1 "Normal"
+ setting_reb_disinherit_normal_desc:0 "Aucune modification."
+ setting_reb_disinherit_33:1 "33% des valeurs normales"
+ setting_reb_disinherit_33_desc:0 "33% des valeurs normales pour les coûts en Prestige et en Renommée (s’applique uniquement aux augmentations). (beaucoup plus facile)"
+ setting_reb_disinherit_66:1 "66% des valeurs normales"
+ setting_reb_disinherit_66_desc:0 "66% des valeurs normales pour les coûts en Prestige et en Renommée (s’applique uniquement aux augmentations). (plus facile)"
+ setting_reb_disinherit_150:1 "150% des valeurs normales"
+ setting_reb_disinherit_150_desc:0 "150% des valeurs normales pour les coûts en Prestige et en Renommée (s’applique uniquement aux augmentations). (plus difficile)"
+ setting_reb_disinherit_200:1 "200% des valeurs normales"
+ setting_reb_disinherit_200_desc:0 "200% des valeurs normales pour les coûts en Prestige et en Renommée (s’applique uniquement aux augmentations). (beaucoup plus difficile)"

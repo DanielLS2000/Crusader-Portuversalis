@@ -1,0 +1,12 @@
+﻿l_korean:
+ rule_reb_disinherit_game_rule: "Disinherit Rebalanced"
+ setting_reb_disinherit_normal:1 "정상"
+ setting_reb_disinherit_normal_desc:0 "변경 없음."
+ setting_reb_disinherit_33:1 "정상 수치의 33%"
+ setting_reb_disinherit_33_desc:0 "명성과 위신 비용이 정상 수치의 33%만 적용됩니다 (증가에만 적용). (매우 쉬움)"
+ setting_reb_disinherit_66:1 "정상 수치의 66%"
+ setting_reb_disinherit_66_desc:0 "명성과 위신 비용이 정상 수치의 66%만 적용됩니다 (증가에만 적용). (쉬움)"
+ setting_reb_disinherit_150:1 "정상 수치의 150%"
+ setting_reb_disinherit_150_desc:0 "명성과 위신 비용이 정상 수치의 150%로 증가합니다 (증가에만 적용). (어려움)"
+ setting_reb_disinherit_200:1 "정상 수치의 200%"
+ setting_reb_disinherit_200_desc:0 "명성과 위신 비용이 정상 수치의 200%로 증가합니다 (증가에만 적용). (매우 어려움)"

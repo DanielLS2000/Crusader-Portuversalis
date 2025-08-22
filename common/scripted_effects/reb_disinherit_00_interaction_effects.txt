@@ -1,0 +1,70 @@
+﻿disinherit_effect = {
+	if = {
+		limit = {
+			is_heir_of = $DISINHERITOR$
+			NOT = {
+				has_trait = disputed_heritage
+			}
+			$DISINHERITOR$ = {
+				any_vassal = {
+					has_vassal_stance = courtly
+				}
+			}
+		}
+		$DISINHERITOR$ = {
+			custom_tooltip = courtly_vassal_disapproves_disinheriting
+			hidden_effect = {
+				every_vassal = {
+					limit = {
+						has_vassal_stance = courtly
+					}
+					add_opinion = {
+						target = $DISINHERITOR$
+						modifier = courtly_disinherit_opinion
+					}
+				}
+			}
+		}
+	}
+	add_trait = disinherited
+	add_opinion = {
+		modifier = disinherited_opinion
+		target = $DISINHERITOR$
+	}
+	house = {
+		every_house_member = {
+			#limit = {
+			#	NOT = { house = $DISINHERITOR$.house }
+			#}
+			custom = all_house_members
+			add_opinion = {
+				modifier = disinherited_house_member_opinion
+				target = $DISINHERITOR$
+			}
+		}
+	}
+	if = {
+		limit = {
+			exists = dynasty
+			NOT = { $DISINHERITOR$ = dynasty.dynast }
+		}
+		$DISINHERITOR$.dynasty.dynast = {
+			add_opinion = {
+				target = $DISINHERITOR$
+				modifier = fp1_usurped_my_authority_opinion
+				years = 20
+			}
+		}
+	}
+	hidden_effect = { #Nudge towards rivalry
+		if = {
+			limit = {
+				NOR = {
+					has_relation_rival = $DISINHERITOR$
+					has_relation_potential_rival = $DISINHERITOR$
+				}
+			}
+			set_relation_potential_rival = $DISINHERITOR$
+		}
+	}
+}

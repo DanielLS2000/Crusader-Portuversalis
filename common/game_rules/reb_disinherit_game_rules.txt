@@ -1,0 +1,28 @@
+﻿reb_disinherit_game_rule = {
+	
+	categories = {
+		difficulty game_modes
+	}
+	
+	default = reb_disinherit_normal
+
+	reb_disinherit_normal = {
+
+	}
+	
+	reb_disinherit_33 = {
+
+	}
+
+	reb_disinherit_66 = {
+
+	}
+
+	reb_disinherit_150 = {
+
+	}
+
+	reb_disinherit_200 = {
+
+	}
+}

@@ -1,0 +1,12 @@
+﻿l_spanish:
+ rule_reb_disinherit_game_rule: "Disinherit Rebalanced"
+ setting_reb_disinherit_normal:1 "Normal"
+ setting_reb_disinherit_normal_desc:0 "Sin cambios."
+ setting_reb_disinherit_33:1 "33 % de los valores normales"
+ setting_reb_disinherit_33_desc:0 "33 % de los valores normales para los costes de Prestigio y Renombre (solo se aplica a los aumentos). (mucho más fácil)"
+ setting_reb_disinherit_66:1 "66 % de los valores normales"
+ setting_reb_disinherit_66_desc:0 "66 % de los valores normales para los costes de Prestigio y Renombre (solo se aplica a los aumentos). (más fácil)"
+ setting_reb_disinherit_150:1 "150 % de los valores normales"
+ setting_reb_disinherit_150_desc:0 "150 % de los valores normales para los costes de Prestigio y Renombre (solo se aplica a los aumentos). (más difícil)"
+ setting_reb_disinherit_200:1 "200 % de los valores normales"
+ setting_reb_disinherit_200_desc:0 "200 % de los valores normales para los costes de Prestigio y Renombre (solo se aplica a los aumentos). (mucho más difícil)"

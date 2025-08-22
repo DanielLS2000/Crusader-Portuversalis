@@ -1,0 +1,12 @@
+﻿l_russian:
+ rule_reb_disinherit_game_rule: "Disinherit Rebalanced"
+ setting_reb_disinherit_normal:1 "Нормальный"
+ setting_reb_disinherit_normal_desc:0 "Без изменений."
+ setting_reb_disinherit_33:1 "33% от обычных значений"
+ setting_reb_disinherit_33_desc:0 "33% от обычных значений для стоимости Престижа и Известности (применяется только к увеличениям). (намного легче)"
+ setting_reb_disinherit_66:1 "66% от обычных значений"
+ setting_reb_disinherit_66_desc:0 "66% от обычных значений для стоимости Престижа и Известности (применяется только к увеличениям). (легче)"
+ setting_reb_disinherit_150:1 "150% от обычных значений"
+ setting_reb_disinherit_150_desc:0 "150% от обычных значений для стоимости Престижа и Известности (применяется только к увеличениям). (сложнее)"
+ setting_reb_disinherit_200:1 "200% от обычных значений"
+ setting_reb_disinherit_200_desc:0 "200% от обычных значений для стоимости Престижа и Известности (применяется только к увеличениям). (намного сложнее)"

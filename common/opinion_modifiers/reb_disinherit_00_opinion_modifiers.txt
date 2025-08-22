@@ -1,0 +1,26 @@
+﻿disinherited_member = {
+	monthly_change = 0.5
+	decaying = yes
+	stacking = yes
+}
+
+disinherited_house_member_opinion = {
+	opinion = -20
+	decaying = yes
+	stacking = yes
+	monthly_change = 0.01
+}
+
+denounced_house_member_opinion = {
+	opinion = -10
+	decaying = yes
+	stacking = yes
+	monthly_change = 0.01
+}
+
+courtly_disinherit_opinion = {
+	opinion = -20
+	years = 10
+	decaying = yes
+	stacking = yes
+}

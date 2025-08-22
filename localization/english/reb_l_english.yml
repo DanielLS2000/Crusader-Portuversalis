@@ -1,0 +1,12 @@
+﻿l_english:
+ rule_reb_disinherit_game_rule: "Disinherit Rebalanced"
+ setting_reb_disinherit_normal:1 "Normal"
+ setting_reb_disinherit_normal_desc:0 "No changes."
+ setting_reb_disinherit_33:1 "33% of Normal values"
+ setting_reb_disinherit_33_desc:0 "33% of Normal values for Prestige and Renown costs (only applies to increases). (much easier)"
+ setting_reb_disinherit_66:1 "66% of Normal values"
+ setting_reb_disinherit_66_desc:0 "66% of Normal values for Prestige and Renown costs (only applies to increases). (easier)"
+ setting_reb_disinherit_150:1 "150% of Normal values"
+ setting_reb_disinherit_150_desc:0 "150% of Normal values for Prestige and Renown costs (only applies to increases). (harder)"
+ setting_reb_disinherit_200:1 "200% of Normal values"
+ setting_reb_disinherit_200_desc:0 "200% of Normal values for Prestige and Renown costs (only applies to increases). (much harder)"
