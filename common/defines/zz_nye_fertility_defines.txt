@@ -1,0 +1,13 @@
+NCharacter = {
+	RANDOM_CHARACTER_MIN_FERTILITY = 0.25
+	RANDOM_CHARACTER_MAX_FERTILITY = 0.35
+	BASE_FERTILITY = 0.3
+}
+
+NChildbirth = {
+	MAX_FEMALE_REPRODUCTION_AGE = 50
+	FEMALE_FERTILITY_MULTIPLIER = { 0.05 0.25 0.4 0.6 0.8 1.0 } # Multiplier values based on age limits from FERTILITY_MULTIPLIER_LIMITS should have an extra value at the beginning for characters older than first limit
+	LOW_FERTILITY = 0.05
+	NON_RULER_FERTILITY_MULTIPLIER = 1.0
+	FERTILITY_CHANCE_MULTIPLIER = 4 # Was 4 Fertility is an average between the father and the mother (if the mother has 0.3 and the father 0.5, the average is 0.4), this number is then multiplied by this multiplier to produce the percentage chance of impregnation. Impregnation is checked every month.
+}
