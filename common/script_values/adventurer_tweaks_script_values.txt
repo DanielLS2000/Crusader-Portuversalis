@@ -1,0 +1,42 @@
+nyes_replenishable_troops = {
+	value = maa_max_troops_count
+	if = {
+		limit = {
+			root = { prestige_level = 0 }
+		}
+		divide = 10
+	}
+	else_if = {
+		limit = {
+			root = { prestige_level = 1 }
+		}
+		divide = 5
+	}
+	else_if = {
+		limit = {
+			root = { prestige_level = 2 }
+		}
+		divide = 4.5
+	}
+	else_if = {
+		limit = {
+			root = { prestige_level = 3 }
+		}
+		divide = 4
+	}
+	else_if = {
+		limit = {
+			root = { prestige_level = 4 }
+		}
+		divide = 3.5
+	}
+	else_if = {
+		limit = {
+			root = { prestige_level = 5 }
+		}
+		divide = 3
+	}
+}
+
+#replenishable_troops_value
+#4

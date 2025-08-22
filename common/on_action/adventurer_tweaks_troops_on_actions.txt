@@ -1,0 +1,35 @@
+quarterly_playable_pulse = {
+	on_actions = {
+		nyes_troop_replenishment_quarterly
+	}
+}
+
+yearly_playable_pulse = {
+	on_actions = {
+		nyes_troop_replenishment_yearly
+	}
+}
+
+nyes_troop_replenishment_quarterly = {
+	trigger = {
+		is_landless_adventurer = yes
+		is_at_war = no
+	}
+	effect = {
+		every_maa_regiment = {
+			change_maa_troops_count = nyes_replenishable_troops
+		}
+	}	
+}
+
+nyes_troop_replenishment_yearly = {
+	trigger = {
+		is_landless_adventurer = yes
+		is_at_war = yes
+	}
+	effect = {
+		every_maa_regiment = {
+			change_maa_troops_count = nyes_replenishable_troops
+		}
+	}	
+}
