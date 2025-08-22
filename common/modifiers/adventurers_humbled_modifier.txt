@@ -1,0 +1,6 @@
+humble_adventurers = {
+	maa_damage_mult = -0.5
+	maa_toughness_mult = -0.5
+	maa_pursuit_mult = -0.5
+	maa_screen_mult = -0.5
+}

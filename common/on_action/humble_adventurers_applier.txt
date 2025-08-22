@@ -1,0 +1,27 @@
+quarterly_playable_pulse = {
+	on_actions = {
+		apply_humble_adventurers
+		remove_humble_adventurers
+	}
+}
+
+
+apply_humble_adventurers = {
+	trigger = {
+		is_landless_adventurer = yes
+		NOT = { has_character_modifier = humble_adventurers }
+	}
+	effect = {
+		add_character_modifier = { modifier = humble_adventurers }
+	}
+}
+
+remove_humble_adventurers = {
+	trigger = {
+		is_ruler = yes
+		has_character_modifier = humble_adventurers
+	}
+	effect = {
+		remove_character_modifier = humble_adventurers
+	}
+}
