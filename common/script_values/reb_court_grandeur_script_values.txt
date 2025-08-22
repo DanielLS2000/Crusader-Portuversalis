@@ -1,0 +1,36 @@
+# Referenced from code for the multiplier of above/below expected court grandeur level modifiers
+court_grandeur_level_difference_modifier_multiplier = {
+	value = 1
+	if = { # NERFED ONLY FOR PLAYERS
+		limit = {
+			court_grandeur_current_level >= court_grandeur_minimum_expected_level
+			is_ai = no
+		}
+		value = 50 # Realm size baseline
+		divide = {
+			value = sub_realm_size
+			min = 1 		
+		} 
+		min = 1
+		max = 2
+	}
+	else_if = { # Small realms receives larger bonuses for being above their expected level
+		limit = {
+			court_grandeur_current_level >= court_grandeur_minimum_expected_level
+			is_ai = yes
+		}
+		value = 100 # Realm size baseline
+		divide = {
+			value = sub_realm_size
+			min = 1 		
+		} 
+		min = 1
+		max = 4
+	}
+	else = { # Big realms receives larger penalties for being below their expected level
+		value = sub_realm_size
+		multiply = 0.025
+		min = 1
+		max = 4
+	}
+}
