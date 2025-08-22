@@ -1,0 +1,10 @@
+﻿l_russian:
+ rule_reb_ransom_game_rule: "Ransom Rebalanced"
+ setting_reb_ransom_normal:1 "Обычный"
+ setting_reb_ransom_normal_desc:0 "При 30 Дипломатии выкуп соответствует значениям из оригинала."
+ setting_reb_ransom_15:1 "15 как обычное"
+ setting_reb_ransom_15_desc:0 "При 15 Дипломатии выкуп соответствует значениям из оригинала. (намного проще)"
+ setting_reb_ransom_20:1 "20 как обычное"
+ setting_reb_ransom_20_desc:0 "При 20 Дипломатии выкуп соответствует значениям из оригинала. (проще)"
+ setting_reb_ransom_40:1 "40 как обычное"
+ setting_reb_ransom_40_desc:0 "При 40 Дипломатии выкуп соответствует значениям из оригинала. (сложнее)"

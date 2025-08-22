@@ -1,0 +1,10 @@
+﻿l_german:
+ rule_reb_ransom_game_rule: "Ransom Rebalanced"
+ setting_reb_ransom_normal:1 "Normal"
+ setting_reb_ransom_normal_desc:0 "Bei 30 Diplomatie entspricht das Lösegeld den Vanilla-Werten."
+ setting_reb_ransom_15:1 "15 als Normal"
+ setting_reb_ransom_15_desc:0 "Bei 15 Diplomatie entspricht das Lösegeld den Vanilla-Werten. (viel einfacher)"
+ setting_reb_ransom_20:1 "20 als Normal"
+ setting_reb_ransom_20_desc:0 "Bei 20 Diplomatie entspricht das Lösegeld den Vanilla-Werten. (einfacher)"
+ setting_reb_ransom_40:1 "40 als Normal"
+ setting_reb_ransom_40_desc:0 "Bei 40 Diplomatie entspricht das Lösegeld den Vanilla-Werten. (schwieriger)"

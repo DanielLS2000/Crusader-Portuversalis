@@ -1,0 +1,282 @@
+﻿golden_obligation_value = {
+	if = {
+		limit = { 
+			ransom_cost_value < medium_gold_value 
+			ransom_cost_value > minor_gold_value 
+		}
+		value = minor_gold_value
+	}
+	else_if = {
+		limit = {
+			ransom_cost_value < medium_gold_value 
+			ransom_cost_value < minor_gold_value 
+		}
+		value = ransom_cost_value
+	}
+	else = {
+		value = medium_gold_value
+	}
+	if = {
+		limit = {
+			OR = {
+				scope:actor ?= {
+					is_ai = no
+				}
+				actor ?= {
+					is_ai = no
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:actor.diplomacy = 0
+			}
+			multiply = {
+				value = 1
+				divide = 10
+			}
+		}
+		if = {
+			limit = {
+				scope:actor.diplomacy < 15
+				scope:actor.diplomacy > 0
+			}
+			multiply = {
+				value = scope:actor.diplomacy
+				divide = 15
+			}
+		}
+		if = {
+			limit = {
+				scope:actor.stewardship = 0
+			}
+			multiply = {
+				value = 1
+				divide = 15
+			}
+		}
+		if = {
+			limit = {
+				scope:actor.stewardship < 20
+				scope:actor.stewardship > 0
+			}
+			multiply = {
+				value = scope:actor.stewardship
+				divide = 20
+			}
+		}
+	}
+}
+
+golden_obligation_value_check_current_situation = {
+	add = gold
+	max = golden_obligation_value
+}
+
+ransom_cost_value = {
+	value = ransom_cost
+	# Some cultures are better at ransoming than others.
+	if = {
+		limit = {
+			exists = imprisoner
+			imprisoner.culture = { has_cultural_parameter = can_demand_higher_ransoms_from_lower_tiers }
+			# Kings and emperors are already worth more, so we just boost landless and ducal-tier or below.
+			OR = {
+				NOT = { exists = liege }
+				highest_held_title_tier <= tier_duchy
+			}
+		}
+		multiply = 1.5
+	}
+	# Rich guests can pay a bit more...
+	if = {
+		limit = {
+			NOT = { exists = liege }
+			gold >= 100
+		}
+		add = 90
+	}
+	#increase it if the imprisoner has a Haggler Officer employed
+	if = {
+		limit = {
+			exists = scope:imprisoner
+			scope:imprisoner ?= {
+				employs_court_position = person_haggler_camp_officer
+			}
+		}
+		multiply = {
+			value = scope:imprisoner.court_position:person_haggler_camp_officer.aptitude:person_haggler_camp_officer
+			add = 1
+			divide = 15
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			imprisoner ?= {
+				employs_court_position = person_haggler_camp_officer
+			}
+		}
+		multiply = {
+			value = imprisoner.court_position:person_haggler_camp_officer.aptitude:person_haggler_camp_officer
+			add = 1
+			divide = 15
+			add = 1
+		}
+	}
+	#decrease it if the imprisoned has a Haggler Officer employed
+	if = {
+		limit = {
+			OR = {
+				AND = {
+					exists = scope:imprisoner
+					scope:recipient ?= scope:imprisoner
+				}
+				AND = {
+					exists = imprisoner
+					scope:recipient ?= imprisoner
+				}
+			}
+			scope:actor ?= {
+				employs_court_position = person_haggler_camp_officer
+			}
+		}
+		divide = {
+			value = scope:actor.court_position:person_haggler_camp_officer.aptitude:person_haggler_camp_officer
+			add = 1
+			divide = 10
+			add = 1
+		}
+	}
+	#decrease it if the imprisoned has a Haggler Officer employed
+	if = {
+		limit = {
+			OR = {
+				AND = {
+					exists = scope:imprisoner
+					scope:actor ?= scope:imprisoner
+				}
+				AND = {
+					exists = imprisoner
+					scope:actor ?= imprisoner
+				}
+			}
+			scope:recipient ?= {
+				employs_court_position = person_haggler_camp_officer
+			}
+		}
+		divide = {
+			value = scope:recipient.court_position:person_haggler_camp_officer.aptitude:person_haggler_camp_officer
+			add = 1
+			divide = 10
+			add = 1
+		}
+	}
+	
+	#if = {
+	#	limit = {
+	#		has_game_rule = hard_difficulty
+	#		OR = {
+	#			scope:imprisoner ?= {
+	#				is_ai = no
+	#			}
+	#			imprisoner ?= {
+	#				is_ai = no
+	#			}
+	#		}
+	#	}
+	#	multiply = 0.5
+	#}
+	#else_if = {
+	#	limit = {
+	#		has_game_rule = very_hard_difficulty
+	#		OR = {
+	#			scope:imprisoner ?= {
+	#				is_ai = no
+	#			}
+	#			imprisoner ?= {
+	#				is_ai = no
+	#			}
+	#		}
+	#	}
+	#	multiply = 0.25
+	#}
+
+	#MOD START
+	if = {
+		limit = {
+			OR = {
+				scope:imprisoner ?= {
+					is_ai = no
+				}
+				imprisoner ?= {
+					is_ai = no
+				}
+			}
+		}
+		if = {
+			limit = { scope:actor.diplomacy = 0 }
+			multiply = 0.5
+			divide = 30
+		}
+		else = {
+			if = {
+				limit = {
+					has_game_rule = reb_ransom_normal
+				}
+				if = {
+					limit = {
+						scope:actor.diplomacy < 31
+					}
+					multiply = scope:actor.diplomacy
+					divide = {
+						value = 30
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_game_rule = reb_ransom_40
+				}
+				if = {
+					limit = {
+						scope:actor.diplomacy < 41
+					}
+					multiply = scope:actor.diplomacy
+					divide = {
+						value = 40
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_game_rule = reb_ransom_20
+				}
+				if = {
+					limit = {
+						scope:actor.diplomacy < 21
+					}
+					multiply = scope:actor.diplomacy
+					divide = {
+						value = 20
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_game_rule = reb_ransom_15
+				}
+				if = {
+					limit = {
+						scope:actor.diplomacy < 16
+					}
+					multiply = scope:actor.diplomacy
+					divide = {
+						value = 15
+					}
+				}
+			}
+		}
+	}
+	#MOD END
+}

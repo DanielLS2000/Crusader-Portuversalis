@@ -1,0 +1,10 @@
+﻿l_spanish:
+ rule_reb_ransom_game_rule: "Ransom Rebalanced"
+ setting_reb_ransom_normal:1 "Normal"
+ setting_reb_ransom_normal_desc:0 "Con 30 de Diplomacia, el rescate será equivalente a los valores predeterminados."
+ setting_reb_ransom_15:1 "15 como Normal"
+ setting_reb_ransom_15_desc:0 "Con 15 de Diplomacia, el rescate será equivalente a los valores predeterminados. (mucho más fácil)"
+ setting_reb_ransom_20:1 "20 como Normal"
+ setting_reb_ransom_20_desc:0 "Con 20 de Diplomacia, el rescate será equivalente a los valores predeterminados. (más fácil)"
+ setting_reb_ransom_40:1 "40 como Normal"
+ setting_reb_ransom_40_desc:0 "Con 40 de Diplomacia, el rescate será equivalente a los valores predeterminados. (más difícil)"

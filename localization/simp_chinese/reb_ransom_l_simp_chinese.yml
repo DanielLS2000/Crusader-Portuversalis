@@ -1,0 +1,10 @@
+﻿l_simp_chinese:
+ rule_reb_ransom_game_rule: "Ransom Rebalanced"
+ setting_reb_ransom_normal:1 "正常"
+ setting_reb_ransom_normal_desc:0 "当外交为30时，赎金与原版数值相同。"
+ setting_reb_ransom_15:1 "15为正常"
+ setting_reb_ransom_15_desc:0 "当外交为15时，赎金与原版数值相同。（简单很多）"
+ setting_reb_ransom_20:1 "20为正常"
+ setting_reb_ransom_20_desc:0 "当外交为20时，赎金与原版数值相同。（较容易）"
+ setting_reb_ransom_40:1 "40为正常"
+ setting_reb_ransom_40_desc:0 "当外交为40时，赎金与原版数值相同。（较困难）"

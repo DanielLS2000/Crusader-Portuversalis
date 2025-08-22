@@ -1,0 +1,24 @@
+﻿reb_ransom_game_rule = {
+	
+	categories = {
+		difficulty game_modes
+	}
+	
+	default = reb_ransom_normal
+
+	reb_ransom_normal = {
+
+	}
+	
+	reb_ransom_40 = {
+
+	}
+
+	reb_ransom_20 = {
+
+	}
+
+	reb_ransom_15 = {
+
+	}
+}

@@ -1,0 +1,10 @@
+﻿l_english:
+ rule_reb_ransom_game_rule: "Ransom Rebalanced"
+ setting_reb_ransom_normal:1 "Normal"
+ setting_reb_ransom_normal_desc:0 "At 30 Diplomacy, ransoming will equate to Vanilla values."
+ setting_reb_ransom_15:1 "15 as Normal"
+ setting_reb_ransom_15_desc:0 "At 15 Diplomacy, ransoming will equate to Vanilla values. (much easier)"
+ setting_reb_ransom_20:1 "20 as Normal"
+ setting_reb_ransom_20_desc:0 "At 20 Diplomacy, ransoming will equate to Vanilla values. (easier)"
+ setting_reb_ransom_40:1 "40 as Normal"
+ setting_reb_ransom_40_desc:0 "At 40 Diplomacy, ransoming will equate to Vanilla values. (harder)"
