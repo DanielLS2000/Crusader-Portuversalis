@@ -1,0 +1,50 @@
+﻿interactive_common_faction_modifiers = {
+	modifier = {
+		add = -1000
+		opinion = {
+			target = $FACTION_TARGET$
+			value < high_positive_opinion
+		}
+	}
+
+	modifier = {
+		add = -1000
+		ai_honor < medium_positive_ai_value
+	}
+
+	modifier = {
+		desc = "INTERACTIVE_AI_OPINION"
+		add = 100
+		opinion = {
+			target = $FACTION_TARGET$
+			value >= high_positive_opinion
+		}
+	}
+
+	modifier = {
+		desc = "INTERACTIVE_AI_OPINION_2"
+		add = 150
+		opinion = {
+			target = $FACTION_TARGET$
+			value >= very_high_positive_opinion
+		}
+	}
+
+	modifier = {
+		desc = "INTERACTIVE_AI_HONOR"
+		add = 100
+		ai_honor >= medium_positive_ai_value
+	}
+
+	modifier = {
+		desc = "INTERACTIVE_AI_HONOR_2"
+		add = 125
+		ai_honor >= high_positive_ai_value
+	}
+
+	modifier = {
+		desc = "INTERACTIVE_AI_HONOR_3"
+		add = 150
+		ai_honor >= very_high_positive_ai_value
+	}
+}

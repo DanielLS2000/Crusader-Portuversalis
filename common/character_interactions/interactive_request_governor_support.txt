@@ -1,0 +1,127 @@
+﻿# This interaction checks for DLC using the following trigger: has_ep3_dlc_trigger = yes
+interactive_administrative_governors = {
+	common_interaction = yes
+	interface_priority = 66
+
+	category = interaction_category_diplomacy
+	desc = interactive_administrative_governors_desc
+	interface = call_ally
+	special_interaction = call_ally_interaction
+	icon = alliance
+
+	notification_text = CALL_ALLY_NOTIFICATION
+
+	ai_min_reply_days = 0
+	ai_max_reply_days = 0
+	greeting = positive
+	popup_on_receive = yes
+	pause_on_receive = yes
+
+	is_shown = {
+		# Check for DLC
+		has_ep3_dlc_trigger = yes
+
+		NOT = { has_game_rule = administrative_governors_disabled }
+
+		scope:actor = {
+			government_allows = administrative
+			NOT = {
+				is_allied_to = scope:recipient
+			}
+		}
+
+		scope:recipient = {
+			highest_held_title_tier >= tier_county
+			government_allows = administrative
+
+			OR = {
+				is_vassal_or_below_of = scope:actor
+				liege = scope:actor.liege
+			}
+			
+			NOT = { is_at_war_with = scope:actor }
+			NOT = { this = scope:actor }
+			NOT = { this = scope:actor.liege }
+			
+			is_landed = yes
+			max_military_strength > 200
+		}
+	}
+	
+	has_valid_target = {
+		exists = scope:target
+	}
+	
+	is_valid_showing_failures_only = {
+		
+		scope:recipient = {
+			is_ruler = yes
+		}
+
+		scope:actor = {
+			is_at_war = yes
+		}
+
+		scope:actor = {
+			custom_description = {
+				text = ASK_SUPPORT_CANNOT_AFFORD_INFLUENCE_TEXT
+				influence > 0
+			}
+		}
+	}
+
+	can_be_picked = {
+		scope:target = {
+			# not a civil war
+			custom_description = {
+				text = ASK_VASSAL_MILITARY_SUPPORT_IS_CIVIL_WAR_TEXT
+				NOT = {
+					is_civil_war = yes
+				}
+			}
+
+			is_war_leader = scope:actor
+
+			# not already in target war
+			custom_description = {
+				text = join_war_interaction_already_in_target_war
+				NOR = {
+					any_war_attacker = { this = scope:recipient }
+					any_war_defender = { this = scope:recipient }
+				}
+			}
+		}
+	}
+
+	on_accept = {
+		scope:target ?= {
+			hidden_effect = {
+				set_called_to = scope:recipient
+			}
+			scope:actor = {
+				change_influence = interactive_admin_governor_military_strength_negative
+			}
+			scope:recipient = {
+				change_influence = interactive_admin_governor_military_strength
+			}
+			if = {
+				limit = { is_attacker = scope:actor }
+				add_attacker = scope:recipient
+			}
+			else = {
+				add_defender = scope:recipient
+			}
+		}
+	}
+	
+	on_decline = {
+	}
+
+	auto_accept = yes
+	
+	ai_accept = {
+		base = 100
+	}
+
+	ai_will_do = { base = 0 }
+}
