@@ -1,4 +1,0 @@
-﻿NGui = {
-	EVENT_WINDOW_EDGE_PIXELS = 33	# If an event window is moved outside the game window this number of pixels will stay inside it
-	EVENT_OPTIONS_DISABLED_TIME = 0.3 # How long are event options unclickable after an event spawns, to prevent accidental clicks?
-}
