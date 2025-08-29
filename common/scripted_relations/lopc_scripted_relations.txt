@@ -1,9 +1,0 @@
-lopc_employer = {
-	corresponding = lopc_courtier
-	opinion = 10
-}
-
-lopc_courtier = {
-	corresponding = lopc_employer
-	opinion = 5
-}
