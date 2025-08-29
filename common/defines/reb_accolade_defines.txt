@@ -1,6 +1,6 @@
-NAccolade = {
-	SUCCESSION_GLORY_LOSS_SMALL = 0.04		# how much glory is lost, in percent, upon accolade succession
-	SUCCESSION_GLORY_LOSS_LARGE = 0.8		# how much glory is lost, in percent, upon accolade succession if the successor only fulfils the requirement of one attribute
+﻿NAccolade = {
+	SUCCESSION_GLORY_LOSS_SMALL = 0.04
+	SUCCESSION_GLORY_LOSS_LARGE = 0.8	
 
 	ACCOLADE_BADGE_COLORS = {
 		"badge_color1.dds"
@@ -14,6 +14,6 @@ NAccolade = {
 		"badge_color9.dds"
 	}
 
-	STARTING_GLORY = 0	# how much glory does each created accolade start out with? 100 is default to unlock rank 1
-	POTENTIAL_ACCLAIMED_KNIGHT_UPDATE_TIME = 0.5 # Time between potential acclaimed knights window updates, in seconds
+	STARTING_GLORY = 0
+	POTENTIAL_ACCLAIMED_KNIGHT_UPDATE_TIME = 0.5
 }
