@@ -1,0 +1,659 @@
+﻿#Broad mechanics
+unplayable_governments = {
+	categories = {
+		game_modes
+	}
+	default = default_playables
+	
+	default_playables = {
+		flag = GG_can_change_rule 
+	}
+	
+	allow_unplayables = {
+		flag = GG_can_change_rule 
+	}
+	#allow_unplayable_courtiers = {
+	#}
+}
+
+matrilineal_marriage = {
+	categories = {
+		game_modes ai tweaks
+	}
+	default = default_matri
+	default_matri = { flag = GG_can_change_rule }
+	restricted_matri = { flag = GG_can_change_rule } #fem-d/equal
+	more_restricted_matri = { flag = GG_can_change_rule } #fem-d only
+	never_matri = { flag = GG_can_change_rule }
+}
+
+cadet_branches = {
+	categories = {
+		ai tweaks
+	}
+	default = default_cadet
+	default_cadet = {
+		flag = GG_can_change_rule	
+	}
+	hard_cadet = {
+		flag = GG_can_change_rule	
+	}
+	no_cadet = {
+		flag = GG_can_change_rule	
+	}
+}
+
+secret_bastards = {
+	categories = {
+		game_modes tweaks
+	}
+	default = default_secret_bastards	
+	default_secret_bastards = {
+		flag = GG_can_change_rule	
+	}
+	reveal_secret_bastards = {
+		flag = GG_can_change_rule	
+	}	
+	no_secret_bastards = {	
+		flag = GG_can_change_rule	
+	}
+}
+
+fake_news = {
+	categories = {
+		game_modes tweaks
+	}
+	default = fake_news_on
+	
+	fake_news_on = {
+		flag = GG_can_change_rule	
+	}
+
+	fake_news_limited = {
+		flag = GG_can_change_rule	
+	}
+	
+	fake_news_off = {
+		flag = GG_can_change_rule	
+	}
+}
+
+gamerule_dejure_empires = {
+	categories = {
+		game_modes historicity flavor
+	}
+	default = default_empires
+	no_dejure_empires = {
+	}
+	default_empires = {
+
+	}
+	historical_empires = {
+
+	}
+	ex_historical_empires = {
+	}
+}
+
+confed_partition = {
+	categories = {
+		tweaks
+	}
+	default = default_confed_partition
+	
+	default_confed_partition = {
+		flag = GG_can_change_rule	
+	}
+	confed_partition_shatter = {
+		flag = GG_can_change_rule	
+	}
+	confed_partition_release = {
+		flag = GG_can_change_rule	
+	}
+	confed_partition_combo = {
+		flag = GG_can_change_rule	
+	}
+}
+
+#CBs/War mechanics
+holy_war_cbs = {
+	categories = {
+		game_modes tweaks historicity faith difficulty
+	}
+	default = holy_war_cb_default
+	holy_war_cb_default = {
+		flag = GG_can_change_rule	
+	}
+	
+	holy_war_cb_3 = {
+		flag = GG_can_change_rule	
+	}
+	
+	holy_war_cb_5 = {	
+		flag = GG_can_change_rule	
+	}
+	
+	holy_war_cb_10 = {
+		flag = GG_can_change_rule	
+	}
+	
+	holy_war_cb_20 = {
+		flag = GG_can_change_rule	
+	}
+}
+
+conquest_war_cbs = {
+	categories = {
+		game_modes tweaks historicity difficulty
+	}
+	default = conquest_war_cb_default
+	conquest_war_cb_default = {
+		flag = GG_can_change_rule	
+	}
+	
+	conquest_war_cb_3 = {
+		flag = GG_can_change_rule	
+	}
+	
+	conquest_war_cb_5 = {	
+		flag = GG_can_change_rule	
+	}
+	
+	conquest_war_cb_10 = {
+		flag = GG_can_change_rule	
+	}
+	
+	conquest_war_cb_20 = {
+		flag = GG_can_change_rule	
+	}
+}
+
+external_vassal_wars = {
+	categories = {
+		game_modes tweaks
+	}
+	default = default_external_vw
+
+	default_external_vw = {
+		flag = GG_can_change_rule	
+	}
+	de_jure_external_vw = {
+		flag = GG_can_change_rule	
+	}
+	player_external_vw = {
+		flag = GG_can_change_rule	
+	}
+	no_external_vw = {
+		flag = GG_can_change_rule	
+	}
+}
+
+
+#Faith/Culture mechanics
+fervor_priests = {
+	categories = {
+		faith tweaks difficulty
+	}
+	default = default_fervor_priests
+
+	default_fervor_priests = {
+		flag = GG_can_change_rule	
+	}
+	
+	reduced_fervor_priests = {
+		flag = GG_can_change_rule	
+	}
+
+	rare_fervor_priests = {
+		flag = GG_can_change_rule	
+	}
+
+	no_fervor_priests = {
+		flag = GG_can_change_rule	
+	}
+
+}
+
+heresy_spawn = {
+	categories = {
+		faith tweaks difficulty
+	}
+	default = default_heresy_spawn
+
+	default_heresy_spawn = {
+		flag = GG_can_change_rule	
+	}
+
+	limited_heresy_spawn = {
+		flag = GG_can_change_rule		
+	}
+	no_heresy_spawn = {
+		flag = GG_can_change_rule	
+	}
+}
+
+unreformed_religions = {
+	categories = {
+		game_modes faith
+	}
+	default = default_unreformed
+	default_unreformed = {
+		flag = GG_can_change_rule	
+	}
+	all_reformed = {
+		flag = GG_can_change_rule	
+	}
+	all_unreformed = {
+		flag = GG_can_change_rule	
+	}
+}
+
+pagan_reformation = {
+	categories = {
+		game_modes faith tweaks difficulty
+	}
+	default = default_pagan_reformation
+	default_pagan_reformation = {
+		flag = GG_can_change_rule	
+	}
+
+	no_pagan_reformation = {
+		flag = GG_can_change_rule	
+	}
+}
+
+pagan_reformation_hs = {
+	categories = {
+		game_modes faith tweaks difficulty
+	}
+	default = pagan_reformation_hs_3
+	pagan_reformation_hs_0 = {
+		flag = GG_can_change_rule	
+	}
+	pagan_reformation_hs_1 = {
+		flag = GG_can_change_rule	
+	}
+	pagan_reformation_hs_2 = {
+		flag = GG_can_change_rule	
+	}
+	pagan_reformation_hs_3 = {
+		flag = GG_can_change_rule	
+	}
+	pagan_reformation_hs_4 = {
+		flag = GG_can_change_rule	
+	}
+	pagan_reformation_hs_5 = {
+		flag = GG_can_change_rule	
+	}
+}
+
+faith_head_holy_site = {
+	categories = {
+		faith tweaks game_modes difficulty
+	}
+	default = head_holy_site_default
+	head_holy_site_0 = {
+		flag = GG_can_change_rule	
+	}
+	head_holy_site_1 = {
+		flag = GG_can_change_rule	
+	}
+	head_holy_site_default = {
+		flag = GG_can_change_rule	
+	}
+	head_holy_site_2 = {
+		flag = GG_can_change_rule	
+	}
+	head_holy_site_3 = {
+		flag = GG_can_change_rule	
+	}
+	head_holy_site_4 = {
+		flag = GG_can_change_rule	
+	}
+	head_holy_site_5 = {
+		flag = GG_can_change_rule	
+	}
+}
+
+heresy_creation = {
+	categories = {
+		faith tweaks
+	}
+	default = default_heresy_creation
+	default_heresy_creation = {
+		flag = GG_can_change_rule		
+	}
+	
+	no_heresy_creation = {
+		flag = GG_can_change_rule
+	}
+}
+
+#Modifiers
+
+gamerule_domain_limit = {
+	categories = {
+		difficulty tweaks
+	}
+
+	default = default_domain_limit
+	
+	#Unfortunately, changing defines doesn't work... return to linear reduction for now
+	one_domain_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:domain_limit_elow
+	}
+	one_domain_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:domain_limit_elow
+	}
+	vlow_domain_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:domain_limit_vlow
+	}
+	vlow_domain_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:domain_limit_vlow
+	}
+	low_domain_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:domain_limit_low
+	}
+	low_domain_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:domain_limit_low
+	}
+	default_domain_limit = {
+		flag = GG_can_change_rule	
+	}
+	high_domain_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:domain_limit_high
+	}
+	high_domain_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:domain_limit_high
+	}
+	vhigh_domain_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:domain_limit_vhigh
+	}	
+	vhigh_domain_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:domain_limit_vhigh
+	}
+	extreme_domain_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:domain_limit_extreme
+	}
+	extreme_domain_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:domain_limit_extreme
+	}
+
+}
+
+gamerule_vassal_limit = {
+	categories = {
+		difficulty tweaks
+	}
+	default = default_vassal_limit
+	
+	vlow_vassal_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:vassal_limit_vlow
+	}
+	vlow_vassal_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:vassal_limit_vlow
+	}
+	low_vassal_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:vassal_limit_low
+	}
+	low_vassal_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:vassal_limit_vlow
+	}
+	default_vassal_limit = {
+		flag = GG_can_change_rule	
+	}
+	high_vassal_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:vassal_limit_high
+	}
+	high_vassal_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:vassal_limit_high
+	}
+	vhigh_vassal_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:vassal_limit_vhigh
+	}	
+	vhigh_vassal_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:vassal_limit_vhigh
+	}	
+	extreme_vassal_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:vassal_limit_extreme
+	}
+	extreme_vassal_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:vassal_limit_extreme
+	}
+}
+
+gamerule_knight_limit = {
+	categories = {
+		difficulty tweaks
+	}
+	default = default_knight_limit
+	
+	vlow_knight_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:knight_limit_vlow
+	}
+	vlow_knight_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:knight_limit_vlow
+	}
+	low_knight_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:knight_limit_low
+	}
+	low_knight_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:knight_limit_low
+	}
+	default_knight_limit = {
+		flag = GG_can_change_rule	
+	}
+	high_knight_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:knight_limit_high
+	}
+	high_knight_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:knight_limit_high
+	}
+	vhigh_knight_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:knight_limit_vhigh
+	}	
+	vhigh_knight_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:knight_limit_vhigh
+	}	
+	extreme_knight_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:knight_limit_extreme
+	}
+	extreme_knight_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:knight_limit_extreme
+	}
+}
+
+gamerule_maa_limit = {
+	categories = {
+		difficulty tweaks
+	}
+	default = default_maa_limit
+	
+	vlow_maa_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:maa_limit_vlow
+	}
+	vlow_maa_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:maa_limit_vlow
+	}
+	low_maa_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:maa_limit_low
+	}
+	low_maa_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:maa_limit_low
+	}
+	default_maa_limit = {
+		flag = GG_can_change_rule	
+	}
+	high_maa_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:maa_limit_high
+	}
+	high_maa_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:maa_limit_high
+	}
+	vhigh_maa_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:maa_limit_vhigh
+	}	
+	vhigh_maa_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:maa_limit_vhigh
+	}	
+	extreme_maa_limit = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:maa_limit_extreme
+	}
+	extreme_maa_limit_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:maa_limit_extreme
+	}
+}
+
+gamerule_maa_cap = {
+	categories = {
+		difficulty tweaks
+	}
+	default = default_maa_cap
+	
+	vlow_maa_cap = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:maa_cap_vlow
+	}
+	vlow_maa_cap_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:maa_cap_vlow
+	}
+	low_maa_cap = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:maa_cap_low
+	}
+	low_maa_cap_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:maa_cap_low
+	}
+	default_maa_cap = {
+		flag = GG_can_change_rule	
+	}
+	high_maa_cap = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:maa_cap_high
+	}
+	high_maa_cap_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:maa_cap_high
+	}
+	vhigh_maa_cap = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:maa_cap_vhigh
+	}	
+	vhigh_maa_cap_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:maa_cap_vhigh
+	}	
+	extreme_maa_cap = {
+		flag = GG_can_change_rule	
+		apply_modifier = all:maa_cap_extreme
+	}
+	extreme_maa_cap_pl = {
+		flag = GG_can_change_rule	
+		apply_modifier = player:maa_cap_extreme
+	}
+}
+#AI
+gamerule_ai_aggressiveness = {
+	categories = {
+		difficulty tweaks ai
+	}
+	default = default_ai_aggressiveness
+	
+	no_ai_aggressiveness = { #Has effects on CB use primarily
+		flag = GG_can_change_rule	
+		apply_modifier = ai:ai_aggressiveness_vlow #Might as well...
+	}
+	vlow_ai_aggressiveness = {
+		apply_modifier = ai:ai_aggressiveness_vlow
+		flag = GG_can_change_rule	
+	}
+	low_ai_aggressiveness = {
+		flag = GG_can_change_rule	
+		apply_modifier = ai:ai_aggressiveness_low
+	}
+	default_ai_aggressiveness = {
+		flag = GG_can_change_rule	
+	}
+	high_ai_aggressiveness = {
+		flag = GG_can_change_rule	
+		apply_modifier = ai:ai_aggressiveness_high
+	}
+	vhigh_ai_aggressiveness = {
+		apply_modifier = ai:ai_aggressiveness_vhigh
+		flag = GG_can_change_rule	
+	}	
+	extreme_ai_aggressiveness = {
+		apply_modifier = ai:ai_aggressiveness_extreme
+		flag = GG_can_change_rule	
+	}
+}
+
+ai_seduction = {
+	categories = {
+		tweaks ai
+	}
+	default = default_seduction
+	default_seduction = { flag = GG_can_change_rule }
+	less_seduction = { flag = GG_can_change_rule }
+	restricted_seduction = { flag = GG_can_change_rule }
+	no_seduction = { flag = GG_can_change_rule }
+	more_seduction = { flag = GG_can_change_rule }
+}
+
+ai_intrigue = {
+	categories = {
+		tweaks difficulty ai
+	}
+	default = default_intrigue
+	default_intrigue = { flag = GG_can_change_rule }
+
+	less_intrigue = { flag = GG_can_change_rule }
+	
+	restricted_intrigue = {	flag = GG_can_change_rule }
+	
+	no_intrigue = { flag = GG_can_change_rule }
+}

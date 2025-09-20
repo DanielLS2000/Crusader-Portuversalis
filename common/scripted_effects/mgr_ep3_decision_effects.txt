@@ -1,0 +1,190 @@
+﻿apply_historic_administrative_game_rule_effect = {
+	#MGR: No admin realms if playing with duchy or county shattered world
+	if = {
+		limit = {
+			OR = {
+				has_game_rule = mgr_aw_count_shattered_realms
+				has_game_rule = mgr_aw_duke_shattered_realms		
+			}
+		}
+		every_ruler = {
+			limit = {
+				is_independent_ruler = yes
+				government_has_flag = government_is_administrative
+			}
+			convert_to_feudalism_from_administrative_effect = yes			
+		}
+	}
+	else = {
+		# We'll be doing some excessive triggers below in a bid to lightly future-proof + error-spam mods less, don't worry about it.
+		## We also do player-specific realms separately — we need to know what their realm is so we do it after the lobby exclusively.
+		# Egypt.
+		if = {
+			limit = {
+				NOT = { has_game_rule = historicity_extra_admin_egypt_gameplay_not_administrative }
+				exists = title:k_egypt
+			}
+			if = {
+				limit = { has_game_rule = historicity_extra_admin_egypt_historic_always }
+				title:k_egypt.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+		}
+		# Arabia.
+		if = {
+			limit = {
+				NOT = { has_game_rule = historicity_extra_admin_arabia_gameplay_not_administrative }
+				exists = title:e_arabia
+			}
+			if = {
+				limit = { has_game_rule = historicity_extra_admin_arabia_historic_867 }
+				# Give the Armenians a fighting chance.
+				culture:armenian = { save_scope_as = ignore_culture }
+				title:e_arabia.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+		}
+		# Ghana.
+		if = {
+			limit = {
+				NOT = { has_game_rule = historicity_extra_admin_ghana_gameplay_not_administrative }
+				exists = title:k_ghana
+			}
+			if = {
+				limit = { has_game_rule = historicity_extra_admin_ghana_historic_always }
+				title:k_ghana.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+		}
+		# Kabulistan/the Ghaznivids.
+		if = {
+			limit = {
+				NOT = { has_game_rule = historicity_extra_admin_kabulistan_gameplay_not_administrative }
+				exists = title:k_kabulistan
+			}
+			if = {
+				limit = { has_game_rule = historicity_extra_admin_kabulistan_historic_always }
+				title:k_kabulistan.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+		}
+		# Persia.
+		if = {
+			limit = {
+				NOT = { has_game_rule = historicity_extra_admin_persia_gameplay_not_administrative }
+				exists = title:e_persia
+				exists = title:k_persia
+			}
+			if = {
+				limit = {
+					game_start_date = 1178.10.1
+					has_game_rule = historicity_extra_admin_persia_historic_1178
+				}
+				title:k_persia.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+			else_if = {
+				limit = { has_game_rule = historicity_extra_admin_persia_alt_historic_always }
+				# Independent k_persia.
+				if = {
+					limit = {
+						title:k_persia.holder ?= { is_independent_ruler = yes }
+					}
+					title:k_persia.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+				}
+				# Else, the empire.
+				else = {
+					title:e_persia.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+				}
+			}
+		}
+		# Maghreb.
+		if = {
+			limit = {
+				NOT = { has_game_rule = historicity_extra_admin_maghreb_gameplay_not_administrative }
+				exists = title:k_maghreb
+			}
+			if = {
+				limit = {
+					game_start_date >= 1066.9.15
+					has_game_rule = historicity_extra_admin_maghreb_historic_post_1066
+				}
+				title:k_maghreb.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+			else_if = {
+				limit = { has_game_rule = historicity_extra_admin_maghreb_alt_historic_always }
+				title:k_maghreb.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+		}
+		# Tamilakam/the Cholas.
+		if = {
+			limit = {
+				NOT = { has_game_rule = historicity_extra_admin_tamilakam_gameplay_not_administrative }
+				exists = title:k_tamilakam
+			}
+			if = {
+				limit = {
+					game_start_date = 1066.9.15
+					has_game_rule = historicity_extra_admin_tamilakam_historic_1066
+				}
+				title:k_tamilakam.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+			else_if = {
+				limit = { has_game_rule = historicity_extra_admin_tamilakam_alt_historic_always }
+				title:k_tamilakam.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+		}
+		# The Carolingians.
+		if = {
+			limit = {
+				NOT = { has_game_rule = historicity_extra_admin_carolingians_gameplay_not_administrative }
+				game_start_date = 867.1.1
+				exists = title:k_france
+				exists = title:k_lotharingia
+				exists = title:k_east_francia
+				exists = title:k_italy
+			}
+			if = {
+				limit = { has_game_rule = historicity_extra_admin_carolingians_alt_historic_all_administrative }
+				title:k_france.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+				title:k_lotharingia.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+				title:k_east_francia.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+				title:k_italy.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+			if = {
+				limit = { has_game_rule = historicity_extra_admin_carolingians_alt_historic_west_francia_administrative }
+				title:k_france.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+			if = {
+				limit = { has_game_rule = historicity_extra_admin_carolingians_alt_historic_lotharingia_administrative }
+				title:k_lotharingia.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+			if = {
+				limit = { has_game_rule = historicity_extra_admin_carolingians_alt_historic_east_francia_administrative }
+				title:k_east_francia.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+			if = {
+				limit = { has_game_rule = historicity_extra_admin_carolingians_alt_historic_italy_administrative }
+				title:k_italy.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+		}
+		#MGR: Byzantine Empire
+		if = {
+			limit = { has_game_rule = historicity_extra_admin_byzantium_not_administrative }
+			title:e_byzantium.holder ?= { convert_to_feudalism_from_administrative_effect = yes }
+		}
+		#MGR: Venice
+		if = {
+			limit = { has_game_rule = historicity_extra_admin_venice_administrative }
+			title:k_venice.holder ?= {
+				change_government = administrative_government
+				create_noble_family_effect = yes
+				every_vassal_or_below = {
+					limit = {
+						OR = {
+							government_has_flag = government_is_feudal
+							government_has_flag = government_is_clan
+							government_has_flag = government_is_tribal
+							government_has_flag = government_is_republic
+						}
+					}
+					change_to_administrative_effect = yes
+				}
+			}
+		}
+}

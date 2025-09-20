@@ -1,0 +1,99 @@
+﻿on_game_start = {
+	on_actions = {
+		mgr_game_start
+	}
+	#events = { 
+	#}
+	#effect = {
+	#}
+}
+
+mgr_game_start = {
+	effect = {
+		#Top priority
+		set_global_variable = { name = mgr_is_active value = 1 }
+		#every_ruler = { complete_activity = no }
+		if = {
+			limit = { 
+				exists = title:k_france.holder #If this exists, we are playing the vanilla game
+			}
+			set_global_variable = {
+				name = vanilla_like_game
+				value = 1
+			}
+		}
+		if = {
+			limit = { NOT = { has_game_rule = default_unreformed } }
+			mgr_aw_religion_reform_effect = yes
+		}
+		#Alternate World rules
+		if = {
+			limit = { has_game_rule = mgr_alt_world_enabled }
+			###MAP SETUP EFFECTS###			
+			#RANDOM CULTURES#
+			if = {
+				limit = { has_game_rule = mgr_aw_cultures_random_historical }
+				mgr_aw_random_culture_effect = yes
+			}
+			else_if = {
+				limit = { has_game_rule = mgr_aw_cultures_chaotic_historical }
+				mgr_aw_chaotic_culture_effect = yes
+			}
+			#RANDOM FAITHS#
+			if = {
+				limit = { has_game_rule = mgr_aw_faiths_random_historical }
+				mgr_aw_random_faith_effect = yes
+			}
+			else_if = {
+				limit = { has_game_rule = mgr_aw_faiths_chaotic_historical }
+				mgr_aw_chaotic_faith_effect = yes
+			}
+			#DE JURE SETUP#
+			if = {
+				limit = { NOT = { has_game_rule = mgr_aw_dejure_default } }
+				mgr_aw_random_map_setup_effect = yes
+			}
+			#HOLDINGS#
+			if = {
+				limit = { NOT = { has_game_rule = mgr_aw_development_default } }
+				mgr_aw_development_effect = yes
+			}
+			if = {
+				limit = { NOT = { has_game_rule = mgr_aw_no_shattered_realms } }
+				mgr_aw_shattered_realms_effect = yes
+			}
+			###CHARACTER SETUP EFFECTS###
+			if = {
+				limit = { has_game_rule = mgr_aw_yes_random_rulers }
+				mgr_aw_randomize_rulers = yes
+			}
+			if = {
+				limit = { NOT = { has_game_rule = mgr_aw_default_holdings } }
+				mgr_aw_holdings_effect = yes
+			}
+			if = { 
+				limit = { NOT = { has_game_rule = mgr_aw_baronies_default } }
+				mgr_aw_barony_effect = yes
+			}
+
+		}
+		#Vanilla-like game effects - post
+		if = {
+			limit = {
+				has_global_variable = vanilla_like_game
+			}
+			#De jure empires
+			if = {
+				limit = { 
+					NOT = { has_game_rule = default_empires } 
+					OR = {
+						has_game_rule = mgr_aw_dejure_default
+						has_game_rule = mgr_alt_world_disabled
+					}
+				}
+				mgr_empires_effect = yes
+			}
+		}
+		clear_mgr_aw_vars = yes
+	}
+}

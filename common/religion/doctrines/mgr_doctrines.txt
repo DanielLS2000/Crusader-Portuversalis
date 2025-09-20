@@ -1,0 +1,9 @@
+﻿unreformed_organized_faith = {
+	group = "not_creatable"
+	is_available_on_create = {
+		always = no
+	}
+	unreformed_organized_faith_doctrine = {
+		visible = no
+	}
+}

@@ -1,0 +1,17 @@
+﻿can_be_rakish = { # Must have a fitting personality or lifestyle
+	is_adult = yes
+	mgr_can_seduce = yes
+	NOR = {
+		has_trait = rakish
+		has_sexuality = asexual
+		has_trait = celibate
+		has_trait = chaste
+	}
+	OR = {
+		has_trait = lustful
+		has_trait = arrogant
+		has_trait = deceitful
+		has_trait = gallant
+		has_trait = seducer
+	}
+}

@@ -1,0 +1,164 @@
+﻿ai_aggressiveness_vlow = { #Probably prevents war in most of the world...
+	ai_war_chance = -0.5
+	ai_war_cooldown = 0.5
+	#hide_effects = yes
+}
+
+ai_aggressiveness_low = { #Effectively makes every faith 'pacifist'
+	ai_war_chance = -0.25
+	ai_war_cooldown = 0.25
+	#hide_effects = yes
+}
+
+ai_aggressiveness_high = {
+	ai_war_chance = 0.25
+	ai_war_cooldown = -0.25
+	#hide_effects = yes
+}
+
+ai_aggressiveness_vhigh = {
+	ai_war_chance = 0.5
+	ai_war_cooldown = -0.5
+	#hide_effects = yes
+}
+
+ai_aggressiveness_extreme = {
+	ai_war_chance = 10.0
+	ai_war_cooldown = -10.0
+	#hide_effects = yes
+}
+
+#Ideally all of this would be one modifier, and it would be multiplicable rather than additive.
+
+domain_limit_elow = {
+	domain_limit = -100
+	#hide_effects = yes
+}
+
+domain_limit_vlow = {
+	domain_limit = -4
+	#hide_effects = yes
+}
+
+domain_limit_low = {
+	domain_limit = -2
+	#hide_effects = yes
+}
+
+domain_limit_high = {
+	domain_limit = 2
+	#hide_effects = yes
+}
+
+domain_limit_vhigh = {
+	domain_limit = 4
+	#hide_effects = yes
+}
+
+domain_limit_extreme = {
+	domain_limit = 10000
+	#hide_effects = yes
+}
+
+vassal_limit_vlow = {
+	vassal_limit = -10
+	#hide_effects = yes
+}
+
+vassal_limit_low = {
+	vassal_limit = -5
+	#hide_effects = yes
+}
+
+vassal_limit_high = {
+	vassal_limit = 10
+	#hide_effects = yes
+}
+
+vassal_limit_vhigh = {
+	vassal_limit = 20
+	#hide_effects = yes
+}
+
+vassal_limit_extreme = {
+	vassal_limit = 1000
+	#hide_effects = yes
+}
+
+knight_limit_vlow = {
+	knight_limit = -3
+	#hide_effects = yes
+}
+
+knight_limit_low = {
+	#hide_effects = yes
+	knight_limit = -2
+}
+
+knight_limit_high = {
+	#hide_effects = yes
+	knight_limit = 2
+}
+
+knight_limit_vhigh = {
+	#hide_effects = yes
+	knight_limit = 5
+}
+
+knight_limit_extreme = {
+	#hide_effects = yes
+	knight_limit = 100
+}
+
+maa_limit_vlow = {
+	#hide_effects = yes
+	men_at_arms_limit =  -2
+}
+
+maa_limit_low = {
+	#hide_effects = yes
+	men_at_arms_limit =  -1
+}
+
+maa_limit_high = {
+	#hide_effects = yes
+	men_at_arms_limit =  2
+}
+
+maa_limit_vhigh = {
+	#hide_effects = yes
+	men_at_arms_limit =  4
+}
+
+maa_limit_extreme = {
+	#hide_effects = yes
+	men_at_arms_limit =  100
+}
+
+maa_cap_vlow = {
+	#hide_effects = yes
+	men_at_arms_cap =  -2
+}
+
+maa_cap_low = {
+	#hide_effects = yes
+	men_at_arms_cap =  -1
+}
+
+maa_cap_high = {
+	#hide_effects = yes
+	men_at_arms_cap =  1
+}
+
+maa_cap_vhigh = {
+	#hide_effects = yes
+	men_at_arms_cap =  3
+}
+
+maa_cap_extreme = {
+	#hide_effects = yes
+	men_at_arms_cap =  100
+}
+
+
+

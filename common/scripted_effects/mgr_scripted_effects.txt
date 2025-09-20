@@ -1,0 +1,221 @@
+﻿holy_war_cb_cooldown_effect = {
+	if = {
+		limit = { has_game_rule = holy_war_cb_3 }
+		add_character_modifier = {
+			modifier = mgr_recent_holy_war
+			years = 3
+		}
+	}
+	else_if = {
+		limit = { has_game_rule = holy_war_cb_5 }
+		add_character_modifier = {
+			modifier = mgr_recent_holy_war
+			years = 5
+		}
+	}
+	else_if = {
+		limit = { has_game_rule = holy_war_cb_10 }
+		add_character_modifier = {
+			modifier = mgr_recent_holy_war
+			years = 10
+		}
+	}
+	else_if = {
+		limit = { has_game_rule = holy_war_cb_20 }
+		add_character_modifier = {
+			modifier = mgr_recent_holy_war
+			years = 20
+		}
+	}
+}
+
+conquest_war_cb_cooldown_effect = {
+	if = {
+		limit = { has_game_rule = conquest_war_cb_3 }
+		add_character_modifier = {
+			modifier = mgr_recent_conquest_war
+			years = 3
+		}
+	}
+	else_if = {
+		limit = { has_game_rule = conquest_war_cb_5 }
+		add_character_modifier = {
+			modifier = mgr_recent_conquest_war
+			years = 5
+		}
+	}
+	else_if = {
+		limit = { has_game_rule = conquest_war_cb_10 }
+		add_character_modifier = {
+			modifier = mgr_recent_conquest_war
+			years = 10
+		}
+	}
+	else_if = {
+		limit = { has_game_rule = conquest_war_cb_20 }
+		add_character_modifier = {
+			modifier = mgr_recent_conquest_war
+			years = 20
+		}
+	}
+}
+
+mgr_empires_effect = {
+	every_empire = {
+		limit = { 
+			OR = {
+				AND = {
+					mgr_is_historical_empire = no 
+					has_game_rule = historical_empires
+				}
+				AND = {
+					mgr_is_expanded_historical_empire = no 
+					has_game_rule = ex_historical_empires
+				}
+				has_game_rule = no_dejure_empires
+			}
+		}
+		every_in_de_jure_hierarchy = {
+			limit = {
+				tier = tier_kingdom
+			}
+			set_de_jure_liege_title = title:e_mgr_null #sadly setting this to 0, none, etc. doesn't work.
+		}
+	}
+	#Expand de jure HRE after Otto I is Emperor
+	if = {
+		limit = { #Year condition isn't working here, so we use this check to see if HRE should exist or not
+			title:e_hre = { any_in_de_jure_hierarchy = { this = title:k_east_francia } }
+			has_game_rule = historical_empires
+		}
+		title:k_italy = { set_de_jure_liege_title = title:e_hre }
+		title:k_romagna = { set_de_jure_liege_title = title:e_hre }
+		title:k_burgundy = { set_de_jure_liege_title = title:e_hre }
+	}
+}
+
+confed_partition_succ_shatter_effect = {
+	#Destroy empire titles after heir receives it.
+	if = {
+		limit = {
+			OR = {
+				government_has_flag = government_is_tribal
+				faith = {
+					has_doctrine_parameter = unreformed
+				}
+			}
+			OR = {
+				has_game_rule = confed_partition_shatter 
+				has_game_rule = confed_partition_combo
+			}
+			#Not if we've reformed to elective succession
+			OR = {
+				government_has_flag = government_is_tribal
+				NOT = {
+					primary_title = {
+						OR = {
+							has_title_law_flag = advanced_succession_law
+							has_title_law_flag = elective_succession_law
+						}
+					}
+				}
+			}
+			any_held_title = { 
+				tier = tier_empire 
+				NOT = { this = title:e_mongol_empire } #Already handled elsewhere...
+				NOT = { this = title:e_byzantium } #Avoid collapse in 867 start
+				OR = { #HRE must be sanctioned by the pope unless it's reformed to a different succession law - or maybe change to Germany in this case? but that should be handled elsewhere...
+					NOT = { this = title:e_hre }
+					NOT = { root.faith = faith:catholic } 
+				}
+			}
+		}
+		every_held_title = {
+			limit = { 
+				tier = tier_empire 
+				NOT = { this = title:e_mongol_empire } 
+				NOT = { this = title:e_byzantium }
+				OR = { 
+					NOT = { this = title:e_hre }
+					NOT = { root.faith = faith:catholic } 
+				}
+			}
+			root = { 
+				destroy_title = prev 
+				add_pressed_claim = prev
+			}
+		}
+	}
+}
+confed_partition_succ_vassal_effect = {
+	#Release any vassals if primary title is not de jure - better as an event?
+	if = {
+		limit = {
+			OR = {
+				has_game_rule = confed_partition_release
+				has_game_rule = confed_partition_combo
+			}
+			#NOT = { father = { this = character:3040 } } #See above
+			#Not if we've reformed to elective succession
+			OR = {
+				government_has_flag = government_is_tribal
+				NOT = {
+					primary_title = {
+						OR = {
+							has_title_law_flag = advanced_succession_law
+							has_title_law_flag = elective_succession_law
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_independent_ruler = yes 
+			}
+			every_vassal = {
+				limit = {
+					#NOT = { root = { has_de_jure_claim_on = prev } }
+					is_de_jure_vassal_of_ROOT_top_liege_trigger = no
+					
+					OR = {
+						NOT = { root = { any_held_title = { this = title:e_hre } } }
+						is_protected_hre_vassal = no
+					}
+				}
+				every_held_title = {
+					root.player_heir = { add_unpressed_claim = prev }
+				}
+				create_title_and_vassal_change = {
+					type = independency
+					save_scope_as = change
+				}
+				change_liege_or_become_independent = {
+					CHANGE = scope:change
+					VASSAL = this
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+		}
+		else = {
+			every_vassal = {
+				limit = {
+					#NOT = { root = { has_de_jure_claim_on = prev } }
+					is_de_jure_vassal_of_ROOT_top_liege_trigger = no
+				}
+				every_held_title = {
+					root.player_heir = { add_unpressed_claim = prev }
+				}
+				create_title_and_vassal_change = {
+					type = conquest #surely there's a better option?
+					save_scope_as = title_change
+				}
+				change_liege = {
+					liege = root.liege
+					change = scope:title_change
+				}
+				resolve_title_and_vassal_change = scope:title_change
+			}
+		}
+	}
+}

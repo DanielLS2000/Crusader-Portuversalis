@@ -1,0 +1,36 @@
+﻿on_war_started = {
+	on_actions = { mgr_war_cooldown }
+}
+
+mgr_war_cooldown = {
+	effect = {
+		scope:attacker = {
+			#Religious CB cooldown
+			if = {
+				limit = {
+					is_leader_in_war = scope:war
+					scope:war = { using_holy_war_cb_trigger = yes}
+					NOT = { has_game_rule = holy_war_cb_default }
+				}
+				holy_war_cb_cooldown_effect = yes
+			}
+			#Conquest CB cooldown
+			if = {
+				limit = {
+					is_leader_in_war = scope:war
+					scope:war = { 
+						OR = {
+							using_conquest_cb_trigger = yes 
+							using_cb = imperial_reconquest_cb
+							using_cb = norman_conquest_cb
+							using_cb = norwegian_invasion_cb
+						}
+					}
+					NOT = { has_game_rule = conquest_war_cb_default }
+				}
+				conquest_war_cb_cooldown_effect = yes
+			}
+		}
+	}
+}
+

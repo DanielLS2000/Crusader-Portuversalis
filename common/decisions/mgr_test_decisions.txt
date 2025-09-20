@@ -1,0 +1,41 @@
+﻿mgr_remove_baronies = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	major = yes
+	ai_check_interval = 30
+
+	is_shown = {
+		always = no #debug/test feature
+		has_game_rule = mgr_aw_baronies_none
+		is_landed = yes
+		#is_ai = yes
+		years_from_game_start < 1
+		NOT = { has_global_variable = mgr_barony_removal }
+	}
+
+	is_valid = {
+		always = yes
+	}
+
+	effect = {
+		every_province = {
+			if = { 
+				limit = { 
+					is_county_capital = no
+					has_holding = yes 
+				}
+				remove_holding = yes 
+			}
+		}
+		set_global_variable = { name = mgr_barony_removal value = 1 }
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100		
+	}
+}

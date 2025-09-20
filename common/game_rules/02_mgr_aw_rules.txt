@@ -1,0 +1,134 @@
+﻿#Alternate World
+mgr_alt_world = { 
+	categories = {
+		game_modes
+	}
+	default = mgr_alt_world_enabled
+	mgr_alt_world_disabled = { 
+	}
+	mgr_alt_world_enabled = {
+	}
+}
+
+mgr_aw_random_rulers = {
+	categories = {
+		game_modes
+	}
+	default = mgr_aw_no_random_rulers
+	mgr_aw_no_random_rulers = {
+	}
+	mgr_aw_yes_random_rulers = {
+		#
+	}
+}
+
+mgr_aw_shattered_realms = {
+	categories = {
+		game_modes titles
+	}
+	default = mgr_aw_no_shattered_realms
+
+	mgr_aw_no_shattered_realms = { }
+	mgr_aw_count_shattered_realms = {  }
+	mgr_aw_duke_shattered_realms = {  }
+	mgr_aw_king_shattered_realms = {  }
+	mgr_aw_emperor_shattered_realms = {  }
+}
+
+mgr_aw_shattered_realms_landless = {
+	categories = {
+		game_modes titles
+	}
+	default = mgr_aw_disabled_shattered_realms_landless
+
+	mgr_aw_disabled_shattered_realms_landless = { }
+	mgr_aw_enabled_shattered_realms_landless = {  }
+}
+
+
+mgr_aw_cultures = {
+	categories = {
+		game_modes culture
+	}
+	default = mgr_aw_cultures_historical
+	mgr_aw_cultures_historical = {
+	}
+	#mgr_aw_cultures_new= {
+	#	
+	#}
+	mgr_aw_cultures_random_historical = {
+		
+	}
+	mgr_aw_cultures_chaotic_historical = {
+		
+	}
+}
+
+mgr_aw_faiths = {
+	categories = {
+		game_modes faith
+	}
+	default = mgr_aw_faiths_historical
+	mgr_aw_faiths_historical = {
+	}
+	mgr_aw_faiths_random_historical = {
+		
+	}
+	mgr_aw_faiths_chaotic_historical = {
+		
+	}
+}
+
+mgr_aw_dejure = {
+	categories = {
+		game_modes titles
+	}
+	default = mgr_aw_dejure_default
+	mgr_aw_dejure_default = { }
+	mgr_aw_dejure_random_duchy = {  }
+	#mgr_aw_dejure_random_kingdom = { }
+	#mgr_aw_dejure_random_empire = { }
+}
+
+mgr_aw_development = {
+	categories = {
+		game_modes titles
+	}
+	default = mgr_aw_development_default
+	mgr_aw_development_default = { }
+	mgr_aw_development_random_25 = { }
+	mgr_aw_development_random_50 = { }
+	mgr_aw_development_random_100 = { }
+	mgr_aw_development_0 = { }
+	mgr_aw_development_25 = { }
+	mgr_aw_development_50 = { }
+	mgr_aw_development_100 = { }
+}
+
+mgr_aw_baronies = {
+	categories = {
+		game_modes titles
+	}
+	default = mgr_aw_baronies_default
+	mgr_aw_baronies_default = { }
+	mgr_aw_baronies_none = { }
+	#mgr_aw_baronies_max = { }
+}
+
+mgr_aw_holdings = {
+	categories = {
+		game_modes titles
+	}
+	default = mgr_aw_default_holdings
+	mgr_aw_default_holdings = { }
+	mgr_aw_nomad_holdings = { }
+	mgr_aw_tribal_holdings = { }
+	mgr_aw_feudal_holdings = { }
+	mgr_aw_random_ft_holdings = { }
+	mgr_aw_random_holdings = { }
+	
+	#mgr_aw_admin_holdings = { }
+	#mgr_aw_city_holdings = { }
+	#mgr_aw_church_holdings = { }
+
+}

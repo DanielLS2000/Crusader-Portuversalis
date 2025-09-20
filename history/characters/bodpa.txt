@@ -1,0 +1,15 @@
+﻿bodpa0245 = {
+	name="BaO_nhrom_BarhE_" #Baönhrom Barhé - Tibetan General in Eastern Tarim
+	dynasty=105800 #Purgyal - fictional connection, to facilitate connection with Gusiluo
+	religion="lamaism"
+	culture="bodpa"
+	trait="child_of_concubine_female"
+	father=247119
+	mother=247123
+	815.1.1={
+		birth=yes
+	}
+	866.1.1={
+		death=yes
+	}
+}

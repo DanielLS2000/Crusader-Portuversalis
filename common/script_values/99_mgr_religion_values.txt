@@ -1,0 +1,54 @@
+﻿holy_sites_to_create_temporal_head_of_faith = {
+	if = {
+		limit = { has_game_rule = head_holy_site_0 }
+		value = 0
+	}
+	else_if = {
+		limit = { has_game_rule = head_holy_site_1 }
+		value = 1
+	}
+	else_if = {
+		limit = { has_game_rule = head_holy_site_2 }
+		value = 2
+	}
+	else_if = {
+		limit = { has_game_rule = head_holy_site_3 }
+		value = 3
+	}
+	else_if = {
+		limit = { has_game_rule = head_holy_site_4 }
+		value = 4
+	}
+	else_if = {
+		limit = { has_game_rule = head_holy_site_5 }
+		value = 5
+	}
+	else = { value = 2 }
+}
+holy_sites_to_create_spiritual_head_of_faith = {
+	if = {
+		limit = { has_game_rule = head_holy_site_0 }
+		value = 0
+	}
+	else_if = {
+		limit = { has_game_rule = head_holy_site_1 }
+		value = 1
+	}
+	else_if = {
+		limit = { has_game_rule = head_holy_site_2 }
+		value = 2
+	}
+	else_if = {
+		limit = { has_game_rule = head_holy_site_3 }
+		value = 3
+	}
+	else_if = {
+		limit = { has_game_rule = head_holy_site_4 }
+		value = 4
+	}
+	else_if = {
+		limit = { has_game_rule = head_holy_site_5 }
+		value = 5
+	}
+	else = { value = 1 }
+}

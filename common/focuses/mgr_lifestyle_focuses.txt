@@ -1,0 +1,258 @@
+﻿
+intrigue_skulduggery_focus = {
+	lifestyle = intrigue_lifestyle
+	
+	is_shown = {
+		NOT = { government_has_flag = government_is_landless_adventurer }
+	}
+	is_valid = {
+		NOT = { government_has_flag = government_is_landless_adventurer }
+	}
+
+	desc = {
+		desc = intrigue_skulduggery_focus_desc
+		desc = line_break
+	}
+	
+	modifier = {
+		intrigue = 3
+		owned_scheme_secrecy_add = 15
+	}
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				has_education_intrigue_trigger = yes
+			}
+			add = 1989
+		}
+		if = {
+			limit = {
+				has_trait = deceitful
+			}
+			multiply = 2
+		}
+		if = {
+			limit = {
+				has_trait = paranoid
+			}
+			multiply = 5
+		}
+		if = {
+			limit = {
+				has_trait = trusting
+			}
+			multiply = 0.1
+		}
+		if = {
+			limit = {
+				has_trait = honest
+			}
+			multiply = 0.1
+		}
+		if = {
+			limit = {
+				OR = {
+					government_has_flag = government_is_landless_adventurer				
+					#GAME RULES
+					has_game_rule = no_intrigue
+					AND = {
+						OR = {
+							has_game_rule = less_intrigue
+							has_game_rule = restricted_intrigue
+						}
+						#Must have one of these traits
+						OR = {
+							AND = {
+								has_education_intrigue_trigger = yes
+								has_game_rule = less_intrigue
+							}
+							has_trait = schemer
+							has_trait = torturer
+							has_trait = greedy
+							has_trait = deceitful
+							has_trait = paranoid
+							has_trait = sadistic
+							has_trait = vengeful
+							has_trait = callous
+						}
+						#Cannot have one of these traits
+						NOR = {
+							has_trait = honest
+							#has_trait = kind
+							has_trait = compassionate
+						}	
+					}
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+intrigue_temptation_focus = {
+	lifestyle = intrigue_lifestyle
+	
+	is_shown = {
+		NOT = { government_has_flag = government_is_landless_adventurer }
+	}
+	is_valid = {
+		NOT = { government_has_flag = government_is_landless_adventurer }
+	}
+
+	desc = {
+		desc = intrigue_temptation_focus_desc
+		desc = line_break
+	}
+	
+	modifier = {
+		attraction_opinion = 10
+		fertility = 0.2
+		seduce_scheme_phase_duration_add = medium_scheme_phase_duration_bonus_value
+	}
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				has_education_intrigue_trigger = yes
+			}
+			add = 1989
+		}
+		if = {
+			limit = {
+				has_trait = lustful
+			}
+			multiply = 7
+		}
+		if = {
+			limit = {
+				has_game_rule = more_seduction
+			}
+			multiply = 2.0
+		}
+		if = {
+			limit = {
+				OR = {
+					has_game_rule = less_seduction
+					has_game_rule = restricted_seduction
+				}
+			}
+			multiply = 0.5
+		}
+		if = {
+			limit = {
+				OR = {
+					mgr_can_seduce = no
+					has_trait = celibate
+					has_trait = chaste
+				}
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				government_has_flag = government_is_landless_adventurer
+			}
+			multiply = 0
+		}
+	}
+}
+
+intrigue_intimidation_focus = {
+	lifestyle = intrigue_lifestyle
+	
+	is_shown = {
+		NOT = { government_has_flag = government_is_landless_adventurer }
+	}
+	is_valid = {
+		NOT = { government_has_flag = government_is_landless_adventurer }
+	}
+
+	desc = {
+		desc = intrigue_intimidation_focus_desc
+		desc = line_break
+	}
+	
+	modifier = {
+		intrigue = 2
+		dread_baseline_add = 30
+		dread_loss_mult = -0.25
+	}
+
+	auto_selection_weight = {
+		value = 11
+		if = {
+			limit = {
+				has_education_intrigue_trigger = yes
+			}
+			add = 1989
+		}
+		if = {
+			limit = {
+				has_trait = callous
+			}
+			multiply = 3
+		}
+		if = {
+			limit = {
+				has_trait = wrathful
+			}
+			multiply = 2
+		}
+		if = {
+			limit = {
+				has_trait = vengeful
+			}
+			multiply = 2
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = craven
+					has_trait = compassionate
+					has_trait = forgiving
+				}
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				government_has_flag = government_is_landless_adventurer
+			}
+			multiply = 0
+		}
+		#GAME RULES
+		if = {
+			limit = {
+				OR = {
+					has_game_rule = no_intrigue
+					AND = {
+						OR = {
+							has_game_rule = less_intrigue
+							has_game_rule = restricted_intrigue
+						}
+						#Must have one of these traits
+						NOR = {
+							AND = {
+								has_education_intrigue_trigger = yes
+								has_game_rule = less_intrigue
+							}
+							has_trait = schemer
+							has_trait = torturer
+							has_trait = greedy
+							has_trait = deceitful
+							has_trait = paranoid
+							has_trait = sadistic
+							has_trait = vengeful
+							has_trait = callous
+						}	
+					}
+				}
+			}
+			multiply = 0
+		}
+	}
+
+}

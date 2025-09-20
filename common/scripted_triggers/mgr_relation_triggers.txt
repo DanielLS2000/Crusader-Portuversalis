@@ -1,0 +1,46 @@
+﻿can_set_relation_lover_trigger = {
+	is_adult = yes
+	NOT = { this = $CHARACTER$ }
+	is_attracted_to_gender_of = $CHARACTER$
+	OR = {
+		is_consort_of = $CHARACTER$
+		AND = {
+			mgr_can_seduce = yes
+			OR = {
+				$CHARACTER$ = { mgr_can_seduce = yes }
+				is_ai = no
+			}
+		}
+	}
+	$CHARACTER$ = {
+		is_adult = yes
+		is_attracted_to_gender_of = prev
+	}
+	NOT = { has_relation_lover = $CHARACTER$ }
+}
+
+can_set_relation_soulmate_trigger = {
+	is_adult = yes
+	NOT = { this = $CHARACTER$ }
+	is_attracted_to_gender_of = $CHARACTER$
+	$CHARACTER$ = {
+		is_adult = yes
+		is_attracted_to_gender_of = prev
+	}
+	NOR = {
+		has_relation_rival = $CHARACTER$
+		has_relation_nemesis = $CHARACTER$
+	}
+	num_of_relation_soulmate = 0
+	$CHARACTER$ = { num_of_relation_soulmate = 0 }
+	OR = {
+		is_consort_of = $CHARACTER$
+		AND = {
+			mgr_can_seduce = yes
+			OR = {
+				$CHARACTER$ = { mgr_can_seduce = yes }
+				is_ai = no
+			}
+		}
+	}
+}

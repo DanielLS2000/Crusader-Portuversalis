@@ -1,0 +1,188 @@
+﻿# Determines if a faith can be created, on top of the piety requirement, and the doctrine requirements
+# Also handles reforming a faith, check for the unreformed doctrine to enable those additional checks
+# Root is the faith creator
+faith_creation = {
+	trigger_if = {
+		limit = {
+			highest_held_title_tier = tier_county
+			is_independent_ruler = no
+		}
+		custom_description = {
+			text = "faith_creation_duchy_or_higher"
+			highest_held_title_tier >= tier_duchy
+		}
+	}
+
+	is_adult = yes
+	is_at_war = no
+	custom_description = {
+		text = "character_is_not_real_head"
+		NOT = { faith.religious_head = root }
+	}
+
+	custom_description = {
+		text = "character_can_only_create_one_faith"
+		NOT = { exists = var:has_created_a_faith }
+	}
+
+	trigger_if = {
+		limit = {
+			NOT = { has_game_rule = no_pagan_reformation }
+			faith = { has_doctrine_parameter = unreformed }
+		}
+
+		NOT = {
+			custom_description = {
+				text = faith_has_been_reformed
+				object = faith
+				exists = faith.var:has_been_reformed
+			}
+		}
+		trigger_if = {
+			limit = {
+				has_character_flag = ignore_3_holy_site_rule
+			}
+			always = yes
+		}
+		trigger_else_if = {
+			limit = { has_game_rule = pagan_reformation_hs_1 }
+			faith = {
+				num_realm_holy_sites_faithful_holders = {
+					CHARACTER = root
+					COUNT = 1
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = { has_game_rule = pagan_reformation_hs_2 }
+			faith = {
+				num_realm_holy_sites_faithful_holders = {
+					CHARACTER = root
+					COUNT = 2
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = { has_game_rule = pagan_reformation_hs_3 }
+			faith = {
+				num_realm_holy_sites_faithful_holders = {
+					CHARACTER = root
+					COUNT = 3
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = { has_game_rule = pagan_reformation_hs_4 }
+			faith = {
+				num_realm_holy_sites_faithful_holders = {
+					CHARACTER = root
+					COUNT = 4
+				}
+			}
+		}
+		trigger_else = {
+			#limit = { has_game_rule = pagan_reformation_hs_5 }
+			faith = {
+				num_realm_holy_sites_faithful_holders = {
+					CHARACTER = root
+					COUNT = 5
+				}
+			}
+		}
+	}
+
+	trigger_if = {
+		limit = { 
+			has_game_rule = no_heresy_creation
+			NOT = { faith = { has_doctrine_parameter = unreformed } }
+		}
+		custom_description = {
+			text = "no_heresy_creation"
+			always = no
+		}
+	}
+	
+	trigger_if = {
+		limit = { 
+			has_game_rule = no_pagan_reformation 
+			faith = { has_doctrine_parameter = unreformed }
+		}
+		custom_description = {
+			text = "no_pagan_reformation"
+			always = no
+		}
+	}
+	custom_tooltip = {
+		text = faith_reformation_via_decision
+		faith = {
+			NOT = { has_variable = block_reformation_var }
+		}
+	}
+}
+
+is_character_allowed_to_be_player = {
+	trigger_if = {
+		limit = { scope:will_override_government = no }
+		OR = {
+			has_game_rule = allow_unplayables
+			AND = {
+				custom_description = {
+					text = "GAME_OVER_CANNOT_PLAY_THEOCRACY"
+					NOT = { government_has_flag = government_is_theocracy }
+				}
+
+				custom_description = {
+					text = "GAME_OVER_CANNOT_PLAY_REPUBLIC"
+					NOT = { government_has_flag = government_is_republic }
+				}
+
+				custom_description = {
+					text = "GAME_OVER_CANNOT_PLAY_MERCENARY"
+					NOT = { government_has_flag = government_is_mercenary }
+				}
+				
+				custom_description = {
+					text = "GAME_OVER_CANNOT_PLAY_HOLY_ORDER"
+					NOT = { government_has_flag = government_is_holy_order }
+				}
+
+				trigger_if = {
+					limit = {
+						NOT = { has_dlc_feature = admin_gov }
+					}
+					custom_description = {
+						text = "GAME_OVER_CANNOT_PLAY_ADMIN"
+						NOT = { government_has_flag = government_is_administrative }
+					}
+				}
+
+				# We cannot become landless adventurers
+				trigger_if = {
+					limit = {
+						NOT = { has_dlc_feature = roads_to_power }
+					}
+					custom_description = {
+						text = "GAME_OVER_CANNOT_PLAY_ADVENTURER"
+						NOT = { government_has_flag = government_is_landless_adventurer }
+					}
+					custom_description = {
+						text = "GAME_OVER_CANNOT_PLAY_BARON"
+						NOT = { highest_held_title_tier = tier_barony }
+					}
+
+					# This is a generic "catch all", we should have caught it before this
+					is_playable_character = yes
+				}
+				# We can become landless adventurers
+				trigger_else = {
+					# This is a generic "catch all", we should have caught it before this
+					OR = {
+						is_ruler = no # We're not a ruler, but we can become a landless adventurer
+						is_playable_character = yes # General catch-all, we can continue playing
+					}
+					NOT = { has_character_flag = declined_become_laamp }
+				}
+			}
+		}
+	}
+}

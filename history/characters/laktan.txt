@@ -1,0 +1,39 @@
+﻿302608 = {
+	name = "Begluk"
+	dynasty = 2001093	#Taiket
+	religion = tengri_pagan
+	culture = laktan
+	830.6.16 = {
+		birth = yes
+	}
+	884.4.12 = {
+		death = yes
+	}
+}
+
+302609 = {
+	name = "Koza"
+	dynasty = 2001093	#Taiket
+	religion = tengri_pagan
+	culture = laktan
+	father = 302608
+	851.9.23 = {
+		birth = yes
+	}
+	907.1.12 = {
+		death = yes
+	}
+}
+
+302610 = {
+	name = "Pulad"
+	dynasty = 2001093	#Taiket
+	religion = tengri_pagan
+	culture = laktan
+	1042.8.13 = {
+		birth = yes
+	}
+	1097.1.14 = {
+		death = yes
+	}
+}

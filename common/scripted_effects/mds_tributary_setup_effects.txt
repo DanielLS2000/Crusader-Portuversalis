@@ -1,0 +1,37 @@
+﻿setup_tributaries_effect = {
+	#MGR: Fix for duchy creation and vassalization crash
+	if = {
+		limit = { 
+			has_game_rule = mgr_aw_no_shattered_realms
+		}
+		if = {
+			limit = { has_mpo_dlc_trigger = yes	}
+			if = {
+				limit = { current_date < 1066.9.15 } # so, 867
+				mpo_867_tributary_setup_effect = yes
+			}
+			else_if = {
+				limit = { current_date = 1066.9.15 }
+				mpo_1066_tributary_setup_effect = yes
+			}
+			else_if = {
+				limit = { current_date > 1066.9.15 } # so, 1178
+				mpo_1178_tributary_setup_effect = yes
+			}
+		}
+		if = {
+			if = {
+				limit = { current_date < 1066.9.15 } # so, 867
+				base_867_tributary_setup_effect = yes
+			}
+			else_if = {
+				limit = { current_date = 1066.9.15 }
+				base_1066_tributary_setup_effect = yes
+			}
+			else_if = {
+				limit = { current_date > 1066.9.15 } # so, 1178
+				base_1178_tributary_setup_effect = yes
+			}
+		}
+	}
+}

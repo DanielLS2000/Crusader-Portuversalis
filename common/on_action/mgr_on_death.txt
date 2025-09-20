@@ -1,0 +1,36 @@
+﻿on_death = {
+	on_actions = { mgr_confed_partition }
+}
+
+mgr_confed_partition = {
+	effect = {
+		if = {
+			limit = { 
+				NOT = { has_game_rule = default_confed_partition }
+				is_landed = yes
+				has_realm_law = confederate_partition_succession_law
+			}
+			confed_partition_succ_vassal_effect = yes
+			if = {
+				limit = { highest_held_title_tier = tier_empire }
+				player_heir = { add_character_flag = shatter_empire }
+			}
+		}
+	}
+}
+
+on_title_gain_inheritance = {
+	on_actions = { mgr_shatter_empire }
+}
+
+mgr_shatter_empire = {
+	effect = {
+		if = {
+			limit = {
+				has_character_flag = shatter_empire
+			}
+			confed_partition_succ_shatter_effect = yes
+			remove_character_flag = shatter_empire
+		}
+	}
+}

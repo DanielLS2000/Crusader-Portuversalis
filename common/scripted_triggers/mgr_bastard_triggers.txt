@@ -1,0 +1,55 @@
+﻿
+
+should_mother_give_house_to_bastard_trigger = {
+	#Also governs the "should_mother_give_house_to_bastard" scripted rule
+	trigger_if = {
+		limit = { NOT = { exists = mother } }
+		always = no
+	}
+	trigger_else_if = {
+		limit = { NOT = { exists = mother.house } }
+		always = no
+	}
+	trigger_else_if = {
+		limit = { mother = { matri_marriage_allowed = no } }
+		always = no
+	}
+	trigger_else_if = {
+		limit = { NOT = { exists = father } }
+		always = yes
+	}
+	trigger_else_if = {
+		limit = {
+			real_father = { is_ruler = yes }
+			mother = { is_ruler = no }
+			exists = real_father.house
+		}
+		always = no
+	}
+	trigger_else_if = {
+		limit = {
+			real_father = { is_ruler = no }
+			mother = { is_ruler = yes }
+			exists = mother.house
+		}
+		always = yes
+	}
+	trigger_else_if = {
+		limit = {
+			mother = { NOT = { exists = house } }
+			exists = real_father.house
+		}
+		always = no
+	}
+	trigger_else_if = {
+		limit = {
+			real_father = { NOT = { exists = house } }
+			exists = mother.house
+		}
+		always = yes
+	}
+	# making the default behavior explicit if no other trigger_(else_)ifs are valid
+	trigger_else = {
+		always = yes
+	}
+}

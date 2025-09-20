@@ -1,0 +1,130 @@
+﻿mgr_reform_organized_faith_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
+	}
+	major = yes
+	ai_check_interval = 60
+
+	is_shown = {
+		is_landed = yes
+		primary_title.tier > tier_barony
+		faith = { has_doctrine = unreformed_organized_faith_doctrine }
+		NOT = { has_game_rule = no_pagan_reformation }
+	}
+
+	is_valid = {
+		OR = {
+			trigger_if = {
+				limit = {
+					faith = {
+						any_holy_site = {
+							count = 5
+							OR = {
+								holder = ROOT
+								holder.top_liege = ROOT
+								holder.liege = ROOT
+								#lesee.liege = ROOT
+							}
+						}
+					}
+				}
+				piety >= 1000
+			}
+			trigger_else_if = {
+				limit = {
+					faith = {
+						any_holy_site = {
+							count = 4
+							OR = {
+								holder = ROOT
+								holder.top_liege = ROOT
+								holder.liege = ROOT
+								#lesee.liege = ROOT
+							}
+						}
+					}
+				}
+				piety >= 1500
+			}
+			trigger_else_if = {
+				limit = {
+					faith = {
+						any_holy_site = {
+							count = 3
+							OR = {
+								holder = ROOT
+								holder.top_liege = ROOT
+								holder.liege = ROOT
+								#lesee.liege = ROOT
+							}
+						}
+					}
+				}
+				piety >= 2000
+			}
+			trigger_else_if = {
+				limit = {
+					faith = {
+						any_holy_site = {
+							count = 2
+							OR = {
+								holder = ROOT
+								holder.top_liege = ROOT
+								holder.liege = ROOT
+								#lesee.liege = ROOT
+							}
+						}
+					}
+				}
+				piety >= 2500
+			}
+			trigger_else_if = {
+				limit = {
+					faith = {
+						any_holy_site = {
+							count = 1
+							OR = {
+								holder = ROOT
+								holder.top_liege = ROOT
+								holder.liege = ROOT
+								#lesee.liege = ROOT
+							}
+						}
+					}
+				}
+				piety >= 3000
+			}
+			trigger_else = {
+				piety >= 5000
+			}
+		}
+	}
+
+	effect = {
+		faith = {
+			remove_doctrine = unreformed_faith_doctrine
+		}
+		hidden_effect = { 
+			faith = { remove_doctrine = unreformed_organized_faith_doctrine } 
+			trigger_event = { id = faith_creation.1000 }
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 30
+		
+		modifier = {
+			factor = 3
+			has_trait = zealous
+		}
+
+		modifier = {
+			factor = 0
+			has_trait = cynical
+		}
+	}
+}
